@@ -84,6 +84,10 @@ flowchart TD
 
 ## 도메인 데이터 계약
 
+[Phase 2D-3](docs/PHASE2D3_OFFLINE_DISCOVERY.md)는 입력 snapshot 전체 순회→명시 표식 기반 deterministic offline adapter→strict 구조/근거/처리 범위 검증→DRAFT/NEEDS_REVIEW DTO를 추가한다. 기존 WorkflowExtractionAdapter.extract 반환형은 유지하고 coverage receipt 확장을 분리한다. 담당 역할은 별도 근거 후보이며 인증 권한으로 쓰지 않는다. 새 DB/HTTP/승인/게시/UI는 추가하지 않는다.
+
+[Phase 2D-1~2](docs/PHASE2D_INPUT_CONTRACT.md)는 기존 RAG 반환형을 유지하고 별도 WorkflowExtractionAdapter·strict 후보 스키마·명시 구형 근거 bridge·관리자용 입력 snapshot을 추가한다. snapshot은 원본 재파싱/전체 청크 재구성으로 무결성을 검사하고 입력 세대·진척을 분리한다. DB migration/새 HTTP 경로/실모델/승인·게시/UI는 추가하지 않는다. 구조/근거 연결과 의미 검토는 별개이며 의미 상태는 NOT_VERIFIED다.
+
 | 엔티티 | 최소 필드/관계 |
 |---|---|
 | Workspace/Actor | 기관 ID, 역할, 허용 공개 기본팩, 자료 범위 |

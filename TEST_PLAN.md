@@ -202,6 +202,12 @@ scripts/validation/check_stage3_home.cjs로 홈 동선·history/reload·키보�
 
 Stage2/3 회귀는 의도적으로 변경된 문서 페이지를 401 모의 응답으로 확인한다. 과거 테스트 무요청 조건은 문서 GET만 예외이며 이외 외부/API 요청을 허용하지 않는다. 과거 증거는 수정하지 않는다. Chrome 다운로드 취소는 BLOCKED이며 파일 저장 PASS가 아니다. [실행 근거](outputs/STAGE4A_REPORT.md).
 
+## Phase 2D-1~2 계약·입력 검증
+
+Phase 2D-3은 [오프라인 추출 계약](docs/PHASE2D3_OFFLINE_DISCOVERY.md)과 tests/test_workflow_discovery.py를 따른다. 새 합성 PDF/HWPX의 미지 업무명·다중/제목 없음/비절차·청크 경계·조건/반려/반복·기한/역할/서식 근거, adapter의 ID/인용/범위/상태·입력/설정 변조, 기관/문서/버전 혼용·stale 입력·누락/미지원·DB/원본 무변경을 검증한다. output/coverage/schema 및 canonical EvidenceRef 보존을 확인하고 기존239개와 함께 전체 회귀를 새로 실행한다. regex 표식 시험을 의미 정확성·실모델 일반화·승인/게시 PASS로 계산하지 않는다.
+
+현재 기준은 [업무절차 입력 계약](docs/PHASE2D_INPUT_CONTRACT.md)과 tests/test_workflow_inputs.py다. strict JSON/필수·추가 필드/중복 ID/잘못된 참조/출력 한도/기한·의무 근거/검증 상태 위조, 명시 구형 Evidence bridge의 왕복 무손실, 전체 chunk 재구성 대조·부분 coverage·처리 중 세대/버전 변경·타기관/해제·오래된 snapshot·원본 SHA256·DB 무변경을 검사한다. 전체 회귀는 기존 RAG/인증/파싱 시험을 포함해 비루프백 차단 runner로 실행한다. 의미 정확도·실제 LLM·업무 자동 발견·관리자 승인·게시·React Flow는 이 단계 PASS 범위가 아니다. 새 schema는 구형 WORKFLOW_SCHEMA와 병행한다.
+
 ## Stage4B-2 인증 검증
 
 Stage4B-3A는 [연결 계약](docs/STAGE4B3A_SUPABASE_TRANSPORT.md)과 tests/test_supabase_transport.py를 따른다. 실제 HTTP serialization/고정 host/path·HTTPS/서버 키/timeout·상태/응답크기/형식·신원/만료·비밀 비노출 시험 및 기존 BFF30개를 HTTP MockTransport 경로로 재사용한다. scripts/validation/run_stage4b3a_checks.py의 비루프백 DNS/TCP 차단 아래 기존153개와 신규 시험을 모두 실행하며 실제 외부 요청을 허용하지 않는다. 기존 UI43개·typecheck/build도 회귀한다. 실제 TLS handshake·공급자 JWT 검증 성공·계정/키·유료 API·배포는 모의 PASS로 승격하지 않는다.

@@ -1,5 +1,21 @@
 # 단계별 개발 작업과 완료 기준
 
+## Phase 2D-3 오프라인 업무절차 후보 추출
+
+- [x] Phase 2D-1~2 미커밋12개 파일·증거의 archive/hash 보존 및 새 작업 브랜치로 유지.
+- [x] 업무명 사전 없는 결정적 표식 기반 WorkflowExtractionAdapter, 다중/제목 없는 업무·단계/역할·조건/반려/반복·기한/의무/서식 언급 후보와 원문 연결.
+- [x] 전체 snapshot 순회·strict 구조/근거·처리 범위/불완전 상태·adapter 변조/범위 검사, canonical EvidenceRef 보존, NOT_VERIFIED/미승인/게시 불가 유지.
+- 현재 계약은 [오프라인 추출](docs/PHASE2D3_OFFLINE_DISCOVERY.md), 실제 실행 결과는 [보고](outputs/PHASE2D3_REPORT.md)를 따른다.
+- [ ] Phase 2D-4 이후는 사용자 승인 전 미진행. 실제 의미 검토·LLM·임베딩·승인/자동 게시·업무지도·DB/클라우드 배포는 이번 범위 밖이다.
+
+## Phase 2D-1~2 업무절차 계약·입력 스냅샷
+
+- [x] 기존 RAG/구형 WORKFLOW_SCHEMA를 유지하고 strict WorkflowCandidate/Step/Condition/Edge/FormRequirement/ReviewIssue/GroundedAssertion·별도 WorkflowExtractionAdapter 및 버전 schema 추가.
+- [x] ID/참조/한도/정확 원문 근거·모델 검증상태 위조 차단, 구형 tenant/element와 canonical EvidenceRef 사이 명시 왕복 bridge.
+- [x] 단일 문서 버전 전체 snapshot·원본 재검증/청크 재구성·coverage·parse/chunk/활성 세대 변경/기관/해제 차단. DB/원본 무변경.
+- 검증 결과는 [별도 실행 보고](outputs/PHASE2D12_REPORT.md), 현재 범위/한계는 [계약](docs/PHASE2D_INPUT_CONTRACT.md)을 따른다.
+- [ ] Phase 2D-3 후보 추출 엔진은 별도 사용자 요청 후. 현재 실제 LLM·의미 정확성·관리자 승인·자동 게시·React Flow는 미구현/미검증이며 전체 Phase 2D 완료로 표시하지 않는다.
+
 ## 개발 지침 효율 개선 2026-10-17
 
 - 현재 진척도·완료 상태는 이 문서에서 관리하고 단계별 상세 보고·증거는 outputs에 보존한다. PRD/ARCHITECTURE/TEST_PLAN은 각 요구사항/구조·계약/시험 기준이 변경될 때만 해당 절을 갱신한다. 기존 이력·문서 링크·요구사항 추적성은 유지한다.
