@@ -219,3 +219,7 @@ scripts/validation/check_stage4b2_ui.cjs는 공급자미설정·로그인/기관
 ## Phase 2D-4 검증 엔진
 
 [검증 계약](docs/PHASE2D4_VALIDATION.md)과 tests/test_workflow_validation.py를 따른다. strict JSON/중복 ID/한도·누락, 정상 선형/조건 분기/명시 보완·반려 반복/오류 순환/끊어진 참조/중복 간선/고아, 위조 span·canonical EvidenceRef, 기관/활성 버전/등록 해제/청킹 세대/원본 변조/검사 도중 변경, 무근거 기한·금액·의무/숫자 부분문자열/부정 문맥/충돌/문서 지시/처리 누락을 검증한다. 의미 상태 NOT_VERIFIED와 승인/게시 불가를 확인한다. 기존 Phase 2D-1~3과 RAG를 포함한 전체 백엔드 회귀를 비루프백 차단 runner로 새 실행한다. 의미·실제 모델·실제 외부 서비스·UI를 새 PASS로 계산하지 않는다.
+
+## Phase 2D-5 서식 관계 검증
+
+[서식 관계 계약](docs/PHASE2D5_FORM_RELATIONS.md)과 tests/test_workflow_forms.py를 따른다. 정상/미등록/동명/이름 변경/파일명·메타데이터·Unicode 후보 검색, 명시 분류 없는 문서 제외, 기관·reader·활성 버전·등록 해제·새 버전 재분류, 잘못된 EvidenceRef/단계·조건 연결, 미언급·부정·필수 표현, 원본 무결성·메타데이터 revision·검사 중 변경·서식 카탈로그 재시작/SQLite 복원을 확인한다. 파일 존재를 필요성 검증/관리자 승인으로 승격하지 않는다. Phase 완료는 기존319개를 포함한 전체 백엔드 회귀를 비루프백 가드 아래 새 실행한다. 서식 프리뷰/필드/자동 작성/저장·재열기/UI와 실제 의미 검증은 이번 미구현·미검증 범위다.

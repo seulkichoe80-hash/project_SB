@@ -228,3 +228,7 @@ DELETE /documents/{id}는 논리적 등록 해제다. native dialog로 확인하
 ## Phase 2D-4 근거·그래프 진단
 
 기존 추출 계약을 유지하고 workflow_validation/graph/review 모듈과 별도 workflow-review-v1을 추가한다. 현재 활성 snapshot과 원본 EvidenceRef 재해결을 선행하고 그래프 문제를 후보 보존형 검토 이슈로 반환한다. PASS도 의미 검증·게시 권한이 아니다. [계약과 제한](docs/PHASE2D4_VALIDATION.md)을 따른다.
+
+## Phase 2D-5 서식 관계 후보
+
+기존 workflow 계약을 유지하며 workflow_forms 서비스/모델/SQLite adapter와 workflow-forms-v1을 추가한다. manager의 명시 분류 카탈로그는 기존 문서의 특정 활성 버전만 참조한다. 원문상의 필요성 주장과 실제 파일의 존재를 분리하며 단일 후보도 미확정이다. [현재 계약](docs/PHASE2D5_FORM_RELATIONS.md)을 따른다. 원본·기존 테이블/스키마 버전은 변경하지 않는다.
