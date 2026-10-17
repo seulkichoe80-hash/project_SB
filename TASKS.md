@@ -1,5 +1,13 @@
 # 단계별 개발 작업과 완료 기준
 
+## Phase 2D-4 근거·그래프 검증
+
+- 사용자 승인 범위: Phase 2D-4만. 기존 19개 변경은 로컬 보존 커밋 e57c657에 보존했고 원격 작업은 하지 않는다.
+- [x] 별도 strict 검토 보고/JSON Schema, 현재 활성 원본·스냅샷·canonical EvidenceRef 재해결, 그래프 진단과 의미 검토 보조 구현.
+- [x] 신규46 + 기존273 = 전체319 PASS(FAIL/SKIP/BLOCKED0), 비루프백 가드 아래 실제 외부 공급자 호출0.
+- 실행 결과·한계: [계약](docs/PHASE2D4_VALIDATION.md), [실행 보고](outputs/PHASE2D4_REPORT.md).
+- [ ] Phase 2D-5는 별도 사용자 요청 후. 의미 검증·승인/게시·UI·영속 worker·실제 API·배포는 미진행.
+
 ## Phase 2D-3 오프라인 업무절차 후보 추출
 
 - [x] Phase 2D-1~2 미커밋12개 파일·증거의 archive/hash 보존 및 새 작업 브랜치로 유지.

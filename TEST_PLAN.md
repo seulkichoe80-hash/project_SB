@@ -215,3 +215,7 @@ Stage4B-3A는 [연결 계약](docs/STAGE4B3A_SUPABASE_TRANSPORT.md)과 tests/tes
 tests/test_auth.py는 mock Supabase 전송→실제 BFF session dependency 경로의30개 시험이다. 401/403/타기관404, CSRF·Origin/단회challenge, 위조·중복cookie, 만료/idle/회전/logout/replay, 계정·기관·멤버십정지, 기관관리범위, worker/metadata 권한상승차단, provider미설정/실패, throttle, additive backup/별도복원·기존 source_blocks/버전/원본해시, 세션재시작/hash 저장·민감값미포함을 검사한다. dependency override가 아닌 실제 session dependency를 사용한다. 기존 전체123개도 인증 영향 회귀로 실행하며 mock principal 계약과 새 세션계약을 구분한다.
 
 scripts/validation/check_stage4b2_ui.cjs는 공급자미설정·로그인/기관표시·reader UI·logout/만료·브라우저저장소·키보드/반응형6개를 모의HTTP로 검증한다. 이전 Stage2/3/4A 회귀는 명시 mock /auth/status/me 응답만 추가하며 실제 공급자 성공으로 세지 않는다. 별도 local HTTP harness는 loopback dev cookie로만 BFF 실제 왕복을 확인하고 production Secure/TLS 성공과 구별한다. [실행 근거](outputs/STAGE4B2_REPORT.md).
+
+## Phase 2D-4 검증 엔진
+
+[검증 계약](docs/PHASE2D4_VALIDATION.md)과 tests/test_workflow_validation.py를 따른다. strict JSON/중복 ID/한도·누락, 정상 선형/조건 분기/명시 보완·반려 반복/오류 순환/끊어진 참조/중복 간선/고아, 위조 span·canonical EvidenceRef, 기관/활성 버전/등록 해제/청킹 세대/원본 변조/검사 도중 변경, 무근거 기한·금액·의무/숫자 부분문자열/부정 문맥/충돌/문서 지시/처리 누락을 검증한다. 의미 상태 NOT_VERIFIED와 승인/게시 불가를 확인한다. 기존 Phase 2D-1~3과 RAG를 포함한 전체 백엔드 회귀를 비루프백 차단 runner로 새 실행한다. 의미·실제 모델·실제 외부 서비스·UI를 새 PASS로 계산하지 않는다.
