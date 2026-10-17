@@ -1,0 +1,195 @@
+{
+  "$defs": {
+    "WorkflowJobEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "state": {
+          "enum": [
+            "queued",
+            "processing",
+            "completed",
+            "failed",
+            "cancelled"
+          ],
+          "title": "State",
+          "type": "string"
+        },
+        "attempt": {
+          "title": "Attempt",
+          "type": "integer"
+        },
+        "error_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Error Code"
+        },
+        "error_category": {
+          "anyOf": [
+            {
+              "enum": [
+                "RETRYABLE",
+                "PERMANENT",
+                "STALE_INPUT"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Error Category"
+        },
+        "created_at": {
+          "title": "Created At",
+          "type": "number"
+        }
+      },
+      "required": [
+        "state",
+        "attempt",
+        "error_code",
+        "error_category",
+        "created_at"
+      ],
+      "title": "WorkflowJobEvent",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+      "title": "Id",
+      "type": "string"
+    },
+    "document_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+      "title": "Document Id",
+      "type": "string"
+    },
+    "version_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+      "title": "Version Id",
+      "type": "string"
+    },
+    "input_snapshot_id": {
+      "title": "Input Snapshot Id",
+      "type": "string"
+    },
+    "generation": {
+      "title": "Generation",
+      "type": "integer"
+    },
+    "state": {
+      "enum": [
+        "queued",
+        "processing",
+        "completed",
+        "failed",
+        "cancelled"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "attempt": {
+      "title": "Attempt",
+      "type": "integer"
+    },
+    "max_attempts": {
+      "const": 3,
+      "default": 3,
+      "title": "Max Attempts",
+      "type": "integer"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/WorkflowJobEvent"
+      },
+      "maxItems": 100,
+      "title": "Events",
+      "type": "array"
+    },
+    "lease_until": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Lease Until"
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Error Code"
+    },
+    "error_category": {
+      "anyOf": [
+        {
+          "enum": [
+            "RETRYABLE",
+            "PERMANENT",
+            "STALE_INPUT"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Error Category"
+    },
+    "semantic_verification": {
+      "const": "NOT_VERIFIED",
+      "default": "NOT_VERIFIED",
+      "title": "Semantic Verification",
+      "type": "string"
+    },
+    "administrator_approval": {
+      "const": "NOT_REQUESTED",
+      "default": "NOT_REQUESTED",
+      "title": "Administrator Approval",
+      "type": "string"
+    },
+    "publishable": {
+      "const": false,
+      "default": false,
+      "title": "Publishable",
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "document_id",
+    "version_id",
+    "input_snapshot_id",
+    "generation",
+    "state",
+    "attempt",
+    "lease_until",
+    "error_code",
+    "error_category"
+  ],
+  "title": "WorkflowJobStatus",
+  "type": "object"
+}

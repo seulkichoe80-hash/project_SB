@@ -223,3 +223,7 @@ scripts/validation/check_stage4b2_ui.cjs는 공급자미설정·로그인/기관
 ## Phase 2D-5 서식 관계 검증
 
 [서식 관계 계약](docs/PHASE2D5_FORM_RELATIONS.md)과 tests/test_workflow_forms.py를 따른다. 정상/미등록/동명/이름 변경/파일명·메타데이터·Unicode 후보 검색, 명시 분류 없는 문서 제외, 기관·reader·활성 버전·등록 해제·새 버전 재분류, 잘못된 EvidenceRef/단계·조건 연결, 미언급·부정·필수 표현, 원본 무결성·메타데이터 revision·검사 중 변경·서식 카탈로그 재시작/SQLite 복원을 확인한다. 파일 존재를 필요성 검증/관리자 승인으로 승격하지 않는다. Phase 완료는 기존319개를 포함한 전체 백엔드 회귀를 비루프백 가드 아래 새 실행한다. 서식 프리뷰/필드/자동 작성/저장·재열기/UI와 실제 의미 검증은 이번 미구현·미검증 범위다.
+
+## Phase 2D-6 영속 workflow
+
+[계약](docs/PHASE2D6_WORKFLOW_JOBS.md)과 tests/test_workflow_jobs.py를 따른다. 동일 입력·동시 claim·lease 갱신/만료/3회 제한·오류 이력·취소/재시도/잘못된 전이, 별도 CLI·kill 후 재시작·서버 재시작·SQLite 복원/FK/integrity/migration version, 후보/이슈/서식 원자 저장·부분 INSERT 롤백·늦은 generation, 활성/해제/parse·chunk/원본/서식 변경·위조 근거/저장 행·기관/reader/실제 세션·Origin/CSRF·토큰 비노출·빈 후보를 검증한다. Phase Gate는 기존360개를 포함한 전체 backend를 비루프백 가드 아래 새 실행한다. 실제 의미·LLM·운영 다중 호스트·UI·배포는 새 PASS로 계산하지 않는다.

@@ -232,3 +232,7 @@ DELETE /documents/{id}는 논리적 등록 해제다. native dialog로 확인하
 ## Phase 2D-5 서식 관계 후보
 
 기존 workflow 계약을 유지하며 workflow_forms 서비스/모델/SQLite adapter와 workflow-forms-v1을 추가한다. manager의 명시 분류 카탈로그는 기존 문서의 특정 활성 버전만 참조한다. 원문상의 필요성 주장과 실제 파일의 존재를 분리하며 단일 후보도 미확정이다. [현재 계약](docs/PHASE2D5_FORM_RELATIONS.md)을 따른다. 원본·기존 테이블/스키마 버전은 변경하지 않는다.
+
+## Phase 2D-6 영속 workflow
+
+workflow_jobs 서비스/SQLite adapter·독립 workflow_worker와 관리자 workflow 경로를 추가한다. 기존 snapshot _read는 동일한 _read_in을 재사용하며 저장 트랜잭션에서 현재 원본/parse/chunk/서식 상태와 lease를 함께 검증한다. 5개 필수 결과/작업 테이블과 오류 보존용 job_events를 비파괴 추가한다. 검토 후보의 조회 가능 전환과 의미 승인/공식 게시를 구별한다. [계약](docs/PHASE2D6_WORKFLOW_JOBS.md)을 따른다.

@@ -1,5 +1,13 @@
 # 단계별 개발 작업과 완료 기준
 
+## Phase 2D-6 영속 작업·관리자 조회
+
+- 사용자 승인 범위: Phase 2D-6만. 2D-5 변경10개를 로컬 56b484d에 보존하고 원격 작업은 하지 않는다.
+- [x] 오프라인 영속 작업·lease/fencing/최대3회·취소/재시도·오류 이력, 추가형 SQLite 세대/후보/검토/서식 원자 저장, manager 전용9개 경로와 strict schema 구현.
+- [x] 신규49 + 기존360 = 전체409 PASS(FAIL/SKIP/BLOCKED0), 비루프백 가드 probe PASS·실제 외부 공급자 호출0.
+- 계약: [영속 workflow](docs/PHASE2D6_WORKFLOW_JOBS.md), 실제 실행 결과: [보고](outputs/PHASE2D6_REPORT.md).
+- [ ] UI/승인·공식 게시·실제 모델·배포는 별도 요청 후. 전체 Phase 2D 의미 정확성/운영 실증 완료로 승격하지 않는다.
+
 ## Phase 2D-5 업무절차·서식 관계
 
 - 사용자 승인 범위: Phase 2D-5만. 2D-4 변경10개를 로컬 c2c9640으로 보존했고 원격 push/merge는 하지 않는다.

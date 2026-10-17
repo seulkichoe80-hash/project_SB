@@ -85,26 +85,30 @@ class WorkflowInputService:
 
     def _read(self, principal, document_id, version_id, settings):
         with self.chunks.repo.transaction() as db:
-            doc, version, parsed, blocks = self.chunks.source(db, principal, document_id, version_id)
-            attempt = db.connection.execute('SELECT state FROM parse_attempts WHERE job_id=? AND attempt=?',
-                                            (parsed['id'], parsed['attempt'])).fetchone()
-            if not attempt or attempt['state'] != 'completed':
-                raise DomainError('parsing_attempt_not_ready')
-            job = db.chunks.current(version_id)
-            if (not job or job['state'] != 'completed' or job['parse_job_id'] != parsed['id']
-                    or job['parse_attempt'] != parsed['attempt']):
-                raise DomainError('chunking_not_ready')
-            items = db.chunks.items(job['id'])
-            content = SnapshotContent(
-                institution_id=principal.institution_id, document_id=document_id, version_id=version_id,
-                original_sha256=version['sha256'], selected_active_version_id=doc['active_version_id'],
-                version_revision=version['revision'], parse_job_id=parsed['id'], parse_attempt=parsed['attempt'],
-                parse_attempt_id=f"{parsed['id']}:{parsed['attempt']}", parser_method=parsed['parser_method'],
-                chunk_job_id=job['id'], chunk_generation=job['generation'],
-                chunk_config=ChunkConfig.model_validate_json(job['config']), settings=settings,
-                input_chunk_ids=tuple(c['chunk_id'] for c in items),
-                chunks=tuple(Chunk.model_validate(c) for c in items),
-                source_blocks=tuple(Block.model_validate(b) for b in blocks))
+            return self._read_in(db, principal, document_id, version_id, settings)
+
+    def _read_in(self, db, principal, document_id, version_id, settings):
+        """Same content read using an existing transaction (atomic workflow commit)."""
+        doc, version, parsed, blocks = self.chunks.source(db, principal, document_id, version_id)
+        attempt = db.connection.execute('SELECT state FROM parse_attempts WHERE job_id=? AND attempt=?',
+                                        (parsed['id'], parsed['attempt'])).fetchone()
+        if not attempt or attempt['state'] != 'completed':
+            raise DomainError('parsing_attempt_not_ready')
+        job = db.chunks.current(version_id)
+        if (not job or job['state'] != 'completed' or job['parse_job_id'] != parsed['id']
+                or job['parse_attempt'] != parsed['attempt']):
+            raise DomainError('chunking_not_ready')
+        items = db.chunks.items(job['id'])
+        content = SnapshotContent(
+            institution_id=principal.institution_id, document_id=document_id, version_id=version_id,
+            original_sha256=version['sha256'], selected_active_version_id=doc['active_version_id'],
+            version_revision=version['revision'], parse_job_id=parsed['id'], parse_attempt=parsed['attempt'],
+            parse_attempt_id=f"{parsed['id']}:{parsed['attempt']}", parser_method=parsed['parser_method'],
+            chunk_job_id=job['id'], chunk_generation=job['generation'],
+            chunk_config=ChunkConfig.model_validate_json(job['config']), settings=settings,
+            input_chunk_ids=tuple(c['chunk_id'] for c in items),
+            chunks=tuple(Chunk.model_validate(c) for c in items),
+            source_blocks=tuple(Block.model_validate(b) for b in blocks))
         return content
 
     def capture(self, principal, document_id, version_id, settings=None):
