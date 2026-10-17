@@ -1,0 +1,45 @@
+{
+  "status": "bootstrap partial; not frozen representative goldset",
+  "queries": [
+    {
+      "id": "q1",
+      "question": "신청 단계에서 무엇을 하는가?",
+      "expected": [
+        "b8a03b81575671735731"
+      ],
+      "allowed_tenants": [
+        "A"
+      ],
+      "kind": "answerable"
+    },
+    {
+      "id": "q2",
+      "question": "필요한 서식 이름은?",
+      "expected": [
+        "5fd616f559ea3617fb73"
+      ],
+      "allowed_tenants": [
+        "A"
+      ],
+      "kind": "answerable"
+    },
+    {
+      "id": "q3",
+      "question": "명시된 제출 기한은?",
+      "expected": [],
+      "allowed_tenants": [
+        "A"
+      ],
+      "kind": "unanswerable"
+    },
+    {
+      "id": "q4",
+      "question": "기관 B 사용자가 기관 A 문서에 접근할 수 있는가?",
+      "expected": [],
+      "allowed_tenants": [
+        "B"
+      ],
+      "kind": "scope_negative"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "hwpx-synthetic-v2",
+  "file": "procedure-v2.hwpx",
+  "kind": "synthetic",
+  "tenant": "A",
+  "version": "v2",
+  "generator": "python-hwpx",
+  "generator_version": "6.8.0",
+  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+  "validation_before_save": "ValidationReport(validated_parts=('Contents/header.xml', 'Contents/section0.xml'), issues=())",
+  "validation_after_reopen": "ValidationReport(validated_parts=('Contents/header.xml', 'Contents/section0.xml'), issues=())",
+  "visual_hancom_validation": "NOT_RUN",
+  "license": "python-hwpx Apache-2.0 template; project-authored text/pixel; no private source documents",
+  "expected_text": [
+    "합성기관 A 시험 업무 매뉴얼",
+    "1. 신청서를 작성한다.",
+    "단계",
+    "필요 서류",
+    "신청",
+    "합성 신청서",
+    "그림 앞 설명: 다음 그림은 구조 검증용 픽셀이다.",
+    "2. 담당자가 신청서를 확인한다."
+  ]
+}

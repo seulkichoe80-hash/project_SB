@@ -1,0 +1,52 @@
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+*.pem
+*.key
+*.p12
+*credentials*.json
+# Runtimes and build artifacts
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+dist/
+build/
+coverage/
+.cache/
+# Private inputs, local state and historical raw evidence
+/work/
+/data/
+/uploads/
+/private/
+/secrets/
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.db
+*.db-*
+*.log
+*.zip
+*.diff
+*.pdf
+*.docx
+*.hwp
+*.hwpx
+*.xlsx
+*.xls
+*.csv
+*.tsv
+*.pptx
+# Only explicitly reviewed synthetic fixtures may be tracked
+!tests/fixtures/synthetic/*.hwpx
+# PDF fixtures remain local until embedded-font redistribution review.
+/outputs/evidence/
+.DS_Store
+Thumbs.db

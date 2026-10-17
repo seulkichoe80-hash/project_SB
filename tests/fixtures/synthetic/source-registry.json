@@ -1,0 +1,114 @@
+[
+  {
+    "tenant_id": "A",
+    "document_id": "hwpx-synthetic-v2",
+    "version_id": "v2",
+    "element_id": "c9c72d720e5a709b176c",
+    "text": "합성기관 A 시험 업무 매뉴얼",
+    "source_kind": "original_text",
+    "source_sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+    "location": {
+      "part": "Contents/section0.xml",
+      "path": "/{http://www.hancom.co.kr/hwpml/2011/section}sec[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[2]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}t[1]"
+    },
+    "active": true
+  },
+  {
+    "tenant_id": "A",
+    "document_id": "hwpx-synthetic-v2",
+    "version_id": "v2",
+    "element_id": "b8a03b81575671735731",
+    "text": "1. 신청서를 작성한다.",
+    "source_kind": "original_text",
+    "source_sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+    "location": {
+      "part": "Contents/section0.xml",
+      "path": "/{http://www.hancom.co.kr/hwpml/2011/section}sec[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[3]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}t[1]"
+    },
+    "active": true
+  },
+  {
+    "tenant_id": "A",
+    "document_id": "hwpx-synthetic-v2",
+    "version_id": "v2",
+    "element_id": "35f76ccfa95c92efdf86",
+    "text": "단계",
+    "source_kind": "original_text",
+    "source_sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+    "location": {
+      "part": "Contents/section0.xml",
+      "path": "/{http://www.hancom.co.kr/hwpml/2011/section}sec[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[4]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tr[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tc[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}subList[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}t[1]"
+    },
+    "active": true
+  },
+  {
+    "tenant_id": "A",
+    "document_id": "hwpx-synthetic-v2",
+    "version_id": "v2",
+    "element_id": "489d85fe0270d703334c",
+    "text": "필요 서류",
+    "source_kind": "original_text",
+    "source_sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+    "location": {
+      "part": "Contents/section0.xml",
+      "path": "/{http://www.hancom.co.kr/hwpml/2011/section}sec[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[4]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tr[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tc[2]/{http://www.hancom.co.kr/hwpml/2011/paragraph}subList[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}t[1]"
+    },
+    "active": true
+  },
+  {
+    "tenant_id": "A",
+    "document_id": "hwpx-synthetic-v2",
+    "version_id": "v2",
+    "element_id": "7b1c135ac5a00f3ea29e",
+    "text": "신청",
+    "source_kind": "original_text",
+    "source_sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+    "location": {
+      "part": "Contents/section0.xml",
+      "path": "/{http://www.hancom.co.kr/hwpml/2011/section}sec[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[4]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tr[2]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tc[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}subList[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}t[1]"
+    },
+    "active": true
+  },
+  {
+    "tenant_id": "A",
+    "document_id": "hwpx-synthetic-v2",
+    "version_id": "v2",
+    "element_id": "5fd616f559ea3617fb73",
+    "text": "합성 신청서",
+    "source_kind": "original_text",
+    "source_sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+    "location": {
+      "part": "Contents/section0.xml",
+      "path": "/{http://www.hancom.co.kr/hwpml/2011/section}sec[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[4]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tr[2]/{http://www.hancom.co.kr/hwpml/2011/paragraph}tc[2]/{http://www.hancom.co.kr/hwpml/2011/paragraph}subList[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}t[1]"
+    },
+    "active": true
+  },
+  {
+    "tenant_id": "A",
+    "document_id": "hwpx-synthetic-v2",
+    "version_id": "v2",
+    "element_id": "918d18cde62efaeae6d4",
+    "text": "그림 앞 설명: 다음 그림은 구조 검증용 픽셀이다.",
+    "source_kind": "original_text",
+    "source_sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+    "location": {
+      "part": "Contents/section0.xml",
+      "path": "/{http://www.hancom.co.kr/hwpml/2011/section}sec[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[5]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}t[1]"
+    },
+    "active": true
+  },
+  {
+    "tenant_id": "A",
+    "document_id": "hwpx-synthetic-v2",
+    "version_id": "v2",
+    "element_id": "36645c4a676f50fecffd",
+    "text": "2. 담당자가 신청서를 확인한다.",
+    "source_kind": "original_text",
+    "source_sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+    "location": {
+      "part": "Contents/section0.xml",
+      "path": "/{http://www.hancom.co.kr/hwpml/2011/section}sec[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}p[7]/{http://www.hancom.co.kr/hwpml/2011/paragraph}run[1]/{http://www.hancom.co.kr/hwpml/2011/paragraph}t[1]"
+    },
+    "active": true
+  }
+]

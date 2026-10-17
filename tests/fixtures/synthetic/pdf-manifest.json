@@ -1,0 +1,10 @@
+{
+  "id": "pdf-synthetic-v1",
+  "file": "procedure-v1.pdf",
+  "kind": "synthetic",
+  "sha256": "d0acc06435527bd26f381851aabec8efaf18f739b5f59e94d30ec31e7ccfcd4c",
+  "provenance": "Project-generated Phase 1 synthetic PDF; copied without changing original",
+  "scope": "one Korean page, two procedure lines, 2x2 table",
+  "privacy": "No real administrative data or personal data",
+  "notes": "Generated PDF embeds font subset; no standalone Windows font binary distributed. License/redistribution review before commit remains required."
+}

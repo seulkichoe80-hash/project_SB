@@ -1,0 +1,5 @@
+# Validation tools only; not the future production application lockfile.
+python-hwpx==6.8.0
+pydantic==2.14.1
+defusedxml==0.7.1
+PyYAML==6.0.3

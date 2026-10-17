@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "baseline_archive_crc": true,
+    "baseline_all_files_hashed": true,
+    "historical_unchanged_PHASE1_REPORT.md": true,
+    "historical_unchanged_PHASE1_DOCUMENT_CHANGES.md": true,
+    "historical_unchanged_PHASE1_EVIDENCE.zip": true,
+    "phase1_crc": true,
+    "phase1_56_hashes": true,
+    "FR_19_preserved": true,
+    "FR_tests_19_preserved": true,
+    "git_root": true,
+    "main_branch": true,
+    "no_remotes": true,
+    "no_commit": true,
+    "no_stage": true,
+    "one_active_project_skill": true,
+    "root_agents_size": true,
+    "skill_root": true,
+    "markdown_links": true,
+    "offline_contract_tests": true,
+    "hwpx_roundtrip": true,
+    "synthetic_fixture_hash": true,
+    "original_.docx": true,
+    "original_.hwpx": true
+  },
+  "link_errors": [],
+  "paid_calls": 0,
+  "cloud_resources": 0,
+  "deployments": 0,
+  "full_app_implemented": false
+}

@@ -1,0 +1,5 @@
+# Runtime versions already verified by Phase 1; no LLM, OCR or multipart dependency.
+fastapi==0.143.2
+pydantic==2.14.1
+uvicorn==0.54.0
+defusedxml==0.7.1

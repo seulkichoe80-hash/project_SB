@@ -1,0 +1,209 @@
+{
+  "branch": "main",
+  "remotes": "",
+  "staged_files": [],
+  "modified_previous_files": [
+    {
+      "file": "apps/api/main.py",
+      "before": "fd578c30c36f0ef2c6ca94b74d386107624d260a29152b8ae209cc08884895ee",
+      "after": "ae19c50f5d3a4a61de01603ae49464cbffd3993b3a9d66bcec61fa6a2064f0ae"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "before": "0904b6db370a53ad40a7cbf3b9db264bd96ac0054a19ab4b9b4db755dcafa6a2",
+      "after": "fc0723d1e37b847c29c4b580f4a37f52f27a7380396b1c19496d64b6dd63e3f7"
+    },
+    {
+      "file": "apps/api/service.py",
+      "before": "c0e61886db41ee366919ca07e665cf24c2e2cb088358a38c6611534d6e7864fe",
+      "after": "ef64e8bdbfadc86a1ce75cadbb851cb1a88cff1e4ba5b2fe0f1f63a4bbc2b18b"
+    },
+    {
+      "file": "docs/G1_GATES.md",
+      "before": "10920f86c743f46f42e48d747b0db9f5b829290b0443cce0660e68685c180338",
+      "after": "d658ab4e16bd34539626abda9b6a92dd3c184245d0bd8c93e312dd53eef06e42"
+    },
+    {
+      "file": "docs/GOLDSET.md",
+      "before": "70cb1241a93d92613f3e6a15c359d73ee8ce233377119c68f7fa032768f96e89",
+      "after": "1b857b2582b7f41af5a1f860f8b41418842d32e40d58cc012de2372609b7ba9d"
+    },
+    {
+      "file": "AGENTS.md",
+      "before": "2310643c9987b6c85d4c8b4ae2cf99846a36ed8a65a5f9a8504470f3557b1b7b",
+      "after": "ab2c852f6751d7f34e863e897b54194e79efe86d3c6378fd78394c93400827fe"
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "before": "7924184a5a8593e19969f987ffe4f9c3a0475eab0c2fc612ee3c09e80b0285e7",
+      "after": "5feb24ba13f9aac8f40936b0c4b0d299b0dee86604b7bcbee7656a9140f529ef"
+    },
+    {
+      "file": "PRD.md",
+      "before": "9f9f44202d908aa05fcd81978c5c368033b12ecc37b7ea659ffd885172a0152c",
+      "after": "20c96570a5d5eb775511c1a6782b27a217ef6d327acd3d4507048e00ba4d973b"
+    },
+    {
+      "file": "README.md",
+      "before": "6ec13be6c99aac4a0a662388c6f761189014c3521de5f22ae98ced1e61c7fed2",
+      "after": "4f27541dd2498761f59e8dd06ce3499193a0db76fe5ee8b937546e3ff7c296ec"
+    },
+    {
+      "file": "TASKS.md",
+      "before": "c21dba0ef5857079f46531a7f09e7c388247ac10fa5deb5167e19d1045326caf",
+      "after": "c1412def13c1584fb526774a5cd658687099da6bc56c0eaa31fb5f6dce91ef2b"
+    },
+    {
+      "file": "TEST_PLAN.md",
+      "before": "d2e7965738ea47a1accbbebd2a92a202eaf8648ccc7927711a3daf6befdbb2ac",
+      "after": "7169fbc47b8a3ab4874343babe2216e55e0d1eaa2aa416f7c08133040c8f91e9"
+    }
+  ],
+  "unchanged_previous_count": 64,
+  "missing_previous_files": [],
+  "historical_zip_checks": {
+    "PHASE1_EVIDENCE.zip": {
+      "crc_ok": true,
+      "entries": 57
+    },
+    "FOUNDATION_EVIDENCE_V2.zip": {
+      "crc_ok": true,
+      "entries": 22
+    },
+    "phase2a/DOCUMENTS_BEFORE.zip": {
+      "crc_ok": true,
+      "entries": 6
+    }
+  },
+  "final_test_code_hash_mismatches": [],
+  "broken_links": [],
+  "secret_pattern_hits": [],
+  "new_commit_candidates": [
+    ".agents/skills/seomuitda-quality-check/SKILL.md",
+    ".env.example",
+    ".gitattributes",
+    ".gitignore",
+    "apps/api/parsers/__init__.py",
+    "apps/api/parsers/contracts.py",
+    "apps/api/parsers/hwpx.py",
+    "apps/api/parsers/pdf.py",
+    "apps/api/parsing_repository.py",
+    "apps/api/parsing_service.py",
+    "apps/api/worker.py",
+    "docs/PHASE2B_PARSING.md",
+    "outputs/PHASE2B_REPORT.md",
+    "outputs/phase2b/BASELINE_33.json",
+    "outputs/phase2b/PARSER_PROBE.json",
+    "outputs/phase2b/PRESERVATION_AND_GIT.json",
+    "outputs/phase2b/SAMPLE_EXTRACTION.json",
+    "outputs/phase2b/VALIDATION_FINAL.json",
+    "outputs/phase2b/VALIDATION_FINAL_V2.json",
+    "requirements-parsing-lock.txt",
+    "requirements-parsing.txt",
+    "schemas/source-block.schema.json",
+    "schemas/workflow.schema.json",
+    "scripts/validation/build_phase2b_evidence.py",
+    "scripts/validation/phase2b_claim_checkpoint.py",
+    "scripts/validation/phase2b_http_server.py",
+    "scripts/validation/run_phase2b_checks.py",
+    "tests/fixtures/synthetic/phase2b_pdf.py",
+    "tests/test_parsing.py"
+  ],
+  "all_untracked_commit_candidates": [
+    ".agents/skills/seomuitda-quality-check/SKILL.md",
+    ".env.example",
+    ".gitattributes",
+    ".gitignore",
+    "AGENTS.md",
+    "ARCHITECTURE.md",
+    "PRD.md",
+    "README.md",
+    "TASKS.md",
+    "TEST_PLAN.md",
+    "apps/__init__.py",
+    "apps/api/__init__.py",
+    "apps/api/errors.py",
+    "apps/api/formats.py",
+    "apps/api/main.py",
+    "apps/api/models.py",
+    "apps/api/parsers/__init__.py",
+    "apps/api/parsers/contracts.py",
+    "apps/api/parsers/hwpx.py",
+    "apps/api/parsers/pdf.py",
+    "apps/api/parsing_repository.py",
+    "apps/api/parsing_service.py",
+    "apps/api/repository.py",
+    "apps/api/service.py",
+    "apps/api/storage.py",
+    "apps/api/worker.py",
+    "docs/BROWSER_TEST.md",
+    "docs/G1_GATES.md",
+    "docs/GOLDSET.md",
+    "docs/LLM_CONFIGURATION.md",
+    "docs/PHASE2A_BACKEND.md",
+    "docs/PHASE2B_PARSING.md",
+    "docs/VALIDATION_SETUP.md",
+    "docs/WORKFLOW_SCHEMA.md",
+    "outputs/AGENTS.md",
+    "outputs/ARCHITECTURE.md",
+    "outputs/FOUNDATION_REPORT.md",
+    "outputs/FOUNDATION_VALIDATION.json",
+    "outputs/INITIAL_COMMIT_REVIEW.md",
+    "outputs/INTERNET_DEPLOYMENT_STRATEGY.md",
+    "outputs/INTERNET_TRANSITION_CHANGELOG.md",
+    "outputs/INTERNET_TRANSITION_VALIDATION.json",
+    "outputs/PHASE1_DOCUMENT_CHANGES.md",
+    "outputs/PHASE1_REPORT.md",
+    "outputs/PHASE2A_REPORT.md",
+    "outputs/PHASE2B_REPORT.md",
+    "outputs/PRD.md",
+    "outputs/README.md",
+    "outputs/TASKS.md",
+    "outputs/TEST_PLAN.md",
+    "outputs/phase2a/PRESERVATION_AND_GIT.json",
+    "outputs/phase2a/VALIDATION_FINAL.json",
+    "outputs/phase2a/VALIDATION_RUN_1.json",
+    "outputs/phase2b/BASELINE_33.json",
+    "outputs/phase2b/PARSER_PROBE.json",
+    "outputs/phase2b/PRESERVATION_AND_GIT.json",
+    "outputs/phase2b/SAMPLE_EXTRACTION.json",
+    "outputs/phase2b/VALIDATION_FINAL.json",
+    "outputs/phase2b/VALIDATION_FINAL_V2.json",
+    "requirements-api-lock.txt",
+    "requirements-api-test.txt",
+    "requirements-api.txt",
+    "requirements-parsing-lock.txt",
+    "requirements-parsing.txt",
+    "requirements-validation.txt",
+    "schemas/source-block.schema.json",
+    "schemas/workflow.schema.json",
+    "scripts/validation/browser_smoke.mjs",
+    "scripts/validation/build_phase2b_evidence.py",
+    "scripts/validation/evaluate_retrieval.py",
+    "scripts/validation/generate_hwpx_fixture.py",
+    "scripts/validation/phase2a_http_server.py",
+    "scripts/validation/phase2b_claim_checkpoint.py",
+    "scripts/validation/phase2b_http_server.py",
+    "scripts/validation/probe_hwpx.py",
+    "scripts/validation/run_phase2a_checks.py",
+    "scripts/validation/run_phase2b_checks.py",
+    "scripts/validation/workflow_contract.py",
+    "tests/fixtures/synthetic/hwpx-manifest-v2.json",
+    "tests/fixtures/synthetic/hwpx-manifest.json",
+    "tests/fixtures/synthetic/pdf-manifest.json",
+    "tests/fixtures/synthetic/phase2b_pdf.py",
+    "tests/fixtures/synthetic/procedure-v1.hwpx",
+    "tests/fixtures/synthetic/procedure-v2.hwpx",
+    "tests/fixtures/synthetic/queries.json",
+    "tests/fixtures/synthetic/source-registry.json",
+    "tests/test_document_api.py",
+    "tests/test_live_document_http.py",
+    "tests/test_parsing.py",
+    "tests/test_validation_contracts.py"
+  ],
+  "notes": [
+    "No git add/commit/push/deploy",
+    "Limited secret patterns; not a comprehensive audit",
+    "Originals, runtime DBs, venvs, raw logs, ZIP and diffs excluded from Git candidates"
+  ]
+}

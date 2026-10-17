@@ -1,0 +1,3 @@
+# New PDF runtime dependency; HWPX uses the existing defusedxml + standard library.
+-r requirements-api.txt
+pdfplumber==0.11.9
