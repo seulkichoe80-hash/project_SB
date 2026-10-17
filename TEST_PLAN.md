@@ -204,6 +204,8 @@ Stage2/3 회귀는 의도적으로 변경된 문서 페이지를 401 모의 응�
 
 ## Stage4B-2 인증 검증
 
+Stage4B-3A는 [연결 계약](docs/STAGE4B3A_SUPABASE_TRANSPORT.md)과 tests/test_supabase_transport.py를 따른다. 실제 HTTP serialization/고정 host/path·HTTPS/서버 키/timeout·상태/응답크기/형식·신원/만료·비밀 비노출 시험 및 기존 BFF30개를 HTTP MockTransport 경로로 재사용한다. scripts/validation/run_stage4b3a_checks.py의 비루프백 DNS/TCP 차단 아래 기존153개와 신규 시험을 모두 실행하며 실제 외부 요청을 허용하지 않는다. 기존 UI43개·typecheck/build도 회귀한다. 실제 TLS handshake·공급자 JWT 검증 성공·계정/키·유료 API·배포는 모의 PASS로 승격하지 않는다.
+
 tests/test_auth.py는 mock Supabase 전송→실제 BFF session dependency 경로의30개 시험이다. 401/403/타기관404, CSRF·Origin/단회challenge, 위조·중복cookie, 만료/idle/회전/logout/replay, 계정·기관·멤버십정지, 기관관리범위, worker/metadata 권한상승차단, provider미설정/실패, throttle, additive backup/별도복원·기존 source_blocks/버전/원본해시, 세션재시작/hash 저장·민감값미포함을 검사한다. dependency override가 아닌 실제 session dependency를 사용한다. 기존 전체123개도 인증 영향 회귀로 실행하며 mock principal 계약과 새 세션계약을 구분한다.
 
 scripts/validation/check_stage4b2_ui.cjs는 공급자미설정·로그인/기관표시·reader UI·logout/만료·브라우저저장소·키보드/반응형6개를 모의HTTP로 검증한다. 이전 Stage2/3/4A 회귀는 명시 mock /auth/status/me 응답만 추가하며 실제 공급자 성공으로 세지 않는다. 별도 local HTTP harness는 loopback dev cookie로만 BFF 실제 왕복을 확인하고 production Secure/TLS 성공과 구별한다. [실행 근거](outputs/STAGE4B2_REPORT.md).

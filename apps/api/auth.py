@@ -1,4 +1,4 @@
-"""Local BFF sessions; no outbound identity transport exists in this stage."""
+"""Local BFF sessions; provider tokens never enter browser responses or session storage."""
 from dataclasses import dataclass
 from urllib.parse import urlsplit
 import secrets
