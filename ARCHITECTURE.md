@@ -217,4 +217,6 @@ DELETE /documents/{id}는 논리적 등록 해제다. native dialog로 확인하
 
 ### Stage4B-2 BFF 인증 경계
 
+현재 [Stage4B-3A 연결 계약](docs/STAGE4B3A_SUPABASE_TRANSPORT.md)은 기존 provider interface에 고정 HTTPS Supabase transport를 추가한다. password token 교환 후 서버 `/user` 조회로 신원을 검증하고 로컬 active 멤버십으로 권한을 결정한다. 기본 앱은 미설정·deny-all이며 명시 factory 설정만 원격 계층을 구성한다. provider token의 브라우저/DB 저장은 없고 실제 공급자 호출·배포는 미승인이다. 아래 미구현 설명은 Stage4B-2 당시 범위다.
+
 [로컬 인증 계약](docs/STAGE4B2_AUTH.md)에 따라 IdentityProviderAdapter와 명시 mock 전송 기반 Supabase adapter·서버세션·HttpOnly cookie·CSRF/Origin을 추가했다. 기본 provider 미설정401/로그인503을 유지한다. 세션의 검증된 subject와 서버 active membership으로 기존 Principal을 만들며 client 기관/role·수정 가능한 metadata는 사용하지 않는다. 기존 문서/근거/worker 계층과 role literal은 유지하고 auth 테이블만 추가한다. 실제 provider transport/JWT·refresh/공급자정지 동기화·배포는 미구현이다.

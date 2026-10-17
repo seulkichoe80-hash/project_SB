@@ -1,5 +1,7 @@
 # Stage4B-2 로컬 인증 계약
 
+현재 연결 계층은 [Stage 4B-3A 계약](STAGE4B3A_SUPABASE_TRANSPORT.md)을 함께 따른다. 아래 원격 transport 미구현 설명은 Stage4B-2 시점의 범위이며, 새 HTTP 계층은 명시 서버 설정으로만 활성화된다. 실제 공급자 연결은 여전히 미검증이다.
+
 FR-01/14/15/18·WEB-02/03/06의 로컬 접근 주체 경계다. 실제 공급자/클라우드는 미연결이다. 제품 앱의 기본 provider는 UnconfiguredProvider이며 기존 세션이 남아 있어도401로 차단한다. 환경변수만으로 mock 계정/권한을 활성화하는 기능은 없다.
 
 ## Provider와 세션

@@ -199,3 +199,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] 기본 deny-all 유지, provider mock 전송 계약·BFF 세션·CSRF/Origin·기관 멤버십·React 로그인 상태 구현.
 - [x] 기존123+신규30=153 backend 회귀 및 auth/UI 영향 검증. [보고](outputs/STAGE4B2_REPORT.md), [계약](docs/STAGE4B2_AUTH.md).
 - [ ] Stage4B-3 실제 계정/키/remote transport/JWT·세션 lifecycle·TLS 실증은 별도 승인 후. 다운로드 파일저장 BLOCKED는 기존 상태 유지.
+
+## Stage 4B-3A Supabase 원격 전송 계층
+
+- [x] 기존 IdentityProviderAdapter/SupabaseProviderAdapter 유지, 고정 HTTPS HTTP transport·서버 설정·사용자 조회 검증·오류/민감정보 차단 구현. 기본 앱은 deny-all 유지.
+- [x] 기존153+새 HTTP/BFF52=205 backend PASS, UI Chromium43 PASS, typecheck/build PASS. 비루프백 DNS/TCP 차단 가드 아래 실제 공급자 호출0. [계약](docs/STAGE4B3A_SUPABASE_TRANSPORT.md)·[실행 보고](outputs/STAGE4B3A_REPORT.md).
+- [ ] Stage 4B-3B는 실제 프로젝트/계정/키·허용 origin/TLS·접속/비용 범위의 별도 승인 후 server factory 활성화와 실제 공급자 검증. 이번에는 실제 Supabase/LLM/임베딩 호출·키 등록·배포·commit/push/merge를 하지 않았다.

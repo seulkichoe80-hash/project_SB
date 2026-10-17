@@ -14,7 +14,13 @@ def authenticated_principal(request: Request) -> Principal:
     return request.app.state.auth.resolve(request)
 
 
-def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False, identity_provider=None, auth_settings=None, auth_clock=None) -> FastAPI:
+def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False, identity_provider=None, auth_settings=None, auth_clock=None, supabase_settings=None) -> FastAPI:
+    if supabase_settings is not None:
+        if identity_provider is not None:
+            raise ValueError('choose_one_identity_configuration')
+        from .identity_provider import SupabaseProviderAdapter
+        from .supabase_transport import SupabaseHTTPTransport
+        identity_provider = SupabaseProviderAdapter(SupabaseHTTPTransport(supabase_settings), supabase_settings.issuer)
     root = data_dir or Path('work/phase2a/runtime')
     service = DocumentService(repository or Repository(root / 'metadata.sqlite3'), store or LocalOriginalStore(root / 'originals'), parsing_enabled)
     app = FastAPI(title='서무ITDA local Phase 2B' if parsing_enabled else '서무ITDA local Phase 2A',
@@ -43,7 +49,7 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
     @app.get('/auth/status')
     def auth_status(response: Response):
         response.headers['Cache-Control'] = 'no-store'
-        return {'provider_available': auth.provider.available, 'remote_enabled': False}
+        return {'provider_available': auth.provider.available, 'remote_enabled': getattr(auth.provider, 'remote_enabled', False)}
 
     @app.post('/auth/csrf')
     def csrf(request: Request, response: Response):
@@ -136,7 +142,7 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
 
     @app.get('/health')
     def health():
-        return {'status': 'local_only', 'authentication': 'deny_all', 'public_deployment_ready': False,
+        return {'status': 'local_only', 'authentication': 'server_membership_sessions' if auth.provider.available else 'deny_all', 'public_deployment_ready': False,
                 'persistent_parsing': parsing_enabled}
 
     async def upload(request, principal, filename, document_id=None):
