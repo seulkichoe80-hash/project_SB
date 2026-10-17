@@ -1,0 +1,98 @@
+{
+  "version": "synthetic-dev-v1",
+  "human_review": "PENDING",
+  "split": "development-only; no holdout claims",
+  "license": "project-authored synthetic data; existing fixture provenance retained",
+  "documents": [
+    {
+      "id": "pdf",
+      "generator": "tests/fixtures/synthetic/phase2b_pdf.py"
+    },
+    {
+      "id": "hwpx",
+      "path": "tests/fixtures/synthetic/procedure-v2.hwpx"
+    }
+  ],
+  "queries": [
+    {
+      "id": "pdf-0",
+      "document": "pdf",
+      "query": "Prepare",
+      "expected_quote": "Prepare the request."
+    },
+    {
+      "id": "pdf-1",
+      "document": "pdf",
+      "query": "Attach",
+      "expected_quote": "Attach the public form."
+    },
+    {
+      "id": "pdf-2",
+      "document": "pdf",
+      "query": "reviewer",
+      "expected_quote": "synthetic reviewer"
+    },
+    {
+      "id": "pdf-3",
+      "document": "pdf",
+      "query": "original",
+      "expected_quote": "Keep the original unchanged."
+    },
+    {
+      "id": "pdf-4",
+      "document": "pdf",
+      "query": "Stage",
+      "expected_quote": "Stage"
+    },
+    {
+      "id": "pdf-5",
+      "document": "pdf",
+      "query": "Second",
+      "expected_quote": "Second page evidence"
+    },
+    {
+      "id": "hwpx-0",
+      "document": "hwpx",
+      "query": "신청서",
+      "expected_quote": "신청서를 작성한다."
+    },
+    {
+      "id": "hwpx-1",
+      "document": "hwpx",
+      "query": "담당자",
+      "expected_quote": "담당자가 신청서를 확인한다."
+    },
+    {
+      "id": "hwpx-2",
+      "document": "hwpx",
+      "query": "필요",
+      "expected_quote": "필요 서류"
+    },
+    {
+      "id": "hwpx-3",
+      "document": "hwpx",
+      "query": "단계",
+      "expected_quote": "단계"
+    },
+    {
+      "id": "hwpx-4",
+      "document": "hwpx",
+      "query": "구조",
+      "expected_quote": "구조 검증용 픽셀"
+    },
+    {
+      "id": "no-answer",
+      "document": "pdf",
+      "query": "unmentioned-zebra-deadline",
+      "expected_quote": null
+    },
+    {
+      "id": "foreign",
+      "document": "pdf",
+      "query": "Prepare",
+      "expected_quote": null,
+      "foreign": true
+    }
+  ],
+  "full_target": "Retain TEST_PLAN >=5 documents, >=40 queries, >=20 captures, >=10 procedures; not fulfilled by subset"
+}

@@ -1,0 +1,26 @@
+{
+  "measurement_start_utc": "2026-10-17T04:13:31+00:00",
+  "measurement_end_utc": "2026-10-17T04:20:41.160916+00:00",
+  "elapsed_seconds_until_final_evidence_write": 430.160916,
+  "receipt_to_first_clock_and_final_response": "NOT_MEASURED",
+  "model_reasoning_time": "NOT_MEASURED; not estimated",
+  "completed_artifact_checks": 6,
+  "artifact_test_runner_seconds": 0.071,
+  "artifact_validation_total_seconds": 0.07475449999992634,
+  "goldset_build_seconds": 1.4473293000000922,
+  "terminal_tool_wall_seconds_before_final_record_call": 18.992909100000002,
+  "terminal_time_scope": "11 preceding exec_command responses; excludes final writer, web/clock/patch and model time",
+  "all_tool_wall_seconds": "NOT_MEASURED",
+  "function_exec_requests_through_final_writer": 15,
+  "nested_tool_invocations_through_final_writer": 23,
+  "tool_breakdown": {
+    "exec_command": 12,
+    "web_run": 8,
+    "apply_patch": 2,
+    "clock": 1
+  },
+  "test_retries": 0,
+  "documentation_reference_fetch_errors": 2,
+  "actual_paid_model_calls": 0,
+  "regression_tests_this_task": "NOT_RUN: app/runtime/old fixtures/expected values unchanged; no Phase completion claimed"
+}

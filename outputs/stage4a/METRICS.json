@@ -1,0 +1,14 @@
+{
+  "start_utc": "2026-10-17T04:59:59Z",
+  "report_utc": "2026-10-17T05:17:05.785973+00:00",
+  "elapsed_to_report_seconds": 1026.785973,
+  "final_ui_seconds": 8.7100562,
+  "final_fastapi_http_seconds": 1.6687777999995888,
+  "live_browser_attempt_seconds": 2.2210697999999995,
+  "recorded_ui_runs_seconds": 42.7652956,
+  "final_vite_bundle_seconds": 0.12,
+  "separate_typecheck_build_time": "not measured",
+  "initial_crashed_runs_and_ASGI_cancel_duration": "not fully measured",
+  "model_inference_time": "not measured or estimated",
+  "note": "recorded_ui_runs includes failed/superseded runs; not a complete total testing duration"
+}

@@ -1,0 +1,53 @@
+{
+  "currency": "USD",
+  "approval_status": "PENDING",
+  "actual_spent": 0,
+  "llm_models": [
+    "gpt-6-luna",
+    "gemini-3.1-flash-lite"
+  ],
+  "embedding_models": [
+    "text-embedding-3-small",
+    "gemini-embedding-2"
+  ],
+  "queries": 40,
+  "repetitions_per_llm": 3,
+  "retrieval_modes_evaluated": [
+    "keyword",
+    "vector",
+    "hybrid"
+  ],
+  "generation_retrieval_mode": "fixed hybrid from primary embedding; no 3-way generation grid",
+  "llm_main_calls_per_model": 120,
+  "llm_smoke_calls_per_model": 1,
+  "llm_calls_total": 242,
+  "llm_max_input_tokens_per_call": 4096,
+  "llm_max_billed_output_plus_reasoning_tokens_per_call": 2048,
+  "llm_smoke_token_caps": [
+    128,
+    128
+  ],
+  "actual_corpus_chunks": 57,
+  "max_corpus_chunks": 128,
+  "max_embedding_chunk_tokens": 512,
+  "max_embedding_query_tokens": 256,
+  "embedding_max_tokens_per_model": 75808,
+  "embedding_requests_openai_max": 3,
+  "embedding_requests_gemini_max": 169,
+  "embedding_requests_gemini_planned": 98,
+  "retry_max_per_logical_request": 1,
+  "max_paid_attempts": 828,
+  "estimated_under_caps_before_retry": {
+    "openai_llm": 0.172032,
+    "gemini_llm": 0.49152,
+    "two_embeddings": 0.01667776,
+    "smoke": 0.0003008,
+    "total": 0.68053056
+  },
+  "worst_with_one_retry_and_extra_openai_input_write_reserve": 1.38563712,
+  "proposed_hard_spend_cap": 2.0,
+  "new_request_reservation_stop": 1.8,
+  "http_attempt_cap_including_token_count_and_metadata": 1500,
+  "rates_are_document_snapshot_not_account_quote": true,
+  "unsupported_billing_caps": "stop and obtain revised approval; do not assume thinking is free"
+}

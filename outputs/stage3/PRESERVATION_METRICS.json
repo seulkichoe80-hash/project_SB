@@ -1,0 +1,9 @@
+{
+  "elapsed_to_report_seconds": 232.733946,
+  "typecheck_build_command_seconds": 5.8227581,
+  "home_seconds": 2.620943,
+  "regression_seconds": 3.1213874,
+  "preserved_files": 162,
+  "head": "f9a01d8c5b6b2b2311f4d8d8461b0f5b55b7a182",
+  "note": "타입/빌드 명령시간에 파일생성 포함; 개별 시간/모델 추론시간 미측정; 보존검사 경로/인코딩 수정 재시도2회"
+}

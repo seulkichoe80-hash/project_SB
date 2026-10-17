@@ -1,0 +1,6 @@
+{
+  "status": "BLOCKED",
+  "scope": "Real browser HTTP",
+  "error": "page.goto: net::ERR_CONNECTION_TIMED_OUT at http://127.0.0.1:4175/#/documents\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4175/#/documents\", waiting until \"load\"\u001b[22m\n",
+  "seconds": 2.2210697999999995
+}

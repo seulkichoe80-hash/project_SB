@@ -1,5 +1,7 @@
 # 서무ITDA
 
+현재 로컬 구현은 Phase 2C-1 구조 청킹·EvidenceRef·SQLite 키워드 검색까지다. [현재 실행/계약](docs/PHASE2C1_CHUNK_SEARCH.md), [결과 보고](outputs/PHASE2C1_REPORT.md)를 따른다. 실제 인증이 없어 공개 배포는 차단한다. 샘플 누락 시 `python scripts/validation/restore_synthetic_fixtures.py --restore-missing`을 먼저 실행한다.
+
 인터넷 HTTPS URL에서 PC 브라우저로 사용하는 근거 기반 AI 서무 노트북이다. 공개 접속과 기관 자료/관리 권한은 분리하며 공개·합성 데이터만 사용한다. 2026 공공 AI 대전환 챌린지 세션2 서무비서: 활용성40·완성도30·확산용이성30, 제출11/11·기능동결11/09·후보11/10을 유지한다.
 
 ## 저장소와 기준 위치
@@ -27,4 +29,4 @@ Phase 2A는 FastAPI/Pydantic/SQLite의 문서 등록·원본 보관·상태·버
 
 Phase 2B에서 PDF/HWPX 구조 블록·원문 앵커·영속 파싱 작업/중단 복구를 추가했다. 실제 시험 결과는 [Phase 2B 보고](outputs/PHASE2B_REPORT.md)다. 파싱 완료는 AI 분석/업무 의미·한컴 화면 순서 검증을 뜻하지 않는다. 인증 없이 자료 API를 사용할 수 없으며 공개 배포는 계속 차단한다.
 
-.env.example은 빈 서버 설정 계약이다. 실제 .env·API 키·토큰·DB 자격증명·원본 문서는 Git 제외한다. 키를 채팅/클라이언트 VITE_*에 넣지 않는다. 유료 API·클라우드 자원·공개 배포·원격 push는 별도 승인 전 실행하지 않는다. 현재 로컬 Git만 초기화하며 초기 커밋은 포함/제외 목록 보고 전 만들지 않는다.
+.env.example은 빈 서버 설정 계약이다. 실제 .env·API 키·토큰·DB 자격증명·원본 문서는 Git 제외한다. 키를 채팅/클라이언트 VITE_*에 넣지 않는다. 유료 API·클라우드 자원·공개 배포·원격 push는 별도 승인 전 실행하지 않는다. 2026-10-17 사용자 승인 후 초기 로컬 커밋을 생성했으며 원격은 없다. 신규 Phase 2C-1 변경은 아직 커밋하지 않은 검토 후보로 남긴다.

@@ -1,0 +1,31 @@
+{
+  "packages": {
+    "openai": "NOT_INSTALLED",
+    "google-genai": "NOT_INSTALLED",
+    "httpx": "0.28.1",
+    "tiktoken": "NOT_INSTALLED"
+  },
+  "key_presence_only_no_values": {
+    "OPENAI_API_KEY": false,
+    "GEMINI_API_KEY": false,
+    "GOOGLE_API_KEY": false
+  },
+  "credential_validity": "NOT_VERIFIED",
+  "account_model_access": "NOT_VERIFIED",
+  "network_model_requests": 0,
+  "current_runtime_gaps": [
+    "RAGService rejects real providers by design",
+    "LLM candidate contract has no full procedure response schema",
+    "approval/budget reservation and provider transport not implemented",
+    "official tokenizer/counter and provider timeout/429 handling not implemented"
+  ],
+  "queries_exceeding_existing_8_term_search_limit": [
+    "travel-a-01",
+    "leave-a-01",
+    "purchase-a-01",
+    "meeting-a-01",
+    "form-a-01",
+    "travel-b-01",
+    "safety-04"
+  ]
+}

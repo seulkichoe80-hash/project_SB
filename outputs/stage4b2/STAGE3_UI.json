@@ -1,0 +1,43 @@
+{
+  "scope": "Stage3 Feature Gate; static response interception, NOT live HTTP; state variants SSR only",
+  "results": [
+    {
+      "name": "home content and disconnected recent documents",
+      "status": "PASS"
+    },
+    {
+      "name": "primary keyboard action, history and reload",
+      "status": "PASS"
+    },
+    {
+      "name": "help reachable in one action",
+      "status": "PASS"
+    },
+    {
+      "name": "home responsive 320/375/768/1440 and text 200%",
+      "status": "PASS"
+    },
+    {
+      "name": "recent states distinct, loading announced and errors no fake retry",
+      "status": "PASS"
+    },
+    {
+      "name": "no console errors or API/external requests",
+      "status": "PASS"
+    }
+  ],
+  "counts": {
+    "PASS": 6,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "elapsed_seconds": 2.0481282,
+  "not_run": [
+    "live HTTP",
+    "screen reader",
+    "native browser zoom",
+    "usability 5 seconds / 3 clicks",
+    "real API state transitions"
+  ]
+}

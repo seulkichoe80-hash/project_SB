@@ -1,0 +1,24 @@
+{
+  "start_utc": "2026-10-17T04:31:11+00:00",
+  "end_utc": "2026-10-17T04:40:27.949526+00:00",
+  "elapsed_seconds_until_evidence_write": 556.949526,
+  "test_browser_final_seconds": 2.6242205,
+  "test_browser_run1_seconds": 2.397842,
+  "browser_test_seconds_sum": 5.0220625,
+  "vite_reported_build_seconds": 0.143,
+  "typecheck_and_full_npm_command_seconds": "NOT_MEASURED separately; commands completed successfully",
+  "screen_reader": "NOT_RUN",
+  "native_zoom": "NOT_RUN",
+  "live_http_browser": "BLOCKED: localhost navigation timeout; static production response interception used",
+  "external_model_calls": 0,
+  "test_retries": 1,
+  "setup_issues": [
+    "preview initially launched from repository root instead of apps/web; corrected",
+    "bundled Playwright browser binary unavailable; no download performed",
+    "Edge crashed under sandbox; installed Chrome used",
+    "browser localhost timeout; static response interception used",
+    "documentation writer syntax error before execution; corrected without partial changes"
+  ],
+  "model_reasoning_seconds": "NOT_MEASURED; not estimated",
+  "final_response_after_evidence_write": "NOT_MEASURED"
+}

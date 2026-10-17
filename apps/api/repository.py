@@ -9,6 +9,8 @@ class DocumentUnitOfWork:
         self.connection = connection
         from .parsing_repository import ParsingQueries
         self.parsing = ParsingQueries(connection)
+        from .chunk_repository import ChunkQueries
+        self.chunks = ChunkQueries(connection)
 
     def document(self, institution, document_id):
         return self.connection.execute('SELECT * FROM documents WHERE id=? AND institution_id=?',
@@ -105,6 +107,8 @@ class Repository:
             ''')
             from .parsing_repository import SCHEMA
             db.executescript(SCHEMA)
+            from .chunk_repository import SCHEMA as CHUNK_SCHEMA
+            db.executescript(CHUNK_SCHEMA)
 
     @contextmanager
     def transaction(self):

@@ -1,0 +1,13 @@
+{
+  "scope": "REAL local browser HTTP BFF with explicitly injected mock Supabase transport; NOT real provider/TLS. Loopback-only development cookies.",
+  "status": "PASS",
+  "checks": [
+    "login+CSRF+Origin",
+    "HttpOnly cookie hidden from JS",
+    "institution displayed",
+    "no credential web storage",
+    "reload persistence",
+    "logout denies documents401"
+  ],
+  "seconds": 3.1683589999999997
+}

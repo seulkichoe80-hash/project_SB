@@ -1,0 +1,34 @@
+{
+  "scope": "mock HTTP UI only, NOT real Supabase authentication",
+  "results": [
+    {
+      "name": "unconfigured provider: no protected request or fake login",
+      "status": "PASS"
+    },
+    {
+      "name": "mock login and verified institution, no credential storage",
+      "status": "PASS"
+    },
+    {
+      "name": "logout hides protected document UI",
+      "status": "PASS"
+    },
+    {
+      "name": "reader actions disabled",
+      "status": "PASS"
+    },
+    {
+      "name": "expired session clears UI and memory",
+      "status": "PASS"
+    },
+    {
+      "name": "login keyboard, labels and narrow reflow",
+      "status": "PASS"
+    }
+  ],
+  "seconds": 1.8515329999999999,
+  "counts": {
+    "PASS": 6,
+    "FAIL": 0
+  }
+}

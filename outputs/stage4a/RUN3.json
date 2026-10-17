@@ -1,0 +1,190 @@
+{
+  "scope": "Stage4A Feature Gate: mocked browser HTTP and client contracts; NOT real FastAPI integration",
+  "results": [
+    {
+      "name": "PDF/HWPX extension, signature, size and path validation",
+      "status": "PASS",
+      "seconds": 0.005445299999999975
+    },
+    {
+      "name": "raw body and classification, encoded filename, no token or tenant headers",
+      "status": "PASS",
+      "seconds": 0.0019660999999999832
+    },
+    {
+      "name": "all client endpoint methods and segment escaping",
+      "status": "PASS",
+      "seconds": 0.0014519000000000233
+    },
+    {
+      "name": "401/403/404/409/422/500/503/network errors distinguished",
+      "status": "PASS",
+      "seconds": 0.0008381999999999152
+    },
+    {
+      "name": "malformed list/detail and wrong version rejected",
+      "status": "PASS",
+      "seconds": 0.0002891000000000759
+    },
+    {
+      "name": "loading and version list",
+      "status": "PASS",
+      "seconds": 0.3142692999999999
+    },
+    {
+      "name": "invalid upload blocks submission",
+      "status": "PASS",
+      "seconds": 0.016844699999999876
+    },
+    {
+      "name": "raw upload only after declaration and duplicate click guard",
+      "status": "PASS",
+      "seconds": 0.26295139999999995
+    },
+    {
+      "name": "detail version and parsing not AI, safe filename display",
+      "status": "PASS",
+      "seconds": 0.07335310000000027
+    },
+    {
+      "name": "parsing retry and chunk request/status/retry",
+      "status": "PASS",
+      "seconds": 0.29624990000000023
+    },
+    {
+      "name": "original download binary",
+      "status": "FAIL",
+      "error": "download.saveAs: canceled",
+      "seconds": 0.4408833
+    },
+    {
+      "name": "dialog cancel/escape restores focus, no delete",
+      "status": "PASS",
+      "seconds": 0.051847000000000205
+    },
+    {
+      "name": "320/375/768/1440 layout and keyboard focus",
+      "status": "FAIL",
+      "error": "320",
+      "seconds": 0.014735599999999977
+    },
+    {
+      "name": "deregister confirmed once removes list, retains original meaning",
+      "status": "PASS",
+      "seconds": 0.09790239999999995
+    },
+    {
+      "name": "empty distinct from permission and server error",
+      "status": "PASS",
+      "seconds": 0.46296590000000015
+    },
+    {
+      "name": "no JS errors or unexpected external requests",
+      "status": "PASS",
+      "seconds": 0.00012049999999999272
+    }
+  ],
+  "counts": {
+    "PASS": 14,
+    "FAIL": 2,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "elapsed_seconds": 3.3833436000000003,
+  "calls": [
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "POST"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/parsing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/parsing/retry",
+      "method": "POST"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/parsing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/chunk-jobs",
+      "method": "POST"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/chunk-jobs/c1",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/chunk-jobs/c1/retry",
+      "method": "POST"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/original",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1",
+      "method": "DELETE"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    }
+  ],
+  "not_run": [
+    "real authenticated integration",
+    "screen reader",
+    "native zoom",
+    "real FastAPI browser HTTP"
+  ]
+}

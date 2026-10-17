@@ -1,5 +1,21 @@
 # 기능별 테스트 및 합격 기준
 
+## Phase 2C-1 수용 및 회귀 시험 2026-10-17
+
+실제 전체 실행: `python scripts/validation/run_phase2b_checks.py --output outputs/phase2c/VALIDATION_FINAL.json`. 기존 runner가 tests 전체를 discovery하므로 새 파일 test_chunking.py도 포함한다. [최종 기록](outputs/phase2c/VALIDATION_FINAL.json)은93 PASS/0 FAIL/0 SKIP/0 BLOCKED이며 이 중 기존67, 기능25, 복구1이다. [실제 샘플](outputs/phase2c/SAMPLE_CHUNKS_SEARCH.json)에 PDF/HWPX 청크와 재해결·키워드 결과를 기록했다.
+
+| 주제 | test_chunking.py 시험 |
+|---|---|
+| 문단/제목·긴 분할·결정성 | deterministic_and_source_scope, long_text_exact_ranges, heading_context_and_image_no_ai_description |
+| 표 구조·중복·병합 | cells_not_duplicated_as_paragraphs, table_grid_and_first_row_context, merged_table_span_preserved |
+| EvidenceRef/원문·위조/버전 | pdf_hwpx_chunks_and_evidence_roundtrip, missing_anchor_and_false_quote_rejected, other_version_evidence_mixing, mixed_versions_rejected |
+| 기관/인증/검색 | org_read_mutation_and_evidence_blocked, reader_and_anonymous_controls, keyword_filename_body_and_active_only, hangul_and_heading_search, sql_literals_and_query_limits |
+| 활성/해제·어댑터 방어 | active_version_swap_and_deregister, search_adapter_cannot_bypass_active_filter_or_invent_text |
+| 실패/중단/중복/재시작 | idempotent_jobs_and_results, transaction_failure_no_partial_search_retry, expired_claim_recovery_and_stale_fence, new_version_failure_keeps_old_active, cancel_during_chunking, actual_worker_kill_and_new_process_recovery, server_reopen_and_worker_subprocess, real_http_server_process_restart_search |
+| fixture 재현성 | safe_fixture_recovery_and_no_overwrite |
+
+재개 최초55 PASS/12 FAIL은 자료 누락에 따른 실제 결과로 보존했다. v2는 과거 hash와 동일 복원, 과거 v1은 미복원이며 기존 부정 계약 시험1개는 새 별도 CRC 손상 자료를 사용한다. [복구 보고](outputs/RESUME_RECOVERY_20261017.md)를 따른다. 기존67개가 모두 통과했어도 옛 v1 바이트 자체를 다시 시험한 것으로 표현하지 않는다. 현재 작업의 Skill 검증 수준과 테스트 실행 기준은 아래 실행 시점과 범위를 따른다. 의미 정확성·한컴 시각 순서·실인증·LLM/embedding·전체 대표 corpus·운영 배포는 NOT_RUN이다.
+
 ## Phase 2B 실제 수용·회귀 시험
 
 실행: `python scripts/validation/run_phase2b_checks.py --output outputs/phase2b/VALIDATION_NEW_RUN.json`. 최신 실제 기록은 [VALIDATION_FINAL_V2.json](outputs/phase2b/VALIDATION_FINAL_V2.json), [전체 앵커 증거](outputs/phase2b/SAMPLE_EXTRACTION.json)다. test_parsing.py 신규34개와 기존33개를 함께 실행했다. 새 결과는 기존 결과를 덮어쓰지 않는다.
@@ -107,7 +123,23 @@ FR-10·13·17·19는 미채택 시 이월로 기록한다. NFR-04의 교체 계�
 - NFR-04: 실제 생성 모델 2종에 같은 핵심 시나리오·골드셋 적용. 공급자 SDK 변경 없이 설정/어댑터로 교체, 스키마·근거·타임아웃 검증. 임베딩 모델 변경은 차원 확인·별도 색인 구축·전환·되돌림 시험. 접근 불가 시 미검증으로 남긴다.
 - NFR-05/07: 재시작·중단·중복 작업·색인 장애·전환 도중 질의·백업 복구에 활성 버전/권한 일관성 유지. 성능은 표본별 크기/페이지/캡처 수와 처리시간·메모리·p50/p95를 기록하며 Phase 1 예산을 넘으면 실패 처리한다. 예산 미정이면 성능 통과를 선언하지 않는다.
 
-기능 변경 직후 해당 행의 단위/통합 시험을 실행하고, 근거·기관 격리·원본 불변·버전/등록 해제의 핵심 회귀를 함께 실행한다. 파서/OCR 변경은 청킹·검색·지도까지, 검색/모델 변경은 답변·추천·충돌까지, 데이터/권한 변경은 전체 핵심 여정까지, 서식 변경은 프리뷰·필드·저장·재열기까지 확장한다. 각 Phase 게이트와 제출 후보에서는 전체 P0 및 채택 P1 회귀를 실행한다. 동일 빌드/환경에서 이미 통과한 시험을 이유 없이 반복하지 않되 변경된 영역은 다시 확인한다.
+## 테스트 실행 시점과 범위
+
+테스트 실행 시점·범위·재사용의 단일 기준은 이 절이다. AGENTS와 품질검증 Skill은 이 기준을 참조한다.
+
+| 시점 / 검증 수준 | 필수 실행 범위 |
+|---|---|
+| 개발 중 | 변경 기능의 단위 테스트. 실패를 수정한 뒤 해당 시험을 재실행 |
+| 기능 완료 / Feature Gate | 영향 범위 통합 테스트와 해당 핵심 안전성 회귀 |
+| Phase 완료 / Phase Gate | 기존 전체 회귀테스트 및 전체 P0·채택 P1의 해당 단계 합격 기준 대조 |
+| 배포·제출 전 / Release Gate | 전체 회귀 및 전체 보안·실패 복구·브라우저·독립 실행 검증. 실제 배포 검증은 승인된 환경에서 수행 |
+| Read-only Review | 기존 문서·증거만 검토. 테스트·앱 실행 및 파일·캐시·로그 변경 없이 미확인 항목과 추가 검증 필요사항 보고 |
+
+변경 영향 기준: 파서/OCR는 청킹·검색·지도까지, 검색/모델은 답변·추천·충돌까지, 데이터/권한은 전체 핵심 여정까지, 서식은 프리뷰·필드·저장·재열기까지 확장한다. 해당 핵심 안전성은 인증·기관 격리·EvidenceRef/원문 앵커·원본 불변·활성 버전/등록 해제·비밀/예산 통제·실패/중단 복구다. 인증·저장·검색·모델·파서 변경에는 관련 안전성 회귀를 반드시 포함한다. DB schema·스토리지 정책·배포 변경은 재시작·복원·권한·영향받는 브라우저 동작을 재검증한다. 미구현 기능의 시험을 실행한 것으로 간주하지 않는다.
+
+결과 재사용은 코드·fixture·환경·잠금파일·설정·명령·검증 범위가 모두 동일하고 기존 결과가 유효할 때만 허용한다. 비교 근거와 재사용할 실행 기록을 명시하며 어느 하나라도 변경 영향이 있으면 관련 테스트를 반드시 재실행한다. Phase 완료 시에는 재사용만으로 대체하지 않고 전체 회귀를 실행한다.
+
+이번 작업과 관계없는 미구현·미승인 항목은 기존 NOT_RUN/BLOCKED 기록과 증거를 참조하고 상태를 유지한다. 매번 같은 미검증 목록을 새로 작성하지 않되 대상 게이트의 필수 항목은 누락 없이 대조한다. 필수 시험의 미실행을 PASS 또는 게이트 완료로 처리하지 않는다. 안전성 실패 시 다음 기능 확대·출시를 중단하고 수정·재시험한다. 문서만 변경한 경우 링크·요구사항·안전성·Skill 계약을 검증하며 앱 전체 시험은 반복하지 않는다. 단, 실행 가능한 테스트 계약·기대값·기능 동작에 영향이 있으면 관련 시험을 수행한다.
 
 ## 심사위원 독립 실행 합격
 
@@ -144,4 +176,34 @@ G6에서 평가자는 URL과 제한된 평가 계정으로 PC 브라우저 핵�
 
 ### 회귀와 결과 기록
 
-기능 구현 직후 해당 FR/NFR/WEB 시험과 영향 범위 회귀를 실행한다. 인증·저장·검색·모델·파서 변경은 기관 격리/근거/원본 불변/활성 버전/예산·비밀 회귀를 포함한다. 배포·DB schema·스토리지 정책 변경은 재시작/복원/권한과 브라우저를 재검증한다. 실제 명령·환경/버전·자료 hash·건수/분모·비용·실패/조치/재시험을 새 실행 기록에 남긴다. 안전성 실패는 출시 게이트 차단이며 미승인 유료 호출·배포는 BLOCKED/NOT_RUN으로 둔다.
+실행 범위와 재사용은 [테스트 실행 시점과 범위](#테스트-실행-시점과-범위)를 따른다. 실제 명령·환경/버전·자료 hash·건수/분모·비용·실패/조치/재시험을 새 실행 기록에 남긴다. 구조화된 실행 기록을 공통 근거로 사용하고 보고서는 변경점·결과·남은 위험과 증거 링크를 요약한다. 과거 증거를 덮어쓰지 않으며 미승인 유료 호출·배포는 BLOCKED/NOT_RUN으로 유지한다.
+
+## 로컬 RAG 계약 시험
+
+FR-05/06/07/14/15/18·NFR-02/03/04/05/06/07, WEB-02/04/05/08의 로컬 범위는 tests/test_rag_contracts.py로 검증한다. 결정성·정규화/차원/NaN·멱등/세대 교체·롤백/중단/재시작·기관/활성/해제/앵커·위조 후보·응답 근거/억제 계약을 포함한다. 합성 개발 부분표본은 tests/fixtures/synthetic/rag-goldset.json 및 scripts/validation/evaluate_phase2c2a.py를 사용한다. test_only 지표는 실제 임베딩/LLM 의미 품질·전체 대표셋 PASS가 아니다. 기존 실행 시점/범위·정량 목표·Phase 전체 회귀 규칙을 유지한다.
+
+## 실제 AI 시험 사전검증 계약
+
+[Phase 2C-2B 실행계획](docs/PHASE2C2B_EXECUTION_PLAN.md)의 동일 기관/활성 snapshot에서 keyword/vector/hybrid Recall@5·10, 기존 Hit@5 목표, 인용 유효성·독립 의미 정확성·무근거 주장·보류·기관 격리·모델별 지연/usage/비용을 검증한다. 상세 지표·분모·추가 실험 목표·호출수·중단 기준은 계획을 따르며 기존 정량 목표와 안전성0건 게이트는 유지한다. 합성 정답 초안은 독립 검토·동결 전 실모델 합격 근거로 사용하지 않는다. 사전 자료 구조검사와 기존123 PASS를 실제 AI 성능 실측으로 계산하지 않는다. 공급자 연결·비용/검색/출력 계약 변경 후 영향 회귀, 해당 Phase 완료 시 전체 회귀는 기존 실행 기준대로 필수다.
+
+## Stage2 프런트엔드 기반 검증
+
+scripts/validation/check_stage2_ui.cjs는 프로덕션4화면·active navigation·history/unknown 경로·키보드/포커스·미구현 표시·320/375/768px·글자200% reflow·명암6쌍·공통 상태 SSR·콘솔/외부/API 무요청을 검증한다. socket 제한 시 정적 응답 interception을 실제 HTTP 연동과 구별한다. 전체 WCAG/스크린리더/native zoom·실인증은 별도 미검증이다. Stage2 Feature Gate는 프런트엔드 영향 범위를 시험하며 backend 전체 회귀를 수행한 것으로 표시하지 않는다.
+
+## Stage3 업무 홈 검증
+
+scripts/validation/check_stage3_home.cjs로 홈 동선·history/reload·키보드·미구현 표시·320~1440px·글자200%를 검증한다. loading/empty/error는 SSR 표시 계약이며 실API 상태 전이가 아니다. Stage2 영향 회귀를 유지한다. 정적 응답 interception과 실제 HTTP 검증을 구별하고 5초 인지·3회 접근은 사용자 검증 전 확정하지 않는다. [현재 증거](outputs/STAGE3_REPORT.md).
+
+## Stage4A 문서 관리 검증
+
+`scripts/validation/check_stage4a_ui.cjs`는 File 확장자/크기/기본 시그니처, raw body·자료분류 헤더·endpoint/method, 오류 구분, 버전 목록·상세/전환, HTML 파일명 안전 표시, 중복 제출·재시도·등록 해제 확인·다운로드·키보드/320~1440px를 시험한다. 서버 전체 형식 검사와 기관 권한 검증을 브라우저 검사로 대체하지 않는다. 브라우저 모의 응답과 실제 서버 HTTP는 별도 결과로 보관한다.
+
+`check_stage4a_http.py`는 격리 work DB와 원래 deny-all 인증으로 실제 TCP HTTP401 차단만 검사한다. `check_stage4a_live.cjs`는 별도 실행된 local FastAPI8000/Vite preview4175에 실제 브라우저로 접속하며 auth override/interception을 사용하지 않는다. 실제 인증 성공 경로는 미구현이므로 모의 성공 시험을 운영 통합 PASS로 승격하지 않는다.
+
+Stage2/3 회귀는 의도적으로 변경된 문서 페이지를 401 모의 응답으로 확인한다. 과거 테스트 무요청 조건은 문서 GET만 예외이며 이외 외부/API 요청을 허용하지 않는다. 과거 증거는 수정하지 않는다. Chrome 다운로드 취소는 BLOCKED이며 파일 저장 PASS가 아니다. [실행 근거](outputs/STAGE4A_REPORT.md).
+
+## Stage4B-2 인증 검증
+
+tests/test_auth.py는 mock Supabase 전송→실제 BFF session dependency 경로의30개 시험이다. 401/403/타기관404, CSRF·Origin/단회challenge, 위조·중복cookie, 만료/idle/회전/logout/replay, 계정·기관·멤버십정지, 기관관리범위, worker/metadata 권한상승차단, provider미설정/실패, throttle, additive backup/별도복원·기존 source_blocks/버전/원본해시, 세션재시작/hash 저장·민감값미포함을 검사한다. dependency override가 아닌 실제 session dependency를 사용한다. 기존 전체123개도 인증 영향 회귀로 실행하며 mock principal 계약과 새 세션계약을 구분한다.
+
+scripts/validation/check_stage4b2_ui.cjs는 공급자미설정·로그인/기관표시·reader UI·logout/만료·브라우저저장소·키보드/반응형6개를 모의HTTP로 검증한다. 이전 Stage2/3/4A 회귀는 명시 mock /auth/status/me 응답만 추가하며 실제 공급자 성공으로 세지 않는다. 별도 local HTTP harness는 loopback dev cookie로만 BFF 실제 왕복을 확인하고 production Secure/TLS 성공과 구별한다. [실행 근거](outputs/STAGE4B2_REPORT.md).

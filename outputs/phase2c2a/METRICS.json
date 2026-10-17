@@ -1,0 +1,37 @@
+{
+  "measurement_start_utc": "2026-10-17T03:59:05+00:00",
+  "measurement_end_utc": "2026-10-17T04:07:02.061515+00:00",
+  "measured_elapsed_seconds": 477.062,
+  "receipt_to_measurement_start": "NOT_MEASURED: initial reading call preceded first UTC clock; exact total request duration unavailable",
+  "final_response_after_measurement": "NOT_MEASURED",
+  "model_reasoning_seconds": "NOT_MEASURED; no residual-time estimate",
+  "test_runner_seconds": 77.177,
+  "completed_test_runs": [
+    [
+      "work/phase2c2a/feature-run2.log",
+      13.618
+    ],
+    [
+      "outputs/phase2c2a/VALIDATION_FINAL.json",
+      63.559
+    ]
+  ],
+  "interrupted_test_run": "feature-run1: four unit successes then TestClient startup wait; aborted; no completed-run elapsed or PASS total",
+  "test_execution_requests": 3,
+  "test_restart_retries": 1,
+  "other_interrupted_run_stop_attempt": "CIM access denied once; session Ctrl-C succeeded",
+  "goldset_evaluation_executions": 2,
+  "goldset_second_execution_reason": "final source version after answer-contract changes; distinct immutable evidence file",
+  "tool_count_scope": "this user turn through this final evidence-writing exec request; nested tool invocations counted once each; function wrappers separately",
+  "function_exec_requests": 23,
+  "nested_tool_invocations": 43,
+  "nested_breakdown": {
+    "exec_command": 21,
+    "write_stdin": 7,
+    "apply_patch": 7,
+    "web_run": 4,
+    "clock": 3,
+    "request_permissions": 1
+  },
+  "actual_application_model_calls": 0
+}

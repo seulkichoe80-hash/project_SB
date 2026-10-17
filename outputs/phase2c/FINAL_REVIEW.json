@@ -1,0 +1,95 @@
+{
+  "date_kst": "2026-10-17",
+  "baseline_commit_sha": "f9a01d8c5b6b2b2311f4d8d8461b0f5b55b7a182",
+  "commit_count": 1,
+  "branch": "main",
+  "remotes": "",
+  "staged_files": [],
+  "working_tree": " M AGENTS.md\n M ARCHITECTURE.md\n M PRD.md\n M README.md\n M TASKS.md\n M TEST_PLAN.md\n M apps/api/main.py\n M apps/api/repository.py\n M apps/api/service.py\n M docs/G1_GATES.md\n M docs/GOLDSET.md\n?? apps/api/chunk_repository.py\n?? apps/api/chunk_service.py\n?? apps/api/chunk_worker.py\n?? apps/api/chunking.py\n?? docs/PHASE2C1_CHUNK_SEARCH.md\n?? outputs/PHASE2C1_REPORT.md\n?? outputs/phase2c/SAMPLE_CHUNKS_SEARCH.json\n?? outputs/phase2c/VALIDATION_FINAL.json\n?? outputs/phase2c/VALIDATION_RUN_1.json\n?? schemas/evidence-ref.schema.json\n?? scripts/validation/build_phase2c_evidence.py\n?? scripts/validation/phase2c_claim_checkpoint.py\n?? tests/test_chunking.py\n?? outputs/phase2c/FINAL_REVIEW.json\n",
+  "modified_since_before": [
+    {
+      "file": "apps/api/main.py",
+      "before": "ae19c50f5d3a4a61de01603ae49464cbffd3993b3a9d66bcec61fa6a2064f0ae",
+      "after": "47c26758167268ef6d2a64538aa40035db257dc006694942e3a95065eacc5786"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "before": "fc0723d1e37b847c29c4b580f4a37f52f27a7380396b1c19496d64b6dd63e3f7",
+      "after": "af2236475cceb1ee1d832a0a5601d313b5e8959c965bd4a49216b094fe2434ac"
+    },
+    {
+      "file": "apps/api/service.py",
+      "before": "ef64e8bdbfadc86a1ce75cadbb851cb1a88cff1e4ba5b2fe0f1f63a4bbc2b18b",
+      "after": "368df4f26d5c7158a99a0b939902329d6691dabaf4ded3ecc39f71e8ff2527eb"
+    },
+    {
+      "file": "tests/test_validation_contracts.py",
+      "before": "953b5fcfca07fbcdde7026315d6071f72aae8249caf67f83aa32dce0de0460cf",
+      "after": "c066e26c6d24dc2913e6f291e6ab739f5ab010fd15184a2b7bdf7fbe6e5aedbf"
+    },
+    {
+      "file": "docs/G1_GATES.md",
+      "before": "d658ab4e16bd34539626abda9b6a92dd3c184245d0bd8c93e312dd53eef06e42",
+      "after": "8057955246b3f23a9a06585b541d3160f4a8c0991ddb9aae052b9847d35ec62b"
+    },
+    {
+      "file": "docs/GOLDSET.md",
+      "before": "1b857b2582b7f41af5a1f860f8b41418842d32e40d58cc012de2372609b7ba9d",
+      "after": "d66b62de578a094a030f14f4f7543f9b841ec6d284095ce3d4aee937bb03c5c1"
+    },
+    {
+      "file": "AGENTS.md",
+      "before": "ab2c852f6751d7f34e863e897b54194e79efe86d3c6378fd78394c93400827fe",
+      "after": "d7965eaa3cd8f979027d6b9d3ff8ab4e7a580df73236ca02c6491d6d607ab2bd"
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "before": "5feb24ba13f9aac8f40936b0c4b0d299b0dee86604b7bcbee7656a9140f529ef",
+      "after": "23695e4a316f7ad73189d87ed7af7157603d7fe8f8e9bcbbf488dbc6ffb95bc2"
+    },
+    {
+      "file": "PRD.md",
+      "before": "20c96570a5d5eb775511c1a6782b27a217ef6d327acd3d4507048e00ba4d973b",
+      "after": "237b673f455ded3b6cc0abc6b3778d1b2f7ac608e4ec3296101d8f511d8e9b43"
+    },
+    {
+      "file": "README.md",
+      "before": "4f27541dd2498761f59e8dd06ce3499193a0db76fe5ee8b937546e3ff7c296ec",
+      "after": "0e1e44f44203ff3e941a6075709168aefb1ea2f77c541933a42f869106928722"
+    },
+    {
+      "file": "TASKS.md",
+      "before": "c1412def13c1584fb526774a5cd658687099da6bc56c0eaa31fb5f6dce91ef2b",
+      "after": "b5a649489fa76c7cd6edbc69e9e07505d132daadc77ffcb7dbd192cfbfb01bb2"
+    },
+    {
+      "file": "TEST_PLAN.md",
+      "before": "7169fbc47b8a3ab4874343babe2216e55e0d1eaa2aa416f7c08133040c8f91e9",
+      "after": "40c78b81dfadebd7ec78b5224826e25ad6772baef4bf04eefc3029431b2de3b7"
+    }
+  ],
+  "unchanged_previous_files_count": 82,
+  "missing_previous_files": [],
+  "historical_archive_checks": {
+    "PHASE1_EVIDENCE.zip": {
+      "crc_ok": true,
+      "entries": 57
+    },
+    "FOUNDATION_EVIDENCE_V2.zip": {
+      "crc_ok": true,
+      "entries": 22
+    },
+    "phase2b/EVIDENCE.zip": {
+      "crc_ok": true,
+      "entries": 45
+    }
+  },
+  "final_test_code_hash_mismatches": [],
+  "broken_links": [],
+  "secret_pattern_hits": [],
+  "fixture_v2_exact_historical_hash": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+  "fixture_v1": "missing; new explicitly named CRC-negative fixture used; historical manifest preserved",
+  "phase2c_changes_committed": false,
+  "push_or_deployment": false,
+  "note": "Secret scan is limited; user source documents and runtime state excluded. Initial commit authorized; no feature commit."
+}

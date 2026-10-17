@@ -1,5 +1,7 @@
 # PDF HWPX 골드셋과 실제 검색 평가
 
+2026-10-17 재개 시 HWPX 파일 누락을 확인했다. 정상 v2는 원본 저장본의 기존 SHA-256 일치로 복원했고 과거 v1 바이트는 미복원이다. 현재 부정 회귀는 별도 procedure-recovery-invalid.hwpx(PNG CRC 오류)를 사용하며 옛 v1과 같다고 주장하지 않는다. manifest/과거 보고는 보존한다. hwpx-recovery.json과 restore_synthetic_fixtures.py로 검토된 합성2개만 덮어쓰기 없이 복구한다. [복구 결과](../outputs/RESUME_RECOVERY_20261017.md)를 따른다.
+
 ## Phase 2B 합성 부분표본 추가
 
 tests/fixtures/synthetic/phase2b_pdf.py는 폰트 파일을 포함하지 않는 순수 Python 합성2페이지 PDF 생성기다. 명시 좌표 문단·2×2 선 표·병합 변형을 시험하며 PDF10/HWPX17개 블록의 저장/원문 재해결 증거는 outputs/phase2b/SAMPLE_EXTRACTION.json이다. HWPX는 기존 v2 원본을 보존하고 메모리 내 제목/병합/spine 변형만 사용했다. PDF2페이지는 Poppler 렌더를 확인했으나 한컴 HWPX 렌더는 NOT_RUN이다. 기대값은 코드에 명시한 합성 개발 표본이며 독립 검토자가 동결한 전체 골드셋이 아니다. 실제 공개 corpus 추가·대표 한국어 PDF/복잡 레이아웃·기존 문서5종/캡처20/질의40/절차10 목표는 별도로 남는다.

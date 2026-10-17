@@ -1,0 +1,453 @@
+{
+  "time_utc": "2026-10-17T03:36:31.593269+00:00",
+  "command": "scripts/validation/run_phase2b_checks.py --output outputs/phase2c/VALIDATION_FINAL.json",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "dependencies": {
+    "fastapi": "0.143.2",
+    "pydantic": "2.14.1",
+    "uvicorn": "0.54.0",
+    "pdfplumber": "0.11.9",
+    "pdfminer.six": "20251230",
+    "defusedxml": "0.7.1"
+  },
+  "counts": {
+    "PASS": 93,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "tests_run": 93,
+  "tests": [
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_active_version_swap_and_deregister",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_actual_worker_kill_and_new_process_recovery",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_cancel_during_chunking",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_expired_claim_recovery_and_stale_fence",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_hangul_and_heading_search",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_idempotent_jobs_and_results",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_keyword_filename_body_and_active_only",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_missing_anchor_and_false_quote_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_new_version_failure_keeps_old_active",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_org_read_mutation_and_evidence_blocked",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_other_version_evidence_mixing",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_pdf_hwpx_chunks_and_evidence_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_reader_and_anonymous_controls",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_real_http_server_process_restart_search",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_search_adapter_cannot_bypass_active_filter_or_invent_text",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_server_reopen_and_worker_subprocess",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_sql_literals_and_query_limits",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkIntegrationTests.test_transaction_failure_no_partial_search_retry",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkUnitTests.test_cells_not_duplicated_as_paragraphs",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkUnitTests.test_deterministic_and_source_scope",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkUnitTests.test_heading_context_and_image_no_ai_description",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkUnitTests.test_long_text_exact_ranges",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkUnitTests.test_merged_table_span_preserved",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkUnitTests.test_mixed_versions_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.ChunkUnitTests.test_table_grid_and_first_row_context",
+      "status": "PASS"
+    },
+    {
+      "test": "test_chunking.FixtureRecoveryTests.test_safe_fixture_recovery_and_no_overwrite",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_client_institution_does_not_set_authority",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_concurrent_duplicate_upload_published_once",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_cross_institution_read_and_mutation",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_database_failure_after_file_write",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_deregister_retains_original_and_blocks_jobs",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_disguised_extension_and_mime",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_duplicate_content_idempotent",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_failed_candidate_keeps_old_active",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_immutable_and_tamper_detection",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_invalid_state_and_duplicate_claim",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_malformed_pdf_structure",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_normal_hwpx",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_normal_pdf_metadata",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_partial_write_failure_recovery",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_reader_cannot_register_or_process",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_restart_persistence",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_same_filename_distinct_content",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_sha256_and_download",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_size_and_path_and_classification",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_unauthenticated_cannot_spoof_tenant",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_unsafe_or_corrupt_hwpx",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_unsupported_extension",
+      "status": "PASS"
+    },
+    {
+      "test": "test_document_api.DocumentTests.test_version_switch",
+      "status": "PASS"
+    },
+    {
+      "test": "test_live_document_http.LiveHTTPTests.test_real_http_and_process_restart",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_batch_rejects_fabricated_and_mixed_blocks",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_corrupt_parsers_reject",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_hwpx_cells_and_table",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_hwpx_explicit_heading",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_hwpx_image_relationship_and_xml_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_hwpx_merged_cell",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_hwpx_paragraphs_no_fake_page",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_hwpx_spine_order_not_filename_sort",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_no_invented_text_for_unextractable_page",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_pdf_merged_cell",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_pdf_page_coordinates",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_pdf_paragraphs",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParserTests.test_pdf_table_grid",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_auto_job_and_structured_storage_restart",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_claim_cannot_mix_another_document_version",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_corrupt_stored_original_and_wrong_worker_do_not_publish",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_cross_version_anchor_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_deregister_inflight_cannot_publish",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_direct_publication_rejects_forged_anchor",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_duplicate_request_and_claim",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_evidence_resolve_and_invalid_anchor",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_expired_worker_fenced_and_recovered",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_failed_new_version_keeps_previous_active",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_hwpx_anchor_rejects_missing_xml_path",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_hwpx_integration",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_legacy_database_backfill_preserves_original_and_active_pointer",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_legacy_transition_cannot_bypass_parser",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_parser_failure_retry_no_partial_results",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_publish_failure_rolls_back_all_blocks",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_reader_requires_active_version_and_failed_retry_is_explicit",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_real_http_upload_worker_evidence_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_tenant_and_auth_extraction_isolation",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_worker_cli_restart_after_real_process_kill",
+      "status": "PASS"
+    },
+    {
+      "test": "test_parsing.ParsingIntegrationTests.test_worker_renew_and_expiration_cap",
+      "status": "PASS"
+    },
+    {
+      "test": "test_validation_contracts.ContractTests.test_actual_embedding_metadata_and_duplicates_required",
+      "status": "PASS"
+    },
+    {
+      "test": "test_validation_contracts.ContractTests.test_ai_description_cannot_replace_original",
+      "status": "PASS"
+    },
+    {
+      "test": "test_validation_contracts.ContractTests.test_existing_but_irrelevant_quote_not_marked_verified",
+      "status": "PASS"
+    },
+    {
+      "test": "test_validation_contracts.ContractTests.test_foreign_inactive_or_unknown_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_validation_contracts.ContractTests.test_invalid_pixel_original_rejected_and_corrected_fixture_valid",
+      "status": "PASS"
+    },
+    {
+      "test": "test_validation_contracts.ContractTests.test_metrics_and_scope_leak",
+      "status": "PASS"
+    },
+    {
+      "test": "test_validation_contracts.ContractTests.test_missing_quote_and_location_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_validation_contracts.ContractTests.test_ungrounded_and_extra_fields_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_validation_contracts.ContractTests.test_valid_stays_candidate",
+      "status": "PASS"
+    }
+  ],
+  "log": "test_active_version_swap_and_deregister (test_chunking.ChunkIntegrationTests.test_active_version_swap_and_deregister) ... ok\ntest_actual_worker_kill_and_new_process_recovery (test_chunking.ChunkIntegrationTests.test_actual_worker_kill_and_new_process_recovery) ... ok\ntest_cancel_during_chunking (test_chunking.ChunkIntegrationTests.test_cancel_during_chunking) ... ok\ntest_expired_claim_recovery_and_stale_fence (test_chunking.ChunkIntegrationTests.test_expired_claim_recovery_and_stale_fence) ... ok\ntest_hangul_and_heading_search (test_chunking.ChunkIntegrationTests.test_hangul_and_heading_search) ... ok\ntest_idempotent_jobs_and_results (test_chunking.ChunkIntegrationTests.test_idempotent_jobs_and_results) ... ok\ntest_keyword_filename_body_and_active_only (test_chunking.ChunkIntegrationTests.test_keyword_filename_body_and_active_only) ... ok\ntest_missing_anchor_and_false_quote_rejected (test_chunking.ChunkIntegrationTests.test_missing_anchor_and_false_quote_rejected) ... ok\ntest_new_version_failure_keeps_old_active (test_chunking.ChunkIntegrationTests.test_new_version_failure_keeps_old_active) ... ok\ntest_org_read_mutation_and_evidence_blocked (test_chunking.ChunkIntegrationTests.test_org_read_mutation_and_evidence_blocked) ... ok\ntest_other_version_evidence_mixing (test_chunking.ChunkIntegrationTests.test_other_version_evidence_mixing) ... ok\ntest_pdf_hwpx_chunks_and_evidence_roundtrip (test_chunking.ChunkIntegrationTests.test_pdf_hwpx_chunks_and_evidence_roundtrip) ... ok\ntest_reader_and_anonymous_controls (test_chunking.ChunkIntegrationTests.test_reader_and_anonymous_controls) ... ok\ntest_real_http_server_process_restart_search (test_chunking.ChunkIntegrationTests.test_real_http_server_process_restart_search) ... ok\ntest_search_adapter_cannot_bypass_active_filter_or_invent_text (test_chunking.ChunkIntegrationTests.test_search_adapter_cannot_bypass_active_filter_or_invent_text) ... ok\ntest_server_reopen_and_worker_subprocess (test_chunking.ChunkIntegrationTests.test_server_reopen_and_worker_subprocess) ... ok\ntest_sql_literals_and_query_limits (test_chunking.ChunkIntegrationTests.test_sql_literals_and_query_limits) ... ok\ntest_transaction_failure_no_partial_search_retry (test_chunking.ChunkIntegrationTests.test_transaction_failure_no_partial_search_retry) ... ok\ntest_cells_not_duplicated_as_paragraphs (test_chunking.ChunkUnitTests.test_cells_not_duplicated_as_paragraphs) ... ok\ntest_deterministic_and_source_scope (test_chunking.ChunkUnitTests.test_deterministic_and_source_scope) ... ok\ntest_heading_context_and_image_no_ai_description (test_chunking.ChunkUnitTests.test_heading_context_and_image_no_ai_description) ... ok\ntest_long_text_exact_ranges (test_chunking.ChunkUnitTests.test_long_text_exact_ranges) ... ok\ntest_merged_table_span_preserved (test_chunking.ChunkUnitTests.test_merged_table_span_preserved) ... ok\ntest_mixed_versions_rejected (test_chunking.ChunkUnitTests.test_mixed_versions_rejected) ... ok\ntest_table_grid_and_first_row_context (test_chunking.ChunkUnitTests.test_table_grid_and_first_row_context) ... ok\ntest_safe_fixture_recovery_and_no_overwrite (test_chunking.FixtureRecoveryTests.test_safe_fixture_recovery_and_no_overwrite) ... ok\ntest_client_institution_does_not_set_authority (test_document_api.DocumentTests.test_client_institution_does_not_set_authority) ... ok\ntest_concurrent_duplicate_upload_published_once (test_document_api.DocumentTests.test_concurrent_duplicate_upload_published_once) ... ok\ntest_cross_institution_read_and_mutation (test_document_api.DocumentTests.test_cross_institution_read_and_mutation) ... ok\ntest_database_failure_after_file_write (test_document_api.DocumentTests.test_database_failure_after_file_write) ... ok\ntest_deregister_retains_original_and_blocks_jobs (test_document_api.DocumentTests.test_deregister_retains_original_and_blocks_jobs) ... ok\ntest_disguised_extension_and_mime (test_document_api.DocumentTests.test_disguised_extension_and_mime) ... ok\ntest_duplicate_content_idempotent (test_document_api.DocumentTests.test_duplicate_content_idempotent) ... ok\ntest_failed_candidate_keeps_old_active (test_document_api.DocumentTests.test_failed_candidate_keeps_old_active) ... ok\ntest_immutable_and_tamper_detection (test_document_api.DocumentTests.test_immutable_and_tamper_detection) ... ok\ntest_invalid_state_and_duplicate_claim (test_document_api.DocumentTests.test_invalid_state_and_duplicate_claim) ... ok\ntest_malformed_pdf_structure (test_document_api.DocumentTests.test_malformed_pdf_structure) ... ok\ntest_normal_hwpx (test_document_api.DocumentTests.test_normal_hwpx) ... ok\ntest_normal_pdf_metadata (test_document_api.DocumentTests.test_normal_pdf_metadata) ... ok\ntest_partial_write_failure_recovery (test_document_api.DocumentTests.test_partial_write_failure_recovery) ... ok\ntest_reader_cannot_register_or_process (test_document_api.DocumentTests.test_reader_cannot_register_or_process) ... ok\ntest_restart_persistence (test_document_api.DocumentTests.test_restart_persistence) ... ok\ntest_same_filename_distinct_content (test_document_api.DocumentTests.test_same_filename_distinct_content) ... ok\ntest_sha256_and_download (test_document_api.DocumentTests.test_sha256_and_download) ... ok\ntest_size_and_path_and_classification (test_document_api.DocumentTests.test_size_and_path_and_classification) ... ok\ntest_unauthenticated_cannot_spoof_tenant (test_document_api.DocumentTests.test_unauthenticated_cannot_spoof_tenant) ... ok\ntest_unsafe_or_corrupt_hwpx (test_document_api.DocumentTests.test_unsafe_or_corrupt_hwpx) ... ok\ntest_unsupported_extension (test_document_api.DocumentTests.test_unsupported_extension) ... ok\ntest_version_switch (test_document_api.DocumentTests.test_version_switch) ... ok\ntest_real_http_and_process_restart (test_live_document_http.LiveHTTPTests.test_real_http_and_process_restart) ... ok\ntest_batch_rejects_fabricated_and_mixed_blocks (test_parsing.ParserTests.test_batch_rejects_fabricated_and_mixed_blocks) ... ok\ntest_corrupt_parsers_reject (test_parsing.ParserTests.test_corrupt_parsers_reject) ... ok\ntest_hwpx_cells_and_table (test_parsing.ParserTests.test_hwpx_cells_and_table) ... ok\ntest_hwpx_explicit_heading (test_parsing.ParserTests.test_hwpx_explicit_heading) ... ok\ntest_hwpx_image_relationship_and_xml_roundtrip (test_parsing.ParserTests.test_hwpx_image_relationship_and_xml_roundtrip) ... ok\ntest_hwpx_merged_cell (test_parsing.ParserTests.test_hwpx_merged_cell) ... ok\ntest_hwpx_paragraphs_no_fake_page (test_parsing.ParserTests.test_hwpx_paragraphs_no_fake_page) ... ok\ntest_hwpx_spine_order_not_filename_sort (test_parsing.ParserTests.test_hwpx_spine_order_not_filename_sort) ... ok\ntest_no_invented_text_for_unextractable_page (test_parsing.ParserTests.test_no_invented_text_for_unextractable_page) ... ok\ntest_pdf_merged_cell (test_parsing.ParserTests.test_pdf_merged_cell) ... ok\ntest_pdf_page_coordinates (test_parsing.ParserTests.test_pdf_page_coordinates) ... ok\ntest_pdf_paragraphs (test_parsing.ParserTests.test_pdf_paragraphs) ... ok\ntest_pdf_table_grid (test_parsing.ParserTests.test_pdf_table_grid) ... ok\ntest_auto_job_and_structured_storage_restart (test_parsing.ParsingIntegrationTests.test_auto_job_and_structured_storage_restart) ... ok\ntest_claim_cannot_mix_another_document_version (test_parsing.ParsingIntegrationTests.test_claim_cannot_mix_another_document_version) ... ok\ntest_corrupt_stored_original_and_wrong_worker_do_not_publish (test_parsing.ParsingIntegrationTests.test_corrupt_stored_original_and_wrong_worker_do_not_publish) ... ok\ntest_cross_version_anchor_rejected (test_parsing.ParsingIntegrationTests.test_cross_version_anchor_rejected) ... ok\ntest_deregister_inflight_cannot_publish (test_parsing.ParsingIntegrationTests.test_deregister_inflight_cannot_publish) ... ok\ntest_direct_publication_rejects_forged_anchor (test_parsing.ParsingIntegrationTests.test_direct_publication_rejects_forged_anchor) ... ok\ntest_duplicate_request_and_claim (test_parsing.ParsingIntegrationTests.test_duplicate_request_and_claim) ... ok\ntest_evidence_resolve_and_invalid_anchor (test_parsing.ParsingIntegrationTests.test_evidence_resolve_and_invalid_anchor) ... ok\ntest_expired_worker_fenced_and_recovered (test_parsing.ParsingIntegrationTests.test_expired_worker_fenced_and_recovered) ... ok\ntest_failed_new_version_keeps_previous_active (test_parsing.ParsingIntegrationTests.test_failed_new_version_keeps_previous_active) ... ok\ntest_hwpx_anchor_rejects_missing_xml_path (test_parsing.ParsingIntegrationTests.test_hwpx_anchor_rejects_missing_xml_path) ... ok\ntest_hwpx_integration (test_parsing.ParsingIntegrationTests.test_hwpx_integration) ... ok\ntest_legacy_database_backfill_preserves_original_and_active_pointer (test_parsing.ParsingIntegrationTests.test_legacy_database_backfill_preserves_original_and_active_pointer) ... ok\ntest_legacy_transition_cannot_bypass_parser (test_parsing.ParsingIntegrationTests.test_legacy_transition_cannot_bypass_parser) ... ok\ntest_parser_failure_retry_no_partial_results (test_parsing.ParsingIntegrationTests.test_parser_failure_retry_no_partial_results) ... ok\ntest_publish_failure_rolls_back_all_blocks (test_parsing.ParsingIntegrationTests.test_publish_failure_rolls_back_all_blocks) ... ok\ntest_reader_requires_active_version_and_failed_retry_is_explicit (test_parsing.ParsingIntegrationTests.test_reader_requires_active_version_and_failed_retry_is_explicit) ... ok\ntest_real_http_upload_worker_evidence_roundtrip (test_parsing.ParsingIntegrationTests.test_real_http_upload_worker_evidence_roundtrip) ... ok\ntest_tenant_and_auth_extraction_isolation (test_parsing.ParsingIntegrationTests.test_tenant_and_auth_extraction_isolation) ... ok\ntest_worker_cli_restart_after_real_process_kill (test_parsing.ParsingIntegrationTests.test_worker_cli_restart_after_real_process_kill) ... ok\ntest_worker_renew_and_expiration_cap (test_parsing.ParsingIntegrationTests.test_worker_renew_and_expiration_cap) ... ok\ntest_actual_embedding_metadata_and_duplicates_required (test_validation_contracts.ContractTests.test_actual_embedding_metadata_and_duplicates_required) ... ok\ntest_ai_description_cannot_replace_original (test_validation_contracts.ContractTests.test_ai_description_cannot_replace_original) ... ok\ntest_existing_but_irrelevant_quote_not_marked_verified (test_validation_contracts.ContractTests.test_existing_but_irrelevant_quote_not_marked_verified) ... ok\ntest_foreign_inactive_or_unknown_rejected (test_validation_contracts.ContractTests.test_foreign_inactive_or_unknown_rejected) ... ok\ntest_invalid_pixel_original_rejected_and_corrected_fixture_valid (test_validation_contracts.ContractTests.test_invalid_pixel_original_rejected_and_corrected_fixture_valid) ... ok\ntest_metrics_and_scope_leak (test_validation_contracts.ContractTests.test_metrics_and_scope_leak) ... ok\ntest_missing_quote_and_location_rejected (test_validation_contracts.ContractTests.test_missing_quote_and_location_rejected) ... ok\ntest_ungrounded_and_extra_fields_rejected (test_validation_contracts.ContractTests.test_ungrounded_and_extra_fields_rejected) ... ok\ntest_valid_stays_candidate (test_validation_contracts.ContractTests.test_valid_stays_candidate) ... ok\n\n----------------------------------------------------------------------\nRan 93 tests in 33.364s\n\nOK\n",
+  "code_sha256": {
+    "apps/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "apps/api/chunking.py": "b43f02919f83fd32137e72b4f7860ddb0aef4cd9527e090cfd5100789b344e9a",
+    "apps/api/chunk_repository.py": "377f7ddc612eccc1e8465c3fa447fba7ae5226f642d7834c08f67141209e3119",
+    "apps/api/chunk_service.py": "b6abe2e25d31489b492dde6b9a8576cff7ffc696ff7bbf4f3250f9b10b4d787c",
+    "apps/api/chunk_worker.py": "9da9d0c7b9f187e27eb989c4b4657b0d7e377c593e34bc88f73c88434be6920c",
+    "apps/api/errors.py": "44c2bf537010eaf0d5b12932b36e98fb52c452dd2ce1793a6f0ba68f43ac6e7e",
+    "apps/api/formats.py": "4740436e93f65f4a719cbe89e0dc9784f1f4f0de94be9d195c296012fd43f77e",
+    "apps/api/main.py": "47c26758167268ef6d2a64538aa40035db257dc006694942e3a95065eacc5786",
+    "apps/api/models.py": "c0407efeb180afe5e0c6a8e371a6a343e687e627866d3ceb02447d35f8007887",
+    "apps/api/parsing_repository.py": "f2343800279ba80b0352708523fbb4d3c2d965755193facb99757a0af85b5eed",
+    "apps/api/parsing_service.py": "a81d152fcbf48377ff790be4449bfe4d9d559f458ed1d9911ad86bd33a0e0d12",
+    "apps/api/repository.py": "af2236475cceb1ee1d832a0a5601d313b5e8959c965bd4a49216b094fe2434ac",
+    "apps/api/service.py": "368df4f26d5c7158a99a0b939902329d6691dabaf4ded3ecc39f71e8ff2527eb",
+    "apps/api/storage.py": "4a9271da1c3808021d430757b01a124b2de058f04e1a1d7ed67f840e1821ce9a",
+    "apps/api/worker.py": "6f8231dd7ec32dcc3d0a01f584e177792ff17bd56411100b7a2b09c57c273a9d",
+    "apps/api/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "apps/api/parsers/contracts.py": "36116d8d60755da59cf2175ef38187077930b380929e0d2300e44b8f9ff71ed8",
+    "apps/api/parsers/hwpx.py": "7b5248df87492a7d28b28ef31cc38afef6379e7ebf988cc22056932da42736b6",
+    "apps/api/parsers/pdf.py": "707a298ba678d8f9b6904eb6e01777b46e7a240788333165dcd757b24b284bc5",
+    "apps/api/parsers/__init__.py": "668fec1eddd58763504c728ac807ebee1b32a1975cca3506d8531a65a25e9a6f",
+    "tests/test_chunking.py": "86f8419117a04e492eb1fd6fb5cce838f835352e11da85bf458c841473aa45e1",
+    "tests/test_document_api.py": "7991e56fa54d280829bc3ae891279c47a86e7b58fa36959ef7eaf3cb0a09c3dc",
+    "tests/test_live_document_http.py": "6144e8cfd9b15bd2568b1e6c8cd410d85fc956bfe6203f73ff71931c6e4d3bdb",
+    "tests/test_parsing.py": "f48c652eeca3d2828764c2b4f4d1f3108a5bfcab10315ca14468cf90e375654a",
+    "tests/test_validation_contracts.py": "c066e26c6d24dc2913e6f291e6ab739f5ab010fd15184a2b7bdf7fbe6e5aedbf",
+    "tests/fixtures/synthetic/phase2b_pdf.py": "8baa9cd9c3459fe372b8aac5f4cd640daa8e0146ac66d3a76702910b186591bf",
+    "scripts/validation/build_phase2b_evidence.py": "0a10113724ef559ec7eec2017881f3c5467b19218e11ac227d309720f1a1a9aa",
+    "scripts/validation/evaluate_retrieval.py": "f7150de6da5d1e5a9221980b9c2e65ab3fea2c826a8f4a0030a38135d3b6457c",
+    "scripts/validation/generate_hwpx_fixture.py": "fd9c5d8f3b8323602de61d1a2f8d48f1d74c0112ca495c810047aa04fd11baaa",
+    "scripts/validation/phase2a_http_server.py": "f68d13dcffcbec2e9a2da83685f08418386eb28a66ab965794d4acc1673677df",
+    "scripts/validation/phase2b_claim_checkpoint.py": "ffe5e063850dd6fbbeb9dcb72263258d080649cd2ce3de6ffccd132c74959cb6",
+    "scripts/validation/phase2b_http_server.py": "2e2471256f0aafee62fc9f0e75d2cd2289b2788531eb4c3ebdf34cb92c342704",
+    "scripts/validation/phase2c_claim_checkpoint.py": "778b3274362137511d16e20f1df7f8a533f3ce779450cb7097d525bf3b363e7a",
+    "scripts/validation/probe_hwpx.py": "d969fac6d7bb87245fdc826dc4dc6890b5ee913520d7c484bec610321020d9f7",
+    "scripts/validation/restore_synthetic_fixtures.py": "c57d634ac8418db9ccccf66102469c8e4f699fad05c8587ab71e0f8d46c561da",
+    "scripts/validation/run_phase2a_checks.py": "e56c970b66ca6fd5042e30e666280364fa672c8a5f4b057b2d718fe2eb42144d",
+    "scripts/validation/run_phase2b_checks.py": "0278116c910ec44a2e7ae875a383319a34aa894b04ca435df94a2df2786f0132",
+    "scripts/validation/workflow_contract.py": "a3c609717310bd6868d6c3a6b77ead5b141c352b299a1c82617ad22bb86f0d09",
+    "requirements-api-lock.txt": "2060c018be203c684a97ecfd4c7c360319eb1739054875bc5d8fbadb1f9b6921",
+    "requirements-api-test.txt": "059dc988a9a73484deed1635f0ac2305b3f14b20e64eba4fa6e77ecd2bcd49f6",
+    "requirements-api.txt": "a85311cde2ed79215feaee1346970bdd679958272e22a77c9035e4d8e4fa0a57",
+    "requirements-parsing-lock.txt": "75bdfc6c58912001cde78f88e339e08b1bac7603f9995e06b162fc1705c6b8ba",
+    "requirements-parsing.txt": "28c7f55fee775dd0763b664844b0e6c5aa8c044ecb9fa3f6893eb6ab2c750142",
+    "requirements-validation.txt": "4f1db60394d14641f8e631151903a34e1415e9fd1dc89c103fffb90306c12e68"
+  },
+  "scope": "synthetic/local; explicit mock principals; no LLM/embedding/cloud",
+  "not_run": [
+    "Hancom visual order/page layout",
+    "real public document corpus",
+    "real auth/JWT",
+    "cloud deployment",
+    "actual LLM",
+    "embeddings",
+    "full representative goldset"
+  ],
+  "external_api_calls": 0
+}

@@ -1,5 +1,11 @@
 # 기술 구성과 데이터 처리 흐름
 
+문서 갱신: 구조·기술 계약이 변경될 때 해당 절을 갱신한다. 진척도·완료 상태는 [TASKS](TASKS.md), 단계별 상세 보고·증거는 outputs에서 관리한다. 아래 기존 구현 기록은 보존하되 동일한 완료 이력을 추가로 반복하지 않는다.
+
+## Phase 2C-1 구현 반영 2026-10-17
+
+[청킹/검색 계약](docs/PHASE2C1_CHUNK_SEARCH.md)이 추가됐다. canonical source_blocks→순수 구조 chunker→영속 chunk_jobs→별도 chunk_worker→chunk_items/current 세대 원자 게시→SQLiteKeywordSearch 흐름이다. 기본 parsing schema2를 유지하고 schema_extensions(chunks,1)로 추가 모듈을 기록한다. 새 설정 세대/실패는 이전 정상 세대를 자동 대체하지 않는다. API·저장소·서비스·검색 어댑터를 분리하고 서비스에서 기관/활성/원본hash/현재 청크를 재검사한다. 실제 embedding/LLM·클라우드 및 전체 G1/G2는 미완료다.
+
 ## Phase 2B 구현 반영 2026-10-16
 
 현재 로컬 파싱 구현은 [Phase 2B 계약](docs/PHASE2B_PARSING.md)이 기준이다. PDF/HWPX ParserAdapter와 SourceBlock/Anchor, schema v2의 parse_jobs·parse_attempts·source_blocks를 추가했다. 등록→영속 queued→별도 worker claim/lease→구조 재해결→전체 블록 원자 게시→명시 활성화 흐름이다. 만료된 시도는 새 worker가 자동 복구하고 stale 시도·다른 버전·등록 해제 후 게시를 거부한다. 기존 DB·원본·활성 포인터는 보존한다. HWPX XML 순서와 실제 화면 순서/페이지는 구별한다. 전체 G1/G2·실인증·AI·클라우드 완료가 아니다. 이하 Phase 2A와 이전 관찰은 각 시점의 범위로 보존한다.
@@ -192,3 +198,23 @@ DB 백업만으로 파일 백업이 된다고 가정하지 않는다. 객체 별
 현재 운영 URL·리소스·키·마이그레이션/실행 스크립트는 없다. 구성 변수 계약은 API_BASE_URL/Auth 공개 설정(프런트)과 DATABASE_URL/DB_POOL_URL/AUTH_ISSUER/AUTH_AUDIENCE/ALLOWED_ORIGINS/STORAGE_URL/비공개 bucket·관리키/LLM_PROVIDER/모델별 API 키/EMBEDDING_MODEL/예산 한도(서버)다. 값은 실제 시크릿 관리 기능으로만 입력한다.
 
 독립 심사는 공개 URL·평가자 계정 시연과 별개로, 소스+잠금파일+환경 예제+공개/합성 샘플+네이티브 실행/초기화/테스트·모델 교체 방법을 제공한다. 설치가 필요한 주체는 소스를 독립 실행하는 평가자/개발자이며 일반 직원 사용자는 브라우저만 사용한다. Docker는 선택적 보조다. 공공 GitLab 연동이 플랫폼에서 가능한지 확인하고 불가하면 승인된 소스 아카이브/CLI 배포 경로를 사용한다. 공개 Git 미러를 자동 생성하지 않는다.
+
+## 로컬 RAG 어댑터 계약
+
+[Phase 2C-2A 계약](docs/PHASE2C2A_RAG.md)에 명시 주입형 Embedding/LLM/HybridSearch와 SQLite 벡터 세대 저장을 정의한다. 기존 HTTP 경로·파서 schema는 유지한다. 테스트 대역은 실제 모델/의미검색 실증을 대체하지 않으며 [연결 사전 검토](docs/LLM_API_PREFLIGHT.md)를 따른다.
+
+## 프런트엔드 공통 기반
+
+apps/web의 [Stage2 계약](docs/STAGE2_FRONTEND.md)은 기존 검증 버전을 고정한 React/TypeScript/Vite·CSS 토큰·해시 화면 전환이다. Stage4A는 DocumentsPage → API Client → 동일 출처 /api → FastAPI의 문서 API 경계를 추가한다. 실제 인증/기관 주체·AI는 미구현이고 백엔드·DB·EvidenceRef 계약은 유지한다.
+
+### Stage4A 문서 API 경계
+
+client는 기본 /api(개발·preview에서 loopback8000 proxy), 선택적 공개 VITE_API_BASE_URL을 사용한다. 배포 rewrite는 별도 승인/검증 대상이다. raw File body·filename query·canonical Content-Type·X-Data-Classification을 전달하며 토큰/기관/관리자 권한을 생성하지 않는다. 서버가 접근 주체와 기관을 결정하고 기본401을 반환한다. cookie는 same-origin만, cache:no-store·redirect:error다.
+
+목록은 GET /documents?active_only=false의 허용된 버전별 행이며 관리자 이외에는 서버가 active_only를 강제한다. 상세/원본은 문서·버전 ID로 조회한다. parsing GET/retry POST, chunk-jobs POST/GET/retry POST를 구분하며 worker transition이나 운영 권한 우회를 제공하지 않는다. 청킹은 UI 요청으로 받은 job ID만 조회하고 기존 job 목록·재접속 자동 발견 API가 없음을 표시한다. 자동 polling은 없으며 수동 상태 갱신을 제공한다.
+
+DELETE /documents/{id}는 논리적 등록 해제다. native dialog로 확인하고 원본 영구 삭제로 표현하지 않는다. raw 업로드 원본/버전 저장 정책은 서버 기존 계약을 유지한다. 상세 근거 렌더러·AI·새 버전 활성 전환 UI는 이번 범위 밖이다. 전체 ZIP/XML·원본 진위/권한 검증은 서버 책임이며 프런트 시그니처 검사는 사전 안내다.
+
+### Stage4B-2 BFF 인증 경계
+
+[로컬 인증 계약](docs/STAGE4B2_AUTH.md)에 따라 IdentityProviderAdapter와 명시 mock 전송 기반 Supabase adapter·서버세션·HttpOnly cookie·CSRF/Origin을 추가했다. 기본 provider 미설정401/로그인503을 유지한다. 세션의 검증된 subject와 서버 active membership으로 기존 Principal을 만들며 client 기관/role·수정 가능한 metadata는 사용하지 않는다. 기존 문서/근거/worker 계층과 role literal은 유지하고 auth 테이블만 추가한다. 실제 provider transport/JWT·refresh/공급자정지 동기화·배포는 미구현이다.

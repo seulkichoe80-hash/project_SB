@@ -1,0 +1,28 @@
+{
+  "elapsed_to_report_seconds": 879.553865,
+  "baseline_files": 222,
+  "existing_changed": [
+    "apps/api/main.py",
+    "apps/web/src/App.tsx",
+    "apps/web/src/main.tsx",
+    "apps/web/src/api/documents.ts",
+    "apps/web/src/components/AppLayout.tsx",
+    "apps/web/src/pages/DocumentsPage.tsx",
+    "scripts/validation/check_stage2_ui.cjs",
+    "scripts/validation/check_stage3_home.cjs",
+    "scripts/validation/check_stage4a_ui.cjs",
+    "TASKS.md",
+    "ARCHITECTURE.md",
+    "TEST_PLAN.md"
+  ],
+  "old_sources_preserved": "work/stage4b2/before",
+  "old_evidence_fixture_schema_deleted": false,
+  "backend_tests": 153,
+  "new_auth_tests": 30,
+  "backend_seconds": 64.227,
+  "ui_seconds": 11.0476148,
+  "local_bff_seconds": 3.1683589999999997,
+  "head": "f9a01d8c5b6b2b2311f4d8d8461b0f5b55b7a182",
+  "external_provider_calls": 0,
+  "note": "initial pre-change baseline attempt timed out60s before local network grant; later existing123 and final153 rerun PASS. Model inference time not measured."
+}

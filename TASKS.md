@@ -1,5 +1,25 @@
 # 단계별 개발 작업과 완료 기준
 
+## 개발 지침 효율 개선 2026-10-17
+
+- 현재 진척도·완료 상태는 이 문서에서 관리하고 단계별 상세 보고·증거는 outputs에 보존한다. PRD/ARCHITECTURE/TEST_PLAN은 각 요구사항/구조·계약/시험 기준이 변경될 때만 해당 절을 갱신한다. 기존 이력·문서 링크·요구사항 추적성은 유지한다.
+- [x] AGENTS의 작업별 확인 범위·기술 재검증 조건·Git 보존 방식 명확화.
+- [x] TEST_PLAN으로 실행 시점·영향 범위·결과 재사용 기준 통합, Skill을 Feature/Phase/Release/Read-only 수준으로 구분.
+- 변경 검증 결과와 전후 사본·해시·diff는 work/instruction-optimization-20261017/에 기록한다. 앱·테스트 코드는 변경하지 않으며 이번 문서 검증을 기능 테스트 PASS로 계산하지 않는다.
+
+## Phase 2C-1 구조 청킹·EvidenceRef·키워드 검색 2026-10-17
+
+- [x] 누락 합성 v2 바이트 동일 복원, v1은 미복원 기록 유지·별도 PNG 손상 fixture, 재개 기준67개 회복.
+- [x] 사용자 명시 승인·안전 파일 검토 후 초기 로컬 커밋 생성. 원격/push/배포 없음.
+- [x] 결정론 청킹·문단/제목·표 행열/병합·긴 원문 분할·중복 본문 방지.
+- [x] 기관/문서/버전/source_block/원문 anchor를 가진 EvidenceRef·원문 재해결.
+- [x] 별도 영속 청킹 작업·원자 게시·실패 재시도·worker 중단/재시작·옛 활성본 유지.
+- [x] SQLite 키워드 검색·문서명/제목/본문·기관/활성/등록 해제 필터·어댑터 경계.
+- [x] 신규 기능25+자료 복구1+기존67=93개 시험 PASS. 증거 outputs/phase2c/VALIDATION_FINAL.json.
+- [ ] Phase 2C-2 범위 확정: 실제 임베딩은 B-03 사전 검증·필요시 예산 승인 후, 기존 키워드 기준과 비교. 현재 실모델/임베딩은 NOT_RUN.
+
+현재 계약은 [청킹/검색](docs/PHASE2C1_CHUNK_SEARCH.md), 결과는 [보고](outputs/PHASE2C1_REPORT.md)다. 기존 Phase 이력과 전체 G1/G2 미완료는 유지한다.
+
 ## 저장소 안정화와 현재 게이트
 
 루트의 7개 문서가 단일 기준이다. [G1 A/B/C/D](docs/G1_GATES.md)가 개발/기능/배포/제출의 현재 진입 조건이며 이전 전체 G1 차단 설명보다 우선한다. 전체 G1 미완료와 개별 A 준비를 구별한다. 이번 변경은 사용자 지시에 따른 게이트 재분류이며 미실행 시험을 PASS로 바꾸지 않는다.
@@ -140,3 +160,42 @@ G7 완료: 등록과 접수 확인 증거가 있어야 제출 완료다. 로컬 
 | 승인된 제출 | 11/11 | 비공개 공공 GitLab·심사 권한·URL·접수 증빙, 마감 후 산출물 업데이트 금지 |
 
 G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동으로 무료 배포하지 않는다. 일정에 영향이 생기면 완료한 증거와 남은 조건을 보고한다. 현재 Phase 2의 단계별 착수는 docs/G1_GATES.md의 A/B 조건으로 판단하며 전체 앱 구현은 이번 범위에 없다. 등록 해제·원본 불변·모델 독립·공모전 제출 규격은 종전 기준을 유지한다.
+
+## Phase 2C-2A 로컬 RAG 계약 2026-10-17
+
+- [x] Embedding/LLM/HybridSearch 인터페이스와 명시 주입형 결정적 테스트 대역. 실제 모델은 미연결.
+- [x] SQLite 벡터 세대·원자 게시·멱등 재색인/전환·RRF·EvidenceRef/기관/현재 활성 버전 재검사.
+- [x] 합성 PDF/HWPX 2문서·13질의 개발 평가셋과 keyword/vector/hybrid 비교. 전체 대표 골드셋·실제 의미검색은 미검증.
+- [x] Feature Gate 및 Phase Gate 전체 회귀123개(기존93+신규30) PASS. [실행 결과](outputs/phase2c2a/VALIDATION_FINAL.json).
+- 계약은 [로컬 RAG](docs/PHASE2C2A_RAG.md), 실제 모델 연결 전 조건은 [API 사전 검토](docs/LLM_API_PREFLIGHT.md)를 따른다. 기존 미검증·G1/G2와 공개 배포 차단은 유지한다.
+
+## Phase 2C-2B 실제 AI 연결 사전검증
+
+- [x] 공식 모델/API/단가·Deprecated 상태 조사와 승인용 [실행계획](docs/PHASE2C2B_EXECUTION_PLAN.md) 작성. 기존 설정 변경 없음.
+- [x] 합성7문서·40질의 원문/EvidenceRef·정답·절차·보류 검토자료 준비 및 구조 확인.
+- [ ] 독립 정답 검토/동결, 키·계정·모델 가용성 확인, 실제 adapter/예산 통제/검색 질의·절차 출력 계약 선행 구현·회귀.
+- [ ] 자료·2LLM/2embedding·API사용료 최대USD2 승인 후에만 실제 시험. 현재 실제 호출0, 기존123 PASS는 역사적 기록이며 전체 Phase/B-02/B-03 완료가 아니다.
+
+## Stage2 디자인 시스템·공통 레이아웃
+
+- [x] apps/web 검증 버전 고정·잠금파일·CSS 토큰·공통 컴포넌트·4화면 해시 전환·키보드/반응형 기반.
+- [x] 오프라인 npm ci·타입검사·프로덕션 빌드, Chrome 정적 번들14개 검사 PASS. [보고](outputs/STAGE2_REPORT.md)·[계약](docs/STAGE2_FRONTEND.md).
+- [ ] Stage3는 별도 승인 후. API/인증/실제 AI·업로드/검색·원문 검토·실제 업무 수치는 이번 범위 밖이다.
+
+## Stage3 업무 홈
+
+- [x] 승인된 업무 홈 구현 및 Feature Gate 타입/빌드·홈6개·Stage2 회귀14개 PASS. [현재 보고](outputs/STAGE3_REPORT.md).
+- [ ] Stage4 별도 승인 필요. 실제 HTTP·사용자 목표 검증 미검증 유지.
+
+## Stage4A 문서 관리 UI·API Client
+
+- [x] raw body 등록·검증·중복 제출 방지·목록/상세/버전·원본 다운로드 요청·상태/재시도·논리 해제 확인 UI.
+- [x] 타입/빌드·모의 신규16개/기존 UI20개·실제 FastAPI HTTP401 차단6개 PASS. [현재 실행 보고](outputs/STAGE4A_REPORT.md).
+- [ ] Feature Gate 잔여: 실제 브라우저 HTTP와 다운로드 파일 저장 BLOCKED. 인증된 통합·전체 접근성 미검증.
+- [ ] Stage4B/4C는 별도 승인 후. 백엔드·DB·원문/EvidenceRef·실인증 변경 없음.
+
+## Stage4B-2 로컬 인증·기관 권한
+
+- [x] 기본 deny-all 유지, provider mock 전송 계약·BFF 세션·CSRF/Origin·기관 멤버십·React 로그인 상태 구현.
+- [x] 기존123+신규30=153 backend 회귀 및 auth/UI 영향 검증. [보고](outputs/STAGE4B2_REPORT.md), [계약](docs/STAGE4B2_AUTH.md).
+- [ ] Stage4B-3 실제 계정/키/remote transport/JWT·세션 lifecycle·TLS 실증은 별도 승인 후. 다운로드 파일저장 BLOCKED는 기존 상태 유지.

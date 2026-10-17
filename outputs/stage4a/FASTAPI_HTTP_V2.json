@@ -1,0 +1,42 @@
+{
+  "scope": "Actual uvicorn TCP HTTP via urllib; no auth override; NOT authenticated browser integration",
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/documents?active_only=false",
+      "status": 401,
+      "result": "PASS"
+    },
+    {
+      "method": "POST",
+      "path": "/documents?filename=synthetic.pdf",
+      "status": 401,
+      "result": "PASS"
+    },
+    {
+      "method": "GET",
+      "path": "/documents/d/versions/v",
+      "status": 401,
+      "result": "PASS"
+    },
+    {
+      "method": "GET",
+      "path": "/documents/d/versions/v/original",
+      "status": 401,
+      "result": "PASS"
+    },
+    {
+      "method": "GET",
+      "path": "/documents/d/versions/v/parsing",
+      "status": 401,
+      "result": "PASS"
+    },
+    {
+      "method": "DELETE",
+      "path": "/documents/d",
+      "status": 401,
+      "result": "PASS"
+    }
+  ],
+  "seconds": 1.6687777999995888
+}

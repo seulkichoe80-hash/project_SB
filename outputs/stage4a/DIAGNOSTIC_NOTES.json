@@ -1,0 +1,8 @@
+{
+  "first_two_runs": "test harness selector mismatch and unhandled download wait, no completed JSON; corrected and reran",
+  "RUN3_RUN4": "download canceled and 320px overflow; hidden accessible-label position fixed; earlier JSON preserved",
+  "FINAL_V2": "XSS assertion selector too strict, corrected to textContent check; no HTML execution",
+  "ASGI_TestClient": "hung; interrupted via Ctrl-C; no PASS claimed, no endpoint results produced",
+  "initial_HTTP": "restricted network URLError preserved; network permission granted, actual urllib HTTP retest6 PASS",
+  "live_local_servers": "started only loopback for verification, both stopped with Ctrl-C"
+}

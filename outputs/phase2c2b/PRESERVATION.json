@@ -1,0 +1,23 @@
+{
+  "head": "f9a01d8c5b6b2b2311f4d8d8461b0f5b55b7a182",
+  "preexisting_git_status": " M .agents/skills/seomuitda-quality-check/SKILL.md\n M AGENTS.md\n M ARCHITECTURE.md\n M PRD.md\n M README.md\n M TASKS.md\n M TEST_PLAN.md\n M apps/api/main.py\n M apps/api/repository.py\n M apps/api/service.py\n M docs/G1_GATES.md\n M docs/GOLDSET.md\n?? apps/api/chunk_repository.py\n?? apps/api/chunk_service.py\n?? apps/api/chunk_worker.py\n?? apps/api/chunking.py\n?? apps/api/rag_adapters.py\n?? apps/api/rag_service.py\n?? apps/api/vector_repository.py\n?? docs/LLM_API_PREFLIGHT.md\n?? docs/PHASE2C1_CHUNK_SEARCH.md\n?? docs/PHASE2C2A_RAG.md\n?? outputs/PHASE2C1_REPORT.md\n?? outputs/PHASE2C2A_REPORT.md\n?? outputs/phase2c/FINAL_REVIEW.json\n?? outputs/phase2c/SAMPLE_CHUNKS_SEARCH.json\n?? outputs/phase2c/VALIDATION_FINAL.json\n?? outputs/phase2c/VALIDATION_RUN_1.json\n?? outputs/phase2c2a/\n?? schemas/evidence-ref.schema.json\n?? scripts/validation/build_phase2c_evidence.py\n?? scripts/validation/evaluate_phase2c2a.py\n?? scripts/validation/phase2c_claim_checkpoint.py\n?? tests/fixtures/synthetic/rag-goldset.json\n?? tests/test_chunking.py\n?? tests/test_rag_contracts.py\n",
+  "final_git_status": " M .agents/skills/seomuitda-quality-check/SKILL.md\n M AGENTS.md\n M ARCHITECTURE.md\n M PRD.md\n M README.md\n M TASKS.md\n M TEST_PLAN.md\n M apps/api/main.py\n M apps/api/repository.py\n M apps/api/service.py\n M docs/G1_GATES.md\n M docs/GOLDSET.md\n?? apps/api/chunk_repository.py\n?? apps/api/chunk_service.py\n?? apps/api/chunk_worker.py\n?? apps/api/chunking.py\n?? apps/api/rag_adapters.py\n?? apps/api/rag_service.py\n?? apps/api/vector_repository.py\n?? docs/LLM_API_PREFLIGHT.md\n?? docs/PHASE2C1_CHUNK_SEARCH.md\n?? docs/PHASE2C2A_RAG.md\n?? docs/PHASE2C2B_EXECUTION_PLAN.md\n?? outputs/PHASE2C1_REPORT.md\n?? outputs/PHASE2C2A_REPORT.md\n?? outputs/phase2c/FINAL_REVIEW.json\n?? outputs/phase2c/SAMPLE_CHUNKS_SEARCH.json\n?? outputs/phase2c/VALIDATION_FINAL.json\n?? outputs/phase2c/VALIDATION_RUN_1.json\n?? outputs/phase2c2a/\n?? outputs/phase2c2b/\n?? schemas/evidence-ref.schema.json\n?? scripts/validation/build_phase2c2b_goldset.py\n?? scripts/validation/build_phase2c_evidence.py\n?? scripts/validation/evaluate_phase2c2a.py\n?? scripts/validation/phase2c_claim_checkpoint.py\n?? tests/fixtures/synthetic/phase2c2b-sources.json\n?? tests/fixtures/synthetic/rag-goldset.json\n?? tests/test_chunking.py\n?? tests/test_rag_contracts.py\n",
+  "modified_this_task": [
+    "TASKS.md",
+    "TEST_PLAN.md"
+  ],
+  "new_files_before_final_reports": [
+    "docs/PHASE2C2B_EXECUTION_PLAN.md",
+    "outputs/phase2c2b/ANSWER_REVIEW_SHEET.md",
+    "outputs/phase2c2b/BUDGET_PROPOSAL.json",
+    "outputs/phase2c2b/ENVIRONMENT_REVIEW.json",
+    "outputs/phase2c2b/GOLDSET_REVIEW.json",
+    "outputs/phase2c2b/PREPARATION_VALIDATION.json",
+    "scripts/validation/build_phase2c2b_goldset.py",
+    "tests/fixtures/synthetic/phase2c2b-sources.json"
+  ],
+  "all_prior_code_fixtures_evidence_preserved": true,
+  "prior_123_source_hash_match": true,
+  "environment_versions": "same tested packages; provider SDKs/tokenizer not installed",
+  "commit_push_deploy": false
+}

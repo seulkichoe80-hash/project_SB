@@ -1,0 +1,29 @@
+.upload-section,.document-detail { margin-bottom: 24px; padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-surface); }
+.upload-section > p,.list-scope,.document-detail > p { color: var(--color-muted); margin: 12px 0; }
+.upload-section form { display: grid; gap: 12px; margin-top: 20px; max-width: 740px; }
+.upload-section input:not([type=checkbox]),.upload-section select { width: 100%; min-width: 0; min-height: 44px; font: inherit; padding: 8px; border: 1px solid var(--color-control-border); border-radius: var(--radius); background: var(--color-surface); color: var(--color-text); }
+.upload-section input[type=file]::file-selector-button { min-height: 44px; font: inherit; margin-right: 12px; }
+.check-label { display: flex; gap: 12px; align-items: center; min-height: 44px; }
+.check-label input { width: 20px; height: 20px; flex-shrink: 0; }
+#file-error { color: var(--color-error); }
+#file-note { color: var(--color-muted); }
+.document-feedback,.document-notice { margin: 24px 0; }
+.document-notice { padding: 16px; background: var(--color-primary-soft); border-left: 3px solid var(--color-primary); }
+.list-scope { padding: 0 24px; }
+.documents-table { overflow-x: auto; border-radius: 0 0 var(--radius) var(--radius); }
+.documents-table table { min-width: 600px; }
+.documents-table td { padding: 16px; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+.documents-table td small { display: block; color: var(--color-muted); margin-top: 8px; }
+.document-detail { margin-top: 24px; overflow-wrap: anywhere; }
+.document-detail h3 { margin-top: 24px; }
+.document-detail dl { display: grid; grid-template-columns: 140px minmax(0,1fr); gap: 12px; }
+.document-detail dt { color: var(--color-muted); }
+.document-detail dd { margin: 0; }
+.document-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 20px 0; }
+.deregister-dialog { padding: 24px; border: 1px solid var(--color-border); border-radius: var(--radius); width: min(560px, calc(100% - 32px)); color: var(--color-text); background: var(--color-surface); overflow-wrap: anywhere; }
+.deregister-dialog::backdrop { background: #172b4d99; }
+.deregister-dialog p { margin-top: 16px; }
+@media(max-width:800px){.upload-section,.document-detail {padding:16px;} .document-detail dl {grid-template-columns:minmax(0,1fr);} .document-detail dt {font-weight:600;} .document-actions .button {min-height:44px;} }
+
+.documents-table { position: relative; max-width: 100%; }
+.documents-table .sr-only { left: 0; top: 0; }

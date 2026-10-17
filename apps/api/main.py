@@ -10,23 +10,98 @@ from .service import DocumentService
 from .storage import LocalOriginalStore
 
 
-def authenticated_principal() -> Principal:
-    # Fail closed. Real JWT validation/membership is deliberately not implemented in Phase 2A.
-    # Tests explicitly override this dependency with server-created Principal objects.
-    raise HTTPException(401, 'authentication_not_configured')
+def authenticated_principal(request: Request) -> Principal:
+    return request.app.state.auth.resolve(request)
 
 
-def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False) -> FastAPI:
+def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False, identity_provider=None, auth_settings=None, auth_clock=None) -> FastAPI:
     root = data_dir or Path('work/phase2a/runtime')
     service = DocumentService(repository or Repository(root / 'metadata.sqlite3'), store or LocalOriginalStore(root / 'originals'), parsing_enabled)
     app = FastAPI(title='서무ITDA local Phase 2B' if parsing_enabled else '서무ITDA local Phase 2A',
                   docs_url=None, redoc_url=None, openapi_url=None)
     app.state.service = service
+    from .auth import AuthService, Login, MembershipUpdate
+    from .auth_store import AuthStore
+    import time as auth_time
+    auth = AuthService(AuthStore(service.repo.path), identity_provider, auth_settings, auth_clock or auth_time.time)
+    app.state.auth = auth
+
+    @app.middleware('http')
+    async def private_response(request: Request, call_next):
+        response = await call_next(request)
+        response.headers['Cache-Control'] = 'no-store'
+        response.headers['Vary'] = 'Cookie'
+        return response
+    from fastapi.exceptions import RequestValidationError
+
+    @app.exception_handler(RequestValidationError)
+    async def invalid_request(_request, _error):
+        # Validation inputs may contain credentials: never echo them.
+        return JSONResponse({'error': 'invalid_request'}, status_code=422)
+
+
+    @app.get('/auth/status')
+    def auth_status(response: Response):
+        response.headers['Cache-Control'] = 'no-store'
+        return {'provider_available': auth.provider.available, 'remote_enabled': False}
+
+    @app.post('/auth/csrf')
+    def csrf(request: Request, response: Response):
+        return auth.challenge(request, response)
+
+    @app.post('/auth/login')
+    def login(body: Login, request: Request, response: Response):
+        return auth.login(request, response, body)
+
+    @app.get('/auth/me')
+    def current_user(request: Request, response: Response):
+        return auth.me(request, response)
+
+    @app.post('/auth/logout')
+    def logout(request: Request, response: Response):
+        return auth.logout(request, response)
+
+    @app.get('/auth/memberships')
+    def memberships(request: Request):
+        return auth.members(request)
+
+    @app.patch('/auth/memberships/{user_id}')
+    def update_membership(user_id: str, body: MembershipUpdate, request: Request):
+        return auth.update_member(request, user_id, body)
+
     if parsing_enabled:
         import time
         from .parsing_service import ParsingService, EvidenceRequest
         parsing = ParsingService(service)
         app.state.parsing = parsing
+        from .chunk_service import ChunkService
+        from .chunking import ChunkConfig, EvidenceRef
+        chunks = ChunkService(parsing)
+        app.state.chunks = chunks
+
+        @app.post('/documents/{document_id}/versions/{version_id}/chunk-jobs',status_code=202)
+        def enqueue_chunks(document_id: str,version_id: str,body: ChunkConfig,principal: Principal=Depends(authenticated_principal)):
+            return chunks.enqueue(principal,document_id,version_id,body)
+
+        @app.get('/documents/{document_id}/versions/{version_id}/chunk-jobs/{job_id}')
+        def chunk_status(document_id: str,version_id: str,job_id: str,principal: Principal=Depends(authenticated_principal)):
+            return chunks.status(principal,document_id,version_id,job_id)
+
+        @app.post('/documents/{document_id}/versions/{version_id}/chunk-jobs/{job_id}/retry',status_code=202)
+        def retry_chunks(document_id: str,version_id: str,job_id: str,principal: Principal=Depends(authenticated_principal)):
+            return chunks.retry(principal,document_id,version_id,job_id)
+
+        @app.get('/documents/{document_id}/versions/{version_id}/chunks')
+        def list_chunks(document_id: str,version_id: str,principal: Principal=Depends(authenticated_principal)):
+            return chunks.list(principal,document_id,version_id)
+
+        @app.post('/documents/{document_id}/versions/{version_id}/chunks/{chunk_id}/evidence/resolve')
+        def chunk_evidence(document_id: str,version_id: str,chunk_id: str,body: EvidenceRef,principal: Principal=Depends(authenticated_principal)):
+            return chunks.resolve(principal,document_id,version_id,chunk_id,body)
+
+        @app.get('/search')
+        def search(q: str,limit: int=20,principal: Principal=Depends(authenticated_principal)):
+            return {'method':'sqlite_keyword_substring_v1','results':chunks.search(principal,q,limit)}
         with service.repo.transaction() as db:
             db.parsing.backfill(time.time())
 

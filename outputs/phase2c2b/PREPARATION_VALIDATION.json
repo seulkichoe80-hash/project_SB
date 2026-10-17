@@ -1,0 +1,12 @@
+{
+  "scope": "preparation artifact checks, not full regression or real AI performance",
+  "PASS": 6,
+  "FAIL": 0,
+  "SKIP": 0,
+  "BLOCKED": 0,
+  "elapsed_seconds": 0.07475449999992634,
+  "goldset_build_seconds": 1.4473293000000922,
+  "log": "test_all_reference_payloads_match_saved_chunks (__main__.PreparationChecks.test_all_reference_payloads_match_saved_chunks) ... ok\ntest_answer_refs_have_correct_organization (__main__.PreparationChecks.test_answer_refs_have_correct_organization) ... ok\ntest_no_model_or_human_pass_claim (__main__.PreparationChecks.test_no_model_or_human_pass_claim) ... ok\ntest_package_crc_and_source_hash (__main__.PreparationChecks.test_package_crc_and_source_hash) ... ok\ntest_question_count_and_unique_ids (__main__.PreparationChecks.test_question_count_and_unique_ids) ... ok\ntest_runtime_code_and_prior_result_unchanged (__main__.PreparationChecks.test_runtime_code_and_prior_result_unchanged) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.071s\n\nOK\n",
+  "prior_123": "historical record preserved, not rerun",
+  "actual_model_calls": 0
+}

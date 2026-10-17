@@ -149,6 +149,8 @@ class DocumentService:
             job = db.parsing.job(version_id)
             if job and job['state'] != 'completed':
                 raise DomainError('parsing_not_ready')
+            if db.chunks.requested(version_id) and db.chunks.current(version_id) is None:
+                raise DomainError('chunking_not_ready')
             if row['state'] != 'completed':
                 raise DomainError('version_not_ready')
             self.store.read(version_id, row['sha256'])
@@ -163,6 +165,7 @@ class DocumentService:
             doc = self.document(db, principal, document_id)
             db.deregister(document_id, principal.subject, now())
             db.parsing.cancel_document(document_id, time.time())
+            db.chunks.cancel(document_id)
         return {'document_id': doc['id'], 'registered': False}
 
     def reconcile(self):

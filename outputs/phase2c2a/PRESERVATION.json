@@ -1,0 +1,43 @@
+{
+  "baseline_head": "f9a01d8c5b6b2b2311f4d8d8461b0f5b55b7a182",
+  "preexisting_git_changes": " M .agents/skills/seomuitda-quality-check/SKILL.md\n M AGENTS.md\n M ARCHITECTURE.md\n M PRD.md\n M README.md\n M TASKS.md\n M TEST_PLAN.md\n M apps/api/main.py\n M apps/api/repository.py\n M apps/api/service.py\n M docs/G1_GATES.md\n M docs/GOLDSET.md\n?? apps/api/chunk_repository.py\n?? apps/api/chunk_service.py\n?? apps/api/chunk_worker.py\n?? apps/api/chunking.py\n?? docs/PHASE2C1_CHUNK_SEARCH.md\n?? outputs/PHASE2C1_REPORT.md\n?? outputs/phase2c/FINAL_REVIEW.json\n?? outputs/phase2c/SAMPLE_CHUNKS_SEARCH.json\n?? outputs/phase2c/VALIDATION_FINAL.json\n?? outputs/phase2c/VALIDATION_RUN_1.json\n?? schemas/evidence-ref.schema.json\n?? scripts/validation/build_phase2c_evidence.py\n?? scripts/validation/phase2c_claim_checkpoint.py\n?? tests/test_chunking.py\n",
+  "changed_existing_this_task": [
+    "ARCHITECTURE.md",
+    "TASKS.md",
+    "TEST_PLAN.md"
+  ],
+  "new_this_task": [
+    "apps/api/rag_adapters.py",
+    "apps/api/rag_service.py",
+    "apps/api/vector_repository.py",
+    "docs/LLM_API_PREFLIGHT.md",
+    "docs/PHASE2C2A_RAG.md",
+    "outputs/phase2c2a/GOLDSET_EVALUATION.json",
+    "outputs/phase2c2a/VALIDATION_FINAL.json",
+    "scripts/validation/evaluate_phase2c2a.py",
+    "tests/fixtures/synthetic/rag-goldset.json",
+    "tests/test_rag_contracts.py"
+  ],
+  "previous_code_fixtures_evidence_preserved": true,
+  "final_runner_source_hash_match": true,
+  "new_runtime_dependencies": false,
+  "full_regression": {
+    "PASS": 123,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "existing_tests": 93,
+  "new_tests": 30,
+  "application_model_calls": 0,
+  "note": "documentation browsing is separate from application model calls; no commit/push/deploy",
+  "final_git_status": " M .agents/skills/seomuitda-quality-check/SKILL.md\n M AGENTS.md\n M ARCHITECTURE.md\n M PRD.md\n M README.md\n M TASKS.md\n M TEST_PLAN.md\n M apps/api/main.py\n M apps/api/repository.py\n M apps/api/service.py\n M docs/G1_GATES.md\n M docs/GOLDSET.md\n?? apps/api/chunk_repository.py\n?? apps/api/chunk_service.py\n?? apps/api/chunk_worker.py\n?? apps/api/chunking.py\n?? apps/api/rag_adapters.py\n?? apps/api/rag_service.py\n?? apps/api/vector_repository.py\n?? docs/LLM_API_PREFLIGHT.md\n?? docs/PHASE2C1_CHUNK_SEARCH.md\n?? docs/PHASE2C2A_RAG.md\n?? outputs/PHASE2C1_REPORT.md\n?? outputs/phase2c/FINAL_REVIEW.json\n?? outputs/phase2c/SAMPLE_CHUNKS_SEARCH.json\n?? outputs/phase2c/VALIDATION_FINAL.json\n?? outputs/phase2c/VALIDATION_RUN_1.json\n?? outputs/phase2c2a/\n?? schemas/evidence-ref.schema.json\n?? scripts/validation/build_phase2c_evidence.py\n?? scripts/validation/evaluate_phase2c2a.py\n?? scripts/validation/phase2c_claim_checkpoint.py\n?? tests/fixtures/synthetic/rag-goldset.json\n?? tests/test_chunking.py\n?? tests/test_rag_contracts.py\n",
+  "preservation_checks": {
+    "all_preexisting_code_fixtures_evidence_unchanged": true,
+    "tested_source_hashes_unchanged": true,
+    "local_document_link_targets_exist": true,
+    "FR_WEB_rows_preserved": true,
+    "head_unchanged": true,
+    "git_diff_check": true
+  }
+}

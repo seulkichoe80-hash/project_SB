@@ -1,0 +1,48 @@
+ M .agents/skills/seomuitda-quality-check/SKILL.md
+ M AGENTS.md
+ M ARCHITECTURE.md
+ M PRD.md
+ M README.md
+ M TASKS.md
+ M TEST_PLAN.md
+ M apps/api/main.py
+ M apps/api/repository.py
+ M apps/api/service.py
+ M docs/G1_GATES.md
+ M docs/GOLDSET.md
+?? apps/api/chunk_repository.py
+?? apps/api/chunk_service.py
+?? apps/api/chunk_worker.py
+?? apps/api/chunking.py
+?? apps/api/rag_adapters.py
+?? apps/api/rag_service.py
+?? apps/api/vector_repository.py
+?? apps/web/
+?? docs/LLM_API_PREFLIGHT.md
+?? docs/PHASE2C1_CHUNK_SEARCH.md
+?? docs/PHASE2C2A_RAG.md
+?? docs/PHASE2C2B_EXECUTION_PLAN.md
+?? docs/STAGE2_FRONTEND.md
+?? outputs/PHASE2C1_REPORT.md
+?? outputs/PHASE2C2A_REPORT.md
+?? outputs/PHASE2C2B_PREFLIGHT_REPORT.md
+?? outputs/STAGE2_REPORT.md
+?? outputs/phase2c/FINAL_REVIEW.json
+?? outputs/phase2c/SAMPLE_CHUNKS_SEARCH.json
+?? outputs/phase2c/VALIDATION_FINAL.json
+?? outputs/phase2c/VALIDATION_RUN_1.json
+?? outputs/phase2c2a/
+?? outputs/phase2c2b/
+?? outputs/stage2/
+?? outputs/stage3/
+?? schemas/evidence-ref.schema.json
+?? scripts/validation/build_phase2c2b_goldset.py
+?? scripts/validation/build_phase2c_evidence.py
+?? scripts/validation/check_stage2_ui.cjs
+?? scripts/validation/check_stage3_home.cjs
+?? scripts/validation/evaluate_phase2c2a.py
+?? scripts/validation/phase2c_claim_checkpoint.py
+?? tests/fixtures/synthetic/phase2c2b-sources.json
+?? tests/fixtures/synthetic/rag-goldset.json
+?? tests/test_chunking.py
+?? tests/test_rag_contracts.py

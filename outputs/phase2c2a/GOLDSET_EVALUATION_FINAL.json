@@ -1,0 +1,2745 @@
+{
+  "scope": "synthetic development subset; NOT real embedding evaluation; human review pending",
+  "test_only": true,
+  "dataset": {
+    "version": "synthetic-dev-v1",
+    "human_review": "PENDING",
+    "split": "development-only; no holdout claims",
+    "license": "project-authored synthetic data; existing fixture provenance retained",
+    "documents": [
+      {
+        "id": "pdf",
+        "generator": "tests/fixtures/synthetic/phase2b_pdf.py"
+      },
+      {
+        "id": "hwpx",
+        "path": "tests/fixtures/synthetic/procedure-v2.hwpx"
+      }
+    ],
+    "queries": [
+      {
+        "id": "pdf-0",
+        "document": "pdf",
+        "query": "Prepare",
+        "expected_quote": "Prepare the request."
+      },
+      {
+        "id": "pdf-1",
+        "document": "pdf",
+        "query": "Attach",
+        "expected_quote": "Attach the public form."
+      },
+      {
+        "id": "pdf-2",
+        "document": "pdf",
+        "query": "reviewer",
+        "expected_quote": "synthetic reviewer"
+      },
+      {
+        "id": "pdf-3",
+        "document": "pdf",
+        "query": "original",
+        "expected_quote": "Keep the original unchanged."
+      },
+      {
+        "id": "pdf-4",
+        "document": "pdf",
+        "query": "Stage",
+        "expected_quote": "Stage"
+      },
+      {
+        "id": "pdf-5",
+        "document": "pdf",
+        "query": "Second",
+        "expected_quote": "Second page evidence"
+      },
+      {
+        "id": "hwpx-0",
+        "document": "hwpx",
+        "query": "신청서",
+        "expected_quote": "신청서를 작성한다."
+      },
+      {
+        "id": "hwpx-1",
+        "document": "hwpx",
+        "query": "담당자",
+        "expected_quote": "담당자가 신청서를 확인한다."
+      },
+      {
+        "id": "hwpx-2",
+        "document": "hwpx",
+        "query": "필요",
+        "expected_quote": "필요 서류"
+      },
+      {
+        "id": "hwpx-3",
+        "document": "hwpx",
+        "query": "단계",
+        "expected_quote": "단계"
+      },
+      {
+        "id": "hwpx-4",
+        "document": "hwpx",
+        "query": "구조",
+        "expected_quote": "구조 검증용 픽셀"
+      },
+      {
+        "id": "no-answer",
+        "document": "pdf",
+        "query": "unmentioned-zebra-deadline",
+        "expected_quote": null
+      },
+      {
+        "id": "foreign",
+        "document": "pdf",
+        "query": "Prepare",
+        "expected_quote": null,
+        "foreign": true
+      }
+    ],
+    "full_target": "Retain TEST_PLAN >=5 documents, >=40 queries, >=20 captures, >=10 procedures; not fulfilled by subset"
+  },
+  "manifest": [
+    {
+      "logical_id": "pdf",
+      "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+      "metadata": {
+        "id": "147fbd0aaf174671a552d9ec1391acd6",
+        "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+        "number": 1,
+        "original_name": "pdf.pdf",
+        "size": 1383,
+        "mime": "application/pdf",
+        "format": "pdf",
+        "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+        "created_at": "2026-10-17T04:06:03.926501+00:00",
+        "actor": "test-manager",
+        "state": "queued",
+        "revision": 1,
+        "institution_id": "A",
+        "active": false,
+        "registered": true
+      },
+      "chunks": [
+        {
+          "chunk_id": "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+          "kind": "paragraph",
+          "text": "Public synthetic manual",
+          "order_index": 0,
+          "grid": [],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+            "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+            "chunk_id": "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+            "source_block_ids": [
+              "77920145812699de0e688acfbd0379c3e97a6e9a3fc6777ff2d2ff8eef5d043d"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:paragraph:0",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  40.484,
+                  176.048,
+                  52.484
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "77920145812699de0e688acfbd0379c3e97a6e9a3fc6777ff2d2ff8eef5d043d",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:paragraph:0",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    40.484,
+                    176.048,
+                    52.484
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 23,
+                "quote": "Public synthetic manual",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+          "kind": "paragraph",
+          "text": "Prepare the request.\nAttach the public form.",
+          "order_index": 1,
+          "grid": [],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+            "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+            "chunk_id": "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+            "source_block_ids": [
+              "f44feb2c0c9ccfe24ad1668b1bd305ce8e015578912c4869c9177b5cfee4bf9b"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:paragraph:1",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  90.484,
+                  169.388,
+                  116.484
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "f44feb2c0c9ccfe24ad1668b1bd305ce8e015578912c4869c9177b5cfee4bf9b",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:paragraph:1",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    90.484,
+                    169.388,
+                    116.484
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 44,
+                "quote": "Prepare the request.\nAttach the public form.",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37",
+          "kind": "paragraph",
+          "text": "Send to the synthetic reviewer.",
+          "order_index": 2,
+          "grid": [],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+            "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+            "chunk_id": "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37",
+            "source_block_ids": [
+              "2b3f9931c23619a59e466a18f4a9592a2c0021d326907d49ee4ad77ce1b9a168"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:paragraph:2",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  150.484,
+                  214.076,
+                  162.484
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "2b3f9931c23619a59e466a18f4a9592a2c0021d326907d49ee4ad77ce1b9a168",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:paragraph:2",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    150.484,
+                    214.076,
+                    162.484
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 31,
+                "quote": "Send to the synthetic reviewer.",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1",
+          "kind": "table_row",
+          "text": "Stage",
+          "order_index": 3,
+          "grid": [
+            {
+              "table_block_id": "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+              "table_shape": [
+                2,
+                2
+              ],
+              "cell_block_id": "6a71fb5605b94db9c5b349848843a8b46622097495126659579427c2b3b6d7a9",
+              "row": 0,
+              "column": 0,
+              "row_span": 1,
+              "column_span": 1
+            }
+          ],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+            "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+            "chunk_id": "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1",
+            "source_block_ids": [
+              "6a71fb5605b94db9c5b349848843a8b46622097495126659579427c2b3b6d7a9",
+              "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+              "f5c06d4444cbdef6f0c73d964665953b818bff532d4c136b602662ad57cb461f"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3:cell:0:0",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  320.0,
+                  250.0,
+                  360.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              },
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  320.0,
+                  450.0,
+                  400.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              },
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3:cell:0:1",
+                "page": 1,
+                "bbox": [
+                  250.0,
+                  320.0,
+                  450.0,
+                  360.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "6a71fb5605b94db9c5b349848843a8b46622097495126659579427c2b3b6d7a9",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3:cell:0:0",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    320.0,
+                    250.0,
+                    360.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 5,
+                "quote": "Stage",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    320.0,
+                    450.0,
+                    400.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "table_context",
+                "start": 0,
+                "end": 0,
+                "quote": "",
+                "source_kind": "original_structure"
+              },
+              {
+                "block_id": "f5c06d4444cbdef6f0c73d964665953b818bff532d4c136b602662ad57cb461f",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3:cell:0:1",
+                  "page": 1,
+                  "bbox": [
+                    250.0,
+                    320.0,
+                    450.0,
+                    360.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 4,
+                "quote": "Form",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "585eaa1d7bb5234e5fe37a30b17af4ac5c07c4d74e23d76d813c8895d49ba1d8",
+          "kind": "table_row",
+          "text": "Form",
+          "order_index": 4,
+          "grid": [
+            {
+              "table_block_id": "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+              "table_shape": [
+                2,
+                2
+              ],
+              "cell_block_id": "f5c06d4444cbdef6f0c73d964665953b818bff532d4c136b602662ad57cb461f",
+              "row": 0,
+              "column": 1,
+              "row_span": 1,
+              "column_span": 1
+            }
+          ],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+            "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+            "chunk_id": "585eaa1d7bb5234e5fe37a30b17af4ac5c07c4d74e23d76d813c8895d49ba1d8",
+            "source_block_ids": [
+              "f5c06d4444cbdef6f0c73d964665953b818bff532d4c136b602662ad57cb461f",
+              "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+              "6a71fb5605b94db9c5b349848843a8b46622097495126659579427c2b3b6d7a9"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3:cell:0:1",
+                "page": 1,
+                "bbox": [
+                  250.0,
+                  320.0,
+                  450.0,
+                  360.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              },
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  320.0,
+                  450.0,
+                  400.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              },
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3:cell:0:0",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  320.0,
+                  250.0,
+                  360.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "f5c06d4444cbdef6f0c73d964665953b818bff532d4c136b602662ad57cb461f",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3:cell:0:1",
+                  "page": 1,
+                  "bbox": [
+                    250.0,
+                    320.0,
+                    450.0,
+                    360.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 4,
+                "quote": "Form",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    320.0,
+                    450.0,
+                    400.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "table_context",
+                "start": 0,
+                "end": 0,
+                "quote": "",
+                "source_kind": "original_structure"
+              },
+              {
+                "block_id": "6a71fb5605b94db9c5b349848843a8b46622097495126659579427c2b3b6d7a9",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3:cell:0:0",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    320.0,
+                    250.0,
+                    360.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 5,
+                "quote": "Stage",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "dff29ddc8c6fb745dd80a83f1d8a829ab342e6015a5a8b6e51054f9ee51c1cfd",
+          "kind": "table_row",
+          "text": "Submit",
+          "order_index": 5,
+          "grid": [
+            {
+              "table_block_id": "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+              "table_shape": [
+                2,
+                2
+              ],
+              "cell_block_id": "9bea3c908a58dfee12481b79186df366bc62d0d1d200e8369389e64116108248",
+              "row": 1,
+              "column": 0,
+              "row_span": 1,
+              "column_span": 1
+            }
+          ],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+            "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+            "chunk_id": "dff29ddc8c6fb745dd80a83f1d8a829ab342e6015a5a8b6e51054f9ee51c1cfd",
+            "source_block_ids": [
+              "9bea3c908a58dfee12481b79186df366bc62d0d1d200e8369389e64116108248",
+              "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+              "6a71fb5605b94db9c5b349848843a8b46622097495126659579427c2b3b6d7a9",
+              "f5c06d4444cbdef6f0c73d964665953b818bff532d4c136b602662ad57cb461f"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3:cell:1:0",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  360.0,
+                  250.0,
+                  400.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              },
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  320.0,
+                  450.0,
+                  400.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              },
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3:cell:0:0",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  320.0,
+                  250.0,
+                  360.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              },
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3:cell:0:1",
+                "page": 1,
+                "bbox": [
+                  250.0,
+                  320.0,
+                  450.0,
+                  360.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "9bea3c908a58dfee12481b79186df366bc62d0d1d200e8369389e64116108248",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3:cell:1:0",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    360.0,
+                    250.0,
+                    400.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 6,
+                "quote": "Submit",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    320.0,
+                    450.0,
+                    400.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "table_context",
+                "start": 0,
+                "end": 0,
+                "quote": "",
+                "source_kind": "original_structure"
+              },
+              {
+                "block_id": "6a71fb5605b94db9c5b349848843a8b46622097495126659579427c2b3b6d7a9",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3:cell:0:0",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    320.0,
+                    250.0,
+                    360.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 5,
+                "quote": "Stage",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "f5c06d4444cbdef6f0c73d964665953b818bff532d4c136b602662ad57cb461f",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3:cell:0:1",
+                  "page": 1,
+                  "bbox": [
+                    250.0,
+                    320.0,
+                    450.0,
+                    360.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 4,
+                "quote": "Form",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214",
+          "kind": "table_row",
+          "text": "Request",
+          "order_index": 6,
+          "grid": [
+            {
+              "table_block_id": "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+              "table_shape": [
+                2,
+                2
+              ],
+              "cell_block_id": "ca84a94b243a35b857debd4c551e54d2035ce4bed0feffbb273a93a0aa2b9658",
+              "row": 1,
+              "column": 1,
+              "row_span": 1,
+              "column_span": 1
+            }
+          ],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+            "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+            "chunk_id": "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214",
+            "source_block_ids": [
+              "ca84a94b243a35b857debd4c551e54d2035ce4bed0feffbb273a93a0aa2b9658",
+              "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+              "6a71fb5605b94db9c5b349848843a8b46622097495126659579427c2b3b6d7a9",
+              "f5c06d4444cbdef6f0c73d964665953b818bff532d4c136b602662ad57cb461f"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3:cell:1:1",
+                "page": 1,
+                "bbox": [
+                  250.0,
+                  360.0,
+                  450.0,
+                  400.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              },
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  320.0,
+                  450.0,
+                  400.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              },
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3:cell:0:0",
+                "page": 1,
+                "bbox": [
+                  50.0,
+                  320.0,
+                  250.0,
+                  360.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              },
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:1:table:3:cell:0:1",
+                "page": 1,
+                "bbox": [
+                  250.0,
+                  320.0,
+                  450.0,
+                  360.0
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "ca84a94b243a35b857debd4c551e54d2035ce4bed0feffbb273a93a0aa2b9658",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3:cell:1:1",
+                  "page": 1,
+                  "bbox": [
+                    250.0,
+                    360.0,
+                    450.0,
+                    400.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 7,
+                "quote": "Request",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "0e2b9e09730b7197af5834ec6205c7740bdf1cdeb3409ec3c9fcffb14e8fd8a9",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    320.0,
+                    450.0,
+                    400.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "table_context",
+                "start": 0,
+                "end": 0,
+                "quote": "",
+                "source_kind": "original_structure"
+              },
+              {
+                "block_id": "6a71fb5605b94db9c5b349848843a8b46622097495126659579427c2b3b6d7a9",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3:cell:0:0",
+                  "page": 1,
+                  "bbox": [
+                    50.0,
+                    320.0,
+                    250.0,
+                    360.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 5,
+                "quote": "Stage",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "f5c06d4444cbdef6f0c73d964665953b818bff532d4c136b602662ad57cb461f",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:1:table:3:cell:0:1",
+                  "page": 1,
+                  "bbox": [
+                    250.0,
+                    320.0,
+                    450.0,
+                    360.0
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 4,
+                "quote": "Form",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e",
+          "kind": "paragraph",
+          "text": "Second page evidence",
+          "order_index": 7,
+          "grid": [],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+            "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+            "chunk_id": "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e",
+            "source_block_ids": [
+              "2c09dca05f278f4bfbd954f8d7f51305654038724ed01506a5b00879000094c5"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:2:paragraph:0",
+                "page": 2,
+                "bbox": [
+                  50.0,
+                  50.484,
+                  172.076,
+                  62.484
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "2c09dca05f278f4bfbd954f8d7f51305654038724ed01506a5b00879000094c5",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:2:paragraph:0",
+                  "page": 2,
+                  "bbox": [
+                    50.0,
+                    50.484,
+                    172.076,
+                    62.484
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 20,
+                "quote": "Second page evidence",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+          "kind": "paragraph",
+          "text": "Keep the original unchanged.",
+          "order_index": 8,
+          "grid": [],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+            "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+            "chunk_id": "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+            "source_block_ids": [
+              "40d71c16f0bcc41a7180a93ca493d7de2fa92182a7214b57276ecc8e4ab7ee28"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                "kind": "pdf",
+                "selector": "page:2:paragraph:1",
+                "page": 2,
+                "bbox": [
+                  50.0,
+                  110.484,
+                  206.096,
+                  122.484
+                ],
+                "part": null,
+                "xml_path": null,
+                "tag": null
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "40d71c16f0bcc41a7180a93ca493d7de2fa92182a7214b57276ecc8e4ab7ee28",
+                "source_anchor": {
+                  "document_id": "6e3c9934dcfd4de481b8d654746d75b9",
+                  "version_id": "147fbd0aaf174671a552d9ec1391acd6",
+                  "sha256": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+                  "kind": "pdf",
+                  "selector": "page:2:paragraph:1",
+                  "page": 2,
+                  "bbox": [
+                    50.0,
+                    110.484,
+                    206.096,
+                    122.484
+                  ],
+                  "part": null,
+                  "xml_path": null,
+                  "tag": null
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 28,
+                "quote": "Keep the original unchanged.",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        }
+      ],
+      "source": "project-authored synthetic fixture"
+    },
+    {
+      "logical_id": "hwpx",
+      "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+      "metadata": {
+        "id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+        "document_id": "ba7b621bd65c4294a0b54516b619354a",
+        "number": 1,
+        "original_name": "hwpx.hwpx",
+        "size": 8964,
+        "mime": "application/hwp+zip",
+        "format": "hwpx",
+        "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+        "created_at": "2026-10-17T04:06:04.079987+00:00",
+        "actor": "test-manager",
+        "state": "queued",
+        "revision": 1,
+        "institution_id": "A",
+        "active": false,
+        "registered": true
+      },
+      "chunks": [
+        {
+          "chunk_id": "ac2edb1f2785f8e4a02730717722a8625db62ee2346edeed5450647765cbaf81",
+          "kind": "paragraph",
+          "text": "합성기관 A 시험 업무 매뉴얼",
+          "order_index": 0,
+          "grid": [],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "ba7b621bd65c4294a0b54516b619354a",
+            "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+            "chunk_id": "ac2edb1f2785f8e4a02730717722a8625db62ee2346edeed5450647765cbaf81",
+            "source_block_ids": [
+              "62c50438a3ef10174ba79a7c0f9924b10bf4b3402b19378b7072b43a6810cdca"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/1",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  1
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "62c50438a3ef10174ba79a7c0f9924b10bf4b3402b19378b7072b43a6810cdca",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/1",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    1
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 16,
+                "quote": "합성기관 A 시험 업무 매뉴얼",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "43f5b97c81cc45d88cb8faf86a076351b7c955d5bc90a80943f86182519f67bd",
+          "kind": "paragraph",
+          "text": "1. 신청서를 작성한다.",
+          "order_index": 1,
+          "grid": [],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "ba7b621bd65c4294a0b54516b619354a",
+            "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+            "chunk_id": "43f5b97c81cc45d88cb8faf86a076351b7c955d5bc90a80943f86182519f67bd",
+            "source_block_ids": [
+              "567b49b3d2523e27654114128b462dc56b3381c13016367fe7a38179e055009a"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/2",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  2
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "567b49b3d2523e27654114128b462dc56b3381c13016367fe7a38179e055009a",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/2",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    2
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 13,
+                "quote": "1. 신청서를 작성한다.",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5",
+          "kind": "table_row",
+          "text": "단계",
+          "order_index": 2,
+          "grid": [
+            {
+              "table_block_id": "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+              "table_shape": [
+                2,
+                2
+              ],
+              "cell_block_id": "62ec6305a9aa810a3015992fcf6396bfcadea4d82072c081eba4623e110c7243",
+              "row": 0,
+              "column": 0,
+              "row_span": 1,
+              "column_span": 1
+            }
+          ],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "ba7b621bd65c4294a0b54516b619354a",
+            "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+            "chunk_id": "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5",
+            "source_block_ids": [
+              "62ec6305a9aa810a3015992fcf6396bfcadea4d82072c081eba4623e110c7243",
+              "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+              "db28bc293fccaec02d4a4445761c1eaff2bac4557ba8bc566d85820c0aef3bac"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0/4/0",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0,
+                  4,
+                  0
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0/4/1",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0,
+                  4,
+                  1
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "62ec6305a9aa810a3015992fcf6396bfcadea4d82072c081eba4623e110c7243",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0/4/0",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 2,
+                "quote": "단계",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl"
+                },
+                "role": "table_context",
+                "start": 0,
+                "end": 0,
+                "quote": "",
+                "source_kind": "original_structure"
+              },
+              {
+                "block_id": "db28bc293fccaec02d4a4445761c1eaff2bac4557ba8bc566d85820c0aef3bac",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0/4/1",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0,
+                    4,
+                    1
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 5,
+                "quote": "필요 서류",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "ab6297e0c97fb8dc6a7ec8c4eae5ff0015dd6d5c085411c2c04a048d11d57724",
+          "kind": "table_row",
+          "text": "필요 서류",
+          "order_index": 3,
+          "grid": [
+            {
+              "table_block_id": "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+              "table_shape": [
+                2,
+                2
+              ],
+              "cell_block_id": "db28bc293fccaec02d4a4445761c1eaff2bac4557ba8bc566d85820c0aef3bac",
+              "row": 0,
+              "column": 1,
+              "row_span": 1,
+              "column_span": 1
+            }
+          ],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "ba7b621bd65c4294a0b54516b619354a",
+            "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+            "chunk_id": "ab6297e0c97fb8dc6a7ec8c4eae5ff0015dd6d5c085411c2c04a048d11d57724",
+            "source_block_ids": [
+              "db28bc293fccaec02d4a4445761c1eaff2bac4557ba8bc566d85820c0aef3bac",
+              "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+              "62ec6305a9aa810a3015992fcf6396bfcadea4d82072c081eba4623e110c7243"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0/4/1",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0,
+                  4,
+                  1
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0/4/0",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0,
+                  4,
+                  0
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "db28bc293fccaec02d4a4445761c1eaff2bac4557ba8bc566d85820c0aef3bac",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0/4/1",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0,
+                    4,
+                    1
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 5,
+                "quote": "필요 서류",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl"
+                },
+                "role": "table_context",
+                "start": 0,
+                "end": 0,
+                "quote": "",
+                "source_kind": "original_structure"
+              },
+              {
+                "block_id": "62ec6305a9aa810a3015992fcf6396bfcadea4d82072c081eba4623e110c7243",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0/4/0",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 2,
+                "quote": "단계",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "860a184e080f315a36994f9d793a7f02b8ed13bd8dc0315772d77c4ea353be25",
+          "kind": "table_row",
+          "text": "신청",
+          "order_index": 4,
+          "grid": [
+            {
+              "table_block_id": "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+              "table_shape": [
+                2,
+                2
+              ],
+              "cell_block_id": "789009d83c06d6532534e1b736e0ce756053a1bcac3d970ec5c65b2006676dac",
+              "row": 1,
+              "column": 0,
+              "row_span": 1,
+              "column_span": 1
+            }
+          ],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "ba7b621bd65c4294a0b54516b619354a",
+            "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+            "chunk_id": "860a184e080f315a36994f9d793a7f02b8ed13bd8dc0315772d77c4ea353be25",
+            "source_block_ids": [
+              "789009d83c06d6532534e1b736e0ce756053a1bcac3d970ec5c65b2006676dac",
+              "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+              "62ec6305a9aa810a3015992fcf6396bfcadea4d82072c081eba4623e110c7243",
+              "db28bc293fccaec02d4a4445761c1eaff2bac4557ba8bc566d85820c0aef3bac"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0/5/0",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0,
+                  5,
+                  0
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0/4/0",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0,
+                  4,
+                  0
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0/4/1",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0,
+                  4,
+                  1
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "789009d83c06d6532534e1b736e0ce756053a1bcac3d970ec5c65b2006676dac",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0/5/0",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0,
+                    5,
+                    0
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 2,
+                "quote": "신청",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl"
+                },
+                "role": "table_context",
+                "start": 0,
+                "end": 0,
+                "quote": "",
+                "source_kind": "original_structure"
+              },
+              {
+                "block_id": "62ec6305a9aa810a3015992fcf6396bfcadea4d82072c081eba4623e110c7243",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0/4/0",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 2,
+                "quote": "단계",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "db28bc293fccaec02d4a4445761c1eaff2bac4557ba8bc566d85820c0aef3bac",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0/4/1",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0,
+                    4,
+                    1
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 5,
+                "quote": "필요 서류",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0",
+          "kind": "table_row",
+          "text": "합성 신청서",
+          "order_index": 5,
+          "grid": [
+            {
+              "table_block_id": "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+              "table_shape": [
+                2,
+                2
+              ],
+              "cell_block_id": "390db99425e257670315430bba6606c0729051e745c5fccf10e453b8ac7f9fdc",
+              "row": 1,
+              "column": 1,
+              "row_span": 1,
+              "column_span": 1
+            }
+          ],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "ba7b621bd65c4294a0b54516b619354a",
+            "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+            "chunk_id": "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0",
+            "source_block_ids": [
+              "390db99425e257670315430bba6606c0729051e745c5fccf10e453b8ac7f9fdc",
+              "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+              "62ec6305a9aa810a3015992fcf6396bfcadea4d82072c081eba4623e110c7243",
+              "db28bc293fccaec02d4a4445761c1eaff2bac4557ba8bc566d85820c0aef3bac"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0/5/1",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0,
+                  5,
+                  1
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0/4/0",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0,
+                  4,
+                  0
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/3/0/0/4/1",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  3,
+                  0,
+                  0,
+                  4,
+                  1
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "390db99425e257670315430bba6606c0729051e745c5fccf10e453b8ac7f9fdc",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0/5/1",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0,
+                    5,
+                    1
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 6,
+                "quote": "합성 신청서",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "11c6cecc3e134a73cde178e79cd931f62e08399cd2a99b83fac566f8a0a78c80",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tbl"
+                },
+                "role": "table_context",
+                "start": 0,
+                "end": 0,
+                "quote": "",
+                "source_kind": "original_structure"
+              },
+              {
+                "block_id": "62ec6305a9aa810a3015992fcf6396bfcadea4d82072c081eba4623e110c7243",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0/4/0",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 2,
+                "quote": "단계",
+                "source_kind": "original_text"
+              },
+              {
+                "block_id": "db28bc293fccaec02d4a4445761c1eaff2bac4557ba8bc566d85820c0aef3bac",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3/0/0/4/1",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3,
+                    0,
+                    0,
+                    4,
+                    1
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}tc"
+                },
+                "role": "first_row_context",
+                "start": 0,
+                "end": 5,
+                "quote": "필요 서류",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "56cc52e75826c0a44bb09d375e97756f25d0e3ca60a0b95709b6902608ba616f",
+          "kind": "paragraph",
+          "text": "그림 앞 설명: 다음 그림은 구조 검증용 픽셀이다.",
+          "order_index": 6,
+          "grid": [],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "ba7b621bd65c4294a0b54516b619354a",
+            "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+            "chunk_id": "56cc52e75826c0a44bb09d375e97756f25d0e3ca60a0b95709b6902608ba616f",
+            "source_block_ids": [
+              "3af2ca0fba4ded24e30e4ab787810ded9af2dd21943b7a28660b269207ce8521"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/4",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  4
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "3af2ca0fba4ded24e30e4ab787810ded9af2dd21943b7a28660b269207ce8521",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 28,
+                "quote": "그림 앞 설명: 다음 그림은 구조 검증용 픽셀이다.",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "da2504a074bb9de59125682c80c1361a950fd56568205dd417b994040a6500e9",
+          "kind": "image",
+          "text": "",
+          "order_index": 7,
+          "grid": [],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "ba7b621bd65c4294a0b54516b619354a",
+            "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+            "chunk_id": "da2504a074bb9de59125682c80c1361a950fd56568205dd417b994040a6500e9",
+            "source_block_ids": [
+              "abcc1670f23b7a4465dd478eaf60754a21358b2d84b9d9912f248a3d21227c49",
+              "49a67af6909be559266934252867ecef3c71bbbdd5aaf3795d1d0c855899c1ad"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/5/0/0/10",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  5,
+                  0,
+                  0,
+                  10
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/core}img"
+              },
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/5",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  5
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "abcc1670f23b7a4465dd478eaf60754a21358b2d84b9d9912f248a3d21227c49",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/5/0/0/10",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    5,
+                    0,
+                    0,
+                    10
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/core}img"
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 0,
+                "quote": "",
+                "source_kind": "original_image"
+              },
+              {
+                "block_id": "49a67af6909be559266934252867ecef3c71bbbdd5aaf3795d1d0c855899c1ad",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/5",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    5
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                },
+                "role": "image_parent_context",
+                "start": 0,
+                "end": 0,
+                "quote": "",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        },
+        {
+          "chunk_id": "ea01ce7cd8dc11b2896fd90b1b91e2b6f9ee8d65ec55d911dd7b35aa72c3af7f",
+          "kind": "paragraph",
+          "text": "2. 담당자가 신청서를 확인한다.",
+          "order_index": 8,
+          "grid": [],
+          "context_truncated": false,
+          "evidence": {
+            "organization_id": "A",
+            "document_id": "ba7b621bd65c4294a0b54516b619354a",
+            "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+            "chunk_id": "ea01ce7cd8dc11b2896fd90b1b91e2b6f9ee8d65ec55d911dd7b35aa72c3af7f",
+            "source_block_ids": [
+              "05f7970cba06fc533183cb8725e4ddfc620cb1969ecae88e58313deb61a49a88"
+            ],
+            "source_anchor": [
+              {
+                "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                "kind": "hwpx",
+                "selector": "Contents/section0.xml#/6",
+                "page": null,
+                "bbox": null,
+                "part": "Contents/section0.xml",
+                "xml_path": [
+                  6
+                ],
+                "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+              }
+            ],
+            "spans": [
+              {
+                "block_id": "05f7970cba06fc533183cb8725e4ddfc620cb1969ecae88e58313deb61a49a88",
+                "source_anchor": {
+                  "document_id": "ba7b621bd65c4294a0b54516b619354a",
+                  "version_id": "7b2322f3ddcd4f20b040eaea9e968bcf",
+                  "sha256": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/6",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    6
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                },
+                "role": "primary",
+                "start": 0,
+                "end": 18,
+                "quote": "2. 담당자가 신청서를 확인한다.",
+                "source_kind": "original_text"
+              }
+            ],
+            "verification_status": "structural_only",
+            "semantic_verification": "NOT_VERIFIED"
+          }
+        }
+      ],
+      "source": "project-authored synthetic fixture"
+    }
+  ],
+  "embedding_spec": {
+    "provider": "synthetic",
+    "model": "hash-character-v1",
+    "dimension": 64,
+    "normalization": "l2",
+    "metric": "cosine",
+    "test_only": true
+  },
+  "queries": [
+    {
+      "id": "pdf-0",
+      "expected": [
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "pdf-1",
+      "expected": [
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "pdf-2",
+      "expected": [
+        "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "pdf-3",
+      "expected": [
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "pdf-4",
+      "expected": [
+        "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "pdf-5",
+      "expected": [
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "hwpx-0",
+      "expected": [
+        "43f5b97c81cc45d88cb8faf86a076351b7c955d5bc90a80943f86182519f67bd"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "hwpx-1",
+      "expected": [
+        "ea01ce7cd8dc11b2896fd90b1b91e2b6f9ee8d65ec55d911dd7b35aa72c3af7f"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "hwpx-2",
+      "expected": [
+        "ab6297e0c97fb8dc6a7ec8c4eae5ff0015dd6d5c085411c2c04a048d11d57724"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "hwpx-3",
+      "expected": [
+        "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "hwpx-4",
+      "expected": [
+        "56cc52e75826c0a44bb09d375e97756f25d0e3ca60a0b95709b6902608ba616f"
+      ],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "no-answer",
+      "expected": [],
+      "allowed_tenants": [
+        "A"
+      ]
+    },
+    {
+      "id": "foreign",
+      "expected": [],
+      "allowed_tenants": [
+        "B"
+      ]
+    }
+  ],
+  "rankings": {
+    "keyword": {
+      "pdf-0": [
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c"
+      ],
+      "pdf-1": [
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c"
+      ],
+      "pdf-2": [
+        "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37"
+      ],
+      "pdf-3": [
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558"
+      ],
+      "pdf-4": [
+        "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1",
+        "585eaa1d7bb5234e5fe37a30b17af4ac5c07c4d74e23d76d813c8895d49ba1d8",
+        "dff29ddc8c6fb745dd80a83f1d8a829ab342e6015a5a8b6e51054f9ee51c1cfd",
+        "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214"
+      ],
+      "pdf-5": [
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e"
+      ],
+      "hwpx-0": [
+        "43f5b97c81cc45d88cb8faf86a076351b7c955d5bc90a80943f86182519f67bd",
+        "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0",
+        "ea01ce7cd8dc11b2896fd90b1b91e2b6f9ee8d65ec55d911dd7b35aa72c3af7f"
+      ],
+      "hwpx-1": [
+        "ea01ce7cd8dc11b2896fd90b1b91e2b6f9ee8d65ec55d911dd7b35aa72c3af7f"
+      ],
+      "hwpx-2": [
+        "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5",
+        "ab6297e0c97fb8dc6a7ec8c4eae5ff0015dd6d5c085411c2c04a048d11d57724",
+        "860a184e080f315a36994f9d793a7f02b8ed13bd8dc0315772d77c4ea353be25",
+        "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0"
+      ],
+      "hwpx-3": [
+        "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5",
+        "ab6297e0c97fb8dc6a7ec8c4eae5ff0015dd6d5c085411c2c04a048d11d57724",
+        "860a184e080f315a36994f9d793a7f02b8ed13bd8dc0315772d77c4ea353be25",
+        "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0"
+      ],
+      "hwpx-4": [
+        "56cc52e75826c0a44bb09d375e97756f25d0e3ca60a0b95709b6902608ba616f"
+      ],
+      "no-answer": [],
+      "foreign": []
+    },
+    "vector": {
+      "pdf-0": [
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+        "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1",
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e",
+        "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37"
+      ],
+      "pdf-1": [
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1",
+        "860a184e080f315a36994f9d793a7f02b8ed13bd8dc0315772d77c4ea353be25",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558"
+      ],
+      "pdf-2": [
+        "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37",
+        "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214",
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558"
+      ],
+      "pdf-3": [
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5",
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e"
+      ],
+      "pdf-4": [
+        "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1",
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+        "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e"
+      ],
+      "pdf-5": [
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e",
+        "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214"
+      ],
+      "hwpx-0": [
+        "860a184e080f315a36994f9d793a7f02b8ed13bd8dc0315772d77c4ea353be25",
+        "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0",
+        "43f5b97c81cc45d88cb8faf86a076351b7c955d5bc90a80943f86182519f67bd",
+        "ea01ce7cd8dc11b2896fd90b1b91e2b6f9ee8d65ec55d911dd7b35aa72c3af7f",
+        "ac2edb1f2785f8e4a02730717722a8625db62ee2346edeed5450647765cbaf81"
+      ],
+      "hwpx-1": [
+        "ea01ce7cd8dc11b2896fd90b1b91e2b6f9ee8d65ec55d911dd7b35aa72c3af7f",
+        "ac2edb1f2785f8e4a02730717722a8625db62ee2346edeed5450647765cbaf81",
+        "56cc52e75826c0a44bb09d375e97756f25d0e3ca60a0b95709b6902608ba616f",
+        "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0",
+        "43f5b97c81cc45d88cb8faf86a076351b7c955d5bc90a80943f86182519f67bd"
+      ],
+      "hwpx-2": [
+        "ab6297e0c97fb8dc6a7ec8c4eae5ff0015dd6d5c085411c2c04a048d11d57724",
+        "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5",
+        "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0",
+        "43f5b97c81cc45d88cb8faf86a076351b7c955d5bc90a80943f86182519f67bd",
+        "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1"
+      ],
+      "hwpx-3": [
+        "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5",
+        "ab6297e0c97fb8dc6a7ec8c4eae5ff0015dd6d5c085411c2c04a048d11d57724",
+        "dff29ddc8c6fb745dd80a83f1d8a829ab342e6015a5a8b6e51054f9ee51c1cfd",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558"
+      ],
+      "hwpx-4": [
+        "56cc52e75826c0a44bb09d375e97756f25d0e3ca60a0b95709b6902608ba616f",
+        "dff29ddc8c6fb745dd80a83f1d8a829ab342e6015a5a8b6e51054f9ee51c1cfd",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214",
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c"
+      ],
+      "no-answer": [
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+        "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c"
+      ],
+      "foreign": []
+    },
+    "hybrid": {
+      "pdf-0": [
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+        "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1",
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e",
+        "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37"
+      ],
+      "pdf-1": [
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1",
+        "860a184e080f315a36994f9d793a7f02b8ed13bd8dc0315772d77c4ea353be25",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558"
+      ],
+      "pdf-2": [
+        "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37",
+        "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214",
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558"
+      ],
+      "pdf-3": [
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5",
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c",
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e"
+      ],
+      "pdf-4": [
+        "494cdd9fb8237d8cba9a79a27518f280e09a62916034fb2e8248426462219fa1",
+        "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214",
+        "dff29ddc8c6fb745dd80a83f1d8a829ab342e6015a5a8b6e51054f9ee51c1cfd",
+        "585eaa1d7bb5234e5fe37a30b17af4ac5c07c4d74e23d76d813c8895d49ba1d8",
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c"
+      ],
+      "pdf-5": [
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e",
+        "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214"
+      ],
+      "hwpx-0": [
+        "43f5b97c81cc45d88cb8faf86a076351b7c955d5bc90a80943f86182519f67bd",
+        "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0",
+        "ea01ce7cd8dc11b2896fd90b1b91e2b6f9ee8d65ec55d911dd7b35aa72c3af7f",
+        "860a184e080f315a36994f9d793a7f02b8ed13bd8dc0315772d77c4ea353be25",
+        "ac2edb1f2785f8e4a02730717722a8625db62ee2346edeed5450647765cbaf81"
+      ],
+      "hwpx-1": [
+        "ea01ce7cd8dc11b2896fd90b1b91e2b6f9ee8d65ec55d911dd7b35aa72c3af7f",
+        "ac2edb1f2785f8e4a02730717722a8625db62ee2346edeed5450647765cbaf81",
+        "56cc52e75826c0a44bb09d375e97756f25d0e3ca60a0b95709b6902608ba616f",
+        "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0",
+        "43f5b97c81cc45d88cb8faf86a076351b7c955d5bc90a80943f86182519f67bd"
+      ],
+      "hwpx-2": [
+        "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5",
+        "ab6297e0c97fb8dc6a7ec8c4eae5ff0015dd6d5c085411c2c04a048d11d57724",
+        "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0",
+        "860a184e080f315a36994f9d793a7f02b8ed13bd8dc0315772d77c4ea353be25",
+        "43f5b97c81cc45d88cb8faf86a076351b7c955d5bc90a80943f86182519f67bd"
+      ],
+      "hwpx-3": [
+        "591e5e993edfc9472da73bbd9b13ea277cb655eb7a515eb1651b57d2e91986a5",
+        "ab6297e0c97fb8dc6a7ec8c4eae5ff0015dd6d5c085411c2c04a048d11d57724",
+        "251d9524382d9433b7a105dfc0257031774a00be9a1156b54c10ee6d1df39df0",
+        "860a184e080f315a36994f9d793a7f02b8ed13bd8dc0315772d77c4ea353be25",
+        "dff29ddc8c6fb745dd80a83f1d8a829ab342e6015a5a8b6e51054f9ee51c1cfd"
+      ],
+      "hwpx-4": [
+        "56cc52e75826c0a44bb09d375e97756f25d0e3ca60a0b95709b6902608ba616f",
+        "dff29ddc8c6fb745dd80a83f1d8a829ab342e6015a5a8b6e51054f9ee51c1cfd",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "5f6b754ebb6f5bef3e7757f9c7251097992cb30bcc2116d2d6cdac1b29718214",
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c"
+      ],
+      "no-answer": [
+        "a4739936bbd2abcc47cde0c05ca387c8e9fe684c54e9261dd6c1b9bed88ab55e",
+        "d5541b2aa8fdfe53c738622acd4866e88a9932976f71c3cef844a1775b0ef558",
+        "da47401e2ab0130d3b293c955fe6849798920c988fdb542e6b160da264315f37",
+        "eb3b8ef49b7fe0ed274f39cc41aaa5da4c2e78806cc40c4b5e86b09d52c88ba1",
+        "a8f83bf95051cb5bccc8ad22f9986cf6db57f2af391c9844755e9212e53e7c9c"
+      ],
+      "foreign": []
+    }
+  },
+  "metrics": {
+    "keyword": {
+      "mode": "metric_fixture",
+      "answerable": 11,
+      "hit_at_5": 1.0,
+      "recall_at_5": 1.0,
+      "mrr_at_5": 0.9545454545454546,
+      "no_answer_queries": 2,
+      "no_answer_false_positives": 0,
+      "scope_violations": [],
+      "safety_pass": true,
+      "actual_embedding_executed": false
+    },
+    "vector": {
+      "mode": "metric_fixture",
+      "answerable": 11,
+      "hit_at_5": 1.0,
+      "recall_at_5": 1.0,
+      "mrr_at_5": 0.9393939393939394,
+      "no_answer_queries": 2,
+      "no_answer_false_positives": 1,
+      "scope_violations": [],
+      "safety_pass": true,
+      "actual_embedding_executed": false
+    },
+    "hybrid": {
+      "mode": "metric_fixture",
+      "answerable": 11,
+      "hit_at_5": 1.0,
+      "recall_at_5": 1.0,
+      "mrr_at_5": 0.9545454545454546,
+      "no_answer_queries": 2,
+      "no_answer_false_positives": 1,
+      "scope_violations": [],
+      "safety_pass": true,
+      "actual_embedding_executed": false
+    }
+  },
+  "latency_seconds": {
+    "keyword": [
+      0.04246140000032028,
+      0.05917189999991024,
+      0.06013280000024679,
+      0.044855599999664264,
+      0.1677412000003642,
+      0.041353000000071916,
+      0.16070859999990716,
+      0.04895639999995183,
+      0.15315760000021328,
+      0.14390000000003056,
+      0.037381900000127644,
+      0.0013394000002335815,
+      0.002979200000027049
+    ],
+    "vector": [
+      0.42276040000024295,
+      0.48640160000013566,
+      0.48932220000006055,
+      0.4800662000002376,
+      0.4204079000001002,
+      0.46022420000008424,
+      0.43855059999987134,
+      0.4830685000001722,
+      0.4688475000002654,
+      0.450084600000082,
+      0.40499789999967106,
+      0.5372195999998439,
+      0.0014741999998477695
+    ],
+    "hybrid": [
+      0.49570509999966816,
+      0.5716360000001259,
+      0.5228670999999849,
+      0.5558739000002788,
+      0.5194358000003376,
+      0.47488479999992705,
+      0.5228094999997666,
+      0.5260763999999654,
+      0.6070411000000604,
+      0.48992569999973057,
+      0.5148939999999129,
+      0.4851840000001175,
+      0.0023528000001533655
+    ]
+  },
+  "actual_model_calls": 0,
+  "full_goldset": "NOT_RUN"
+}
