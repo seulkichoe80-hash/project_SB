@@ -15,6 +15,8 @@ if __name__ == '__main__':
     parser.add_argument('--institution-id',required=True)
     parser.add_argument('--once',action='store_true')
     args = parser.parse_args()
+    from .runtime_settings import ensure_start_environment
+    ensure_start_environment('chunk_worker')
     docs = DocumentService(Repository(args.data_dir/'metadata.sqlite3'),LocalOriginalStore(args.data_dir/'originals'),True)
     service = ChunkService(ParsingService(docs))
     principal = Principal('local-chunk-worker',args.institution_id,'worker')

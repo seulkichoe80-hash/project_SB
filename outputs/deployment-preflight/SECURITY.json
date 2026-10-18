@@ -1,0 +1,11 @@
+{
+  "strong_secret_pattern_hits": 0,
+  "synthetic_marker_leaks_in_result_json": 0,
+  "secret_validation": "repr/dump/CLI/exception tests; no production credentials used",
+  "production_startup": "blocked before DB/object/transport initialization",
+  "real_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "push_merge_deploy": false,
+  "human_judgments_generated": 0,
+  "scan_limitation": "Targeted patterns; not an exhaustive privacy audit"
+}

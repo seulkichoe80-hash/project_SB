@@ -264,3 +264,7 @@ scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal
 ## v0.3-D opt-in C 검색
 
 기존 /search/default literal/RAG lexical 계약을 보존한다. 서버 SB_ENABLE_SCORED_OR_SEARCH=1과 요청 strategy=scored_or를 동시에 요구하는 bounded ScoredORSearch를 추가한다. source/current generation과 원본 재해결을 전후 검사한다. [기능 flag·자원/근거 계약](docs/V03D_OPT_IN_SCORED_SEARCH.md)을 따른다.
+
+## 배포 준비 1단계 운영 설정·시작 차단
+
+[설정 계약](docs/DEPLOYMENT_PREFLIGHT.md)의 RuntimeSettings와 offline CLI는 local/test/production·API/worker 역할·기존 AuthSettings/SupabaseSettings·업로드 상한을 검증한다. 표준 API factory와 worker CLI는 영속 저장소 생성 전에 guard를 실행한다. 설정이 완전해도 PG/객체/운영 Auth bootstrap·proxy/worker·복구 capability가 없으므로 production은 시작 불가다. 설정 목표는 실연결/버킷 ACL/기관 권한/실복구 검증이 아니며 실제 외부 호출·새 schema·운영 wiring은 추가하지 않는다.

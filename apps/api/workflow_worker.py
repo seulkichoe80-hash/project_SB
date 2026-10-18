@@ -21,6 +21,8 @@ def main():
     parser.add_argument('--job-timeout-seconds',type=float,default=600)
     parser.add_argument('--once',action='store_true')
     args=parser.parse_args()
+    from .runtime_settings import ensure_start_environment
+    ensure_start_environment('workflow_worker')
     if not 1<=args.lease_seconds<=300 or not 1<=args.job_timeout_seconds<=3600:
         parser.error('invalid lease or timeout')
     docs=DocumentService(Repository(args.data_dir/'metadata.sqlite3'),LocalOriginalStore(args.data_dir/'originals'),True)

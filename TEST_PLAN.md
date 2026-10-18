@@ -275,3 +275,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## 우선 10문항 검토 지원 Feature Gate
 
 제품 UI/API/DB 변경 없이 별도 평가 도구만 추가한다. 신규 검토 묶음의 기관별 문맥·근거/원본 재검증, 빈 판정/부분 입력/중복/미등록 문항/시간대·판정 검증, 제출과 승인 분리를 관련 B/C1 회귀와 실행한다. Chromium PC/375px의 10문항·가로 넘침·키보드 진입을 확인한다. 전체 제품 회귀는 이 Feature Gate에서 재실행하지 않으며 이전 D 결과를 새 실행으로 보고하지 않는다.
+
+## 배포 준비 1단계
+
+[계약](docs/DEPLOYMENT_PREFLIGHT.md)과 tests/test_deployment_preflight.py로 local/test·legacy alias·production 필수키/형식/금지 조합·secret repr/JSON/CLI 오류 redaction·API/worker 쌍·HTTPS/Origin/Secure/CSRF·mock 운영 금지·외부 client/socket 없는 검사·표준 API import 및 worker CLI의 DB 생성 전 시작 차단을 확인한다. 시작 경로 변경이므로 전체 backend를 비루프백 guard로 새 실행한다. UI/의존성/파서/schema는 동일한 hash 증거로 이전 결과를 구별하며, 실제 연결/운영/복구는 NOT_CHECKED/NOT_VERIFIED다. 설정이 맞아도 production BLOCKED는 현재 설계상 기대 결과다.

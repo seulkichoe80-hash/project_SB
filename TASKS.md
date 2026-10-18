@@ -331,3 +331,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 
 - [x] 사용자 요청 범위의 배포 구성·비용 가정·인증/DB/객체/worker 차이·백업·설정·실행 순서 검토. [실행 계획](docs/INTERNET_DEPLOYMENT_PLAN_20261018.md). 실제 리소스/외부 호출/배포 없음.
 - [ ] 다음 구현 제안: strict 운영 설정·시작 계약/오프라인 사전 검사. PG·객체 저장·실Auth/staging·G1-C는 별도 구현/승인 후. 인간 판정은 별도 진행, 자동 생성/승인 안 함.
+
+## 배포 준비 1단계 — 운영 설정·offline preflight
+
+- [x] 기존 D/E/배포 계획70파일을3453eec 로컬 보존 후 feat/deployment-preflight 분기. [설정/시작 계약](docs/DEPLOYMENT_PREFLIGHT.md)과 offline CLI·API/worker 저장소 초기화 전 guard 구현.
+- [ ] PostgreSQL/auth/job/budget adapter·private Storage·운영 Auth bootstrap·proxy/worker·백업복구 실증은 미완료이며 production 시작 차단을 유지한다. 인간 판정 자동 생성/승인 없음.
+- [x] 신규40·전체backend687 PASS/FAIL0/SKIP0, CLI6기대결과·외부시도0·source동일성·기존871파일 보존 확인. UI/타입/build는 변경 없음으로 이번 미실행. [완료 보고](outputs/DEPLOYMENT_PREFLIGHT_REPORT.md).

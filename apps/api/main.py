@@ -16,6 +16,8 @@ def authenticated_principal(request: Request) -> Principal:
 
 
 def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False, identity_provider=None, auth_settings=None, auth_clock=None, supabase_settings=None, search_settings=None) -> FastAPI:
+    from .runtime_settings import ensure_start_environment
+    ensure_start_environment('api')
     if supabase_settings is not None:
         if identity_provider is not None:
             raise ValueError('choose_one_identity_configuration')
