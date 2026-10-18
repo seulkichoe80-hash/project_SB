@@ -1,0 +1,51 @@
+[
+  {
+    "logical_id": "travel-a",
+    "hash_match": true,
+    "parser_match": true,
+    "chunk_match": true,
+    "chunks": 8
+  },
+  {
+    "logical_id": "leave-a",
+    "hash_match": true,
+    "parser_match": true,
+    "chunk_match": true,
+    "chunks": 8
+  },
+  {
+    "logical_id": "purchase-a",
+    "hash_match": true,
+    "parser_match": true,
+    "chunk_match": true,
+    "chunks": 8
+  },
+  {
+    "logical_id": "meeting-a",
+    "hash_match": true,
+    "parser_match": true,
+    "chunk_match": true,
+    "chunks": 8
+  },
+  {
+    "logical_id": "form-a",
+    "hash_match": true,
+    "parser_match": true,
+    "chunk_match": true,
+    "chunks": 8
+  },
+  {
+    "logical_id": "travel-b",
+    "hash_match": true,
+    "parser_match": true,
+    "chunk_match": true,
+    "chunks": 8
+  },
+  {
+    "logical_id": "pdf-control",
+    "hash_match": true,
+    "parser_match": true,
+    "chunk_match": true,
+    "chunks": 9
+  }
+]

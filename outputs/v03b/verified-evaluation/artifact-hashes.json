@@ -1,0 +1,20 @@
+{
+  "replay-verification.json": "a2dfc0f90f79f9b0113b20b0c34f6c61367d0b8c4716e8df4f0e09ec0286765d",
+  "review-rows.json": "7bad3f08e64f2d2d8772f0d0f44087acd9b775705aab5f35f33329f8c38cc0e7",
+  "parsed-originals.json": "f3b49f72e359cc006158232fd6973cd1ca71474e7853a32627858de2fd7e0450",
+  "proposed-labels.json": "efe46fe8fef76e62ff0380426574d9f555ed06b5c8657f5b814b495f9933d69b",
+  "review.html": "c89eac4653b641d6d03ae0724ee4bd9e88eac6e5e52bb2c43a4922818c72eb8e",
+  "summary.json": "dddc80319437ef6b56c1f1ce879a7fdc442ed0b6e73d122d5adcc9ac51738851",
+  "predictions-empty.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "retrieval.json": "a49b17176072e6990fb1336c129e03c71797b5ae461b25fd9418fdde960f99a3",
+  "review-sheet.csv": "770652e85fbfa88bf13652d5a628cbd55955b3283b0003c8c2578458eed6f145",
+  "generation.json": "0bf6aa9af4f935c8f0229dc464d09798f0d216ecccf14b6bd6a541ce84efc970",
+  "metric-calibration.json": "bbf313d94382e4e7cf03fddc7498e3231e97172c69418d4e7426b13cbae59322",
+  "corpus/pdf-control.pdf": "2eea213c7ed2624cfa14783c2e087b3d2cdaf198fe2f621a90796abac835bb16",
+  "corpus/form-a.hwpx": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+  "corpus/meeting-a.hwpx": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+  "corpus/leave-a.hwpx": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+  "corpus/purchase-a.hwpx": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+  "corpus/travel-b.hwpx": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+  "corpus/travel-a.hwpx": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16"
+}

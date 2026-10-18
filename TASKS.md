@@ -293,3 +293,10 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] 분석 3파일을 193e54d 로컬 커밋으로 보존하고 feat/v03a-provider-safety 분기. Fake-only transport/strict 출력·근거 검증과 별도 SQLite 모의 비용 원장 구현. [계약](docs/V03A_PROVIDER_SAFETY.md).
 - [x] 신규86·전체 backend495·UI174·실제 HTTP13·타입/빌드 PASS. [보고](outputs/V03A_REPORT.md).
 - [ ] 실제 공급자·실비 예산 승인·평가 정답 독립 검토·v0.3-B는 후속 사용자 요청 후. push/merge/배포 없음.
+
+## v0.3-B 오프라인 평가 기반
+
+- [x] v0.3-A를 a3bfee3으로 로컬 보존하고 feat/v03b-evaluation-fixtures 분기. 실제 parser/chunker의 신규 평가 세대·EvidenceRef 재연결·question-only window 검색·분리 metric scorer·40문항 인간 검토표 구현. [계약](docs/V03B_EVALUATION_FOUNDATION.md).
+- [ ] 독립 인간 정답/관계/기한/조건/서식 주석 검토 및 실제 AI 성능은 미완료다. v0.3-C와 외부 호출·push·배포는 자동 진행하지 않는다.
+
+- [x] 최종 신규59·전체 backend554·UI174·실제 loopback HTTP13·타입/빌드 PASS. 7원본 hash/57청크/51구조 근거 재연결 일치. 검색 no_hits40·인간 검토 대기40·AI NOT_RUN과 초기 namespace 오류를 구분한 [보고](outputs/V03B_REPORT.md).

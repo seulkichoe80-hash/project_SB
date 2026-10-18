@@ -248,3 +248,7 @@ apps/web의 lazy WorkflowPage는 기존 AuthContext·same-origin BFF와 Workflow
 ## v0.3-A Fake-only 공급자 안전 경계
 
 기존 세 adapter 계약과 앱/API/DB 기본값을 보존한다. 새 provider_safety/provider_fake_adapters와 별도 SimulationBudgetLedger는 외부 호출 없는 주입형 시험 경계다. 원자적 예약/시도별 정산/unknown hold 및 기관 격리는 [안전 계약](docs/V03A_PROVIDER_SAFETY.md)을 따른다. 실전 HTTP serializer·키·가격·tokenizer·workflow 비용 통합은 포함하지 않는다.
+
+## v0.3-B 평가 자료와 점수 분리
+
+평가 도구는 scripts/validation에만 추가한다. 제품의 8단어 검색/adapter/API/DB를 보존하며 신규 generation의 원본·snapshot·EvidenceRef를 고정한다. window 검색·자동 exact/구조 점수·인간 검토는 [평가 계약](docs/V03B_EVALUATION_FOUNDATION.md)에 따라 분리한다.

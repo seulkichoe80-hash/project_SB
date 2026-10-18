@@ -1,0 +1,353 @@
+{
+  "automatic": {
+    "steps": {
+      "annotated_cases": 0,
+      "not_annotated_cases": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "exact_set_accuracy": null
+    },
+    "order": {
+      "annotated_cases": 0,
+      "not_annotated_cases": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "exact_set_accuracy": null
+    },
+    "branches": {
+      "annotated_cases": 0,
+      "not_annotated_cases": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "exact_set_accuracy": null
+    },
+    "deadlines": {
+      "annotated_cases": 0,
+      "not_annotated_cases": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "exact_set_accuracy": null
+    },
+    "conditions": {
+      "annotated_cases": 0,
+      "not_annotated_cases": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "exact_set_accuracy": null
+    },
+    "forms": {
+      "annotated_cases": 0,
+      "not_annotated_cases": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "exact_set_accuracy": null
+    },
+    "evidence_structural": {
+      "valid": 0,
+      "total": 0,
+      "rate": null,
+      "items_missing_evidence": 0
+    },
+    "unsupported_claim_proxy": {
+      "unsupported": 0,
+      "claims": 0,
+      "rate": null,
+      "semantic_accuracy": null
+    }
+  },
+  "case_count": 40,
+  "status_counts": {
+    "NOT_RUN": 40
+  },
+  "records": [
+    {
+      "id": "travel-a-01",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-a-02",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-a-03",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-a-04",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-a-05",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-a-06",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-01",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-02",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-03",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-04",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-05",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-06",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-01",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-02",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-03",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-04",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-05",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-06",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-01",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-02",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-03",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-04",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-05",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-06",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-01",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-02",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-03",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-04",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-05",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-06",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-01",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-02",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-03",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-04",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-05",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-06",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "safety-01",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "safety-02",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "safety-03",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "safety-04",
+      "status": "NOT_RUN",
+      "automatic": null,
+      "human": null
+    }
+  ],
+  "automatic_scope": "provisional exact-label/structural metrics only; generated cases denominator; all exclusions separately counted",
+  "human": {
+    "submitted_reviews": 0,
+    "pending": 40,
+    "verdict_counts": {
+      "정확": 0,
+      "부분정확": 0,
+      "오답": 0,
+      "판정불가": 0
+    },
+    "exact_accuracy": null,
+    "unsupported_claim_rate": null,
+    "provenance": "human-supplied records only; identity/independence must be audited outside this tool"
+  },
+  "actual_ai_performance_claimed": false,
+  "goldset_approved": false,
+  "provenance": {
+    "generation_id": "9b5bafec266c40883945b435d8c7149d0f604dac1c91c1dbb2540c796553dd79",
+    "generation_sha256": "0bf6aa9af4f935c8f0229dc464d09798f0d216ecccf14b6bd6a541ce84efc970",
+    "predictions_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "labels_sha256": null,
+    "human_reviews_sha256": null,
+    "external_provider_calls_by_scorer": 0,
+    "inference_executed": false
+  }
+}

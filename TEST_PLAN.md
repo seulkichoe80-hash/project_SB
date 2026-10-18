@@ -255,3 +255,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## v0.3-A 공급자 안전장치
 
 신규 tests/test_provider_safety.py는 Fake 전송·429/503 bounded retry·미완료/usage 불명·스키마/근거 위조·기관/역할·원자 rollback·동시 thread/process 예산·중복 차감·lease/restart/취소/reconcile·실제 socket/DNS 차단을 검사한다. Phase Gate는 전체 backend495(기존409+신규86), UI174(104+24+26+20), 타입/빌드·실제 loopback HTTP13을 새 실행한다. [현재 실행 결과](outputs/V03A_REPORT.md)를 보존하며 과거 골드셋 정답을 AI 성능으로 계산하지 않는다.
+
+## v0.3-B 평가 기반
+
+[평가 계약](docs/V03B_EVALUATION_FOUNDATION.md)과 tests/test_evaluation_foundation.py로7원본 hash·실제 parser/chunker57청크·과거/현재 ID replay·51근거 재연결·옛 세대/활성 버전/등록 해제/기관 격리·7장문 전체 보존·검색 오류 분리·metric PRF/관계/인용/무근거 proxy·NOT_ANNOTATED·인간 검토 대기/입력·비용 provenance를 검사한다. Phase Gate는 전체 backend 회귀와 기존 UI174·타입/빌드·실제 loopback HTTP13을 새로 실행하고, 실행 증거와 초기 오류를 outputs/v03b에 보존한다. 실제 AI 점수는 NOT_RUN으로 유지한다.

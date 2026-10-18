@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "fixture reproduction and metric arithmetic only; AI performance NOT_RUN",
+  "documents": 7,
+  "chunks": 57,
+  "questions": 40,
+  "all_original_sha256_match": true,
+  "all_exact_historical_replays_match": true,
+  "all_normalized_chunks_match": true,
+  "references": {
+    "expected_chunks": 57,
+    "actual_chunks": 57,
+    "relinked": 51,
+    "failed": 0,
+    "unverified": 0
+  },
+  "human_review_pending": 40,
+  "actual_model_calls": 0,
+  "actual_spend_usd": 0,
+  "seconds": 3.9095126800002618
+}

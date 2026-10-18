@@ -1,0 +1,13 @@
+{
+  "strong_secret_pattern_hits": [],
+  "data_scope": "project-authored synthetic sources only",
+  "keys_added": false,
+  "schema_or_dependencies_changed": false,
+  "product_api_or_search_contract_changed": false,
+  "actual_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "canonical_frozen_artifact_hashes_verified": 18,
+  "human_approvals_created": 0,
+  "default_provider_deny_preserved": true,
+  "scan_scope": "new source/tests/docs/evaluation exports; offline human reviewer rows blank; fixtures contain synthetic institutional text only"
+}
