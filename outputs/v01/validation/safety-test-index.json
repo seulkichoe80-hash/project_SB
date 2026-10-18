@@ -1,0 +1,134 @@
+[
+  {
+    "test": "test_auth.AuthTests.test_session_search_and_chunk_evidence_tenant_boundary",
+    "status": "PASS"
+  },
+  {
+    "test": "test_chunking.ChunkIntegrationTests.test_transaction_failure_no_partial_search_retry",
+    "status": "PASS"
+  },
+  {
+    "test": "test_document_api.DocumentTests.test_immutable_and_tamper_detection",
+    "status": "PASS"
+  },
+  {
+    "test": "test_document_api.DocumentTests.test_unauthenticated_cannot_spoof_tenant",
+    "status": "PASS"
+  },
+  {
+    "test": "test_parsing.ParsingIntegrationTests.test_parser_failure_retry_no_partial_results",
+    "status": "PASS"
+  },
+  {
+    "test": "test_parsing.ParsingIntegrationTests.test_reader_requires_active_version_and_failed_retry_is_explicit",
+    "status": "PASS"
+  },
+  {
+    "test": "test_parsing.ParsingIntegrationTests.test_tenant_and_auth_extraction_isolation",
+    "status": "PASS"
+  },
+  {
+    "test": "test_rag_contracts.RAGTests.test_interrupted_embedding_retry",
+    "status": "PASS"
+  },
+  {
+    "test": "test_rag_contracts.RAGTests.test_original_tampered_during_embedding",
+    "status": "PASS"
+  },
+  {
+    "test": "test_rag_contracts.RAGTests.test_publish_rollback_and_retry",
+    "status": "PASS"
+  },
+  {
+    "test": "test_rag_contracts.RAGTests.test_tampered_original_blocks_search",
+    "status": "PASS"
+  },
+  {
+    "test": "test_supabase_transport.RemoteHTTPAuthTests.test_session_search_and_chunk_evidence_tenant_boundary",
+    "status": "PASS"
+  },
+  {
+    "test": "test_supabase_transport.TransportTests.test_bad_status_no_retry_or_redirect_at_both_endpoints",
+    "status": "PASS"
+  },
+  {
+    "test": "test_validation_contracts.ContractTests.test_foreign_inactive_or_unknown_rejected",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_discovery.WorkflowDiscoveryTests.test_foreign_document_citation_and_foreign_principal_rejected",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_forms.WorkflowFormTests.test_candidate_hash_tamper_rejected",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_inputs.WorkflowInputTests.test_deregister_and_original_hash_preservation",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_inputs.WorkflowInputTests.test_foreign_reader_worker_and_anonymous_access",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_inputs.WorkflowInputTests.test_missing_foreign_or_false_evidence",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_inputs.WorkflowInputTests.test_tampered_original_and_snapshot_are_rejected",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_component_tamper_rejected",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_failure_attempt_limit_preserved_across_retry",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_foreign_jobs_and_candidates_blocked",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_killed_worker_claim_recovers_in_new_service",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_lease_expiry_recovery_and_old_worker",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_max_lease_attempts",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_migration_foreign_keys_and_integrity",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_original_hash_failure_never_publishes",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_partial_insert_rollback",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_payload_hash_tamper_rejected",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_permanent_failure_no_retry",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_jobs.WorkflowJobTests.test_retryable_failure_and_retry",
+    "status": "PASS"
+  },
+  {
+    "test": "test_workflow_validation.WorkflowValidationTests.test_original_tamper_rejected",
+    "status": "PASS"
+  }
+]

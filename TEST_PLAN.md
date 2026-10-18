@@ -235,3 +235,7 @@ FR-08/09/14/18·NFR-01/02/03/04/05 및 WEB-02/04/05/08의 이번 수직 범위�
 ## Phase 2E-2A 업무지도 안정화
 
 [계약](docs/PHASE2E2A_UI_STABILITY.md)에 따라 새로고침 후 명시적 멱등 복구·terminal/hidden/logout 중단·timeout/429/5xx backoff·중복 요청/늦은 취소 상태 응답·권한/활성·다중 근거 선택과 실패 상태·100노드 참조 안정성을 검사한다. 변경 전 production bundle과 변경 후 bundle을 동일 Chromium virtual clock/합성 응답으로 비교하며 측정 시간을 실사용 시간으로 과장하지 않는다. 기존 UI80, loopback HTTP6 및 전체 backend409를 새 실행하고 타입/빌드를 확인한다. 실패한 중간 실행과 과거 증거를 보존하며 최종 소스의 결과를 따로 기록한다. 다음 세부 단계는 별도 승인 후 진행한다.
+
+## v0.1 오프라인 기준본 검증
+
+Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재현·시연](docs/V01_DEMO.md)과 scripts/validation/run_v01_checks.py를 따른다. 전체 backend409·UI104·실제 HTTP13 및 타입/빌드를 새 실행하고 source hash/fixture/종료 코드/PC·모바일·원본 해시/위조 근거/기관·버전·reader·CSRF·로그아웃·queued worker 재시작을 기록한다. processing lease/실패 재시도·롤백은 backend 회귀로 구분한다. 실제 공급자·의미 검증·운영 배포와 G1 C/D 미실행을 PASS로 바꾸지 않는다. 기존 fixture·증거를 덮어쓰지 않으며 새 출력 경로만 사용한다.
