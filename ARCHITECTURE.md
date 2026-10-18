@@ -284,3 +284,7 @@ scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal
 ## 배포 준비 5단계: Local/Fake wiring·프록시·세션 상태 경계
 
 [계약](docs/DEPLOYMENT_WIRING.md)의 RuntimeBinding으로 API와 parse/chunk/workflow main의 명시 local/Fake 구성을 연결한다. 실제 DB/schema·원본 root/공유 Fake 인스턴스·역할을 대조하고 worker에서 BFF provider/프록시 증명을 분리한다. 단일 정제 홉 peer+서버 증명·Host/HTTPS·Origin 경계와 bounded `/api` ASGI edge를 opt-in으로 제공한다. 선택적 Fake provider 상태 재검증은 만료 상한·비활성 SID 영구 철회·장애 거부를 연결한다. 실제 Vercel/Render·원격 Storage/JWKS/상태 동기화·클라우드 worker/운영 복구는 미완료이며 production 차단을 유지한다.
+
+## 배포 준비 6단계: 스테이징 후보·호스팅 근거 게이트
+
+[공식 제약·연결 준비](docs/DEPLOYMENT_STAGING_PREP.md)는2026-10-18 KST의 pinned Supabase 공식 소스와 접근 실패를 분리한다. Vercel/Render의 최신 단가·rewrite/20MiB·상시 worker/ingress 조건은 미검증으로 아키텍처 최종 확정을 보류한다. 같은-site API 직통(B)을 우선 검증 후보로 제안하고 Storage 직접 업로드(C)는 새 finalize/권한 계약과 원본 다운로드 경로가 필요한 후속안으로 남긴다. runtime/code/schema·production blocker를 변경하거나 기존 설계를 운영 검증 완료로 승격하지 않는다.

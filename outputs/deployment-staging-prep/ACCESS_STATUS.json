@@ -1,0 +1,31 @@
+{
+  "checked_kst": "2026-10-18T19:05:22.756835+09:00",
+  "transport": "inherited HTTPS proxy and CA verification; no direct bypass",
+  "website_probes": [
+    {
+      "url": "https://vercel.com/docs/functions/limitations",
+      "error_type": "ProxyError"
+    },
+    {
+      "url": "https://render.com/docs/free",
+      "error_type": "ProxyError"
+    },
+    {
+      "url": "https://supabase.com/docs/guides/database/connecting-to-postgres",
+      "error_type": "ProxyError"
+    }
+  ],
+  "vercel_hosting_and_prices": "BLOCKED_DOCUMENT_ACCESS",
+  "render_hosting_and_prices": "BLOCKED_DOCUMENT_ACCESS",
+  "supabase_public_docs": "OFFICIAL_GITHUB_SOURCE_AVAILABLE",
+  "supabase_services_accounts": "NOT_CONTACTED",
+  "actual_ai_or_supabase_service_calls": 0,
+  "new_accounts_or_paid_subscriptions": 0,
+  "environment_network_config_changed": false,
+  "required_document_domains": [
+    "vercel.com",
+    "render.com",
+    "supabase.com"
+  ],
+  "raw_doc_snapshots_location": "ignored work/deployment-staging-preservation; SHA and pinned public links retained"
+}

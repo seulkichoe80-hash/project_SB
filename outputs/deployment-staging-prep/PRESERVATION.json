@@ -1,0 +1,33 @@
+{
+  "start_branch": "feat/deployment-wiring",
+  "start_head": "7451af863c7a81af140dc2c610033e430af526b3",
+  "preservation_commit": "cbee283a9dc3e810573faad523a95c778ff87535",
+  "current_branch": "feat/deployment-staging-prep",
+  "preserved_previous_files": 28,
+  "unchanged_tracked_files": 972,
+  "intentional_changed_tracked_files": [
+    "ARCHITECTURE.md",
+    "TASKS.md"
+  ],
+  "unexpected_changes": [],
+  "deleted_files": [],
+  "original_fixture_tests_historical_evidence_changes": [],
+  "human_judgments_created_or_approved": 0,
+  "previous_backend_1031_code_hash_match": true,
+  "backend_tls_ui_rerun": false,
+  "test_policy": "TEST_PLAN documentation-only exception; previous results not new PASS",
+  "official_source_count": 24,
+  "document_findings": 16,
+  "vercel_render_constraint_verification": "BLOCKED_DOCUMENT_ACCESS",
+  "actual_account_plan_verification": "NOT_CHECKED",
+  "staging_architecture_finalized": false,
+  "production_blockers_source_unchanged": true,
+  "actual_supabase_data_auth_storage_ai_api_calls": 0,
+  "public_official_docs_and_git_metadata_reads": true,
+  "service_accounts_billing_deployment_push_merge": 0,
+  "managed_network_secret_config_changed": false,
+  "scan_scope": "new/modified Git candidates strong key patterns plus synthetic provenance; not full PII certification",
+  "finished_kst": "2026-10-18T19:12:03.332022+09:00",
+  "minutes_since_preservation_commit": 15.26,
+  "strong_secret_pattern_hits": 0
+}
