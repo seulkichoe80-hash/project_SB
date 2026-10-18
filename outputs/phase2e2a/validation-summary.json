@@ -1,0 +1,121 @@
+{
+  "time_kst": "2026-10-18T09:27:30.521141+09:00",
+  "phase": "2E-2A only",
+  "preservation_commit": "16025642d24c0aaa67a3071734d0fb9682226901",
+  "branch": "feat/phase2d-offline-extraction",
+  "counts": {
+    "new_ui": {
+      "PASS": 24,
+      "FAIL": 0
+    },
+    "existing_ui": {
+      "PASS": 80,
+      "FAIL": 0
+    },
+    "loopback_http": {
+      "PASS": 6,
+      "FAIL": 0
+    },
+    "backend": {
+      "PASS": 409,
+      "FAIL": 0,
+      "SKIP": 0,
+      "BLOCKED": 0
+    }
+  },
+  "typecheck": "PASS",
+  "build": "PASS",
+  "baseline_measurements": [
+    {
+      "scenario": "completed_20s",
+      "requests": 8,
+      "paths": [
+        "/api/documents",
+        "/api/documents/0dc913eb959e4d4bbebc1d0d188961c3/versions/8808f32052c34d07a55aacb31ee41eda",
+        "/api/documents",
+        "/api/documents/0dc913eb959e4d4bbebc1d0d188961c3/versions/8808f32052c34d07a55aacb31ee41eda",
+        "/api/documents",
+        "/api/documents/0dc913eb959e4d4bbebc1d0d188961c3/versions/8808f32052c34d07a55aacb31ee41eda",
+        "/api/documents",
+        "/api/documents/0dc913eb959e4d4bbebc1d0d188961c3/versions/8808f32052c34d07a55aacb31ee41eda"
+      ]
+    },
+    {
+      "scenario": "100_nodes_metadata_5_5s",
+      "node_data_replacements": 100,
+      "wall_ms": 184.13805200000024
+    }
+  ],
+  "after_measurements": [
+    {
+      "scenario": "completed_20s",
+      "requests": 0,
+      "paths": []
+    },
+    {
+      "scenario": "100_nodes_metadata_5_5s",
+      "node_data_replacements": 0,
+      "wall_ms": 272.4854400000004
+    }
+  ],
+  "timing_seconds": {
+    "new_ui": 31.585069928999996,
+    "existing_workflow37": 53.157052257,
+    "legacy43": 23.578601954002806,
+    "loopback_http": 11.937484591,
+    "backend": 130.872,
+    "preservation_start_to_report": 652
+  },
+  "external_provider_calls": 0,
+  "blocked_external_attempts": 0,
+  "backend_guard_probe": "PASS",
+  "prior_files_preserved": 44,
+  "deleted_files": [],
+  "secret_pattern_hits": 0,
+  "dependency_lock_unchanged": true,
+  "source_sha256": {
+    "apps/web/src/main.tsx": "c5d2a7d0039da80f4a31553c17729fd34c40e378832d1ff1bc3ab15035a6f15d",
+    "apps/web/src/App.tsx": "83f2d7d37dbf15cf1cdb3c85b6e7e5e2a7b1899c5a3f827d65b0a0449c9c1d47",
+    "apps/web/src/vite-env.d.ts": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+    "apps/web/src/api/documents.ts": "6756d035268cfb65827db8f1b782e09fc5a9d6bfff52dd0d73218c31b50dddda",
+    "apps/web/src/api/workflows.ts": "09bf40b5cda1b1449b8126480091b11b910218d494e3f54421f2f55f0ae71bac",
+    "apps/web/src/api/requestDeadline.ts": "38b15995145cc39c4572fe1709ee2c7b8ce1cb4cf844e1d37899893b5208f17a",
+    "apps/web/src/auth/AuthContext.tsx": "6ed407be330465eb1c9a98f04193c0c0d64e56f004b02ac66731f5b1193babdd",
+    "apps/web/src/styles/app.css": "42c274e31648100364310bd2091569ea587446e75b15ad2b4a5dad91229be0c6",
+    "apps/web/src/styles/home.css": "5a5b18872fd765f69f217681ec08b016296d958a31e9a02147b6cb2c63203617",
+    "apps/web/src/styles/documents.css": "e43f2cef07b0960f2c00d1bf42ae5f0bd226e990a3ed46bdd954fac7fbd0bbba",
+    "apps/web/src/styles/tokens.css": "ca56a7cf05a5fedb2b35350ffc4aedf8a3f8aebd8e12cb032afd37f38d7ff183",
+    "apps/web/src/styles/workflow.css": "ca4a2effd6d54edb8e8e778949946f337e84902585615a3ca504dbc9fc49d2a1",
+    "apps/web/src/pages/WorkflowPage.tsx": "25cc95e637034875042b191229466ef0fef660277d0aa36375320c7b2a141174",
+    "apps/web/src/pages/DocumentsPage.tsx": "80cd7f5ce62344ccbf3e3d091fa698b42ace232cf8c7ef41175b28b180ff9840",
+    "apps/web/src/pages/HomePage.tsx": "bdcc62750838712b9d76c78b52b1c8ee01e6adcbb6dd1e381ce354a7d34cc177",
+    "apps/web/src/components/AppLayout.tsx": "7b2ad5d3026617c5e0579fe08fbc3f55cdbcc5e77f5d774d91d680e7154cec38",
+    "apps/web/src/components/UI.tsx": "cce253e61bd074e600b2a8ab37cf0bf507895ec54bc927d4925d4adcc8b1dcb1",
+    "apps/web/src/hooks/useVisiblePolling.ts": "c83f4cc2d482e049ff32e35aab0d69dfb87476c860b3c985a9a1f28b60e13be4"
+  },
+  "dist_sha256": {
+    "apps/web/dist/index.html": "2a90c2e661a3d0b5ca23e579fed19b1b3532445958bf4b1b8e386eb15e6efc46",
+    "apps/web/dist/assets/WorkflowPage-Di-Nqd3f.css": "9146340d12ad3d8d053f42d77a0ae28ba40c3d4ada27d04f63886ecdec326acf",
+    "apps/web/dist/assets/WorkflowPage-DiRiKEPn.js": "709cd02373c6a220b876c27a48a8e4c055477bd5ca5ec5b1f6609c2b0e67c261",
+    "apps/web/dist/assets/index-DVtpFdNw.css": "98022463ec345afbc1f2825a5c92cc66b61e838d4d37cfb665ab4a8345fd22a7",
+    "apps/web/dist/assets/index-yIFjUI0B.js": "ffefd6f8092df579ba70b9499fdfcf8dd650bfff3abe730d25d821fd3cf30c28"
+  },
+  "evidence": {
+    "new_ui": "work/phase2e2a/ui-complete.json",
+    "existing_workflow": "work/phase2e2a/regression-37-complete.json",
+    "legacy": "work/phase2e2a/legacy-complete/summary.json",
+    "http": "work/phase2e2a/live-complete/results.json",
+    "backend": "work/phase2e2a/backend.json",
+    "preservation": "work/phase2e2a/preservation-complete.json"
+  },
+  "not_run": [
+    "actual Supabase/LLM/embedding",
+    "native OS background scheduling",
+    "screen reader",
+    "real device long-run FPS",
+    "native PDF/Hancom visual pages",
+    "semantic verification",
+    "deployment"
+  ],
+  "next_phase": "2E-2B requirements and user approval required; not started"
+}

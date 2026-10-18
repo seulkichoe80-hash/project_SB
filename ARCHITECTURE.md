@@ -84,6 +84,10 @@ flowchart TD
 
 ## 도메인 데이터 계약
 
+[Phase 2D-3](docs/PHASE2D3_OFFLINE_DISCOVERY.md)는 입력 snapshot 전체 순회→명시 표식 기반 deterministic offline adapter→strict 구조/근거/처리 범위 검증→DRAFT/NEEDS_REVIEW DTO를 추가한다. 기존 WorkflowExtractionAdapter.extract 반환형은 유지하고 coverage receipt 확장을 분리한다. 담당 역할은 별도 근거 후보이며 인증 권한으로 쓰지 않는다. 새 DB/HTTP/승인/게시/UI는 추가하지 않는다.
+
+[Phase 2D-1~2](docs/PHASE2D_INPUT_CONTRACT.md)는 기존 RAG 반환형을 유지하고 별도 WorkflowExtractionAdapter·strict 후보 스키마·명시 구형 근거 bridge·관리자용 입력 snapshot을 추가한다. snapshot은 원본 재파싱/전체 청크 재구성으로 무결성을 검사하고 입력 세대·진척을 분리한다. DB migration/새 HTTP 경로/실모델/승인·게시/UI는 추가하지 않는다. 구조/근거 연결과 의미 검토는 별개이며 의미 상태는 NOT_VERIFIED다.
+
 | 엔티티 | 최소 필드/관계 |
 |---|---|
 | Workspace/Actor | 기관 ID, 역할, 허용 공개 기본팩, 자료 범위 |
@@ -220,3 +224,23 @@ DELETE /documents/{id}는 논리적 등록 해제다. native dialog로 확인하
 현재 [Stage4B-3A 연결 계약](docs/STAGE4B3A_SUPABASE_TRANSPORT.md)은 기존 provider interface에 고정 HTTPS Supabase transport를 추가한다. password token 교환 후 서버 `/user` 조회로 신원을 검증하고 로컬 active 멤버십으로 권한을 결정한다. 기본 앱은 미설정·deny-all이며 명시 factory 설정만 원격 계층을 구성한다. provider token의 브라우저/DB 저장은 없고 실제 공급자 호출·배포는 미승인이다. 아래 미구현 설명은 Stage4B-2 당시 범위다.
 
 [로컬 인증 계약](docs/STAGE4B2_AUTH.md)에 따라 IdentityProviderAdapter와 명시 mock 전송 기반 Supabase adapter·서버세션·HttpOnly cookie·CSRF/Origin을 추가했다. 기본 provider 미설정401/로그인503을 유지한다. 세션의 검증된 subject와 서버 active membership으로 기존 Principal을 만들며 client 기관/role·수정 가능한 metadata는 사용하지 않는다. 기존 문서/근거/worker 계층과 role literal은 유지하고 auth 테이블만 추가한다. 실제 provider transport/JWT·refresh/공급자정지 동기화·배포는 미구현이다.
+
+## Phase 2D-4 근거·그래프 진단
+
+기존 추출 계약을 유지하고 workflow_validation/graph/review 모듈과 별도 workflow-review-v1을 추가한다. 현재 활성 snapshot과 원본 EvidenceRef 재해결을 선행하고 그래프 문제를 후보 보존형 검토 이슈로 반환한다. PASS도 의미 검증·게시 권한이 아니다. [계약과 제한](docs/PHASE2D4_VALIDATION.md)을 따른다.
+
+## Phase 2D-5 서식 관계 후보
+
+기존 workflow 계약을 유지하며 workflow_forms 서비스/모델/SQLite adapter와 workflow-forms-v1을 추가한다. manager의 명시 분류 카탈로그는 기존 문서의 특정 활성 버전만 참조한다. 원문상의 필요성 주장과 실제 파일의 존재를 분리하며 단일 후보도 미확정이다. [현재 계약](docs/PHASE2D5_FORM_RELATIONS.md)을 따른다. 원본·기존 테이블/스키마 버전은 변경하지 않는다.
+
+## Phase 2D-6 영속 workflow
+
+workflow_jobs 서비스/SQLite adapter·독립 workflow_worker와 관리자 workflow 경로를 추가한다. 기존 snapshot _read는 동일한 _read_in을 재사용하며 저장 트랜잭션에서 현재 원본/parse/chunk/서식 상태와 lease를 함께 검증한다. 5개 필수 결과/작업 테이블과 오류 보존용 job_events를 비파괴 추가한다. 검토 후보의 조회 가능 전환과 의미 승인/공식 게시를 구별한다. [계약](docs/PHASE2D6_WORKFLOW_JOBS.md)을 따른다.
+
+## Phase 2E-1 관리자 후보 검토
+
+apps/web의 lazy WorkflowPage는 기존 AuthContext·same-origin BFF와 Workflow9개 경로를 재사용한다. @xyflow/react12.12.0 지도와 목록/모바일 탭은 조회만 제공하고 저장 관계를 보정하지 않는다. 현재 canonical EvidenceRef를 서버 resolve로 재해결하고 원문/주장·ReviewIssue·서식 후보를 구별한다. 요청 scope/generation 검사와 abort/unmount로 오래된 응답을 폐기한다. backend 계약/DB는 변경하지 않는다. [UI 계약과 한계](docs/PHASE2E1_WORKFLOW_REVIEW.md)를 따른다.
+
+## Phase 2E-2A UI 조회 수명
+
+기존 API를 유지하면서 visible serial polling·10초 deadline·오류 backoff와 terminal 중단을 적용한다. 명시적 동일 입력 POST로 작업을 재확인하며 작업 목록/브라우저 민감 캐시는 만들지 않는다. 근거 선택은 현재 generation의 메모리에 한정하고 focus에서 서버 재검증한다. [조회·복구와 한계](docs/PHASE2E2A_UI_STABILITY.md)를 따른다.

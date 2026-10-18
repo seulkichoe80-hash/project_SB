@@ -1,0 +1,1575 @@
+{
+  "$defs": {
+    "Anchor": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version_id": {
+          "title": "Version Id",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "pdf",
+            "hwpx"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "selector": {
+          "title": "Selector",
+          "type": "string"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "bbox": {
+          "anyOf": [
+            {
+              "maxItems": 4,
+              "minItems": 4,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bbox"
+        },
+        "part": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Part"
+        },
+        "xml_path": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Xml Path"
+        },
+        "tag": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tag"
+        }
+      },
+      "required": [
+        "document_id",
+        "version_id",
+        "sha256",
+        "kind",
+        "selector"
+      ],
+      "title": "Anchor",
+      "type": "object"
+    },
+    "ChunkOmission": {
+      "additionalProperties": false,
+      "properties": {
+        "chunk_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "reason": {
+          "enum": [
+            "scope_limit",
+            "partial_block",
+            "unsupported_content",
+            "adapter_omitted"
+          ],
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "chunk_id",
+        "reason"
+      ],
+      "title": "ChunkOmission",
+      "type": "object"
+    },
+    "Condition": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "statement": {
+          "$ref": "#/$defs/GroundedAssertion"
+        },
+        "step_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "maxItems": 200,
+          "minItems": 1,
+          "title": "Step Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "step_ids"
+      ],
+      "title": "Condition",
+      "type": "object"
+    },
+    "DiscoveryScope": {
+      "additionalProperties": false,
+      "properties": {
+        "input_chunk_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Input Chunk Ids",
+          "type": "array"
+        },
+        "traversed_chunk_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Traversed Chunk Ids",
+          "type": "array"
+        },
+        "requested_chunk_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Requested Chunk Ids",
+          "type": "array"
+        },
+        "processed_chunk_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Processed Chunk Ids",
+          "type": "array"
+        },
+        "omissions": {
+          "items": {
+            "$ref": "#/$defs/ChunkOmission"
+          },
+          "title": "Omissions",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "incomplete"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "input_chunk_ids",
+        "traversed_chunk_ids",
+        "requested_chunk_ids",
+        "processed_chunk_ids",
+        "omissions",
+        "status"
+      ],
+      "title": "DiscoveryScope",
+      "type": "object"
+    },
+    "DiscoverySettings": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "workflow-discovery-v1",
+          "default": "workflow-discovery-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "max_chunks": {
+          "default": 20000,
+          "maximum": 20000,
+          "minimum": 1,
+          "title": "Max Chunks",
+          "type": "integer"
+        },
+        "batch_size": {
+          "default": 32,
+          "maximum": 200,
+          "minimum": 1,
+          "title": "Batch Size",
+          "type": "integer"
+        }
+      },
+      "title": "DiscoverySettings",
+      "type": "object"
+    },
+    "Edge": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "source": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Source",
+          "type": "string"
+        },
+        "target": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Target",
+          "type": "string"
+        },
+        "relation": {
+          "enum": [
+            "precedes",
+            "conditional",
+            "requires"
+          ],
+          "title": "Relation",
+          "type": "string"
+        },
+        "condition_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "maxItems": 50,
+          "title": "Condition Ids",
+          "type": "array"
+        },
+        "explanation": {
+          "$ref": "#/$defs/GroundedAssertion"
+        }
+      },
+      "required": [
+        "id",
+        "source",
+        "target",
+        "relation",
+        "condition_ids",
+        "explanation"
+      ],
+      "title": "Edge",
+      "type": "object"
+    },
+    "EvidenceCitation": {
+      "additionalProperties": false,
+      "properties": {
+        "chunk_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "block_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Block Id",
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "exclusiveMinimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "quote": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Quote",
+          "type": "string"
+        }
+      },
+      "required": [
+        "chunk_id",
+        "block_id",
+        "start",
+        "end",
+        "quote"
+      ],
+      "title": "EvidenceCitation",
+      "type": "object"
+    },
+    "EvidenceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "organization_id": {
+          "title": "Organization Id",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version_id": {
+          "title": "Version Id",
+          "type": "string"
+        },
+        "chunk_id": {
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "source_block_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Block Ids",
+          "type": "array"
+        },
+        "source_anchor": {
+          "items": {
+            "$ref": "#/$defs/Anchor"
+          },
+          "title": "Source Anchor",
+          "type": "array"
+        },
+        "spans": {
+          "items": {
+            "$ref": "#/$defs/Span"
+          },
+          "title": "Spans",
+          "type": "array"
+        },
+        "verification_status": {
+          "const": "structural_only",
+          "default": "structural_only",
+          "title": "Verification Status",
+          "type": "string"
+        },
+        "semantic_verification": {
+          "const": "NOT_VERIFIED",
+          "default": "NOT_VERIFIED",
+          "title": "Semantic Verification",
+          "type": "string"
+        }
+      },
+      "required": [
+        "organization_id",
+        "document_id",
+        "version_id",
+        "chunk_id",
+        "source_block_ids",
+        "source_anchor",
+        "spans"
+      ],
+      "title": "EvidenceRef",
+      "type": "object"
+    },
+    "FormMetadata": {
+      "additionalProperties": false,
+      "properties": {
+        "title": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Title",
+          "type": "string"
+        },
+        "purpose": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Purpose",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "purpose"
+      ],
+      "title": "FormMetadata",
+      "type": "object"
+    },
+    "FormRelationIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "target_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Target Id",
+          "type": "string"
+        },
+        "code": {
+          "enum": [
+            "INVALID_STEP_BINDING",
+            "UNSUPPORTED_FORM_CLAIM",
+            "NO_REGISTERED_MATCH",
+            "AMBIGUOUS_FORM",
+            "LEXICAL_MATCH_ONLY",
+            "CONDITIONAL_MENTION",
+            "MENTION_NOT_OBLIGATION",
+            "SOURCE_REVIEW_REQUIRED",
+            "CANDIDATE_LIMIT"
+          ],
+          "title": "Code",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "ERROR",
+            "WARNING",
+            "INFO"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "reason": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Reason",
+          "type": "string"
+        },
+        "auto_block": {
+          "title": "Auto Block",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "target_id",
+        "code",
+        "severity",
+        "evidence_refs",
+        "reason",
+        "auto_block"
+      ],
+      "title": "FormRelationIssue",
+      "type": "object"
+    },
+    "FormRequirement": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "$ref": "#/$defs/GroundedAssertion"
+        },
+        "requirement": {
+          "$ref": "#/$defs/GroundedAssertion"
+        },
+        "step_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "maxItems": 200,
+          "minItems": 1,
+          "title": "Step Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "requirement",
+        "step_ids"
+      ],
+      "title": "FormRequirement",
+      "type": "object"
+    },
+    "GroundedAssertion": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Text",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/EvidenceCitation"
+          },
+          "maxItems": 20,
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "text",
+        "evidence"
+      ],
+      "title": "GroundedAssertion",
+      "type": "object"
+    },
+    "RegisteredFormCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "institution_id": {
+          "title": "Institution Id",
+          "type": "string"
+        },
+        "document_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Version Id",
+          "type": "string"
+        },
+        "original_sha256": {
+          "title": "Original Sha256",
+          "type": "string"
+        },
+        "original_name": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Original Name",
+          "type": "string"
+        },
+        "metadata": {
+          "$ref": "#/$defs/FormMetadata"
+        },
+        "catalog_revision": {
+          "minimum": 1,
+          "title": "Catalog Revision",
+          "type": "integer"
+        },
+        "matched_on": {
+          "items": {
+            "enum": [
+              "filename",
+              "title",
+              "purpose"
+            ],
+            "type": "string"
+          },
+          "title": "Matched On",
+          "type": "array"
+        },
+        "match_kind": {
+          "enum": [
+            "EXACT_NAME",
+            "PARTIAL_NAME"
+          ],
+          "title": "Match Kind",
+          "type": "string"
+        },
+        "existence": {
+          "const": "CURRENT_REGISTERED_FILE",
+          "default": "CURRENT_REGISTERED_FILE",
+          "title": "Existence",
+          "type": "string"
+        },
+        "relationship_verification": {
+          "const": "NOT_VERIFIED",
+          "default": "NOT_VERIFIED",
+          "title": "Relationship Verification",
+          "type": "string"
+        }
+      },
+      "required": [
+        "institution_id",
+        "document_id",
+        "version_id",
+        "original_sha256",
+        "original_name",
+        "metadata",
+        "catalog_revision",
+        "matched_on",
+        "match_kind"
+      ],
+      "title": "RegisteredFormCandidate",
+      "type": "object"
+    },
+    "ReviewIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "target_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "maxItems": 200,
+          "title": "Target Ids",
+          "type": "array"
+        },
+        "code": {
+          "enum": [
+            "insufficient_evidence",
+            "unclear_order",
+            "conflict",
+            "form_unresolved",
+            "partial_input",
+            "semantic_review_required",
+            "no_workflow_found"
+          ],
+          "title": "Code",
+          "type": "string"
+        },
+        "message": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "target_ids",
+        "code",
+        "message"
+      ],
+      "title": "ReviewIssue",
+      "type": "object"
+    },
+    "Span": {
+      "additionalProperties": false,
+      "properties": {
+        "block_id": {
+          "title": "Block Id",
+          "type": "string"
+        },
+        "source_anchor": {
+          "$ref": "#/$defs/Anchor"
+        },
+        "role": {
+          "enum": [
+            "primary",
+            "title_context",
+            "table_context",
+            "first_row_context",
+            "image_parent_context"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "minimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "quote": {
+          "title": "Quote",
+          "type": "string"
+        },
+        "source_kind": {
+          "enum": [
+            "original_text",
+            "original_image",
+            "original_structure"
+          ],
+          "title": "Source Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id",
+        "source_anchor",
+        "role",
+        "start",
+        "end",
+        "quote",
+        "source_kind"
+      ],
+      "title": "Span",
+      "type": "object"
+    },
+    "Step": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "$ref": "#/$defs/GroundedAssertion"
+        },
+        "actions": {
+          "items": {
+            "$ref": "#/$defs/GroundedAssertion"
+          },
+          "maxItems": 50,
+          "minItems": 1,
+          "title": "Actions",
+          "type": "array"
+        },
+        "deadline": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GroundedAssertion"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "obligations": {
+          "items": {
+            "$ref": "#/$defs/GroundedAssertion"
+          },
+          "maxItems": 50,
+          "title": "Obligations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "label",
+        "actions",
+        "deadline",
+        "obligations"
+      ],
+      "title": "Step",
+      "type": "object"
+    },
+    "StepRoleCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "step_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Step Id",
+          "type": "string"
+        },
+        "role": {
+          "$ref": "#/$defs/GroundedAssertion"
+        }
+      },
+      "required": [
+        "step_id",
+        "role"
+      ],
+      "title": "StepRoleCandidate",
+      "type": "object"
+    },
+    "WorkflowCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "$ref": "#/$defs/GroundedAssertion"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/Step"
+          },
+          "maxItems": 200,
+          "minItems": 1,
+          "title": "Steps",
+          "type": "array"
+        },
+        "conditions": {
+          "items": {
+            "$ref": "#/$defs/Condition"
+          },
+          "maxItems": 200,
+          "title": "Conditions",
+          "type": "array"
+        },
+        "edges": {
+          "items": {
+            "$ref": "#/$defs/Edge"
+          },
+          "maxItems": 400,
+          "title": "Edges",
+          "type": "array"
+        },
+        "form_requirements": {
+          "items": {
+            "$ref": "#/$defs/FormRequirement"
+          },
+          "maxItems": 200,
+          "title": "Form Requirements",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "steps",
+        "conditions",
+        "edges",
+        "form_requirements"
+      ],
+      "title": "WorkflowCandidate",
+      "type": "object"
+    },
+    "WorkflowDiscoveryResult": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "workflow-discovery-v1",
+          "default": "workflow-discovery-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "input_snapshot_id": {
+          "title": "Input Snapshot Id",
+          "type": "string"
+        },
+        "institution_id": {
+          "title": "Institution Id",
+          "type": "string"
+        },
+        "document_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Version Id",
+          "type": "string"
+        },
+        "parse_attempt_id": {
+          "title": "Parse Attempt Id",
+          "type": "string"
+        },
+        "chunk_job_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Chunk Job Id",
+          "type": "string"
+        },
+        "chunk_generation": {
+          "title": "Chunk Generation",
+          "type": "integer"
+        },
+        "model_id": {
+          "title": "Model Id",
+          "type": "string"
+        },
+        "rule_version": {
+          "title": "Rule Version",
+          "type": "string"
+        },
+        "input_settings_version": {
+          "title": "Input Settings Version",
+          "type": "string"
+        },
+        "prompt_contract_version": {
+          "title": "Prompt Contract Version",
+          "type": "string"
+        },
+        "settings": {
+          "$ref": "#/$defs/DiscoverySettings"
+        },
+        "test_only": {
+          "const": true,
+          "default": true,
+          "title": "Test Only",
+          "type": "boolean"
+        },
+        "candidate_state": {
+          "enum": [
+            "DRAFT",
+            "NEEDS_REVIEW"
+          ],
+          "title": "Candidate State",
+          "type": "string"
+        },
+        "extraction": {
+          "$ref": "#/$defs/WorkflowExtraction"
+        },
+        "roles": {
+          "items": {
+            "$ref": "#/$defs/StepRoleCandidate"
+          },
+          "title": "Roles",
+          "type": "array"
+        },
+        "evidence_refs": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "maxItems": 20000,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "scope": {
+          "$ref": "#/$defs/DiscoveryScope"
+        },
+        "validation": {
+          "$ref": "#/$defs/WorkflowValidation"
+        }
+      },
+      "required": [
+        "input_snapshot_id",
+        "institution_id",
+        "document_id",
+        "version_id",
+        "parse_attempt_id",
+        "chunk_job_id",
+        "chunk_generation",
+        "model_id",
+        "rule_version",
+        "input_settings_version",
+        "prompt_contract_version",
+        "settings",
+        "candidate_state",
+        "extraction",
+        "roles",
+        "evidence_refs",
+        "scope",
+        "validation"
+      ],
+      "title": "WorkflowDiscoveryResult",
+      "type": "object"
+    },
+    "WorkflowExtraction": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "workflow-extraction-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "workflows": {
+          "items": {
+            "$ref": "#/$defs/WorkflowCandidate"
+          },
+          "maxItems": 20,
+          "title": "Workflows",
+          "type": "array"
+        },
+        "issues": {
+          "items": {
+            "$ref": "#/$defs/ReviewIssue"
+          },
+          "maxItems": 200,
+          "title": "Issues",
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema_version",
+        "workflows",
+        "issues"
+      ],
+      "title": "WorkflowExtraction",
+      "type": "object"
+    },
+    "WorkflowFormRelation": {
+      "additionalProperties": false,
+      "properties": {
+        "workflow_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Workflow Id",
+          "type": "string"
+        },
+        "requirement_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Requirement Id",
+          "type": "string"
+        },
+        "step_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Step Ids",
+          "type": "array"
+        },
+        "form_name": {
+          "$ref": "#/$defs/GroundedAssertion"
+        },
+        "purpose": {
+          "$ref": "#/$defs/GroundedAssertion"
+        },
+        "condition_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Condition Ids",
+          "type": "array"
+        },
+        "evidence_refs": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "mention_kind": {
+          "enum": [
+            "MENTION_ONLY",
+            "CONDITIONAL_MENTION",
+            "EXPLICIT_OBLIGATION_MENTION"
+          ],
+          "title": "Mention Kind",
+          "type": "string"
+        },
+        "required": {
+          "const": null,
+          "default": null,
+          "title": "Required",
+          "type": "null"
+        },
+        "match_status": {
+          "enum": [
+            "UNLINKED",
+            "CANDIDATES",
+            "AMBIGUOUS",
+            "BLOCKED"
+          ],
+          "title": "Match Status",
+          "type": "string"
+        },
+        "relationship_status": {
+          "enum": [
+            "NEEDS_REVIEW",
+            "BLOCKED"
+          ],
+          "title": "Relationship Status",
+          "type": "string"
+        },
+        "candidates": {
+          "items": {
+            "$ref": "#/$defs/RegisteredFormCandidate"
+          },
+          "maxItems": 50,
+          "title": "Candidates",
+          "type": "array"
+        },
+        "issues": {
+          "items": {
+            "$ref": "#/$defs/FormRelationIssue"
+          },
+          "maxItems": 20,
+          "title": "Issues",
+          "type": "array"
+        },
+        "selected_form_id": {
+          "const": null,
+          "default": null,
+          "title": "Selected Form Id",
+          "type": "null"
+        },
+        "administrator_approval": {
+          "const": "NOT_REQUESTED",
+          "default": "NOT_REQUESTED",
+          "title": "Administrator Approval",
+          "type": "string"
+        }
+      },
+      "required": [
+        "workflow_id",
+        "requirement_id",
+        "step_ids",
+        "form_name",
+        "purpose",
+        "condition_ids",
+        "evidence_refs",
+        "mention_kind",
+        "match_status",
+        "relationship_status",
+        "candidates",
+        "issues"
+      ],
+      "title": "WorkflowFormRelation",
+      "type": "object"
+    },
+    "WorkflowFormsReport": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "workflow-forms-v1",
+          "default": "workflow-forms-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "input_snapshot_id": {
+          "title": "Input Snapshot Id",
+          "type": "string"
+        },
+        "institution_id": {
+          "title": "Institution Id",
+          "type": "string"
+        },
+        "document_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Version Id",
+          "type": "string"
+        },
+        "source_review": {
+          "$ref": "#/$defs/WorkflowReviewReport"
+        },
+        "relations": {
+          "items": {
+            "$ref": "#/$defs/WorkflowFormRelation"
+          },
+          "maxItems": 1000,
+          "title": "Relations",
+          "type": "array"
+        },
+        "semantic_verification": {
+          "const": "NOT_VERIFIED",
+          "default": "NOT_VERIFIED",
+          "title": "Semantic Verification",
+          "type": "string"
+        },
+        "administrator_approval": {
+          "const": "NOT_REQUESTED",
+          "default": "NOT_REQUESTED",
+          "title": "Administrator Approval",
+          "type": "string"
+        },
+        "publishable": {
+          "const": false,
+          "default": false,
+          "title": "Publishable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "input_snapshot_id",
+        "institution_id",
+        "document_id",
+        "version_id",
+        "source_review",
+        "relations"
+      ],
+      "title": "WorkflowFormsReport",
+      "type": "object"
+    },
+    "WorkflowReviewIssue": {
+      "additionalProperties": false,
+      "properties": {
+        "target_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "maxItems": 1000,
+          "title": "Target Ids",
+          "type": "array"
+        },
+        "code": {
+          "enum": [
+            "INVALID_FORMAT",
+            "OUTPUT_LIMIT",
+            "DUPLICATE_ID",
+            "INVALID_REFERENCE",
+            "DUPLICATE_EDGE",
+            "ORPHAN_NODE",
+            "UNUSED_CONDITION",
+            "UNCLEAR_ORDER",
+            "UNSUPPORTED_CYCLE",
+            "EVIDENCED_REPEAT",
+            "INVALID_EVIDENCE",
+            "UNSUPPORTED_ASSERTION",
+            "UNSUPPORTED_DEADLINE",
+            "UNSUPPORTED_AMOUNT",
+            "UNSUPPORTED_OBLIGATION",
+            "POSSIBLE_CONTEXT_MISMATCH",
+            "POSSIBLE_CONFLICT",
+            "DOCUMENT_INSTRUCTION",
+            "PARTIAL_INPUT",
+            "EXTRACTION_REVIEW"
+          ],
+          "title": "Code",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "ERROR",
+            "WARNING",
+            "INFO"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "items": {
+            "$ref": "#/$defs/EvidenceRef"
+          },
+          "maxItems": 20000,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "reason": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "pattern": "\\S",
+          "title": "Reason",
+          "type": "string"
+        },
+        "auto_block": {
+          "title": "Auto Block",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "target_ids",
+        "code",
+        "severity",
+        "evidence_refs",
+        "reason",
+        "auto_block"
+      ],
+      "title": "WorkflowReviewIssue",
+      "type": "object"
+    },
+    "WorkflowReviewReport": {
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "workflow-review-v1",
+          "default": "workflow-review-v1",
+          "title": "Schema Version",
+          "type": "string"
+        },
+        "input_snapshot_id": {
+          "title": "Input Snapshot Id",
+          "type": "string"
+        },
+        "institution_id": {
+          "title": "Institution Id",
+          "type": "string"
+        },
+        "document_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Version Id",
+          "type": "string"
+        },
+        "parse_attempt_id": {
+          "title": "Parse Attempt Id",
+          "type": "string"
+        },
+        "chunk_job_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Chunk Job Id",
+          "type": "string"
+        },
+        "chunk_generation": {
+          "title": "Chunk Generation",
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "NEEDS_REVIEW",
+            "REJECTED"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "format_validation": {
+          "enum": [
+            "PASS",
+            "REJECTED"
+          ],
+          "title": "Format Validation",
+          "type": "string"
+        },
+        "evidence_validation": {
+          "enum": [
+            "PASS",
+            "REJECTED",
+            "NOT_RUN"
+          ],
+          "title": "Evidence Validation",
+          "type": "string"
+        },
+        "graph_validation": {
+          "enum": [
+            "PASS",
+            "NEEDS_REVIEW",
+            "NOT_RUN"
+          ],
+          "title": "Graph Validation",
+          "type": "string"
+        },
+        "candidates": {
+          "items": {
+            "$ref": "#/$defs/WorkflowCandidate"
+          },
+          "maxItems": 20,
+          "title": "Candidates",
+          "type": "array"
+        },
+        "issues": {
+          "items": {
+            "$ref": "#/$defs/WorkflowReviewIssue"
+          },
+          "maxItems": 5000,
+          "title": "Issues",
+          "type": "array"
+        },
+        "semantic_verification": {
+          "const": "NOT_VERIFIED",
+          "default": "NOT_VERIFIED",
+          "title": "Semantic Verification",
+          "type": "string"
+        },
+        "semantic_review_required": {
+          "const": true,
+          "default": true,
+          "title": "Semantic Review Required",
+          "type": "boolean"
+        },
+        "administrator_approval": {
+          "const": "NOT_REQUESTED",
+          "default": "NOT_REQUESTED",
+          "title": "Administrator Approval",
+          "type": "string"
+        },
+        "publishable": {
+          "const": false,
+          "default": false,
+          "title": "Publishable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "input_snapshot_id",
+        "institution_id",
+        "document_id",
+        "version_id",
+        "parse_attempt_id",
+        "chunk_job_id",
+        "chunk_generation",
+        "status",
+        "format_validation",
+        "evidence_validation",
+        "graph_validation",
+        "candidates",
+        "issues"
+      ],
+      "title": "WorkflowReviewReport",
+      "type": "object"
+    },
+    "WorkflowValidation": {
+      "additionalProperties": false,
+      "properties": {
+        "structural_validation": {
+          "const": "PASS",
+          "default": "PASS",
+          "title": "Structural Validation",
+          "type": "string"
+        },
+        "evidence_link_validation": {
+          "const": "PASS",
+          "default": "PASS",
+          "title": "Evidence Link Validation",
+          "type": "string"
+        },
+        "semantic_verification": {
+          "const": "NOT_VERIFIED",
+          "default": "NOT_VERIFIED",
+          "title": "Semantic Verification",
+          "type": "string"
+        },
+        "semantic_review_required": {
+          "const": true,
+          "default": true,
+          "title": "Semantic Review Required",
+          "type": "boolean"
+        },
+        "administrator_approval": {
+          "const": "NOT_REQUESTED",
+          "default": "NOT_REQUESTED",
+          "title": "Administrator Approval",
+          "type": "string"
+        },
+        "publishable": {
+          "const": false,
+          "default": false,
+          "title": "Publishable",
+          "type": "boolean"
+        }
+      },
+      "title": "WorkflowValidation",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "workflow-job-result-v1",
+      "default": "workflow-job-result-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "discovery": {
+      "$ref": "#/$defs/WorkflowDiscoveryResult"
+    },
+    "forms": {
+      "$ref": "#/$defs/WorkflowFormsReport"
+    }
+  },
+  "required": [
+    "discovery",
+    "forms"
+  ],
+  "title": "WorkflowStoredResult",
+  "type": "object"
+}

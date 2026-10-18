@@ -1,0 +1,781 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "Anchor": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version_id": {
+          "title": "Version Id",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "pdf",
+            "hwpx"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "selector": {
+          "title": "Selector",
+          "type": "string"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "bbox": {
+          "anyOf": [
+            {
+              "maxItems": 4,
+              "minItems": 4,
+              "prefixItems": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "number"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bbox"
+        },
+        "part": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Part"
+        },
+        "xml_path": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Xml Path"
+        },
+        "tag": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tag"
+        }
+      },
+      "required": [
+        "document_id",
+        "version_id",
+        "sha256",
+        "kind",
+        "selector"
+      ],
+      "title": "Anchor",
+      "type": "object"
+    },
+    "Block": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version_id": {
+          "title": "Version Id",
+          "type": "string"
+        },
+        "block_id": {
+          "title": "Block Id",
+          "type": "string"
+        },
+        "block_type": {
+          "enum": [
+            "paragraph",
+            "heading",
+            "table",
+            "cell",
+            "image"
+          ],
+          "title": "Block Type",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "source_anchor": {
+          "$ref": "#/$defs/Anchor"
+        },
+        "extraction_method": {
+          "title": "Extraction Method",
+          "type": "string"
+        },
+        "order_index": {
+          "minimum": 0,
+          "title": "Order Index",
+          "type": "integer"
+        },
+        "verification_status": {
+          "const": "structural_only",
+          "default": "structural_only",
+          "title": "Verification Status",
+          "type": "string"
+        },
+        "semantic_verification": {
+          "const": "NOT_VERIFIED",
+          "default": "NOT_VERIFIED",
+          "title": "Semantic Verification",
+          "type": "string"
+        },
+        "source_kind": {
+          "enum": [
+            "original_text",
+            "original_image",
+            "original_structure"
+          ],
+          "title": "Source Kind",
+          "type": "string"
+        },
+        "order_basis": {
+          "enum": [
+            "geometric_heuristic",
+            "xml_spine_preorder"
+          ],
+          "title": "Order Basis",
+          "type": "string"
+        },
+        "visual_order_verification": {
+          "const": "NOT_VERIFIED",
+          "default": "NOT_VERIFIED",
+          "title": "Visual Order Verification",
+          "type": "string"
+        },
+        "parent_block_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Parent Block Id"
+        },
+        "row": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Row"
+        },
+        "column": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Column"
+        },
+        "row_span": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Row Span"
+        },
+        "column_span": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Column Span"
+        },
+        "table_shape": {
+          "anyOf": [
+            {
+              "maxItems": 2,
+              "minItems": 2,
+              "prefixItems": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "integer"
+                }
+              ],
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Table Shape"
+        },
+        "asset_ref": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Ref"
+        },
+        "asset_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Asset Sha256"
+        },
+        "context_relation": {
+          "anyOf": [
+            {
+              "const": "xml_containment",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Context Relation"
+        }
+      },
+      "required": [
+        "document_id",
+        "version_id",
+        "block_id",
+        "block_type",
+        "text",
+        "source_anchor",
+        "extraction_method",
+        "order_index",
+        "source_kind",
+        "order_basis"
+      ],
+      "title": "Block",
+      "type": "object"
+    },
+    "Chunk": {
+      "additionalProperties": false,
+      "properties": {
+        "chunk_id": {
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "paragraph",
+            "heading",
+            "table_row",
+            "image"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "order_index": {
+          "title": "Order Index",
+          "type": "integer"
+        },
+        "grid": {
+          "items": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "title": "Grid",
+          "type": "array"
+        },
+        "context_truncated": {
+          "title": "Context Truncated",
+          "type": "boolean"
+        },
+        "evidence": {
+          "$ref": "#/$defs/EvidenceRef"
+        }
+      },
+      "required": [
+        "chunk_id",
+        "kind",
+        "text",
+        "order_index",
+        "grid",
+        "context_truncated",
+        "evidence"
+      ],
+      "title": "Chunk",
+      "type": "object"
+    },
+    "ChunkConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "max_chars": {
+          "default": 800,
+          "maximum": 4000,
+          "minimum": 64,
+          "title": "Max Chars",
+          "type": "integer"
+        },
+        "context_chars": {
+          "default": 400,
+          "maximum": 2000,
+          "minimum": 0,
+          "title": "Context Chars",
+          "type": "integer"
+        }
+      },
+      "title": "ChunkConfig",
+      "type": "object"
+    },
+    "EvidenceRef": {
+      "additionalProperties": false,
+      "properties": {
+        "organization_id": {
+          "title": "Organization Id",
+          "type": "string"
+        },
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "version_id": {
+          "title": "Version Id",
+          "type": "string"
+        },
+        "chunk_id": {
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "source_block_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Source Block Ids",
+          "type": "array"
+        },
+        "source_anchor": {
+          "items": {
+            "$ref": "#/$defs/Anchor"
+          },
+          "title": "Source Anchor",
+          "type": "array"
+        },
+        "spans": {
+          "items": {
+            "$ref": "#/$defs/Span"
+          },
+          "title": "Spans",
+          "type": "array"
+        },
+        "verification_status": {
+          "const": "structural_only",
+          "default": "structural_only",
+          "title": "Verification Status",
+          "type": "string"
+        },
+        "semantic_verification": {
+          "const": "NOT_VERIFIED",
+          "default": "NOT_VERIFIED",
+          "title": "Semantic Verification",
+          "type": "string"
+        }
+      },
+      "required": [
+        "organization_id",
+        "document_id",
+        "version_id",
+        "chunk_id",
+        "source_block_ids",
+        "source_anchor",
+        "spans"
+      ],
+      "title": "EvidenceRef",
+      "type": "object"
+    },
+    "InputCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "processed_chunk_ids": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+            "type": "string"
+          },
+          "title": "Processed Chunk Ids",
+          "type": "array"
+        },
+        "unprocessed": {
+          "items": {
+            "$ref": "#/$defs/UnprocessedChunk"
+          },
+          "title": "Unprocessed",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "incomplete",
+            "complete"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "processed_chunk_ids",
+        "unprocessed",
+        "status"
+      ],
+      "title": "InputCoverage",
+      "type": "object"
+    },
+    "SnapshotSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "settings_version": {
+          "default": "workflow-input-settings-v1",
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Settings Version",
+          "type": "string"
+        },
+        "prompt_contract_version": {
+          "default": "workflow-extraction-prompt-v1",
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Prompt Contract Version",
+          "type": "string"
+        },
+        "max_snapshot_bytes": {
+          "default": 33554432,
+          "maximum": 67108864,
+          "minimum": 1024,
+          "title": "Max Snapshot Bytes",
+          "type": "integer"
+        }
+      },
+      "title": "SnapshotSettings",
+      "type": "object"
+    },
+    "Span": {
+      "additionalProperties": false,
+      "properties": {
+        "block_id": {
+          "title": "Block Id",
+          "type": "string"
+        },
+        "source_anchor": {
+          "$ref": "#/$defs/Anchor"
+        },
+        "role": {
+          "enum": [
+            "primary",
+            "title_context",
+            "table_context",
+            "first_row_context",
+            "image_parent_context"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "minimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "quote": {
+          "title": "Quote",
+          "type": "string"
+        },
+        "source_kind": {
+          "enum": [
+            "original_text",
+            "original_image",
+            "original_structure"
+          ],
+          "title": "Source Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "block_id",
+        "source_anchor",
+        "role",
+        "start",
+        "end",
+        "quote",
+        "source_kind"
+      ],
+      "title": "Span",
+      "type": "object"
+    },
+    "UnprocessedChunk": {
+      "additionalProperties": false,
+      "properties": {
+        "chunk_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Chunk Id",
+          "type": "string"
+        },
+        "reason": {
+          "const": "not_processed",
+          "default": "not_processed",
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "chunk_id"
+      ],
+      "title": "UnprocessedChunk",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "workflow-input-v1",
+      "default": "workflow-input-v1",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "input_scope": {
+      "const": "selected_document_version_all_chunks",
+      "default": "selected_document_version_all_chunks",
+      "title": "Input Scope",
+      "type": "string"
+    },
+    "institution_id": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Institution Id",
+      "type": "string"
+    },
+    "document_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+      "title": "Document Id",
+      "type": "string"
+    },
+    "version_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+      "title": "Version Id",
+      "type": "string"
+    },
+    "original_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Original Sha256",
+      "type": "string"
+    },
+    "selected_active_version_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Selected Active Version Id"
+    },
+    "version_revision": {
+      "minimum": 0,
+      "title": "Version Revision",
+      "type": "integer"
+    },
+    "parse_job_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+      "title": "Parse Job Id",
+      "type": "string"
+    },
+    "parse_attempt": {
+      "minimum": 1,
+      "title": "Parse Attempt",
+      "type": "integer"
+    },
+    "parse_attempt_id": {
+      "title": "Parse Attempt Id",
+      "type": "string"
+    },
+    "parser_method": {
+      "title": "Parser Method",
+      "type": "string"
+    },
+    "chunk_job_id": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+      "title": "Chunk Job Id",
+      "type": "string"
+    },
+    "chunk_generation": {
+      "minimum": 1,
+      "title": "Chunk Generation",
+      "type": "integer"
+    },
+    "chunk_config": {
+      "$ref": "#/$defs/ChunkConfig"
+    },
+    "settings": {
+      "$ref": "#/$defs/SnapshotSettings"
+    },
+    "input_chunk_ids": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+        "type": "string"
+      },
+      "maxItems": 20000,
+      "minItems": 1,
+      "title": "Input Chunk Ids",
+      "type": "array"
+    },
+    "chunks": {
+      "items": {
+        "$ref": "#/$defs/Chunk"
+      },
+      "maxItems": 20000,
+      "minItems": 1,
+      "title": "Chunks",
+      "type": "array"
+    },
+    "source_blocks": {
+      "items": {
+        "$ref": "#/$defs/Block"
+      },
+      "maxItems": 20000,
+      "minItems": 1,
+      "title": "Source Blocks",
+      "type": "array"
+    },
+    "snapshot_id": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Snapshot Id",
+      "type": "string"
+    },
+    "coverage": {
+      "$ref": "#/$defs/InputCoverage"
+    }
+  },
+  "required": [
+    "institution_id",
+    "document_id",
+    "version_id",
+    "original_sha256",
+    "selected_active_version_id",
+    "version_revision",
+    "parse_job_id",
+    "parse_attempt",
+    "parse_attempt_id",
+    "parser_method",
+    "chunk_job_id",
+    "chunk_generation",
+    "chunk_config",
+    "settings",
+    "input_chunk_ids",
+    "chunks",
+    "source_blocks",
+    "snapshot_id",
+    "coverage"
+  ],
+  "title": "WorkflowInputSnapshot",
+  "type": "object"
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "structural_validation": {
+      "const": "PASS",
+      "default": "PASS",
+      "title": "Structural Validation",
+      "type": "string"
+    },
+    "evidence_link_validation": {
+      "const": "PASS",
+      "default": "PASS",
+      "title": "Evidence Link Validation",
+      "type": "string"
+    },
+    "semantic_verification": {
+      "const": "NOT_VERIFIED",
+      "default": "NOT_VERIFIED",
+      "title": "Semantic Verification",
+      "type": "string"
+    },
+    "semantic_review_required": {
+      "const": true,
+      "default": true,
+      "title": "Semantic Review Required",
+      "type": "boolean"
+    },
+    "administrator_approval": {
+      "const": "NOT_REQUESTED",
+      "default": "NOT_REQUESTED",
+      "title": "Administrator Approval",
+      "type": "string"
+    },
+    "publishable": {
+      "const": false,
+      "default": false,
+      "title": "Publishable",
+      "type": "boolean"
+    }
+  },
+  "title": "WorkflowValidation",
+  "type": "object"
+}

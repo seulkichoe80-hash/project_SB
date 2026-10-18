@@ -202,6 +202,12 @@ scripts/validation/check_stage3_home.cjs로 홈 동선·history/reload·키보�
 
 Stage2/3 회귀는 의도적으로 변경된 문서 페이지를 401 모의 응답으로 확인한다. 과거 테스트 무요청 조건은 문서 GET만 예외이며 이외 외부/API 요청을 허용하지 않는다. 과거 증거는 수정하지 않는다. Chrome 다운로드 취소는 BLOCKED이며 파일 저장 PASS가 아니다. [실행 근거](outputs/STAGE4A_REPORT.md).
 
+## Phase 2D-1~2 계약·입력 검증
+
+Phase 2D-3은 [오프라인 추출 계약](docs/PHASE2D3_OFFLINE_DISCOVERY.md)과 tests/test_workflow_discovery.py를 따른다. 새 합성 PDF/HWPX의 미지 업무명·다중/제목 없음/비절차·청크 경계·조건/반려/반복·기한/역할/서식 근거, adapter의 ID/인용/범위/상태·입력/설정 변조, 기관/문서/버전 혼용·stale 입력·누락/미지원·DB/원본 무변경을 검증한다. output/coverage/schema 및 canonical EvidenceRef 보존을 확인하고 기존239개와 함께 전체 회귀를 새로 실행한다. regex 표식 시험을 의미 정확성·실모델 일반화·승인/게시 PASS로 계산하지 않는다.
+
+현재 기준은 [업무절차 입력 계약](docs/PHASE2D_INPUT_CONTRACT.md)과 tests/test_workflow_inputs.py다. strict JSON/필수·추가 필드/중복 ID/잘못된 참조/출력 한도/기한·의무 근거/검증 상태 위조, 명시 구형 Evidence bridge의 왕복 무손실, 전체 chunk 재구성 대조·부분 coverage·처리 중 세대/버전 변경·타기관/해제·오래된 snapshot·원본 SHA256·DB 무변경을 검사한다. 전체 회귀는 기존 RAG/인증/파싱 시험을 포함해 비루프백 차단 runner로 실행한다. 의미 정확도·실제 LLM·업무 자동 발견·관리자 승인·게시·React Flow는 이 단계 PASS 범위가 아니다. 새 schema는 구형 WORKFLOW_SCHEMA와 병행한다.
+
 ## Stage4B-2 인증 검증
 
 Stage4B-3A는 [연결 계약](docs/STAGE4B3A_SUPABASE_TRANSPORT.md)과 tests/test_supabase_transport.py를 따른다. 실제 HTTP serialization/고정 host/path·HTTPS/서버 키/timeout·상태/응답크기/형식·신원/만료·비밀 비노출 시험 및 기존 BFF30개를 HTTP MockTransport 경로로 재사용한다. scripts/validation/run_stage4b3a_checks.py의 비루프백 DNS/TCP 차단 아래 기존153개와 신규 시험을 모두 실행하며 실제 외부 요청을 허용하지 않는다. 기존 UI43개·typecheck/build도 회귀한다. 실제 TLS handshake·공급자 JWT 검증 성공·계정/키·유료 API·배포는 모의 PASS로 승격하지 않는다.
@@ -209,3 +215,27 @@ Stage4B-3A는 [연결 계약](docs/STAGE4B3A_SUPABASE_TRANSPORT.md)과 tests/tes
 tests/test_auth.py는 mock Supabase 전송→실제 BFF session dependency 경로의30개 시험이다. 401/403/타기관404, CSRF·Origin/단회challenge, 위조·중복cookie, 만료/idle/회전/logout/replay, 계정·기관·멤버십정지, 기관관리범위, worker/metadata 권한상승차단, provider미설정/실패, throttle, additive backup/별도복원·기존 source_blocks/버전/원본해시, 세션재시작/hash 저장·민감값미포함을 검사한다. dependency override가 아닌 실제 session dependency를 사용한다. 기존 전체123개도 인증 영향 회귀로 실행하며 mock principal 계약과 새 세션계약을 구분한다.
 
 scripts/validation/check_stage4b2_ui.cjs는 공급자미설정·로그인/기관표시·reader UI·logout/만료·브라우저저장소·키보드/반응형6개를 모의HTTP로 검증한다. 이전 Stage2/3/4A 회귀는 명시 mock /auth/status/me 응답만 추가하며 실제 공급자 성공으로 세지 않는다. 별도 local HTTP harness는 loopback dev cookie로만 BFF 실제 왕복을 확인하고 production Secure/TLS 성공과 구별한다. [실행 근거](outputs/STAGE4B2_REPORT.md).
+
+## Phase 2D-4 검증 엔진
+
+[검증 계약](docs/PHASE2D4_VALIDATION.md)과 tests/test_workflow_validation.py를 따른다. strict JSON/중복 ID/한도·누락, 정상 선형/조건 분기/명시 보완·반려 반복/오류 순환/끊어진 참조/중복 간선/고아, 위조 span·canonical EvidenceRef, 기관/활성 버전/등록 해제/청킹 세대/원본 변조/검사 도중 변경, 무근거 기한·금액·의무/숫자 부분문자열/부정 문맥/충돌/문서 지시/처리 누락을 검증한다. 의미 상태 NOT_VERIFIED와 승인/게시 불가를 확인한다. 기존 Phase 2D-1~3과 RAG를 포함한 전체 백엔드 회귀를 비루프백 차단 runner로 새 실행한다. 의미·실제 모델·실제 외부 서비스·UI를 새 PASS로 계산하지 않는다.
+
+## Phase 2D-5 서식 관계 검증
+
+[서식 관계 계약](docs/PHASE2D5_FORM_RELATIONS.md)과 tests/test_workflow_forms.py를 따른다. 정상/미등록/동명/이름 변경/파일명·메타데이터·Unicode 후보 검색, 명시 분류 없는 문서 제외, 기관·reader·활성 버전·등록 해제·새 버전 재분류, 잘못된 EvidenceRef/단계·조건 연결, 미언급·부정·필수 표현, 원본 무결성·메타데이터 revision·검사 중 변경·서식 카탈로그 재시작/SQLite 복원을 확인한다. 파일 존재를 필요성 검증/관리자 승인으로 승격하지 않는다. Phase 완료는 기존319개를 포함한 전체 백엔드 회귀를 비루프백 가드 아래 새 실행한다. 서식 프리뷰/필드/자동 작성/저장·재열기/UI와 실제 의미 검증은 이번 미구현·미검증 범위다.
+
+## Phase 2D-6 영속 workflow
+
+[계약](docs/PHASE2D6_WORKFLOW_JOBS.md)과 tests/test_workflow_jobs.py를 따른다. 동일 입력·동시 claim·lease 갱신/만료/3회 제한·오류 이력·취소/재시도/잘못된 전이, 별도 CLI·kill 후 재시작·서버 재시작·SQLite 복원/FK/integrity/migration version, 후보/이슈/서식 원자 저장·부분 INSERT 롤백·늦은 generation, 활성/해제/parse·chunk/원본/서식 변경·위조 근거/저장 행·기관/reader/실제 세션·Origin/CSRF·토큰 비노출·빈 후보를 검증한다. Phase Gate는 기존360개를 포함한 전체 backend를 비루프백 가드 아래 새 실행한다. 실제 의미·LLM·운영 다중 호스트·UI·배포는 새 PASS로 계산하지 않는다.
+
+## Phase 2E-1 관리자 후보·근거 UI
+
+FR-08/09/14/18·NFR-01/02/03/04/05 및 WEB-02/04/05/08의 이번 수직 범위는 [UI 계약](docs/PHASE2E1_WORKFLOW_REVIEW.md)을 따른다. 실제 API에서 생성한 합성 응답의 후보/상세·분기/보완/반복/표시 불가 관계·원문 재해결/XML/PDF 앵커·ReviewIssue/서식 상태, manager/reader/익명·기관/세대/안전 상태 위조, 오류/로딩/빈 상태·중복/재시도/취소·문서/작업/PDF 늦은 응답 폐기, 활성/해제 초기화, keyboard/focus/320~1440/100노드 및 실제 Chromium 캡처를 검사한다. 모의 브라우저와 별도 loopback BFF+독립 worker HTTP 통합을 구별한다. 기존 UI43과 전체 backend409를 새 실행한다. 의미 품질·native PDF/한컴 페이지·스크린 리더·운영 인증/HTTPS/배포는 미검증으로 유지한다. frozen lock 재설치 뒤 production 자산 해시 동일성도 기록한다.
+
+## Phase 2E-2A 업무지도 안정화
+
+[계약](docs/PHASE2E2A_UI_STABILITY.md)에 따라 새로고침 후 명시적 멱등 복구·terminal/hidden/logout 중단·timeout/429/5xx backoff·중복 요청/늦은 취소 상태 응답·권한/활성·다중 근거 선택과 실패 상태·100노드 참조 안정성을 검사한다. 변경 전 production bundle과 변경 후 bundle을 동일 Chromium virtual clock/합성 응답으로 비교하며 측정 시간을 실사용 시간으로 과장하지 않는다. 기존 UI80, loopback HTTP6 및 전체 backend409를 새 실행하고 타입/빌드를 확인한다. 실패한 중간 실행과 과거 증거를 보존하며 최종 소스의 결과를 따로 기록한다. 다음 세부 단계는 별도 승인 후 진행한다.
+
+## v0.1 오프라인 기준본 검증
+
+Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재현·시연](docs/V01_DEMO.md)과 scripts/validation/run_v01_checks.py를 따른다. 전체 backend409·UI104·실제 HTTP13 및 타입/빌드를 새 실행하고 source hash/fixture/종료 코드/PC·모바일·원본 해시/위조 근거/기관·버전·reader·CSRF·로그아웃·queued worker 재시작을 기록한다. processing lease/실패 재시도·롤백은 backend 회귀로 구분한다. 실제 공급자·의미 검증·운영 배포와 G1 C/D 미실행을 PASS로 바꾸지 않는다. 기존 fixture·증거를 덮어쓰지 않으며 새 출력 경로만 사용한다.

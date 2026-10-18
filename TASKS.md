@@ -1,5 +1,69 @@
 # 단계별 개발 작업과 완료 기준
 
+## 서무ITDA v0.1 오프라인 통합 기준
+
+- 사용자 승인: 기존 기능 통합·검증·시연·기준 커밋·기존 브랜치 push/PR까지만. main 직접 변경/자동 merge/다음 개발은 하지 않는다.
+- [x] 2E-2A 변경33개를 050349f에 보존하고 공개 가능한 합성 자료로 실제 HTTP 등록→worker→지도/근거→로그아웃 차단을 검증.
+- [x] 전체 backend409·UI104·실제 HTTP13, 타입/빌드 PASS. 설치한 별도 Playwright에서도 HTTP13 재실행 PASS. 외부 공급자 호출0.
+- [x] [현재 시연·재현·미검증 경계](docs/V01_DEMO.md), [v0.1 실행 보고](outputs/V01_REPORT.md), PC/모바일 캡처와 합성 fixture 준비.
+- [ ] 운영 실제 인증/AI/공식 승인·게시/공개 배포·G1 C/D는 기존 미검증 상태 유지. 다음 개발은 별도 승인 후.
+
+## Phase 2E-2A 업무지도 안정화·복구 UX
+
+- 사용자 승인 범위: 2E-2A만. 2E-1 변경44개를 로컬1602564에 보존하고 원격 작업은 하지 않는다.
+- [x] 명시적 동일 입력 POST 복구 안내·재시도 구분·중복/늦은 변경 응답 방지, visible 직렬 polling·deadline/backoff·terminal 중단, 근거 선택·실패 상태와 지도 참조 안정화.
+- [x] 신규 UI24, 기존 UI80, loopback HTTP6, 전체 backend409 PASS. 타입/빌드 PASS. 외부 공급자 호출0.
+- 현재 계약: [UI 수명](docs/PHASE2E2A_UI_STABILITY.md), [실행 보고](outputs/PHASE2E2A_REPORT.md).
+- [ ] 2E-2B 이후는 별도 범위 승인 후. 승인·게시·실제 공급자 연결·배포 미진행.
+
+## Phase 2E-1 관리자 후보 지도·원문 검토
+
+- 사용자 승인 범위:2E-1만. 2D-6 변경17개는 로컬47dd389에 보존하고 원격 작업은 하지 않는다.
+- [x] 기존 디자인/인증·9개 Workflow API 재사용, React Flow12.12.0 읽기 전용 지도/목록/모바일 탭, 단계·관계·검토·서식·canonical 원문 연동 구현.
+- [x] 신규 모의 API 브라우저37, 실제 loopback BFF/worker 통합6, 기존 UI43, 전체 backend409 PASS. typecheck/build PASS, 실제 외부 공급자 호출0.
+- 현재 계약: [관리자 검토](docs/PHASE2E1_WORKFLOW_REVIEW.md), [실행 보고](outputs/PHASE2E1_REPORT.md).
+- [ ] 2E-2A는 상단의 별도 승인 범위에서 완료. 2E-2B 이후는 별도 요청 후. 의미/최종 승인·공식 게시·실제 모델/공급자·배포는 미진행.
+
+## Phase 2D-6 영속 작업·관리자 조회
+
+- 사용자 승인 범위: Phase 2D-6만. 2D-5 변경10개를 로컬 56b484d에 보존하고 원격 작업은 하지 않는다.
+- [x] 오프라인 영속 작업·lease/fencing/최대3회·취소/재시도·오류 이력, 추가형 SQLite 세대/후보/검토/서식 원자 저장, manager 전용9개 경로와 strict schema 구현.
+- [x] 신규49 + 기존360 = 전체409 PASS(FAIL/SKIP/BLOCKED0), 비루프백 가드 probe PASS·실제 외부 공급자 호출0.
+- 계약: [영속 workflow](docs/PHASE2D6_WORKFLOW_JOBS.md), 실제 실행 결과: [보고](outputs/PHASE2D6_REPORT.md).
+- [ ] UI/승인·공식 게시·실제 모델·배포는 별도 요청 후. 전체 Phase 2D 의미 정확성/운영 실증 완료로 승격하지 않는다.
+
+## Phase 2D-5 업무절차·서식 관계
+
+- 사용자 승인 범위: Phase 2D-5만. 2D-4 변경10개를 로컬 c2c9640으로 보존했고 원격 push/merge는 하지 않는다.
+- [x] 기존 FormRequirement/근거/단계·조건 재검증, 같은 기관의 명시 등록·활성 서식만 미확정 어휘 후보로 검색. 별도 분류 카탈로그는 비파괴 추가 테이블이다.
+- [x] 신규41 + 기존319 = 전체360 PASS(FAIL/SKIP/BLOCKED0), 비루프백 가드 probe PASS·실제 외부 공급자 호출0.
+- 계약: [서식 관계](docs/PHASE2D5_FORM_RELATIONS.md). 실행 결과와 범위는 [보고](outputs/PHASE2D5_REPORT.md).
+- [ ] Phase 2D-6는 별도 사용자 요청 후. 의미 검증·승인/게시·HWPX 자동 작성·UI·외부 API·배포는 진행하지 않는다.
+
+## Phase 2D-4 근거·그래프 검증
+
+- 사용자 승인 범위: Phase 2D-4만. 기존 19개 변경은 로컬 보존 커밋 e57c657에 보존했고 원격 작업은 하지 않는다.
+- [x] 별도 strict 검토 보고/JSON Schema, 현재 활성 원본·스냅샷·canonical EvidenceRef 재해결, 그래프 진단과 의미 검토 보조 구현.
+- [x] 신규46 + 기존273 = 전체319 PASS(FAIL/SKIP/BLOCKED0), 비루프백 가드 아래 실제 외부 공급자 호출0.
+- 실행 결과·한계: [계약](docs/PHASE2D4_VALIDATION.md), [실행 보고](outputs/PHASE2D4_REPORT.md).
+- [ ] Phase 2D-5는 별도 사용자 요청 후. 의미 검증·승인/게시·UI·영속 worker·실제 API·배포는 미진행.
+
+## Phase 2D-3 오프라인 업무절차 후보 추출
+
+- [x] Phase 2D-1~2 미커밋12개 파일·증거의 archive/hash 보존 및 새 작업 브랜치로 유지.
+- [x] 업무명 사전 없는 결정적 표식 기반 WorkflowExtractionAdapter, 다중/제목 없는 업무·단계/역할·조건/반려/반복·기한/의무/서식 언급 후보와 원문 연결.
+- [x] 전체 snapshot 순회·strict 구조/근거·처리 범위/불완전 상태·adapter 변조/범위 검사, canonical EvidenceRef 보존, NOT_VERIFIED/미승인/게시 불가 유지.
+- 현재 계약은 [오프라인 추출](docs/PHASE2D3_OFFLINE_DISCOVERY.md), 실제 실행 결과는 [보고](outputs/PHASE2D3_REPORT.md)를 따른다.
+- [ ] Phase 2D-4 이후는 사용자 승인 전 미진행. 실제 의미 검토·LLM·임베딩·승인/자동 게시·업무지도·DB/클라우드 배포는 이번 범위 밖이다.
+
+## Phase 2D-1~2 업무절차 계약·입력 스냅샷
+
+- [x] 기존 RAG/구형 WORKFLOW_SCHEMA를 유지하고 strict WorkflowCandidate/Step/Condition/Edge/FormRequirement/ReviewIssue/GroundedAssertion·별도 WorkflowExtractionAdapter 및 버전 schema 추가.
+- [x] ID/참조/한도/정확 원문 근거·모델 검증상태 위조 차단, 구형 tenant/element와 canonical EvidenceRef 사이 명시 왕복 bridge.
+- [x] 단일 문서 버전 전체 snapshot·원본 재검증/청크 재구성·coverage·parse/chunk/활성 세대 변경/기관/해제 차단. DB/원본 무변경.
+- 검증 결과는 [별도 실행 보고](outputs/PHASE2D12_REPORT.md), 현재 범위/한계는 [계약](docs/PHASE2D_INPUT_CONTRACT.md)을 따른다.
+- [ ] Phase 2D-3 후보 추출 엔진은 별도 사용자 요청 후. 현재 실제 LLM·의미 정확성·관리자 승인·자동 게시·React Flow는 미구현/미검증이며 전체 Phase 2D 완료로 표시하지 않는다.
+
 ## 개발 지침 효율 개선 2026-10-17
 
 - 현재 진척도·완료 상태는 이 문서에서 관리하고 단계별 상세 보고·증거는 outputs에 보존한다. PRD/ARCHITECTURE/TEST_PLAN은 각 요구사항/구조·계약/시험 기준이 변경될 때만 해당 절을 갱신한다. 기존 이력·문서 링크·요구사항 추적성은 유지한다.

@@ -1,0 +1,72 @@
+{
+  "$defs": {
+    "DiscoverySettings": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_version": {
+          "const": "workflow-discovery-v1",
+          "default": "workflow-discovery-v1",
+          "title": "Contract Version",
+          "type": "string"
+        },
+        "max_chunks": {
+          "default": 20000,
+          "maximum": 20000,
+          "minimum": 1,
+          "title": "Max Chunks",
+          "type": "integer"
+        },
+        "batch_size": {
+          "default": 32,
+          "maximum": 200,
+          "minimum": 1,
+          "title": "Batch Size",
+          "type": "integer"
+        }
+      },
+      "title": "DiscoverySettings",
+      "type": "object"
+    },
+    "SnapshotSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "settings_version": {
+          "default": "workflow-input-settings-v1",
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Settings Version",
+          "type": "string"
+        },
+        "prompt_contract_version": {
+          "default": "workflow-extraction-prompt-v1",
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$",
+          "title": "Prompt Contract Version",
+          "type": "string"
+        },
+        "max_snapshot_bytes": {
+          "default": 33554432,
+          "maximum": 67108864,
+          "minimum": 1024,
+          "title": "Max Snapshot Bytes",
+          "type": "integer"
+        }
+      },
+      "title": "SnapshotSettings",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "settings": {
+      "$ref": "#/$defs/DiscoverySettings"
+    },
+    "snapshot_settings": {
+      "$ref": "#/$defs/SnapshotSettings"
+    }
+  },
+  "title": "WorkflowJobRequest",
+  "type": "object"
+}

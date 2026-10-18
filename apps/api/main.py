@@ -84,6 +84,11 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
         from .chunking import ChunkConfig, EvidenceRef
         chunks = ChunkService(parsing)
         app.state.chunks = chunks
+        from .workflow_jobs import WorkflowJobService
+        from .workflow_routes import install_workflow_routes
+        workflows = WorkflowJobService(chunks)
+        app.state.workflows = workflows
+        install_workflow_routes(app, workflows, authenticated_principal)
 
         @app.post('/documents/{document_id}/versions/{version_id}/chunk-jobs',status_code=202)
         def enqueue_chunks(document_id: str,version_id: str,body: ChunkConfig,principal: Principal=Depends(authenticated_principal)):

@@ -1,0 +1,60 @@
+{
+  "recorded": 1792284081.9574223,
+  "existing_tracked_files_preserved": 318,
+  "authorized_doc_changes": [
+    "README.md",
+    "TASKS.md",
+    "TEST_PLAN.md"
+  ],
+  "missing_existing_files": [],
+  "outgoing_history_blobs_scanned": 150,
+  "high_confidence_secret_hits": [],
+  "reviewed_synthetic_assets": {
+    "classification": "synthetic",
+    "author": "project-authored validation fixture",
+    "privacy": "no real people, institutions, credentials or records",
+    "pdf_license_review": "project-authored ASCII PDF; base Type1 Helvetica reference only; no embedded/distributed font",
+    "files": {
+      "v01-manual.hwpx": {
+        "sha256": "98a018db30991cf9ef29b74a5f004db8d8388da155e182c1f30a7967a9aa289a",
+        "bytes": 7792
+      },
+      "v01-manual.pdf": {
+        "sha256": "20a75e4e3061269d14d5eb6c831bbc2e707cb52b4a509f25d79e18a6cefe9cef",
+        "bytes": 831
+      },
+      "v01-request-form.hwpx": {
+        "sha256": "498823ae5268431d1017fe41081e62da1faa4f2086e1a165dcc6b050899aee1e",
+        "bytes": 7606
+      },
+      "v01-report-a.hwpx": {
+        "sha256": "f82e93ac9d088492a7c34d9edb6631f93a5700b3dd72256b25ae039d998e95b4",
+        "bytes": 7607
+      },
+      "v01-report-b.hwpx": {
+        "sha256": "e704efa7c870b925a19a2dd0f34cb1fbe87b5444a0cae0bc37d1c0041653f810",
+        "bytes": 7608
+      },
+      "v01-manual-v2.pdf": {
+        "sha256": "50371f0692152aa30d355b7b90c59b62542a9e76c78166ca723ca5702d301f93",
+        "bytes": 747
+      }
+    }
+  },
+  "asset_xml_parts_scanned": 28,
+  "provider_variable_names_present": [],
+  "privacy_scope": "project-authored synthetic fixtures; pattern scan is not a guarantee of all PII detection",
+  "phase2e2a_33_files_match_preservation_commit": true,
+  "v01_new_changed_files_scanned": 63,
+  "v01_new_high_confidence_secret_hits": 0,
+  "executed_input_hashes_match": true,
+  "existing_product_code_and_tests_unchanged": true,
+  "reviewed_explicitly_added_ignored_synthetic_fixtures": [
+    "tests/fixtures/synthetic/v01/v01-manual.hwpx",
+    "tests/fixtures/synthetic/v01/v01-report-a.hwpx",
+    "tests/fixtures/synthetic/v01/v01-report-b.hwpx",
+    "tests/fixtures/synthetic/v01/v01-request-form.hwpx",
+    "tests/fixtures/synthetic/v01/v01-manual-v2.pdf",
+    "tests/fixtures/synthetic/v01/v01-manual.pdf"
+  ]
+}

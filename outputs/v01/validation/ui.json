@@ -1,0 +1,719 @@
+[
+  {
+    "suite": "check_stage2_ui",
+    "scope": "Stage2 Feature Gate; browser tests of production bundle via static response interception, not live HTTP deployment",
+    "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+    "elapsed_seconds": 3.722787256,
+    "results": [
+      {
+        "name": "home semantic landmarks and no fake data",
+        "status": "PASS",
+        "seconds": 0.045242911999999934
+      },
+      {
+        "name": "skip link keyboard access",
+        "status": "PASS",
+        "seconds": 0.046814300999999885
+      },
+      {
+        "name": "keyboard visible focus and control targets",
+        "status": "PASS",
+        "seconds": 0.059436598
+      },
+      {
+        "name": "four page navigation, title and active sidebar",
+        "status": "PASS",
+        "seconds": 0.4292955649999999
+      },
+      {
+        "name": "documents fail closed on 401 without data",
+        "status": "PASS",
+        "seconds": 0.1475968329999996
+      },
+      {
+        "name": "AI is preparation-only, no question action",
+        "status": "PASS",
+        "seconds": 0.07985944100000006
+      },
+      {
+        "name": "help keyboard disclosure",
+        "status": "PASS",
+        "seconds": 0.07051594399999976
+      },
+      {
+        "name": "back navigation and reload deep link",
+        "status": "PASS",
+        "seconds": 0.09806957200000034
+      },
+      {
+        "name": "unknown route recovery",
+        "status": "PASS",
+        "seconds": 0.09221754899999997
+      },
+      {
+        "name": "320/375/768px all pages without horizontal overflow",
+        "status": "PASS",
+        "seconds": 0.4785921909999997
+      },
+      {
+        "name": "200 percent text enlargement and reflow",
+        "status": "PASS",
+        "seconds": 0.15148950400000014
+      },
+      {
+        "name": "declared text contrast pairs >= 4.5 to 1",
+        "status": "PASS",
+        "seconds": 0.0003562299999998686
+      },
+      {
+        "name": "shared status/error/loading/button SSR contracts",
+        "status": "PASS",
+        "seconds": 0.3932129909999999
+      },
+      {
+        "name": "no browser console or JS errors, no API/external requests",
+        "status": "PASS",
+        "seconds": 0.0005255379999998696
+      }
+    ],
+    "counts": {
+      "PASS": 14,
+      "FAIL": 0,
+      "SKIP": 0,
+      "BLOCKED": 0
+    },
+    "contrast": [
+      {
+        "name": "body",
+        "foreground": "#172b4d",
+        "background": "#ffffff",
+        "ratio": 14.102034448456891
+      },
+      {
+        "name": "muted",
+        "foreground": "#475569",
+        "background": "#f6f8fb",
+        "ratio": 7.122474998615123
+      },
+      {
+        "name": "primary button",
+        "foreground": "#ffffff",
+        "background": "#1d4ed8",
+        "ratio": 6.701618401398807
+      },
+      {
+        "name": "info",
+        "foreground": "#1d4ed8",
+        "background": "#e3edff",
+        "ratio": 5.688031609812132
+      },
+      {
+        "name": "warning",
+        "foreground": "#854d0e",
+        "background": "#fef9e7",
+        "ratio": 6.498217204668421
+      },
+      {
+        "name": "error",
+        "foreground": "#b42318",
+        "background": "#fff1f0",
+        "ratio": 5.977084271598387
+      }
+    ],
+    "consoleErrors": [],
+    "pageErrors": [],
+    "external": [],
+    "api": [],
+    "not_run": [
+      "screen reader manual review",
+      "native browser toolbar zoom",
+      "full WCAG conformance audit",
+      "live HTTP browser loopback integration",
+      "real auth/API/AI/backend regression"
+    ]
+  },
+  {
+    "suite": "check_stage3_home",
+    "scope": "Stage3 Feature Gate; static response interception, NOT live HTTP; state variants SSR only",
+    "results": [
+      {
+        "name": "home content and disconnected recent documents",
+        "status": "PASS"
+      },
+      {
+        "name": "primary keyboard action, history and reload",
+        "status": "PASS"
+      },
+      {
+        "name": "help reachable in one action",
+        "status": "PASS"
+      },
+      {
+        "name": "home responsive 320/375/768/1440 and text 200%",
+        "status": "PASS"
+      },
+      {
+        "name": "recent states distinct, loading announced and errors no fake retry",
+        "status": "PASS"
+      },
+      {
+        "name": "no console errors or API/external requests",
+        "status": "PASS"
+      }
+    ],
+    "counts": {
+      "PASS": 6,
+      "FAIL": 0,
+      "SKIP": 0,
+      "BLOCKED": 0
+    },
+    "elapsed_seconds": 2.1943727720000004,
+    "not_run": [
+      "live HTTP",
+      "screen reader",
+      "native browser zoom",
+      "usability 5 seconds / 3 clicks",
+      "real API state transitions"
+    ]
+  },
+  {
+    "suite": "check_stage4a_ui",
+    "scope": "Stage4A Feature Gate: mocked browser HTTP and client contracts; NOT real FastAPI integration",
+    "results": [
+      {
+        "name": "PDF/HWPX extension, signature, size and path validation",
+        "status": "PASS",
+        "seconds": 0.013572056999999972
+      },
+      {
+        "name": "raw body and classification, encoded filename, no token or tenant headers",
+        "status": "PASS",
+        "seconds": 0.002969711000000075
+      },
+      {
+        "name": "all client endpoint methods and segment escaping",
+        "status": "PASS",
+        "seconds": 0.002269627000000014
+      },
+      {
+        "name": "401/403/404/409/422/500/503/network errors distinguished",
+        "status": "PASS",
+        "seconds": 0.0012209990000000062
+      },
+      {
+        "name": "malformed list/detail and wrong version rejected",
+        "status": "PASS",
+        "seconds": 0.0006515249999999923
+      },
+      {
+        "name": "loading and version list",
+        "status": "PASS",
+        "seconds": 0.692752353
+      },
+      {
+        "name": "invalid upload blocks submission",
+        "status": "PASS",
+        "seconds": 0.0335543369999998
+      },
+      {
+        "name": "raw upload only after declaration and duplicate click guard",
+        "status": "PASS",
+        "seconds": 0.351869629
+      },
+      {
+        "name": "detail version and parsing not AI, safe filename display",
+        "status": "PASS",
+        "seconds": 0.08814723400000003
+      },
+      {
+        "name": "switch version using server detail, React escapes document filename",
+        "status": "PASS",
+        "seconds": 0.20150423199999978
+      },
+      {
+        "name": "parsing retry and chunk request/status/retry",
+        "status": "PASS",
+        "seconds": 0.31711773200000015
+      },
+      {
+        "name": "original download binary",
+        "status": "PASS",
+        "seconds": 0.07163259500000003
+      },
+      {
+        "name": "dialog cancel/escape restores focus, no delete",
+        "status": "PASS",
+        "seconds": 0.07541307000000007
+      },
+      {
+        "name": "320/375/768/1440 layout and keyboard focus",
+        "status": "PASS",
+        "seconds": 0.3784326390000001
+      },
+      {
+        "name": "deregister confirmed once removes list, retains original meaning",
+        "status": "PASS",
+        "seconds": 0.0949762740000001
+      },
+      {
+        "name": "empty distinct from permission and server error",
+        "status": "PASS",
+        "seconds": 0.9847156299999997
+      },
+      {
+        "name": "no JS errors or unexpected external requests",
+        "status": "PASS",
+        "seconds": 0.00011411000000043714
+      }
+    ],
+    "counts": {
+      "PASS": 17,
+      "FAIL": 0,
+      "SKIP": 0,
+      "BLOCKED": 0
+    },
+    "elapsed_seconds": 4.197175773,
+    "calls": [
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents",
+        "method": "POST"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2/parsing",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v1",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v1/parsing",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2/parsing",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2/parsing/retry",
+        "method": "POST"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2/parsing",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2/chunk-jobs",
+        "method": "POST"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2/chunk-jobs/c1",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2/chunk-jobs/c1/retry",
+        "method": "POST"
+      },
+      {
+        "path": "/api/documents/doc-1/versions/v2/original",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents/doc-1",
+        "method": "DELETE"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      },
+      {
+        "path": "/api/documents",
+        "method": "GET"
+      }
+    ],
+    "not_run": [
+      "real authenticated integration",
+      "screen reader",
+      "native zoom",
+      "real FastAPI browser HTTP"
+    ]
+  },
+  {
+    "suite": "check_stage4b2_ui",
+    "scope": "mock HTTP UI only, NOT real Supabase authentication",
+    "results": [
+      {
+        "name": "unconfigured provider: no protected request or fake login",
+        "status": "PASS"
+      },
+      {
+        "name": "mock login and verified institution, no credential storage",
+        "status": "PASS"
+      },
+      {
+        "name": "logout hides protected document UI",
+        "status": "PASS"
+      },
+      {
+        "name": "reader actions disabled",
+        "status": "PASS"
+      },
+      {
+        "name": "expired session clears UI and memory",
+        "status": "PASS"
+      },
+      {
+        "name": "login keyboard, labels and narrow reflow",
+        "status": "PASS"
+      }
+    ],
+    "seconds": 1.6928794990000002,
+    "counts": {
+      "PASS": 6,
+      "FAIL": 0
+    }
+  },
+  {
+    "suite": "check_phase2e1_ui",
+    "scope": "Phase2E-1 production Chromium UI; intercepted local API with REAL synthetic backend-generated shapes; no live provider",
+    "results": [
+      {
+        "name": "manager candidate/detail API and unverified labels",
+        "status": "PASS"
+      },
+      {
+        "name": "exact saved edges only; conditions and return relation",
+        "status": "PASS"
+      },
+      {
+        "name": "node selection resolves canonical evidence and XML anchor",
+        "status": "PASS"
+      },
+      {
+        "name": "CANDIDATES file is not confirmed required",
+        "status": "PASS"
+      },
+      {
+        "name": "UNLINKED no registered form",
+        "status": "PASS"
+      },
+      {
+        "name": "AMBIGUOUS multiple form files retained",
+        "status": "PASS"
+      },
+      {
+        "name": "review count/details and source claims shown separately",
+        "status": "PASS"
+      },
+      {
+        "name": "keyboard alternative step list and visible focus",
+        "status": "PASS"
+      },
+      {
+        "name": "zoom out/in/fit controls work without changing relations",
+        "status": "PASS"
+      },
+      {
+        "name": "320/375/768/1440 reflow and mobile keyboard tabs",
+        "status": "PASS"
+      },
+      {
+        "name": "mobile selected step moves focus to evidence heading",
+        "status": "PASS"
+      },
+      {
+        "name": "actual screenshots desktop/mobile map/evidence",
+        "status": "PASS"
+      },
+      {
+        "name": "reader has no manager UI or workflow calls",
+        "status": "PASS"
+      },
+      {
+        "name": "anonymous cannot query protected workflows",
+        "status": "PASS"
+      },
+      {
+        "name": "workflow 403 clears candidate/evidence data",
+        "status": "PASS"
+      },
+      {
+        "name": "workflow 409 clears candidate/evidence data",
+        "status": "PASS"
+      },
+      {
+        "name": "workflow 500 clears candidate/evidence data",
+        "status": "PASS"
+      },
+      {
+        "name": "workflow network clears candidate/evidence data",
+        "status": "PASS"
+      },
+      {
+        "name": "401 expires session and unmounts private UI",
+        "status": "PASS"
+      },
+      {
+        "name": "404 and empty result are distinct non-failure states",
+        "status": "PASS"
+      },
+      {
+        "name": "foreignList rejected before source display",
+        "status": "PASS"
+      },
+      {
+        "name": "foreignEvidence rejected before source display",
+        "status": "PASS"
+      },
+      {
+        "name": "badResolve rejected before source display",
+        "status": "PASS"
+      },
+      {
+        "name": "unsafe rejected before source display",
+        "status": "PASS"
+      },
+      {
+        "name": "mixedGeneration rejected before source display",
+        "status": "PASS"
+      },
+      {
+        "name": "late document response discarded; PDF anchor and original request",
+        "status": "PASS"
+      },
+      {
+        "name": "active version change clears visible candidate",
+        "status": "PASS"
+      },
+      {
+        "name": "deregistered document clears visible candidate",
+        "status": "PASS"
+      },
+      {
+        "name": "double enqueue submits once with CSRF; polling completes",
+        "status": "PASS"
+      },
+      {
+        "name": "failed retryable job and retry are explicit",
+        "status": "PASS"
+      },
+      {
+        "name": "processing cancellation calls only existing API",
+        "status": "PASS"
+      },
+      {
+        "name": "unrenderable relation retained in separate list",
+        "status": "PASS"
+      },
+      {
+        "name": "100-node layout supports controls and accessible alternative",
+        "status": "PASS"
+      },
+      {
+        "name": "late enqueue acknowledgement cannot replace new document",
+        "status": "PASS"
+      },
+      {
+        "name": "late PDF response discarded after document switch",
+        "status": "PASS"
+      },
+      {
+        "name": "workflow-level review issue remains visible for selected step",
+        "status": "PASS"
+      },
+      {
+        "name": "no browser exceptions or external destinations",
+        "status": "PASS"
+      }
+    ],
+    "counts": {
+      "PASS": 37,
+      "FAIL": 0
+    },
+    "seconds": 42.746989716,
+    "unexpected_external_requests": [],
+    "js_errors": [],
+    "fixture": "/workspace/project_SB/work/v01/full/browser-fixture.json",
+    "not_run": [
+      "screen reader",
+      "native PDF viewer page rendering",
+      "Hancom visual pages",
+      "real Supabase",
+      "actual LLM"
+    ]
+  },
+  {
+    "suite": "check_phase2e2a_ui",
+    "scope": "Phase2E-2A production Chromium with intercepted synthetic HTTP",
+    "measurements": [
+      {
+        "scenario": "completed_20s",
+        "requests": 0,
+        "paths": []
+      },
+      {
+        "scenario": "100_nodes_metadata_5_5s",
+        "node_data_replacements": 0,
+        "wall_ms": 142.82412000000022
+      }
+    ],
+    "results": [
+      {
+        "name": "measured completed job idle requests over 20 virtual seconds",
+        "status": "PASS"
+      },
+      {
+        "name": "100-node metadata refresh does not replace node data props",
+        "status": "PASS"
+      },
+      {
+        "name": "refresh requires explicit idempotent request; restores same queued job",
+        "status": "PASS"
+      },
+      {
+        "name": "failed terminal job stops timers and exposes only retryable retry",
+        "status": "PASS"
+      },
+      {
+        "name": "permanent failure cannot retry",
+        "status": "PASS"
+      },
+      {
+        "name": "cancelled idempotent job is explicitly not resumable and stops timers",
+        "status": "PASS"
+      },
+      {
+        "name": "hidden active job pauses all polling; visibility resumes",
+        "status": "PASS"
+      },
+      {
+        "name": "logout unmounts and stops polling",
+        "status": "PASS"
+      },
+      {
+        "name": "503 retains job identity with unconfirmed state and backs off",
+        "status": "PASS"
+      },
+      {
+        "name": "status timeout remains recoverable and old response cannot confirm state",
+        "status": "PASS"
+      },
+      {
+        "name": "double retry submits once",
+        "status": "PASS"
+      },
+      {
+        "name": "double cancel submits once",
+        "status": "PASS"
+      },
+      {
+        "name": "multiple evidence selection survives step round trip",
+        "status": "PASS"
+      },
+      {
+        "name": "failed evidence stays unconfirmed and never shows original quote",
+        "status": "PASS"
+      },
+      {
+        "name": "source change while visible invalidates old candidate",
+        "status": "PASS"
+      },
+      {
+        "name": "reader never issues manager requests",
+        "status": "PASS"
+      },
+      {
+        "name": "429 status uses backoff and never confirms cached candidate",
+        "status": "PASS"
+      },
+      {
+        "name": "metadata errors use bounded backoff and recover",
+        "status": "PASS"
+      },
+      {
+        "name": "retry limit is never reset by UI",
+        "status": "PASS"
+      },
+      {
+        "name": "terminal focus checks current source and removes deregistered result",
+        "status": "PASS"
+      },
+      {
+        "name": "focus revalidation preserves step and selected evidence within same generation",
+        "status": "PASS"
+      },
+      {
+        "name": "late status response cannot undo cancellation",
+        "status": "PASS"
+      },
+      {
+        "name": "lost retry acknowledgement rechecks server instead of trusting cached failure",
+        "status": "PASS"
+      },
+      {
+        "name": "no sensitive or source storage or external traffic",
+        "status": "PASS"
+      }
+    ],
+    "counts": {
+      "PASS": 24,
+      "FAIL": 0
+    },
+    "seconds": 19.903609823000004,
+    "external": [],
+    "errors": [],
+    "clock": "Chromium virtual time, API routes settle between 500ms ticks; visibility API event simulation"
+  }
+]
