@@ -1,0 +1,9 @@
+{
+  "applies_to": "final run only; initial run retained",
+  "reason": "Initial repeat-level clearing of the shared citation cache made the first method returning a citation pay its re-resolution cost. Final comparison uses all 57 proofs primed during index build for every method equally.",
+  "changes_search_results_or_scores": false,
+  "ranking_fingerprints_must_match_initial_run": true,
+  "validation": "Every query still rebuilds/revalidates the live immutable tenant snapshot before and after ranking. Source/tenant/version changes fail closed. Index proof priming cost is reported separately as index_build_seconds.",
+  "benchmark_scheduling": "Final benchmark is run after own unit/full-backend tests finish, without overlapping those suites.",
+  "interpretation": "Small fixed in-memory synthetic corpus only; validation cost and ranking cost separate; not production latency guarantee."
+}

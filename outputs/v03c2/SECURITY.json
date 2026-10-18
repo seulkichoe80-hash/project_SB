@@ -1,0 +1,13 @@
+{
+  "strong_secret_pattern_hits": [],
+  "data_scope": "project-authored synthetic only",
+  "actual_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "answer_generation_enabled": false,
+  "product_search_changed": false,
+  "FTS_installed_in_product_DB": false,
+  "new_dependencies_keys_accounts": false,
+  "tenant_statistical_and_evidence_isolation": "PASS; separate in-memory indexes and current snapshots",
+  "source_originals_gold_questions_and_human_reviews_unchanged": true,
+  "full_backend_and_final_cli_network_guards": "PASS; external attempts 0"
+}

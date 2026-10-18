@@ -1,0 +1,8 @@
+{
+  "backend_exit": 0,
+  "seconds": 183.79,
+  "socket_guard_probe": "PASS",
+  "blocked_external_attempts": 0,
+  "actual_external_provider_calls": 0,
+  "guard_scope": "Python tests and inherited Python subprocesses; loopback only"
+}

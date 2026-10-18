@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "backend": {
+    "PASS": 618,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "new_tests": 27,
+  "existing_backend": 591,
+  "backend_seconds": 183.79,
+  "targeted_seconds": 38.949,
+  "fts5_supported": true,
+  "sqlite_version": "3.53.1",
+  "repeated_rankings_scores_deterministic": true,
+  "final_rankings_and_metrics_equal_initial": true,
+  "protocol_sha256": "47532385b6368bd2d23237ad85d2ffdda49b9bdffa14d1b1d11f1bfbdf99f4d6",
+  "generation_id": "76dd975e911ecb21119560f960cbe556af09b9ed5ce94da3653b780aa697657b",
+  "question_records_sha256": "d6f51989c1a4a25f785916983bac5ed8709738c4954b179f15d6d6250eb60359",
+  "existing_adapter_A_equivalence": true,
+  "research_candidate": "C",
+  "product_replaced": false,
+  "human_review_pending": 40,
+  "actual_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "benchmark_seconds": 64.90024007500142,
+  "index_build_seconds": 1.3275485239992122,
+  "ui_typecheck_build_newly_run": false,
+  "previous_ui_evidence_pass": 174,
+  "tested_code_hashes_match": true,
+  "elapsed_seconds": 709.2
+}

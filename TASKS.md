@@ -307,3 +307,10 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [ ] 실모델·임베딩·검색 개선 실험·인간 의미 검토는 별도 승인/작업 후. 현재 PROVISIONAL/NOT_VERIFIED/NOT_REQUESTED 유지.
 
 - [x] 신규37·전체 backend591 PASS, 별도 CLI guard 외부 시도0. 36literal/AND 탈락과4expected abstention 구분, 고정 문맥40문항/7문서 Fake 완료. 인간 검토0/40·의미 합격false 유지. [보고](outputs/V03C1_REPORT.md). UI174/타입·빌드는 소스 동일성에 따른 이전 증거 재사용이며 새 실행 아님.
+
+## v0.3-C2 오프라인 검색 비교
+
+- [x] C1을137177b로 로컬 보존하고 feat/v03c2-retrieval-ablation 분기. 사전 고정 규칙으로 A literal AND/B정규화/C점수 OR/D기관별 FTS5 BM25를 비교하는 독립 평가 도구 구현. [계약](docs/V03C2_RETRIEVAL_ABLATION.md).
+- [ ] 제품 교체·실제 모델/임베딩·독립 인간 검토·후속 실험은 별도 승인/요청 후.
+
+- [x] 신규27·전체 backend618 PASS. 3회 반복/초기-최종 순위·점수 동일, FTS5 지원 확인, 외부 시도/지출0. C를 연구 후보로 제안하고 제품 교체 없음. [최종 보고](outputs/V03C2_REPORT.md). 인간 검토40·실 AI 성능 미검증 유지.

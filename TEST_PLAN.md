@@ -263,3 +263,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## v0.3-C1 진단·문맥 검증
 
 [계약](docs/V03C1_RETRIEVAL_DIAGNOSTICS.md)에 따라 실제 SQL·57색인·49/8기관 범위·36literal-token 탈락/4abstain 분류·정답 ID/Top-K·검색오류/매칭 오류·missing/forged/cross-tenant/stale context와 원문 인용·Fake 비승인 상태·인간 검토 진행률을 tests/test_retrieval_diagnostics.py로 검증한다. 완료 시 전체 backend 회귀를 비루프백 차단 runner로 실행한다. 제품/API/UI/의존성/설정이 같으므로 UI174·타입/빌드는 B의 증거와 파일 hash 비교 조건으로 재사용하며 새 실행 PASS로 표시하지 않는다. 별도 C1 CLI도 상속 socket guard로 실행한다.
+
+## v0.3-C2 retrieval ablation
+
+[사전 프로토콜](outputs/v03c2/PREREGISTRATION.json)과 [계약](docs/V03C2_RETRIEVAL_ABLATION.md)을 적용한다. tests/test_retrieval_ablation.py는 A기준선 동등성·정규화/OR/BM25·FTS지원/명시적 BLOCKED·SQL/FTS operator injection·기관/세대/등록 해제/위조·보류 후보와 답변 금지·metric 분모/중복/MRR/지연 산식을 검사한다. 36positive/4abstain·3회 fingerprint/순서 통제·전체 backend 비루프백 회귀를 새 실행한다. UI/타입·빌드는 변경 영향이 없으므로 이전 증거와 현재 hash를 대조해 재사용하고 새 실행 PASS로 표시하지 않는다.

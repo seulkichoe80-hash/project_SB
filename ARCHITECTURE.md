@@ -256,3 +256,7 @@ apps/web의 lazy WorkflowPage는 기존 AuthContext·same-origin BFF와 Workflow
 ## v0.3-C1 검색 진단과 고정 문맥
 
 제품 검색을 바꾸지 않고 scripts/validation에서 SQL/token/filter/Top-K를 분리 진단한다. 질문/정답과 무관한 기관별 전체 frozen context와 기존 offline workflow Fake를 재사용한다. [격리·지표 계약](docs/V03C1_RETRIEVAL_DIAGNOSTICS.md)을 따른다.
+
+## v0.3-C2 검색 비교 실험
+
+scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal/정규화 AND·OR·FTS5 BM25를 비교한다. 제품 index/검색/정답/세대는 유지한다. [통제·격리 계약](docs/V03C2_RETRIEVAL_ABLATION.md)을 따른다.
