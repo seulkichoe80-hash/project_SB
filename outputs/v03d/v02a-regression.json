@@ -1,0 +1,114 @@
+{
+  "scope": "v0.2-A production Chromium; existing real-backend-generated synthetic DTO fixture via local response interception; not live-provider integration",
+  "results": [
+    {
+      "name": "manager home offers actual registration and workflow review without fake counts",
+      "status": "PASS"
+    },
+    {
+      "name": "reader home offers query and explains mutation limits",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous home distinguishes existing documents feature from login requirement",
+      "status": "PASS"
+    },
+    {
+      "name": "unavailable provider never means document feature is unimplemented",
+      "status": "PASS"
+    },
+    {
+      "name": "loading role never claims manager capability",
+      "status": "PASS"
+    },
+    {
+      "name": "local login status and actual AI remain distinct from document capability",
+      "status": "PASS"
+    },
+    {
+      "name": "remote setting display is based on existing status flag and makes no connectivity claim",
+      "status": "PASS"
+    },
+    {
+      "name": "manager registration link enters existing form without submitting",
+      "status": "PASS"
+    },
+    {
+      "name": "node stays unconfirmed until original source resolves",
+      "status": "PASS"
+    },
+    {
+      "name": "source-confirmed node and current evidence panel agree; semantic state remains pending",
+      "status": "PASS"
+    },
+    {
+      "name": "technical identifiers and flags live under explicit details",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple citations cannot promote a whole step after verifying only one",
+      "status": "PASS"
+    },
+    {
+      "name": "reselecting the same citation does not hang in loading",
+      "status": "PASS"
+    },
+    {
+      "name": "badResolve never shows confirmed source or original",
+      "status": "PASS"
+    },
+    {
+      "name": "foreignEvidence never shows confirmed source or original",
+      "status": "PASS"
+    },
+    {
+      "name": "resolveNetwork never shows confirmed source or original",
+      "status": "PASS"
+    },
+    {
+      "name": "evidenceMissing explains missing source and clears stale candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "resolveMissing explains missing source and clears stale candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "step switch restarts source confirmation and preserves unselected warnings",
+      "status": "PASS"
+    },
+    {
+      "name": "late old-document resolution cannot confirm new document nodes",
+      "status": "PASS"
+    },
+    {
+      "name": "unsafe semantic promotion is still rejected by unchanged API guards",
+      "status": "PASS"
+    },
+    {
+      "name": "keyboard focus and mobile tabs still reach evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "PC/mobile role copy reflows at 320/375/768/1440",
+      "status": "PASS"
+    },
+    {
+      "name": "no new approval/activation UI, browser storage, exceptions or external traffic",
+      "status": "PASS"
+    }
+  ],
+  "counts": {
+    "PASS": 24,
+    "FAIL": 0
+  },
+  "seconds": 23.976636862,
+  "errors": [],
+  "external": [],
+  "actual_external_provider_calls": 0,
+  "not_run": [
+    "real Supabase/LLM/embedding",
+    "screen reader",
+    "public deployment"
+  ]
+}

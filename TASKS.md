@@ -314,3 +314,20 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [ ] 제품 교체·실제 모델/임베딩·독립 인간 검토·후속 실험은 별도 승인/요청 후.
 
 - [x] 신규27·전체 backend618 PASS. 3회 반복/초기-최종 순위·점수 동일, FTS5 지원 확인, 외부 시도/지출0. C를 연구 후보로 제안하고 제품 교체 없음. [최종 보고](outputs/V03C2_REPORT.md). 인간 검토40·실 AI 성능 미검증 유지.
+
+## v0.3-D 서버 flag와 명시적 C API
+
+- [x] C2를 e2bb7f7로 로컬 보존하고 feat/v03d-opt-in-scored-search 분기. literal 기본 유지·서버 허용+명시 strategy의 C 검색·bounded scan·원본/세대 재검증·실제 TCP API 비교 도구 구현. [계약](docs/V03D_OPT_IN_SCORED_SEARCH.md).
+- [ ] 실제 환경 flag활성화/배포·실모델/임베딩·인간 의미 검토·후속 UI/검색 확장은 별도 사용자 승인/요청 후.
+
+- [x] 신규24·전체 backend642·UI174·타입/빌드·기존 HTTP13·새 API HTTP11묶음 최종 PASS. 실제 API C2 Top10 40문항 동등, 서버 flag기본off/literal 기본 유지, 외부 호출/지출0. [보고](outputs/V03D_REPORT.md).
+
+## v0.3-E 우선 10문항 인간 검토 지원
+
+- [x] C1 선정 순서를 유지하는 별도 오프라인 검토 HTML/JSON·빈 판정 CSV와 제출 형식 검증 CLI. 원문 replay/live 근거 검증, 기관별 문맥, 원본/정답 불변. [사용법](docs/V03E_HUMAN_REVIEW_SUPPORT.md).
+- [ ] 실제 인간 검토 0/10(전체 0/40), 독립 판정·골드 승인·실제 모델 평가 미실행. 기존 PROVISIONAL/NOT_VERIFIED 유지.
+
+## 인터넷 배포 준비 계획 — 2026-10-18
+
+- [x] 사용자 요청 범위의 배포 구성·비용 가정·인증/DB/객체/worker 차이·백업·설정·실행 순서 검토. [실행 계획](docs/INTERNET_DEPLOYMENT_PLAN_20261018.md). 실제 리소스/외부 호출/배포 없음.
+- [ ] 다음 구현 제안: strict 운영 설정·시작 계약/오프라인 사전 검사. PG·객체 저장·실Auth/staging·G1-C는 별도 구현/승인 후. 인간 판정은 별도 진행, 자동 생성/승인 안 함.

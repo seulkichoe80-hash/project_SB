@@ -260,3 +260,7 @@ apps/web의 lazy WorkflowPage는 기존 AuthContext·same-origin BFF와 Workflow
 ## v0.3-C2 검색 비교 실험
 
 scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal/정규화 AND·OR·FTS5 BM25를 비교한다. 제품 index/검색/정답/세대는 유지한다. [통제·격리 계약](docs/V03C2_RETRIEVAL_ABLATION.md)을 따른다.
+
+## v0.3-D opt-in C 검색
+
+기존 /search/default literal/RAG lexical 계약을 보존한다. 서버 SB_ENABLE_SCORED_OR_SEARCH=1과 요청 strategy=scored_or를 동시에 요구하는 bounded ScoredORSearch를 추가한다. source/current generation과 원본 재해결을 전후 검사한다. [기능 flag·자원/근거 계약](docs/V03D_OPT_IN_SCORED_SEARCH.md)을 따른다.

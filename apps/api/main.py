@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Literal
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse, Response
 from starlette.concurrency import run_in_threadpool
@@ -14,7 +15,7 @@ def authenticated_principal(request: Request) -> Principal:
     return request.app.state.auth.resolve(request)
 
 
-def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False, identity_provider=None, auth_settings=None, auth_clock=None, supabase_settings=None) -> FastAPI:
+def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False, identity_provider=None, auth_settings=None, auth_clock=None, supabase_settings=None, search_settings=None) -> FastAPI:
     if supabase_settings is not None:
         if identity_provider is not None:
             raise ValueError('choose_one_identity_configuration')
@@ -82,7 +83,9 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
         app.state.parsing = parsing
         from .chunk_service import ChunkService
         from .chunking import ChunkConfig, EvidenceRef
-        chunks = ChunkService(parsing)
+        from .search_settings import SearchSettings
+        search_settings=SearchSettings.from_environment() if search_settings is None else SearchSettings.model_validate(search_settings.model_dump(warnings=False))
+        chunks = ChunkService(parsing,search_settings=search_settings)
         app.state.chunks = chunks
         from .workflow_jobs import WorkflowJobService
         from .workflow_routes import install_workflow_routes
@@ -111,8 +114,9 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
             return chunks.resolve(principal,document_id,version_id,chunk_id,body)
 
         @app.get('/search')
-        def search(q: str,limit: int=20,principal: Principal=Depends(authenticated_principal)):
-            return {'method':'sqlite_keyword_substring_v1','results':chunks.search(principal,q,limit)}
+        def search(q: str,limit: int=20,strategy: Literal['literal','scored_or']='literal',principal: Principal=Depends(authenticated_principal)):
+            method='sqlite_scored_or_v1' if strategy=='scored_or' else 'sqlite_keyword_substring_v1'
+            return {'method':method,'results':chunks.search(principal,q,limit,strategy)}
         with service.repo.transaction() as db:
             db.parsing.backfill(time.time())
 

@@ -1,0 +1,11 @@
+{
+  "engine": "Chromium /usr/bin/chromium",
+  "input": "outputs/v03e/priority10/review.html via Playwright setContent",
+  "article_count": 10,
+  "viewport_widths": [1280, 375],
+  "horizontal_overflow": false,
+  "first_tab_focus": "A",
+  "screenshots": ["review-1280.png", "review-375.png"],
+  "limitation": "file URL blocked by environment administrator policy; static HTML rendered via setContent; not product UI E2E",
+  "external_model_calls": 0
+}

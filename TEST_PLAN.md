@@ -267,3 +267,11 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## v0.3-C2 retrieval ablation
 
 [사전 프로토콜](outputs/v03c2/PREREGISTRATION.json)과 [계약](docs/V03C2_RETRIEVAL_ABLATION.md)을 적용한다. tests/test_retrieval_ablation.py는 A기준선 동등성·정규화/OR/BM25·FTS지원/명시적 BLOCKED·SQL/FTS operator injection·기관/세대/등록 해제/위조·보류 후보와 답변 금지·metric 분모/중복/MRR/지연 산식을 검사한다. 36positive/4abstain·3회 fingerprint/순서 통제·전체 backend 비루프백 회귀를 새 실행한다. UI/타입·빌드는 변경 영향이 없으므로 이전 증거와 현재 hash를 대조해 재사용하고 새 실행 PASS로 표시하지 않는다.
+
+## v0.3-D 선택 검색 API
+
+[계약](docs/V03D_OPT_IN_SCORED_SEARCH.md)에 따라 tests/test_opt_in_search.py로 flag기본/명시선택/우회/한도·기존 literal/RAG shape·C2동등 순위·기관/role·위조/중복/원본오류/활성본·세대·해제·no-network를 검증한다. check_opt_in_search_http.py는 실제 loopback TCP/BFF cookie·CSRF/Origin·로그아웃·40문항3회 성능과C2 Top10동등성을 검사한다. backend/API 변경이므로 전체 backend·UI174·타입/빌드·기존 실제 HTTP13도 새 실행한다. 최종 API 측정은 자체 회귀 후 단독/비루프백 guard 안에서 수행한다.
+
+## 우선 10문항 검토 지원 Feature Gate
+
+제품 UI/API/DB 변경 없이 별도 평가 도구만 추가한다. 신규 검토 묶음의 기관별 문맥·근거/원본 재검증, 빈 판정/부분 입력/중복/미등록 문항/시간대·판정 검증, 제출과 승인 분리를 관련 B/C1 회귀와 실행한다. Chromium PC/375px의 10문항·가로 넘침·키보드 진입을 확인한다. 전체 제품 회귀는 이 Feature Gate에서 재실행하지 않으며 이전 D 결과를 새 실행으로 보고하지 않는다.

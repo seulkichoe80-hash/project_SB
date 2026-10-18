@@ -1,0 +1,16 @@
+{
+  "strong_secret_pattern_hits": [],
+  "credentials": "Only explicit synthetic Mock test strings; no real keys/accounts; cookies/CSRF/provider tokens not written to results",
+  "feature_default": "OFF; strategy omitted remains literal even if enabled",
+  "default_auth_deny_preserved": true,
+  "real_provider_LLM_embedding_Supabase_calls": 0,
+  "actual_paid_spend_usd": 0,
+  "main_push_merge_deployment": false,
+  "data_scope": "existing project-authored synthetic generation; original/fixture/gold/prior evidence retained",
+  "server_feature_and_request_gates": "PASS",
+  "tenant_version_generation_EvidenceRef_integrity": "PASS",
+  "CSRF_Origin_logout_replay": "PASS via real loopback HTTP",
+  "scan_caps_partial_results": "PASS; reject413",
+  "product_DB_migration_or_new_dependencies": false,
+  "no_env_secret_files_saved": true
+}
