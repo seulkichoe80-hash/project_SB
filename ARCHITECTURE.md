@@ -276,3 +276,7 @@ scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal
 ## 배포 준비 3단계: Fake private 객체와 application 복구
 
 [Private Storage·복구 계약](docs/DEPLOYMENT_PRIVATE_STORAGE.md)의 명시 주입 어댑터는 서버 Principal/기존 UnitOfWork를 재사용한다. LocalOriginalStore 기본과 HTTP 계약은 그대로이며 실제 원격 전송은 없다. 객체 intent/불변 put/read-back와 DB metadata commit을 분리하고 orphan은 DB quarantine으로 보존한다. 별도 추가형 Storage schema, 새 빈 DB/Fake 대상으로만 수행하는 manifest 기반 application 복구·세션 철회·claim fencing을 제공한다. 별도 비용 schema/PITR/실제 운영 백업·Auth/Storage wiring은 미완료이며 production 차단을 유지한다.
+
+## 배포 준비 4단계: 오프라인 JWT·명시 기관 초기화
+
+[Auth 계약](docs/DEPLOYMENT_AUTH.md)의 SupabaseJWTProviderAdapter는 기존 사용자 조회 기반 adapter와 별도로 명시 주입한다. Fake JWKS/password 전송만 허용하고 cryptography ES256/RS256 검증 후 기존 VerifiedIdentity→DB 멤버십→BFF 세션으로 연결한다. provider metadata 권한은 사용하지 않으며 세션 issuer/활성 단일 membership과 관리자 transaction 권한을 재검사한다. 최초 관리자 생성은 공개 경로 없이 명시 운영자 bootstrap transaction으로 제한한다. 기존 API/DB schema/Private Storage·worker/EvidenceRef 계약과 deny-all 기본은 유지하며 운영 Auth/전송/철회 동기화 미실증으로 production을 계속 차단한다.

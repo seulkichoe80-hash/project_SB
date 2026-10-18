@@ -1,0 +1,40 @@
+{
+  "start_branch": "feat/deployment-private-storage",
+  "start_head": "acc09eb6beb1ba6fed5a9d0194bb112c3c394cbe",
+  "preservation_commit": "68a8a3513c1df7bc8290f5b3e091e2125733677c",
+  "preserved_previous_files": 27,
+  "previous_backend_891_source_hash_verified": true,
+  "unchanged_tracked_files": 935,
+  "intentional_changed_files": [
+    "ARCHITECTURE.md",
+    "TASKS.md",
+    "TEST_PLAN.md",
+    "apps/api/auth.py",
+    "apps/api/runtime_settings.py"
+  ],
+  "deleted_files": [],
+  "unexpected_changes": [],
+  "strong_secret_pattern_hits": [],
+  "scan_scope": "new/modified files plus prior preservation manifest; synthetic sources reviewed, not comprehensive PII certification",
+  "ephemeral_crypto_keys_persisted": false,
+  "original_fixture_historical_evidence_changes": [],
+  "existing_pg_sqlite_storage_schema_unchanged": true,
+  "existing_frontend_and_lockfiles_unchanged": true,
+  "human_judgments_created_or_approved": 0,
+  "real_credentials_injected": false,
+  "actual_external_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "push_merge_deployment": false,
+  "final_regression_source_hash_match": true,
+  "final_counts": {
+    "PASS": 979,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "socket_guard_probe": "PASS",
+  "blocked_external_attempts": 0,
+  "local_pg_fixture_stopped_volume_preserved": true,
+  "finished_utc": "2026-10-18T09:03:47.228183+00:00",
+  "minutes_since_preservation_commit": 15.97
+}

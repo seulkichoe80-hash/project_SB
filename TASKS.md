@@ -349,3 +349,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] PostgreSQL38파일을acc09eb 로컬 보존 후 feat/deployment-private-storage 분기. Local 기본 유지, Fake-only 비공개 객체 계약·원본 재검증·추가 Storage schema·orphan DB quarantine·application manifest 새 대상 복구 구현. [계약](docs/DEPLOYMENT_PRIVATE_STORAGE.md).
 - [x] 신규94·전체backend891 PASS/FAIL0/SKIP0. SQLite/실제 격리 로컬PG disk bundle→새 DB/Fake 복원·EvidenceRef·worker 재개 PASS. 외부 공급자 호출/지출0. [보고](outputs/DEPLOYMENT_PRIVATE_STORAGE_REPORT.md).
 - [ ] 실제 Supabase transport/ACL·API/worker wiring·운영 Auth bootstrap·별도 비용 schema 포함 통합백업/PITR/암호화·운영 RPO/RTO는 미검증. production 차단 유지, 인간 판정 생성/승인 없음. 다음 단계 자동 진행 없음.
+
+## 배포 준비 4단계 오프라인 Supabase JWT·서버 멤버십
+
+- [x] Private Storage27파일을68a8a35 로컬 보존 후 feat/deployment-auth 분기. 기존 `/user` adapter/deny-all/BFF 계약을 보존하며 Fake-only JWT/JWKS(ES256/RS256)·issuer/aud/expiry·키 교체/오류 검증, 세션 issuer/활성 단일 membership·관리자 transaction 권한 재확인, 명시 오프라인 최초 관리자 bootstrap 구현. [계약](docs/DEPLOYMENT_AUTH.md).
+- [x] 신규88·전체backend979 PASS/FAIL0/SKIP0. SQLite/실제 격리 로컬PG 세션·기관·CSRF·철회·bootstrap 경합/rollback·Private Storage 원본/EvidenceRef/workflow 통합 PASS. 외부 호출/지출0. [보고](outputs/DEPLOYMENT_AUTH_REPORT.md).
+- [ ] 실제 JWT/JWKS/Auth runtime wiring·프로젝트 호환·운영자 계정 확인/초기화·provider-only 철회 동기화·proxy/HTTPS/cloud worker·운영 복구는 미실증. production 차단·인간 검토 미완료 유지. Auth 범위 종료 후 다음 단계 자동 진행 없음.

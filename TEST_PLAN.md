@@ -287,3 +287,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## 배포 준비 3단계 Storage 검증 범위
 
 [실행 계약](docs/DEPLOYMENT_PRIVATE_STORAGE.md)의 Fake 전송/불변 SHA·크기/기관·활성 버전, 업로드 timeout 전후/부분 bytes/DB 실패·중복·orphan quarantine, 새 대상 manifest 복구/부분 rollback/중복 복구·변조·혼합 snapshot/세션 철회·worker fencing/EvidenceRef 재해결을 SQLite와 격리 loopback PostgreSQL에서 검증한다. Phase Gate는 전체 backend 회귀를 수행한다. 앱 schema와 Fake 객체 복구만 실증하며 별도 비용 schema·실 Supabase·PITR·운영 복구 및 UI 미변경 회귀 재실행 여부는 구분해 보고한다. 원본·과거 증거·인간 판정은 변경하지 않는다.
+
+## 배포 준비 4단계 Auth 검증
+
+[오프라인 Auth 계약](docs/DEPLOYMENT_AUTH.md)에 따라 ephemeral ES256/RS256 서명·만료/위조/issuer/aud/시간/알고리즘·키 교체/제거·JWKS 장애/악성 header/중복 JSON을 검사한다. 실제 BFF 세션과 SQLite/격리 loopback PG에서 기관·활성 단일 membership/권한 변경·경합/CSRF/Origin/logout·세션 재구성·명시 bootstrap 동시성/부분 rollback·Private Storage 원본/EvidenceRef·미승인 workflow를 검증한다. Phase Gate 전체 backend는 Python 비루프백 guard와 PG local_test 강제를 병행한다. 기존 테스트/fixture/인간 판정은 수정하지 않는다. provider-only revocation·실 cloud·운영 로그인/HTTPS/배포는 미실증이며 Fake/ASGI PASS와 구분한다. 프런트 미변경 시 UI/타입/build는 이번 실행 결과로 계상하지 않는다.

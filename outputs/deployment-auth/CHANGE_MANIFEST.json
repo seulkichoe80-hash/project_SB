@@ -1,0 +1,21 @@
+{
+  "ARCHITECTURE.md": "2b77e92b4df70537b70225367158e381613b7dc2dbbc79c0cf5d7626b77a3e82",
+  "TASKS.md": "dad916c7b0cd1e2c85639830eec1102e9d38f4981a5f843d1158dd5160a91b94",
+  "TEST_PLAN.md": "da54cda3494c5c4385da98e4cd81282f69fa5f65b97a93cccb5dc4c208f82962",
+  "apps/api/auth.py": "2c7c7abf8801ea92b499b55ca7728c506a329a4a77d592573ef9e4bedb1d222f",
+  "apps/api/auth_bootstrap.py": "9406b882d206653ceaf100ef1a6fc705370a3390b61b0d0eff0b285bb8875576",
+  "apps/api/runtime_settings.py": "a9817948d8bb5ef6a887a689b84c0273fdbac1a03f23c11b78fb2f28ec97b348",
+  "apps/api/supabase_jwt.py": "806859de9cf37adaf610b2081dbb0ab2b7c2b1fa93b56145642746f582abda3c",
+  "docs/DEPLOYMENT_AUTH.md": "5317c37a9ce30208fdb460f6f3c3092db0b882bb60b6219369ccdab1f4289c9b",
+  "outputs/DEPLOYMENT_AUTH_REPORT.md": "b92dbb571538dc3b6ed1b4ccd45c3d0748f45c428d79daf616786dbb99ef78b9",
+  "outputs/deployment-auth/PRESERVATION.json": "c7b39e907e583246cbbfa82e84ffd9f47efa077b5fdce3e91297de7c3dd4de7d",
+  "outputs/deployment-auth/backend.json": "b9f58ec5c850fbc7bbf5aed1d7afcd0e5b39977951643c99b0543533f50ff7c2",
+  "outputs/deployment-auth/backend.network.json": "ee17d66fe3c6d12f59b04c5352efc0be9ce57fc4d8f4660cf52c8628794e7cf9",
+  "outputs/deployment-auth/preflight-local.json": "908da34a24ff275f36b8cee86162cb8672cb3beb0f1a2ffcf79bb990bd8fa0ae",
+  "outputs/deployment-auth/preflight-production.json": "b8e12c4778df8c26ff4642cd243849f8a462ae6d8bb632eef396bf31b09eb610",
+  "outputs/deployment-auth/targeted-complete.txt": "75819ac6f970390e973f8ed9f811f272a294954a074c1a4e280348acc0084c17",
+  "outputs/deployment-auth/targeted-final.txt": "40407d745cbf3209703fdbb677eb0ed4b6be05983e4226dc38b6fea9a80efed8",
+  "outputs/deployment-auth/targeted-initial.txt": "ffdec7896698da691a776cb807933f803f839bc0750bf3d7be75ec971d8c9377",
+  "outputs/deployment-auth/targeted-verified.txt": "f0930740a97165ec406330e051a80a502cc2fa73df9b118da962b0dc996683d9",
+  "tests/test_deployment_auth.py": "6ab68f11b71abfe07117f80a56fdaeda88f125f802cdc51c01fc9b513a9c8eb0"
+}

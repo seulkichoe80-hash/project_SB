@@ -214,7 +214,7 @@ def peer_issues(api, worker):
 PRODUCTION_BLOCKERS = (
     'postgresql_production_runtime_not_wired',
     'private_storage_production_transport_not_wired',
-    'production_auth_membership_bootstrap_not_implemented',
+    'production_auth_runtime_and_operator_provisioning_not_verified',
     'proxy_limits_and_headers_not_verified',
     'worker_cloud_runtime_not_implemented',
     'coordinated_backup_restore_not_verified',
@@ -239,7 +239,7 @@ def preflight(environ=None, *, expected_role=None, peer=None):
             'settings_status': 'INVALID' if issues else 'VALID',
             'status': 'INVALID' if issues else ('BLOCKED' if blockers else 'LOCAL_CONTRACT_VALID'),
             'startup_allowed': not issues and not blockers, 'production_ready': False,
-            'connectivity': 'NOT_CHECKED', 'database_adapter': 'POSTGRESQL_OPT_IN_IMPLEMENTED_NOT_CONNECTED', 'membership_verification': 'SERVER_ACTIVE_SINGLE_CONTRACT_ONLY',
+            'connectivity': 'NOT_CHECKED', 'database_adapter': 'POSTGRESQL_OPT_IN_IMPLEMENTED_NOT_CONNECTED', 'membership_verification': 'SERVER_ACTIVE_SINGLE_CONTRACT_ONLY', 'jwt_verification': 'FAKE_JWKS_IMPLEMENTED_NOT_CONNECTED',
             'private_storage_adapter': 'FAKE_ONLY_IMPLEMENTED_NOT_CONNECTED',
             'backup_restore_verification': 'NOT_VERIFIED',
             'issues': sorted(set(issues)), 'implementation_blockers': blockers}
