@@ -123,8 +123,8 @@ class StorageRegistry:
 class PrivateOriginalStore:
     """Server-authorized original access; database publication and object upload stay separate."""
     def __init__(self, repository, settings, transport):
-        from .storage_http import StorageHTTPTransport
-        if type(settings) is not PrivateStorageSettings or type(transport) not in (FakeStorageTransport, StorageHTTPTransport):
+        from .storage_http import StorageHTTPTransport,SupabaseStorageHTTPTransport
+        if type(settings) is not PrivateStorageSettings or type(transport) not in (FakeStorageTransport, StorageHTTPTransport, SupabaseStorageHTTPTransport):
             raise DomainError('real_storage_transport_disabled',503)
         try:
             settings=PrivateStorageSettings.model_validate(settings.model_dump(warnings=False))
@@ -136,8 +136,8 @@ class PrivateOriginalStore:
         self._policy(); self.registry=StorageRegistry(repository); self.registry.migrate()
     def __repr__(self): return '<PrivateOriginalStore offline-only redacted>'
     def _policy(self):
-        from .storage_http import StorageHTTPTransport
-        if type(self.transport) is StorageHTTPTransport:
+        from .storage_http import StorageHTTPTransport,SupabaseStorageHTTPTransport
+        if type(self.transport) in (StorageHTTPTransport,SupabaseStorageHTTPTransport):
             if not self.transport.matches(self.settings):
                 raise DomainError('storage_http_configuration_mismatch',503)
         elif type(self.transport) is not FakeStorageTransport:

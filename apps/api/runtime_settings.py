@@ -24,6 +24,13 @@ class RuntimeSettings(BaseModel):
     auth_provider: Literal['deny_all', 'mock', 'supabase'] = 'deny_all'
     supabase_project_url: SecretStr | None = Field(default=None, repr=False)
     supabase_auth_api_key: SecretStr | None = Field(default=None, repr=False)
+    application_schema: str | None = Field(default=None, pattern=r'^[a-z][a-z0-9_]{0,62}$')
+    budget_schema: str | None = Field(default=None, pattern=r'^[a-z][a-z0-9_]{0,62}$')
+    storage_gateway_key: SecretStr | None = Field(default=None, repr=False)
+    provider_network_enabled: bool = False
+    provider_approval_ref: str | None = Field(default=None, pattern=r'^[A-Za-z0-9_-]{1,80}$', repr=False)
+    auth_audience: Literal['authenticated'] = 'authenticated'
+    jwt_max_lifetime: int = Field(default=3600,ge=60,le=3600)
     origin: SecretStr = Field(default=SecretStr('https://localhost'), repr=False)
     secure_cookie: bool = True
     csrf_enabled: bool = True
@@ -48,6 +55,9 @@ class RuntimeSettings(BaseModel):
 
 # Explicit allowlist: no arbitrary environment-to-model interpolation or secret dumps.
 ENV_FIELDS = {
+    'DB_APPLICATION_SCHEMA':'application_schema','DB_BUDGET_SCHEMA':'budget_schema',
+    'STORAGE_GATEWAY_API_KEY':'storage_gateway_key','SUPABASE_NETWORK_ENABLED':'provider_network_enabled',
+    'SUPABASE_APPROVAL_REF':'provider_approval_ref','AUTH_AUDIENCE':'auth_audience','AUTH_JWT_MAX_LIFETIME':'jwt_max_lifetime',
     'APP_ENV': 'environment', 'APP_ROLE': 'role', 'DATABASE_BACKEND': 'database_backend',
     'DATABASE_URL': 'database_url', 'STORAGE_BACKEND': 'storage_backend',
     'STORAGE_PROJECT_URL': 'storage_project_url', 'STORAGE_BUCKET': 'storage_bucket',
@@ -66,7 +76,7 @@ ENV_FIELDS = {
     'RESTORE_RPO_HOURS': 'restore_rpo_hours', 'RESTORE_RTO_HOURS': 'restore_rto_hours',
 }
 BOOL_FIELDS = {name for name, field in RuntimeSettings.model_fields.items() if field.annotation is bool}
-INT_FIELDS = {'trusted_proxy_hops', 'max_upload_bytes', 'requests_per_minute', 'request_timeout_seconds',
+INT_FIELDS = {'jwt_max_lifetime','trusted_proxy_hops', 'max_upload_bytes', 'requests_per_minute', 'request_timeout_seconds',
               'llm_budget_micro_usd', 'llm_request_cap_micro_usd', 'llm_max_input_tokens',
               'llm_max_output_tokens', 'llm_max_retries', 'restore_rpo_hours', 'restore_rto_hours'}
 
@@ -163,7 +173,8 @@ def settings_issues(s):
         require(s.database_backend == 'sqlite' and s.storage_backend == 'local', 'cloud_adapters_not_implemented')
         require(s.auth_provider in ('deny_all', 'mock'), 'local_remote_auth_not_wired')
         require(not any((s.database_url, s.storage_project_url, s.storage_server_key,
-                         s.supabase_project_url, s.supabase_auth_api_key, s.storage_bucket)), 'unused_cloud_settings')
+                         s.supabase_project_url, s.supabase_auth_api_key, s.storage_bucket, s.application_schema,
+                         s.budget_schema,s.storage_gateway_key,s.provider_network_enabled,s.provider_approval_ref)), 'unused_cloud_settings')
         return issues
     require(s.database_backend == 'postgresql', 'production_postgresql_required')
     require(valid_database_url(secret(s.database_url)), 'invalid_DATABASE_URL')
@@ -197,7 +208,7 @@ def settings_issues(s):
 def peer_issues(api, worker):
     if api.role != 'api' or worker.role not in ('parse_worker', 'chunk_worker', 'workflow_worker'):
         return ['api_worker_role_mismatch']
-    common = ('environment', 'database_backend', 'storage_backend', 'storage_project_url', 'storage_bucket',
+    common = ('application_schema','budget_schema','storage_gateway_key','provider_network_enabled','provider_approval_ref','auth_audience','jwt_max_lifetime','environment', 'database_backend', 'storage_backend', 'storage_project_url', 'storage_bucket',
               'supabase_project_url', 'auth_provider', 'origin', 'secure_cookie', 'csrf_enabled',
               'same_origin_proxy', 'trusted_proxy_hops', 'requests_per_minute', 'request_timeout_seconds',
               'membership_policy', 'max_upload_bytes', 'real_llm_enabled',
@@ -246,10 +257,26 @@ def preflight(environ=None, *, expected_role=None, peer=None):
             'runtime_wiring': 'LOCAL_AND_FAKE_ONLY_IMPLEMENTED',
             'proxy_boundary': 'LOCAL_SIMULATION_NOT_VENDOR_VERIFIED',
             'backup_restore_verification': 'NOT_VERIFIED',
-            'issues': sorted(set(issues)), 'implementation_blockers': blockers}
+            'issues': sorted(set(issues)), 'implementation_blockers': blockers,
+            'operational_mapping_issues': operational_mapping_issues(s) if s.environment=='production' else []}
 
 
 def ensure_start_environment(role):
     result = preflight(expected_role=role)
     if not result['startup_allowed']:
-        raise SettingsRejected(result['issues'] + result.get('implementation_blockers', []))
+        raise SettingsRejected(result['issues'] + result.get('implementation_blockers', []) + result.get('operational_mapping_issues', []))
+
+
+def operational_mapping_issues(settings):
+    issues=[]
+    names=(settings.application_schema,settings.budget_schema)
+    if not all(names):issues.append('application_budget_schemas_required')
+    elif names[0]==names[1] or any(n in ('public','auth','storage','extensions') or n.startswith('pg_') for n in names):
+        issues.append('separate_private_schemas_required')
+    if not re.fullmatch(r'[\x21-\x7e]{16,4096}',secret(settings.storage_gateway_key)):
+        issues.append('storage_gateway_key_required')
+    if secret(settings.storage_gateway_key)==secret(settings.storage_server_key):
+        issues.append('storage_gateway_server_keys_must_differ')
+    if settings.provider_network_enabled and not settings.provider_approval_ref:
+        issues.append('provider_operator_approval_reference_required')
+    return sorted(set(issues))

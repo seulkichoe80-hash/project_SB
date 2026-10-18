@@ -303,3 +303,7 @@ FR-14/15/18·NFR-01/02/05/07·WEB-02/04/05: `tests/test_storage_http.py`에서 e
 ## Factory·Migration Runner 영향 시험
 
 FR-14/15/18·NFR-01/02/05/07·WEB-02/04/05: tests/test_runtime_factory.py의 새/기존 DB·동시 Runner/API-worker 시작·verify-only·schema/checksum·단계 롤백/재개·기관/멤버십·비용 hold/원본·worker pipeline·설정 불일치/원격 차단을 확인한다. 표준 entry point/RuntimeBinding 변경은 기존 전체 backend 및 Private Storage/PostgreSQL/Auth 회귀를 실행한다. 격리 PG 실제 stop/start 뒤 새 프로세스로 verify/data/job/membership/uncertain hold를 재검증한다. cloud 연결·운영6개 blocker·공개 배포는 별도 BLOCKED이며 이번 local 회귀로 대체하지 않는다.
+
+## 운영 HTTP·mapping 보완 시험
+
+FR-14/15/18·NFR-01/02/05/07·WEB-02/04/05: tests/test_operational_adapters.py의 env/schema/key/approval·peer·미승인 client 생성 차단·부분 Mock 혼용·고정 JWKS/password HTTP·JWT 위조/만료/rotation·timeout/429/503·로그 비노출·probe-first Storage·실제 격리 PG 세션/CSRF/기관/멤버십/worker 회귀를 실행한다. 네트워크 가드로 실제 외부 provider 연결0을 확인하고 단계 완료 시 전체 backend를 재실행한다. live 실행/실계정 ACL·provider 상태·원격 복구·20MiB edge는 BLOCKED로 구분한다.

@@ -20,16 +20,20 @@ class RuntimeBinding:
     def validate(self):
         from .postgres import PostgresRepository
         from .private_storage import PrivateOriginalStore,FakeStorageTransport
-        from .storage_http import StorageHTTPTransport
+        from .storage_http import StorageHTTPTransport,SupabaseStorageHTTPTransport
         from .supabase_jwt import SupabaseJWTProviderAdapter
         from .session_revalidation import SessionRevalidation
         from .proxy_boundary import ProxyPolicy
         if self.role not in ROLES or type(self.repo) not in (Repository,PostgresRepository):raise ValueError('invalid_runtime_binding')
         if type(self.repo) is PostgresRepository and not self.repo.database.local_test:raise ValueError('remote_database_wiring_blocked')
         if type(self.store) is PrivateOriginalStore:
-            if self.store.repo is not self.repo or type(self.store.transport) not in (FakeStorageTransport,StorageHTTPTransport):raise ValueError('private_storage_binding_mismatch')
+            if self.store.repo is not self.repo or type(self.store.transport) not in (FakeStorageTransport,StorageHTTPTransport,SupabaseStorageHTTPTransport):raise ValueError('private_storage_binding_mismatch')
             self.store._policy()
         elif type(self.store) is not LocalOriginalStore:raise ValueError('storage_binding_not_implemented')
+        if (getattr(getattr(self.store,'transport',None),'network_selected',False)
+                or getattr(self.provider,'remote_enabled',False)
+                or getattr(getattr(getattr(self.provider,'verifier',None),'transport',None),'network_selected',False)):
+            raise ValueError('local_live_transports_forbidden')
         if type(self.auth_settings) is not AuthSettings:raise ValueError('invalid_auth_binding')
         if self.role!='api':
             if type(self.provider) is not UnconfiguredProvider or self.session_guard is not None or self.proxy_policy is not None:raise ValueError('worker_browser_auth_forbidden')

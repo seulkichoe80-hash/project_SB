@@ -1,0 +1,15 @@
+{
+  "isolated_database": "Existing loopback-only Docker PostgreSQL 17.6, synthetic test DB; preserved volume. No cloud DB.",
+  "environment": {
+    "SB_PG_TEST_DSN": "postgresql://postgres@127.0.0.1:55432/sb_test",
+    "PGOPTIONS": "-c max_parallel_maintenance_workers=0 -c max_parallel_workers_per_gather=0"
+  },
+  "targeted": ".venv/bin/python -B -m unittest discover -s tests -p test_operational_adapters.py -q",
+  "full": ".venv/bin/python -B scripts/validation/run_stage4b3a_checks.py --output <new-evidence-path>.json",
+  "evidence_policy": "Never overwrite existing results; failed and final executions are separate. Guard rejects non-loopback Python requests including inherited subprocesses.",
+  "not_run": [
+    "real Supabase/Auth/Storage/LLM/embedding/cloud",
+    "UI/typecheck/build",
+    "new vendor TLS/20MiB/backup validation"
+  ]
+}

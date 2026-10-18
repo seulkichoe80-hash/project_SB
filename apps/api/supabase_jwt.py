@@ -102,13 +102,15 @@ class FakeTokenTransport:
 
 class SupabaseJWTVerifier:
     def __init__(self,settings,transport,*,clock=time.time):
-        if type(settings) is not JWTSettings or type(transport) is not FakeJWKSTransport:raise ValueError('offline_jwks_transport_required')
+        from .provider_http import SupabaseJWKSTransport
+        if type(settings) is not JWTSettings or type(transport) not in (FakeJWKSTransport,SupabaseJWKSTransport):raise ValueError('offline_jwks_transport_required')
         settings=JWTSettings.model_validate(settings.model_dump())
         if transport.issuer!=settings.issuer:raise ValueError('jwks_issuer_mismatch')
         self.settings,self.transport,self.clock=settings,transport,clock
     def __repr__(self):return '<SupabaseJWTVerifier offline redacted>'
     def _keys(self):
-        if type(self.transport) is not FakeJWKSTransport:raise ProviderUnavailable()
+        from .provider_http import SupabaseJWKSTransport
+        if type(self.transport) not in (FakeJWKSTransport,SupabaseJWKSTransport):raise ProviderUnavailable()
         status,raw=self.transport.request(self.settings.issuer,'/auth/v1/.well-known/jwks.json')
         if type(status) is not int or status!=200 or type(raw) is not bytes or len(raw)>65536:raise ValueError('jwks_unavailable')
         payload=_json(raw)
@@ -166,12 +168,18 @@ class SupabaseJWTProviderAdapter:
     available=True
     remote_enabled=False
     def __init__(self,transport,verifier):
-        if type(transport) is not FakeTokenTransport or type(verifier) is not SupabaseJWTVerifier:raise ValueError('offline_jwt_provider_required')
+        from .provider_http import SupabaseAuthHTTPTransport
+        if type(transport) not in (FakeTokenTransport,SupabaseAuthHTTPTransport) or type(verifier) is not SupabaseJWTVerifier:raise ValueError('offline_jwt_provider_required')
         self.transport,self.verifier,self.issuer=transport,verifier,verifier.settings.issuer
+        if type(transport) is SupabaseAuthHTTPTransport:
+            if transport.settings.issuer!=self.issuer:raise ValueError('token_issuer_mismatch')
+            self.remote_enabled=transport.network_selected
+            self.available=transport.can_request
     def __repr__(self):return '<SupabaseJWTProviderAdapter offline redacted>'
     def authenticate(self,email,password):
         try:
-            if type(self.transport) is not FakeTokenTransport or type(self.verifier) is not SupabaseJWTVerifier:raise ProviderUnavailable()
+            from .provider_http import SupabaseAuthHTTPTransport
+            if type(self.transport) not in (FakeTokenTransport,SupabaseAuthHTTPTransport) or type(self.verifier) is not SupabaseJWTVerifier:raise ProviderUnavailable()
             status,payload=self.transport.request('POST','/auth/v1/token?grant_type=password',body={'email':email,'password':password})
             if type(status) is not int or status!=200 or type(payload) is not dict or payload.get('token_type')!='bearer':raise ValueError('invalid_token_response')
             ttl=payload['expires_in']

@@ -1,0 +1,31 @@
+{
+  "baseline": "1f32b3de0b949551fa4d2d0a65e769ee8941573a",
+  "files": {
+    "ARCHITECTURE.md": "46bb87ba1c5887f484cf47cb1a9242f70ea1e2b4c2d68a798109afdad12bdcb1",
+    "TASKS.md": "26894fe61eecc3541fb8f06fe6e9c8358252a80b96d79021d0513ca0084ca50b",
+    "TEST_PLAN.md": "2da1166a462a192a393321f528c266c7b77e14b2c894fc9883f2e2d5d7125e01",
+    "apps/api/operational_mapping.py": "de142eec5958353796db1fc22a940140685a8440da96dcc721375658beda774b",
+    "apps/api/private_storage.py": "322cf1bd4044a987255571509d8b106ee765afe88491d47bb6b241bedf4af8c0",
+    "apps/api/provider_http.py": "b7f8e93da7b3c24e83e524521e0542f108f1de1f47a5729847ac71d29e2864c6",
+    "apps/api/runtime_factory.py": "b195ed6e8c8f385cc9590e239c12aef53a5f964d9cdd39863d5e776fffbe08b0",
+    "apps/api/runtime_settings.py": "122940090400bd43ee2f22b2be28d15d641348b577cf223da6ce53ee93a67f84",
+    "apps/api/runtime_wiring.py": "cca06935a86a84d35b97ff54984829ac7a6d8a0f6af36a11236daf87aad820b7",
+    "apps/api/storage_http.py": "c5f5e3286eecf36435cf0b847fbd01c2f58174a87033a7d1c4cf7bfd29969131",
+    "apps/api/supabase_jwt.py": "61654e07876b7c28df14bd75ac2d3a23eff3493c2e480a3ad7968da21cdc517a",
+    "docs/OPERATIONAL_ADAPTERS.md": "7b48eb5f28755345454c13b0798b8628bbffe624b96e549bc1dd5fdfc4d7c1c2",
+    "docs/STAGING_FINAL_GATES.md": "c623b781f983b2de8b5ecf7d665a68e79c04c328499ffdb71da0902110f5ebab",
+    "outputs/OPERATIONAL_CODE_REPORT.md": "97e0debe6b3141043684ac62ce60c3b0bb25145356a404ad513196f564820883",
+    "outputs/operational-code/CONTRACTS.json": "aa846cb7c273f3e4ba895a918dd7924da9426313a9c36d361588a47af2207fb4",
+    "outputs/operational-code/PRESERVATION.json": "183e250dc2d1a0bafe20aef7325302111e437421aba028378ed0831799adf826",
+    "outputs/operational-code/RETRY_REASON.json": "ba80a8755e44e1e043d6508983ba45a3b794612f2775ffd4b92bb108b22c0dc9",
+    "outputs/operational-code/TEST_COMMANDS.json": "a88033f8a7c6cf4960f3041cb7d6d945d16d0d6d361c8fc2341e5720a94191fc",
+    "outputs/operational-code/backend-final.json": "f81f39e6689f32e2e93128a987f63ea4ff532ca2b985555bf0b6ad1d614b82e5",
+    "outputs/operational-code/backend-final.network.json": "adf95afd7a97c7628842941c28b17b9c352ff0dcd6a20b3f084678bd6e7488cf",
+    "outputs/operational-code/backend-verified.json": "bf734cbd665bbac10c33102edeb3f000fe1773912cefd62e191d4c395878e2aa",
+    "outputs/operational-code/backend-verified.network.json": "a70c67ed0ffae2f52c6405ffbcb13750cf05545bafb802888dbabc8417f60a3e",
+    "outputs/operational-code/backend.json": "f9a8b491d494056f04f1022b205e4dc709ef1c0a2cc586038f5993e8fab7e4b6",
+    "outputs/operational-code/backend.network.json": "4b8f9ca66b7eb1398ec1ff213ef2782cde59e7fe79cf6206499100679c0f6159",
+    "outputs/operational-code/local-preflight.json": "e46297edee198156d625ff6bc41e30daba966f384cbc7958305733bae9731743",
+    "tests/test_operational_adapters.py": "06326411c88987e6e0699bea14b63eff865f406cb99a26185993fcae18c6f840"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "initial_counts": {
+    "PASS": 1096,
+    "FAIL": 40,
+    "SKIP": 0
+  },
+  "cause": "Local Docker PostgreSQL dynamic shared memory could not resize 32MiB segment: No space left on device; server recovered automatically.",
+  "retry_configuration": "Original DSN restored; PGOPTIONS=-c max_parallel_maintenance_workers=0 -c max_parallel_workers_per_gather=0 for isolated test processes only. No application/test/schema/original changes or data deletion.",
+  "evidence": "backend.json / backend.network.json retained; local recovery log retained in work.",
+  "postgres_log_evidence": [
+    "2026-10-18 23:43:36.833 UTC [8684] ERROR:  could not resize shared memory segment \"/PostgreSQL.3536260682\" to 33554432 bytes: No space left on device",
+    "2026-10-18 23:43:36.840 UTC [8687] FATAL:  the database system is in recovery mode",
+    "2026-10-18 23:43:36.948 UTC [8691] FATAL:  the database system is in recovery mode",
+    "2026-10-18 23:43:36.952 UTC [8692] FATAL:  the database system is in recovery mode",
+    "2026-10-18 23:43:36.957 UTC [8693] FATAL:  the database system is in recovery mode"
+  ],
+  "container_shm_capacity": "64MiB",
+  "retry_observation": "1.1MiB used / 63MiB available during serial-maintenance retry",
+  "second_run": {
+    "counts": {
+      "PASS": 903,
+      "FAIL": 233,
+      "SKIP": 0
+    },
+    "seconds": 239.539,
+    "cause": "Incorrect test DSN options query was rejected by existing strict local_test URL allowlist. Evidence backend-final.json retained; not a passing run."
+  },
+  "verification_before_third_run": {
+    "command": "unittest discover -s tests -p test_operational_adapters.py -q with original DSN and PGOPTIONS",
+    "PASS": 23,
+    "FAIL": 0,
+    "SKIP": 0,
+    "seconds": 1.706
+  },
+  "initial_targeted_import_error": "A direct tests.test_operational_adapters invocation lacked sibling test module search path. No tests ran; corrected to normal discover mode. Log retained in work."
+}

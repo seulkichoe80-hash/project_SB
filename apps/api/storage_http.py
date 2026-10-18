@@ -53,6 +53,9 @@ class StorageHTTPTransport:
     def _validate(self):
         if type(self) is not StorageHTTPTransport or type(self._mock) is not httpx.MockTransport:
             raise StorageHTTPFailure('real_storage_transport_disabled')
+        self._validate_settings()
+
+    def _validate_settings(self):
         try:
             if type(self._settings) is not PrivateStorageSettings or type(self._gateway_key) is not SecretStr:
                 raise ValueError()
@@ -87,6 +90,12 @@ class StorageHTTPTransport:
             return min(int(value), 3600)
         return None
 
+    def _before_request(self):
+        self._validate()
+
+    def _trust_env(self):
+        return False
+
     def _request(self, method, bucket, path, body=None):
         self._scope(bucket, path)
         if method not in ('GET', 'POST'):
@@ -97,13 +106,14 @@ class StorageHTTPTransport:
                    'apikey': self._gateway_key.get_secret_value(), 'Accept-Encoding': 'identity'}
         if method == 'POST':
             headers.update({'Content-Type': 'application/octet-stream', 'x-upsert': 'false'})
+        self._before_request()
         started = time.monotonic()
         timeout = self._settings.timeout_seconds
         result = None
         try:
             # New isolated client per operation: no cookie jar, proxy, credential
             # discovery, redirect, event hooks or real-network fallback.
-            with httpx.Client(transport=self._mock, trust_env=False, follow_redirects=False,
+            with httpx.Client(transport=self._mock, trust_env=self._trust_env(), follow_redirects=False,
                               timeout=httpx.Timeout(timeout)) as client:
                 with client.stream(method, url, headers=headers, content=body) as response:
                     status = response.status_code
@@ -195,3 +205,32 @@ class StorageHTTPTransport:
     def list_page(self, bucket, prefix, offset, limit):
         self._validate()
         raise StorageHTTPFailure('storage_inventory_contract_unverified')
+
+
+class SupabaseStorageHTTPTransport(StorageHTTPTransport):
+    """Same immutable verified protocol; optional live I/O requires explicit policy.
+
+    Production factory remains blocked. Mock injection exercises identical HTTP
+    bytes without network approval. Inventory/ACL/backup are still unimplemented.
+    """
+    __slots__=('policy',)
+    def __init__(self,settings,*,gateway_key,policy,mock_transport=None):
+        from .provider_http import validated_policy
+        self.policy=validated_policy(policy,settings.project_url.get_secret_value(),'storage',mock_transport)
+        super().__init__(settings,gateway_key=gateway_key,transport=mock_transport)
+    def _validate(self):
+        from .provider_http import validated_policy
+        if type(self) is not SupabaseStorageHTTPTransport:raise StorageHTTPFailure('invalid_storage_http_transport')
+        self._validate_settings()
+        try:validated_policy(self.policy,self._settings.project_url.get_secret_value(),'storage',self._mock)
+        except Exception:raise StorageHTTPFailure('invalid_storage_network_policy') from None
+    @property
+    def network_selected(self):
+        self._validate()
+        return self._mock is None and self.policy.enabled and bool(self.policy.approval_ref)
+    def _before_request(self):
+        self._validate()
+        try:self.policy.authorize(self._settings.project_url.get_secret_value(),'storage',self._mock)
+        except Exception:raise StorageHTTPFailure('external_storage_calls_not_approved') from None
+    def _trust_env(self):return True
+    def __repr__(self):return '<SupabaseStorageHTTPTransport redacted gated>'

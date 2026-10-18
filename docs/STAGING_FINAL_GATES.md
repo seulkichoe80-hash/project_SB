@@ -95,3 +95,7 @@ GitHub 보존·연결 준비 문서이며 계정 생성/설정 변경/자격증�
 `postgresql_production_runtime_not_wired`, `private_storage_production_transport_not_wired`, `production_auth_runtime_and_operator_provisioning_not_verified`, `vercel_render_edge_trust_limits_and_https_not_verified`, `worker_cloud_runtime_not_implemented`, `coordinated_backup_restore_not_verified` 여섯 blocker를 유지한다. settings 형식 VALID와 실제 연결 VERIFIED를 구분하며 실제6개 조건이 해소되기 전 어떤 flag/체크리스트도 기동을 허용하지 않는다.
 
 실계정 plan·최근 가격·20MiB ingress·외부 자동배포 연동·실제 backup/복구는 아직 미검증이다. 기존 공식 source의 확인일/범위를 최신 계정의 실증으로 대체하지 않는다. 인간 검토 판정/승인도 자동 생성하지 않는다.
+
+## 후속 코드 상태: HTTP·mapping 보완
+
+[운영 어댑터 계약](OPERATIONAL_ADAPTERS.md)이 DB schema/Storage gateway/JWT/network env mapping과 gated password/JWKS/Storage HTTP를 추가한다. 위 표의 mapping/기본 HTTP 코드 공백 일부는 해결됐지만 실제 계정 상태 동기화·원격 Runner/inventory/복구·ingress/worker 실증은 여전히 남는다. 원격 client 코드 준비는 실제 연결/배포 승인이나 production blocker 해제가 아니다.

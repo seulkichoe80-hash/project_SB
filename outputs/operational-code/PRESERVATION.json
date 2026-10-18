@@ -1,0 +1,25 @@
+{
+  "baseline_head": "1f32b3de0b949551fa4d2d0a65e769ee8941573a",
+  "baseline_files": 1015,
+  "deleted": [],
+  "changed_existing": [
+    "ARCHITECTURE.md",
+    "TASKS.md",
+    "TEST_PLAN.md",
+    "apps/api/private_storage.py",
+    "apps/api/runtime_factory.py",
+    "apps/api/runtime_settings.py",
+    "apps/api/runtime_wiring.py",
+    "apps/api/storage_http.py",
+    "apps/api/supabase_jwt.py",
+    "docs/STAGING_FINAL_GATES.md"
+  ],
+  "protected_files_unchanged": true,
+  "scan_files": 26,
+  "strong_secret_pattern_hits": [],
+  "new_pii_pattern_candidates": [],
+  "inherited_published_contact_exemptions": 1,
+  "verified_source_files": 139,
+  "source_hash_mismatches": [],
+  "note": "Pattern scans supplement content review; synthetic settings only. No actual credentials injected."
+}

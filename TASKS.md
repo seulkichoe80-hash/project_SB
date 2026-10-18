@@ -392,3 +392,8 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] Factory/Runner22파일의 manifest·최종1,113 PASS source136개와 의존성 버전을 대조하고39fe50a 로컬 커밋으로 보존. 기존 실패/중단 기록·원본/fixture/SQL/과거 증거 유지.
 - [x] [최종 게이트](docs/STAGING_FINAL_GATES.md)에 구현/사용자 설정/실연결 검증/구조 변경/BLOCKED를 구분했다. 현재 raw body 업로드와 실제20MiB 양방향 경로·서비스/secret 승인 경계를 명시했다.
 - [ ] PR#3은 feat/deployment-storage-http를 추적한다. 원격 보존과 실제 PR HEAD는 이번 최종 보고의 확인 결과를 따른다. 실제 연결/기동 차단 해제/공개 배포/main merge·다음 단계 자동 진행 없음.
+
+## 실제 스테이징 전 운영 코드 보완
+
+- [x] 1f32b3d/clean 기준을 확인하고 feat/deployment-live-adapters 분기. schema/gateway/JWT/network env mapping·startup/peer 진단, gated live HTTP Storage/password/JWKS 준비 코드를 기존 Factory/검증에 연결. [계약](docs/OPERATIONAL_ADAPTERS.md).
+- [x] 최종 전체 backend1,136 PASS/FAIL0/SKIP0,354.938초. 앞선 환경/실행 설정 실패는 별도 보존. [보고](outputs/OPERATIONAL_CODE_REPORT.md). normal feature branch push 결과는 최종 원격 확인을 따른다. 기존6개 production blocker 유지, 실제 계정/자격증명/공급자 호출/결제/공개 배포/main merge·다음 단계 자동 진행 없음.

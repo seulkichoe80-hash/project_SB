@@ -296,3 +296,7 @@ scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal
 ## 운영 Factory·Migration Runner 통합
 
 [통합 계약](docs/RUNTIME_FACTORY_MIGRATIONS.md)의 build_runtime/build_application으로 API·worker 생성 경로와 명시적인 격리 PG/Storage/Auth DI를 모은다. MigrationPlan은 별도 application/budget schema를 고정하며 Runner는 정렬된 schema session lock·단계별 기존 transaction/checksum으로 application→budget→Storage를 apply/verify한다. 일반 시작은 verify-only, 실패 시 앞 단계 보존/실패 단계 롤백 후 재개다. 세 단계 전체 원자성을 주장하지 않으며 기존 운영6개 blocker와 live 공급자/원격 실행 차단을 유지한다.
+
+## 운영 HTTP·설정 mapping 보완
+
+[운영 어댑터 계약](docs/OPERATIONAL_ADAPTERS.md)의 typed schema/gateway/audience/lifetime/network policy mapping과 prepare_production_runtime을 추가한다. 실제 연결 없는 준비 단계와 process start를 분리하고 exact Mock 또는 명시 operator policy의 HTTP password/JWKS·immutable Storage를 기존 검증/기관/원본 계약에 연결한다. partial Mock 혼용과 local/test의 live-selected 경로는 거부한다. 원격 Runner·계정 상태 철회·inventory/backup·실제 ingress/worker 실증 부족으로 기존6개 production blocker를 유지한다.

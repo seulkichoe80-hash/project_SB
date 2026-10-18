@@ -37,11 +37,11 @@ def build_runtime(data_dir, *, role='api', settings=None, postgres_plan=None, mi
         env[key] = str(value).lower() if type(value) is bool else str(value)
     result = preflight(env, expected_role=role)
     if not result['startup_allowed']:
-        raise SettingsRejected(result['issues'] + result.get('implementation_blockers', []))
+        raise SettingsRejected(result['issues'] + result.get('implementation_blockers', []) + result.get('operational_mapping_issues', []))
     if migration_mode not in ('apply', 'verify') or (postgres_plan is None and migration_mode != 'verify'):
         raise ValueError('invalid_factory_migration_policy')
     from .private_storage import PrivateStorageSettings, FakeStorageTransport, PrivateOriginalStore
-    from .storage_http import StorageHTTPTransport
+    from .storage_http import StorageHTTPTransport,SupabaseStorageHTTPTransport
     from .supabase_jwt import SupabaseJWTProviderAdapter
     from .session_revalidation import SessionRevalidation
     from .proxy_boundary import ProxyPolicy
@@ -60,7 +60,7 @@ def build_runtime(data_dir, *, role='api', settings=None, postgres_plan=None, mi
     if (private_settings is None) != (storage_transport is None):
         raise ValueError('storage_settings_transport_pair_required')
     if private_settings is not None:
-        if type(private_settings) is not PrivateStorageSettings or type(storage_transport) not in (FakeStorageTransport, StorageHTTPTransport):
+        if type(private_settings) is not PrivateStorageSettings or type(storage_transport) not in (FakeStorageTransport, StorageHTTPTransport, SupabaseStorageHTTPTransport):
             raise ValueError('factory_storage_transport_not_implemented')
         try:
             private_settings = PrivateStorageSettings.model_validate(private_settings.model_dump(warnings=False))
@@ -74,12 +74,15 @@ def build_runtime(data_dir, *, role='api', settings=None, postgres_plan=None, mi
             raise ValueError('invalid_factory_private_settings') from None
         if storage_transport.private is not True:
             raise ValueError('private_storage_required')
-        if type(storage_transport) is StorageHTTPTransport and not storage_transport.matches(private_settings):
+        if type(storage_transport) in (StorageHTTPTransport,SupabaseStorageHTTPTransport) and not storage_transport.matches(private_settings):
             raise ValueError('storage_http_configuration_mismatch')
         if type(provider) is SupabaseJWTProviderAdapter and provider.issuer != private_settings.project_url.get_secret_value()+'/auth/v1':
             raise ValueError('storage_auth_project_mismatch')
     if repository_factory is not None and (not callable(repository_factory) or postgres_plan is not None):
         raise ValueError('choose_one_repository_configuration')
+    if (getattr(storage_transport,'network_selected',False) or getattr(provider,'remote_enabled',False)
+            or getattr(getattr(getattr(provider,'verifier',None),'transport',None),'network_selected',False)):
+        raise ValueError('local_live_transports_forbidden')
     root = Path(data_dir).resolve()
     if api_peer is not None:
         if type(api_peer) is not RuntimeBinding or api_peer.role != 'api' or role == 'api':
@@ -149,3 +152,9 @@ def build_application(data_dir, **configuration):
     binding = build_runtime(data_dir, **configuration)
     from .main import create_app
     return create_app(runtime_binding=binding, parsing_enabled=True)
+
+
+def prepare_production_runtime(settings, **transports):
+    """Prepare mapped adapters only; cannot start processes or release blockers."""
+    from .operational_mapping import prepare_operational_adapters
+    return prepare_operational_adapters(settings, **transports)

@@ -1,0 +1,96 @@
+{
+  "official_cached_sources": [
+    {
+      "source": "supabase/supabase",
+      "commit": "7425d4930528931400fb3e656e860b1094cb224e",
+      "path": "apps/docs/content/guides/storage/security/access-control.mdx",
+      "url": "https://raw.githubusercontent.com/supabase/supabase/7425d4930528931400fb3e656e860b1094cb224e/apps/docs/content/guides/storage/security/access-control.mdx",
+      "status": 200,
+      "bytes": 4397,
+      "accessed_kst": "2026-10-18T18:58:29.480135+09:00",
+      "sha256": "65ed28e1acf5d95e248747b5e041488cea6d6f32fe8a254b095e8eacee54fb87",
+      "local_snapshot": "work/deployment-staging-preservation/official-supabase/apps__docs__content__guides__storage__security__access-control.mdx",
+      "canonical_url": "https://supabase.com/docs/guides/storage/security/access-control",
+      "verification": "OFFICIAL_SOURCE_AT_COMMIT",
+      "live_account_verified": false,
+      "downloaded_kst": "2026-10-18T18:58:29.480582+09:00"
+    },
+    {
+      "source": "supabase/supabase",
+      "commit": "7425d4930528931400fb3e656e860b1094cb224e",
+      "path": "apps/docs/content/guides/storage/serving/downloads.mdx",
+      "url": "https://raw.githubusercontent.com/supabase/supabase/7425d4930528931400fb3e656e860b1094cb224e/apps/docs/content/guides/storage/serving/downloads.mdx",
+      "status": 200,
+      "bytes": 4110,
+      "accessed_kst": "2026-10-18T18:58:29.384959+09:00",
+      "sha256": "340358ae586eaebdb18d6bf7a112209e06ad59edbfdaed606ec9b8197f6bf45d",
+      "local_snapshot": "work/deployment-staging-preservation/official-supabase/apps__docs__content__guides__storage__serving__downloads.mdx",
+      "canonical_url": "https://supabase.com/docs/guides/storage/serving/downloads",
+      "verification": "OFFICIAL_SOURCE_AT_COMMIT",
+      "live_account_verified": false,
+      "downloaded_kst": "2026-10-18T18:58:29.385566+09:00"
+    },
+    {
+      "source": "supabase/supabase",
+      "commit": "7425d4930528931400fb3e656e860b1094cb224e",
+      "path": "apps/docs/content/guides/storage/uploads/standard-uploads.mdx",
+      "url": "https://raw.githubusercontent.com/supabase/supabase/7425d4930528931400fb3e656e860b1094cb224e/apps/docs/content/guides/storage/uploads/standard-uploads.mdx",
+      "status": 200,
+      "bytes": 8127,
+      "accessed_kst": "2026-10-18T18:58:29.384181+09:00",
+      "sha256": "30e8880a493925816efbb06ea3e8bca34f79a8259faca0b21a0a4ab579e41594",
+      "local_snapshot": "work/deployment-staging-preservation/official-supabase/apps__docs__content__guides__storage__uploads__standard-uploads.mdx",
+      "canonical_url": "https://supabase.com/docs/guides/storage/uploads/standard-uploads",
+      "verification": "OFFICIAL_SOURCE_AT_COMMIT",
+      "live_account_verified": false,
+      "downloaded_kst": "2026-10-18T18:58:29.385706+09:00"
+    },
+    {
+      "source": "supabase/supabase",
+      "commit": "7425d4930528931400fb3e656e860b1094cb224e",
+      "path": "apps/docs/content/guides/auth/jwts.mdx",
+      "url": "https://raw.githubusercontent.com/supabase/supabase/7425d4930528931400fb3e656e860b1094cb224e/apps/docs/content/guides/auth/jwts.mdx",
+      "status": 200,
+      "bytes": 13061,
+      "accessed_kst": "2026-10-18T18:58:29.760423+09:00",
+      "sha256": "27b495f1d3dc966f5cdbc4f87c7642042dba83ac09e6fa262bc97188b579ea25",
+      "local_snapshot": "work/deployment-staging-preservation/official-supabase/apps__docs__content__guides__auth__jwts.mdx",
+      "canonical_url": "https://supabase.com/docs/guides/auth/jwts",
+      "verification": "OFFICIAL_SOURCE_AT_COMMIT",
+      "live_account_verified": false,
+      "downloaded_kst": "2026-10-18T18:58:29.760744+09:00"
+    },
+    {
+      "source": "supabase/supabase",
+      "commit": "7425d4930528931400fb3e656e860b1094cb224e",
+      "path": "apps/docs/content/guides/auth/signing-keys.mdx",
+      "url": "https://raw.githubusercontent.com/supabase/supabase/7425d4930528931400fb3e656e860b1094cb224e/apps/docs/content/guides/auth/signing-keys.mdx",
+      "status": 200,
+      "bytes": 31514,
+      "accessed_kst": "2026-10-18T18:58:29.960427+09:00",
+      "sha256": "e0e36359c254352f575e5a61d824bb690ef53f8b80f64e3753a90bb369e2b12b",
+      "local_snapshot": "work/deployment-staging-preservation/official-supabase/apps__docs__content__guides__auth__signing-keys.mdx",
+      "canonical_url": "https://supabase.com/docs/guides/auth/signing-keys",
+      "verification": "OFFICIAL_SOURCE_AT_COMMIT",
+      "live_account_verified": false,
+      "downloaded_kst": "2026-10-18T18:58:29.960709+09:00"
+    }
+  ],
+  "cache_hashes_match": true,
+  "auth_password_user_contract": {
+    "basis": "docs/STAGE4B3A_SUPABASE_TRANSPORT.md prior official verification",
+    "upstream": "supabase/auth",
+    "commit": "ce9a8eee0cc042be8c7a42981a7ddae631e41d91",
+    "sha256": "2e2206095d3614640f3b395f403b6d132e750c84c1e8a37a5888a3cd140ac788",
+    "refetched_now": false
+  },
+  "actual_provider_requests": 0,
+  "new_official_network_requests": 0,
+  "unverified": [
+    "storage inventory and ACL inspection API",
+    "admin identity-status transport",
+    "remote coordinated backup",
+    "account version and cloud connectivity"
+  ],
+  "production_blockers_removed": 0
+}
