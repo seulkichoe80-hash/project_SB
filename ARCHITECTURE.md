@@ -236,3 +236,7 @@ DELETE /documents/{id}는 논리적 등록 해제다. native dialog로 확인하
 ## Phase 2D-6 영속 workflow
 
 workflow_jobs 서비스/SQLite adapter·독립 workflow_worker와 관리자 workflow 경로를 추가한다. 기존 snapshot _read는 동일한 _read_in을 재사용하며 저장 트랜잭션에서 현재 원본/parse/chunk/서식 상태와 lease를 함께 검증한다. 5개 필수 결과/작업 테이블과 오류 보존용 job_events를 비파괴 추가한다. 검토 후보의 조회 가능 전환과 의미 승인/공식 게시를 구별한다. [계약](docs/PHASE2D6_WORKFLOW_JOBS.md)을 따른다.
+
+## Phase 2E-1 관리자 후보 검토
+
+apps/web의 lazy WorkflowPage는 기존 AuthContext·same-origin BFF와 Workflow9개 경로를 재사용한다. @xyflow/react12.12.0 지도와 목록/모바일 탭은 조회만 제공하고 저장 관계를 보정하지 않는다. 현재 canonical EvidenceRef를 서버 resolve로 재해결하고 원문/주장·ReviewIssue·서식 후보를 구별한다. 요청 scope/generation 검사와 abort/unmount로 오래된 응답을 폐기한다. backend 계약/DB는 변경하지 않는다. [UI 계약과 한계](docs/PHASE2E1_WORKFLOW_REVIEW.md)를 따른다.

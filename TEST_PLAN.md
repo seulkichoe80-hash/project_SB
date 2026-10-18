@@ -227,3 +227,7 @@ scripts/validation/check_stage4b2_ui.cjs는 공급자미설정·로그인/기관
 ## Phase 2D-6 영속 workflow
 
 [계약](docs/PHASE2D6_WORKFLOW_JOBS.md)과 tests/test_workflow_jobs.py를 따른다. 동일 입력·동시 claim·lease 갱신/만료/3회 제한·오류 이력·취소/재시도/잘못된 전이, 별도 CLI·kill 후 재시작·서버 재시작·SQLite 복원/FK/integrity/migration version, 후보/이슈/서식 원자 저장·부분 INSERT 롤백·늦은 generation, 활성/해제/parse·chunk/원본/서식 변경·위조 근거/저장 행·기관/reader/실제 세션·Origin/CSRF·토큰 비노출·빈 후보를 검증한다. Phase Gate는 기존360개를 포함한 전체 backend를 비루프백 가드 아래 새 실행한다. 실제 의미·LLM·운영 다중 호스트·UI·배포는 새 PASS로 계산하지 않는다.
+
+## Phase 2E-1 관리자 후보·근거 UI
+
+FR-08/09/14/18·NFR-01/02/03/04/05 및 WEB-02/04/05/08의 이번 수직 범위는 [UI 계약](docs/PHASE2E1_WORKFLOW_REVIEW.md)을 따른다. 실제 API에서 생성한 합성 응답의 후보/상세·분기/보완/반복/표시 불가 관계·원문 재해결/XML/PDF 앵커·ReviewIssue/서식 상태, manager/reader/익명·기관/세대/안전 상태 위조, 오류/로딩/빈 상태·중복/재시도/취소·문서/작업/PDF 늦은 응답 폐기, 활성/해제 초기화, keyboard/focus/320~1440/100노드 및 실제 Chromium 캡처를 검사한다. 모의 브라우저와 별도 loopback BFF+독립 worker HTTP 통합을 구별한다. 기존 UI43과 전체 backend409를 새 실행한다. 의미 품질·native PDF/한컴 페이지·스크린 리더·운영 인증/HTTPS/배포는 미검증으로 유지한다. frozen lock 재설치 뒤 production 자산 해시 동일성도 기록한다.
