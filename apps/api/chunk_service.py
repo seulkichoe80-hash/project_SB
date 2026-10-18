@@ -75,7 +75,7 @@ class ChunkService:
                 _,version,parsed,payload = self.source(db,principal,claim['document_id'],claim['version_id'])
                 if not db.chunks.owned(claim,self.clock()):
                     return 'stale'
-            data = self.documents.store.read(version['id'],version['sha256'])
+            data = self.documents.read_original(principal,version['id'],version['sha256'])
             blocks = [Block.model_validate(b) for b in payload]
             normal = default_parsers()[version['format']].parse(data,claim['document_id'],version['id'])
             validate_batch(blocks,normal,claim['document_id'],version['id'])
@@ -108,7 +108,7 @@ class ChunkService:
             job = db.chunks.current(version_id)
             if not job or job['state'] != 'completed' or job['parse_attempt'] != parsed['attempt'] or job['parse_job_id'] != parsed['id']:
                 raise DomainError('chunking_not_ready')
-            self.documents.store.read(version_id,version['sha256'])
+            self.documents.read_original(principal,version_id,version['sha256'],db=db)
             return db.chunks.items(job['id'])
 
     def resolve(self,principal,document_id,version_id,chunk_id,evidence):
@@ -122,7 +122,7 @@ class ChunkService:
             raise DomainError('evidence_mismatch',422)
         with self.repo.transaction() as db:
             _,version,_,payload = self.source(db,principal,document_id,version_id)
-            data = self.documents.store.read(version_id,version['sha256'])
+            data = self.documents.read_original(principal,version_id,version['sha256'],db=db)
             blocks = [Block.model_validate(b) for b in payload]
             normal = default_parsers()[version['format']].parse(data,document_id,version_id)
             validate_batch(blocks,normal,document_id,version_id)
@@ -156,7 +156,7 @@ class ChunkService:
                     current = db.chunks.current(version['id'])
                     if not current or current['state'] != 'completed':
                         raise DomainError('chunking_not_ready')
-                    self.documents.store.read(version['id'],version['sha256'])
+                    self.documents.read_original(principal,version['id'],version['sha256'],db=db)
                     checked[key] = {c['chunk_id']:c for c in db.chunks.items(current['id'])}
                 if checked[key].get(item['chunk_id']) != item:
                     raise DomainError('invalid_search_result')

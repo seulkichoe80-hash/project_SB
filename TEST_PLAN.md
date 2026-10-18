@@ -283,3 +283,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## 배포 준비 2단계 PostgreSQL
 
 [계약](docs/DEPLOYMENT_POSTGRES.md)의 test_postgres.py는 DSN 없는 경우 BLOCKED 사유로 skip하며 실제 PG 검증 PASS로 집계하지 않는다. 격리 loopback PG에서 명시 migration/idempotency/unknown version·scope·CRUD·auth/기관/CSRF·원본/EvidenceRef·vector/검색/세대·동시 claim/프로세스·중복완료·lease·부분rollback·예산 경쟁/불확실 hold를 검사한다. 기존 acceptance 함수는 원본 수정 없이 PG fixture에 재사용한다. SQLite 기존 전체 회귀도 상속 Python 비루프백 guard 아래 새 실행한다. libpq C 연결은 guard 범위 밖이므로 test DSN의 정확 loopback 제한을 별도로 적용한다. 자체 PG fixture 재시작 후 recovery harness로 파일 SHA/활성버전/workflow lease/비용 상태를 확인한다. 실 cloud/Auth/Storage/LLM·RLS·운영 backup restore는 NOT_RUN이다.
+
+## 배포 준비 3단계 Storage 검증 범위
+
+[실행 계약](docs/DEPLOYMENT_PRIVATE_STORAGE.md)의 Fake 전송/불변 SHA·크기/기관·활성 버전, 업로드 timeout 전후/부분 bytes/DB 실패·중복·orphan quarantine, 새 대상 manifest 복구/부분 rollback/중복 복구·변조·혼합 snapshot/세션 철회·worker fencing/EvidenceRef 재해결을 SQLite와 격리 loopback PostgreSQL에서 검증한다. Phase Gate는 전체 backend 회귀를 수행한다. 앱 schema와 Fake 객체 복구만 실증하며 별도 비용 schema·실 Supabase·PITR·운영 복구 및 UI 미변경 회귀 재실행 여부는 구분해 보고한다. 원본·과거 증거·인간 판정은 변경하지 않는다.

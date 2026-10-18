@@ -213,7 +213,7 @@ def peer_issues(api, worker):
 # Code-owned capabilities; operator flags cannot turn these into an implementation or verified deployment.
 PRODUCTION_BLOCKERS = (
     'postgresql_production_runtime_not_wired',
-    'private_object_storage_adapter_not_implemented',
+    'private_storage_production_transport_not_wired',
     'production_auth_membership_bootstrap_not_implemented',
     'proxy_limits_and_headers_not_verified',
     'worker_cloud_runtime_not_implemented',
@@ -240,6 +240,7 @@ def preflight(environ=None, *, expected_role=None, peer=None):
             'status': 'INVALID' if issues else ('BLOCKED' if blockers else 'LOCAL_CONTRACT_VALID'),
             'startup_allowed': not issues and not blockers, 'production_ready': False,
             'connectivity': 'NOT_CHECKED', 'database_adapter': 'POSTGRESQL_OPT_IN_IMPLEMENTED_NOT_CONNECTED', 'membership_verification': 'SERVER_ACTIVE_SINGLE_CONTRACT_ONLY',
+            'private_storage_adapter': 'FAKE_ONLY_IMPLEMENTED_NOT_CONNECTED',
             'backup_restore_verification': 'NOT_VERIFIED',
             'issues': sorted(set(issues)), 'implementation_blockers': blockers}
 

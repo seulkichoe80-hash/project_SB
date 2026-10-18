@@ -272,3 +272,7 @@ scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal
 ## 배포 준비 2단계 PostgreSQL opt-in
 
 [PG 계약](docs/DEPLOYMENT_POSTGRES.md)의 명시 migration·PostgresRepository/AuthStore/BudgetLedger가 기존 domain SQL/상태/EvidenceRef를 재사용한다. 기본 SQLite와 원본 저장은 유지한다. PG schema당 transaction_guard 행 잠금·READ COMMITTED로 SQLite 직렬화 의미를 보존하며 처리량 최적화는 후속이다. 운영 자동 wiring/Storage/RLS/실클라우드 연결은 미완료다. preflight는 adapter 구현과 실제 연결을 분리하고 production 차단을 유지한다.
+
+## 배포 준비 3단계: Fake private 객체와 application 복구
+
+[Private Storage·복구 계약](docs/DEPLOYMENT_PRIVATE_STORAGE.md)의 명시 주입 어댑터는 서버 Principal/기존 UnitOfWork를 재사용한다. LocalOriginalStore 기본과 HTTP 계약은 그대로이며 실제 원격 전송은 없다. 객체 intent/불변 put/read-back와 DB metadata commit을 분리하고 orphan은 DB quarantine으로 보존한다. 별도 추가형 Storage schema, 새 빈 DB/Fake 대상으로만 수행하는 manifest 기반 application 복구·세션 철회·claim fencing을 제공한다. 별도 비용 schema/PITR/실제 운영 백업·Auth/Storage wiring은 미완료이며 production 차단을 유지한다.

@@ -19,6 +19,20 @@ class DocumentService:
         self.repo, self.store = repository, store
         self.parsing_enabled = parsing_enabled
 
+    def read_original(self, principal, key, expected_hash, *, db=None):
+        from .private_storage import PrivateOriginalStore
+        if isinstance(self.store, PrivateOriginalStore):
+            if self.store.repo is not self.repo: raise DomainError('storage_repository_mismatch',503)
+            return self.store.read(principal,key,expected_hash,db=db)
+        return self.store.read(key,expected_hash)
+
+    def write_original(self, principal, key, data):
+        from .private_storage import PrivateOriginalStore
+        if isinstance(self.store, PrivateOriginalStore):
+            if self.store.repo is not self.repo: raise DomainError('storage_repository_mismatch',503)
+            return self.store.write(principal,key,data)
+        return self.store.write(key,data)
+
     @staticmethod
     def role(principal: Principal, *roles):
         if principal.role not in roles:
@@ -57,13 +71,13 @@ class DocumentService:
                 old = db.duplicate(principal.institution_id, digest)
                 if old:
                     doc, version = self.version(db, principal, old['document_id'], old['id'])
-                    self.store.read(version['id'], version['sha256'])
+                    self.read_original(principal,version['id'], version['sha256'],db=db)
                     return self.metadata(doc, version), True
             db.start_intent(intent, principal.institution_id, now())
         try:
             # Intent is durable before filesystem writes. Files never become visible until DB commit.
-            self.store.write(intent, data)
-            self.store.read(intent, digest)
+            self.write_original(principal,intent, data)
+            self.read_original(principal,intent, digest)
             with self.repo.transaction() as db:
                 if document_id:
                     doc = self.document(db, principal, document_id)
@@ -73,7 +87,7 @@ class DocumentService:
                     old = db.duplicate(principal.institution_id, digest)
                 if old:
                     doc = self.document(db, principal, old['document_id'])
-                    self.store.read(old['id'], old['sha256'])
+                    self.read_original(principal,old['id'], old['sha256'],db=db)
                     db.finish_intent(intent, 'retained_duplicate', old['id'])
                     return self.metadata(doc, old), True
                 if not document_id:
@@ -114,7 +128,7 @@ class DocumentService:
         meta = self.get(principal, document_id, version_id)
         if principal.role != 'manager' and not meta['active']:
             raise DomainError('version_not_found', 404)
-        return self.store.read(version_id, meta['sha256']), meta
+        return self.read_original(principal,version_id, meta['sha256']), meta
 
     def transition(self, principal, document_id, version_id, target, revision, claim_token=None):
         self.role(principal, *(['manager', 'worker'] if target == 'queued' else ['worker']))
@@ -136,7 +150,7 @@ class DocumentService:
                 token = secrets.token_urlsafe(32)
                 claim_hash = hashlib.sha256(token.encode()).hexdigest()
             if target == 'completed':
-                self.store.read(version_id, row['sha256'])
+                self.read_original(principal,version_id, row['sha256'],db=db)
             db.transition(version_id, target, claim_hash)
             db.event(version_id, target, principal.subject, now())
             _, updated = self.version(db, principal, document_id, version_id)
@@ -153,7 +167,7 @@ class DocumentService:
                 raise DomainError('chunking_not_ready')
             if row['state'] != 'completed':
                 raise DomainError('version_not_ready')
-            self.store.read(version_id, row['sha256'])
+            self.read_original(principal,version_id, row['sha256'],db=db)
             db.activate(document_id, version_id)
             db.event(version_id, 'activated', principal.subject, now())
             doc, row = self.version(db, principal, document_id, version_id)

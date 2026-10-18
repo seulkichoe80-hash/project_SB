@@ -1,0 +1,19 @@
+{
+  "backend": "sqlite",
+  "status": "PASS",
+  "disk_manifest_verified": true,
+  "new_empty_target_restored": "RESTORED",
+  "original_hash_match": true,
+  "evidence_structural_valid": true,
+  "old_worker_claim_fenced": true,
+  "worker_resumed": true,
+  "semantic_verification": "NOT_VERIFIED",
+  "published_workflows": 0,
+  "backup_scope": "application_schema_and_fake_objects",
+  "excluded_components": [
+    "provider_budget_separate_schema"
+  ],
+  "actual_external_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "seconds": 0.582
+}

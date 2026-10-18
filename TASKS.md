@@ -343,3 +343,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] preflight26파일을8abe7fc 로컬 보존 후 feat/deployment-postgres 분기. 기존 SQLite 기본 유지, PG 명시 schema migration/공유 domain SQL·Auth·jobs/vector/forms·모의 비용 원장 구현. [계약](docs/DEPLOYMENT_POSTGRES.md).
 - [ ] production PG runtime/Auth bootstrap·Storage·RLS/최소권한 실증·운영 connection pool·backup restore·실Supabase 연결 미완료. production BLOCKED 유지. 다음 단계 자동 진행 없음.
 - [x] 로컬PG17.6 신규110·기존687 전체797 PASS/FAIL0/SKIP0. 실제 동일DB worker·비용 경쟁·schema/rollback·DB 정상 재시작 후 SHA/lease/unknown hold 복구 PASS. [보고](outputs/DEPLOYMENT_POSTGRES_REPORT.md). 실제 cloud/Storage/운영복구는 미검증.
+
+## 배포 준비 3단계 Private Storage·복구
+
+- [x] PostgreSQL38파일을acc09eb 로컬 보존 후 feat/deployment-private-storage 분기. Local 기본 유지, Fake-only 비공개 객체 계약·원본 재검증·추가 Storage schema·orphan DB quarantine·application manifest 새 대상 복구 구현. [계약](docs/DEPLOYMENT_PRIVATE_STORAGE.md).
+- [x] 신규94·전체backend891 PASS/FAIL0/SKIP0. SQLite/실제 격리 로컬PG disk bundle→새 DB/Fake 복원·EvidenceRef·worker 재개 PASS. 외부 공급자 호출/지출0. [보고](outputs/DEPLOYMENT_PRIVATE_STORAGE_REPORT.md).
+- [ ] 실제 Supabase transport/ACL·API/worker wiring·운영 Auth bootstrap·별도 비용 schema 포함 통합백업/PITR/암호화·운영 RPO/RTO는 미검증. production 차단 유지, 인간 판정 생성/승인 없음. 다음 단계 자동 진행 없음.
