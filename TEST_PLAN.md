@@ -279,3 +279,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## 배포 준비 1단계
 
 [계약](docs/DEPLOYMENT_PREFLIGHT.md)과 tests/test_deployment_preflight.py로 local/test·legacy alias·production 필수키/형식/금지 조합·secret repr/JSON/CLI 오류 redaction·API/worker 쌍·HTTPS/Origin/Secure/CSRF·mock 운영 금지·외부 client/socket 없는 검사·표준 API import 및 worker CLI의 DB 생성 전 시작 차단을 확인한다. 시작 경로 변경이므로 전체 backend를 비루프백 guard로 새 실행한다. UI/의존성/파서/schema는 동일한 hash 증거로 이전 결과를 구별하며, 실제 연결/운영/복구는 NOT_CHECKED/NOT_VERIFIED다. 설정이 맞아도 production BLOCKED는 현재 설계상 기대 결과다.
+
+## 배포 준비 2단계 PostgreSQL
+
+[계약](docs/DEPLOYMENT_POSTGRES.md)의 test_postgres.py는 DSN 없는 경우 BLOCKED 사유로 skip하며 실제 PG 검증 PASS로 집계하지 않는다. 격리 loopback PG에서 명시 migration/idempotency/unknown version·scope·CRUD·auth/기관/CSRF·원본/EvidenceRef·vector/검색/세대·동시 claim/프로세스·중복완료·lease·부분rollback·예산 경쟁/불확실 hold를 검사한다. 기존 acceptance 함수는 원본 수정 없이 PG fixture에 재사용한다. SQLite 기존 전체 회귀도 상속 Python 비루프백 guard 아래 새 실행한다. libpq C 연결은 guard 범위 밖이므로 test DSN의 정확 loopback 제한을 별도로 적용한다. 자체 PG fixture 재시작 후 recovery harness로 파일 SHA/활성버전/workflow lease/비용 상태를 확인한다. 실 cloud/Auth/Storage/LLM·RLS·운영 backup restore는 NOT_RUN이다.

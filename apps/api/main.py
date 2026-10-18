@@ -32,7 +32,7 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
     from .auth import AuthService, Login, MembershipUpdate
     from .auth_store import AuthStore
     import time as auth_time
-    auth = AuthService(AuthStore(service.repo.path), identity_provider, auth_settings, auth_clock or auth_time.time)
+    auth = AuthService((service.repo.auth_store() if getattr(service.repo, 'dialect', None) == 'postgresql' else AuthStore(service.repo.path)), identity_provider, auth_settings, auth_clock or auth_time.time)
     app.state.auth = auth
 
     @app.middleware('http')

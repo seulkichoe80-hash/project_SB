@@ -337,3 +337,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] 기존 D/E/배포 계획70파일을3453eec 로컬 보존 후 feat/deployment-preflight 분기. [설정/시작 계약](docs/DEPLOYMENT_PREFLIGHT.md)과 offline CLI·API/worker 저장소 초기화 전 guard 구현.
 - [ ] PostgreSQL/auth/job/budget adapter·private Storage·운영 Auth bootstrap·proxy/worker·백업복구 실증은 미완료이며 production 시작 차단을 유지한다. 인간 판정 자동 생성/승인 없음.
 - [x] 신규40·전체backend687 PASS/FAIL0/SKIP0, CLI6기대결과·외부시도0·source동일성·기존871파일 보존 확인. UI/타입/build는 변경 없음으로 이번 미실행. [완료 보고](outputs/DEPLOYMENT_PREFLIGHT_REPORT.md).
+
+## 배포 준비 2단계 PostgreSQL
+
+- [x] preflight26파일을8abe7fc 로컬 보존 후 feat/deployment-postgres 분기. 기존 SQLite 기본 유지, PG 명시 schema migration/공유 domain SQL·Auth·jobs/vector/forms·모의 비용 원장 구현. [계약](docs/DEPLOYMENT_POSTGRES.md).
+- [ ] production PG runtime/Auth bootstrap·Storage·RLS/최소권한 실증·운영 connection pool·backup restore·실Supabase 연결 미완료. production BLOCKED 유지. 다음 단계 자동 진행 없음.
+- [x] 로컬PG17.6 신규110·기존687 전체797 PASS/FAIL0/SKIP0. 실제 동일DB worker·비용 경쟁·schema/rollback·DB 정상 재시작 후 SHA/lease/unknown hold 복구 PASS. [보고](outputs/DEPLOYMENT_POSTGRES_REPORT.md). 실제 cloud/Storage/운영복구는 미검증.

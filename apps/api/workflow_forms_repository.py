@@ -4,6 +4,8 @@
 class FormCatalogRepository:
     def __init__(self, repository):
         self.repository = repository
+        if getattr(repository, 'dialect', None) == 'postgresql':
+            return  # Versioned migrations own PostgreSQL DDL.
         with repository.transaction() as db:
             db.connection.execute('''CREATE TABLE IF NOT EXISTS workflow_form_catalog (
                 institution_id TEXT NOT NULL,

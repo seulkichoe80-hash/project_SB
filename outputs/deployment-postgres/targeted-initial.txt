@@ -1,0 +1,489 @@
+/workspace/project_SB/.venv/lib/python3.12/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+F.FFFFFFFFF.FFFFF.FFFFFFF........................E......
+======================================================================
+ERROR: test_sql_injection_and_literal_percent (test_postgres.PostgreSQLWorkflowTests.test_sql_injection_and_literal_percent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_postgres.py", line 121, in test_sql_injection_and_literal_percent
+    self.assertEqual(db.connection.execute("SELECT '?', ?, '100%'",('bound',)).fetchone()[1],'bound')
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "/workspace/project_SB/apps/api/postgres.py", line 58, in __getitem__
+    return tuple(self.values())[key] if isinstance(key, int) else super().__getitem__(key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^
+IndexError: tuple index out of range
+
+======================================================================
+FAIL: test_event_failure_rollback (test_postgres.PostgreSQLBudgetTests.test_event_failure_rollback)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_postgres.py", line 177, in test_event_failure_rollback
+    self.assert_account(40,0)
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (40, 0)
+
+First differing element 0:
+0
+40
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (40, 0)
+
+======================================================================
+FAIL: test_reused_account_and_job_limits (test_postgres.PostgreSQLBudgetTests.test_reused_account_and_job_limits)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 142, in test_account_and_job_limits
+    self.assert_account(1000,0)
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (1000, 0)
+
+First differing element 0:
+0
+1000
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (1000, 0)
+
+======================================================================
+FAIL: test_reused_cancel_after_send_retains_only_uncertain_attempt (test_postgres.PostgreSQLBudgetTests.test_reused_cancel_after_send_retains_only_uncertain_attempt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 98, in test_cancel_after_send_retains_only_uncertain_attempt
+    self.assertEqual(self.ledger.request(A,'request')['state'],'uncertain');self.assert_account(20,0)
+                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (20, 0)
+
+First differing element 0:
+0
+20
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (20, 0)
+
+======================================================================
+FAIL: test_reused_cancel_between_retries_keeps_known_spend (test_postgres.PostgreSQLBudgetTests.test_reused_cancel_between_retries_keeps_known_spend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 121, in test_cancel_between_retries_keeps_known_spend
+    self.ledger.cancel(A,'request');self.assert_account(0,5)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (5,) != (0, 5)
+
+First differing element 0:
+5
+0
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+5
+
+- (5,)
++ (0, 5)
+
+======================================================================
+FAIL: test_reused_cancel_job_blocks_new_requests_and_preserves_unknown (test_postgres.PostgreSQLBudgetTests.test_reused_cancel_job_blocks_new_requests_and_preserves_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 124, in test_cancel_job_blocks_new_requests_and_preserves_unknown
+    self.assert_account(20,0)
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (20, 0)
+
+First differing element 0:
+0
+20
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (20, 0)
+
+======================================================================
+FAIL: test_reused_changed_fingerprint_or_job_is_conflict (test_postgres.PostgreSQLBudgetTests.test_reused_changed_fingerprint_or_job_is_conflict)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 81, in test_changed_fingerprint_or_job_is_conflict
+    self.assert_account(40,0)
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (40, 0)
+
+First differing element 0:
+0
+40
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (40, 0)
+
+======================================================================
+FAIL: test_reused_changed_rate_policy_duplicate_rejected (test_postgres.PostgreSQLBudgetTests.test_reused_changed_rate_policy_duplicate_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 85, in test_changed_rate_policy_duplicate_rejected
+    self.assert_account(40,0)
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (40, 0)
+
+First differing element 0:
+0
+40
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (40, 0)
+
+======================================================================
+FAIL: test_reused_competing_jobs_cannot_overspend_account (test_postgres.PostgreSQLBudgetTests.test_reused_competing_jobs_cannot_overspend_account)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 170, in test_competing_jobs_cannot_overspend_account
+    self.assertEqual(sum(result),25);self.assert_account(1000,0)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (1000, 0)
+
+First differing element 0:
+0
+1000
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (1000, 0)
+
+======================================================================
+FAIL: test_reused_concurrent_duplicate_has_exactly_one_owner (test_postgres.PostgreSQLBudgetTests.test_reused_concurrent_duplicate_has_exactly_one_owner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 163, in test_concurrent_duplicate_has_exactly_one_owner
+    self.assertEqual(sum(c is not None for c in claims),1);self.assert_account(40,0)
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (40, 0)
+
+First differing element 0:
+0
+40
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (40, 0)
+
+======================================================================
+FAIL: test_reused_conflicting_settlement_does_not_recharge (test_postgres.PostgreSQLBudgetTests.test_reused_conflicting_settlement_does_not_recharge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 92, in test_conflicting_settlement_does_not_recharge
+    self.assert_account(0,5)
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (5,) != (0, 5)
+
+First differing element 0:
+5
+0
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+5
+
+- (5,)
++ (0, 5)
+
+======================================================================
+FAIL: test_reused_duplicate_reservation_has_no_second_owner (test_postgres.PostgreSQLBudgetTests.test_reused_duplicate_reservation_has_no_second_owner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 75, in test_duplicate_reservation_has_no_second_owner
+    self.assertIsNotNone(self.reserve());self.assertIsNone(self.reserve());self.assert_account(40,0)
+                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (40, 0)
+
+First differing element 0:
+0
+40
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (40, 0)
+
+======================================================================
+FAIL: test_reused_expired_inflight_recovers_as_uncertain (test_postgres.PostgreSQLBudgetTests.test_reused_expired_inflight_recovers_as_uncertain)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 115, in test_expired_inflight_recovers_as_uncertain
+    self.assertEqual(self.ledger.recover(A),1);self.assert_account(20,0)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (20, 0)
+
+First differing element 0:
+0
+20
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (20, 0)
+
+======================================================================
+FAIL: test_reused_expired_unsent_reservation_is_released (test_postgres.PostgreSQLBudgetTests.test_reused_expired_unsent_reservation_is_released)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 118, in test_expired_unsent_reservation_is_released
+    self.reserve();self.now+=3;self.assertEqual(self.ledger.recover(A),1);self.assert_account(0,0)
+                                                                          ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (0, 0)
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (0, 0)
+?    ++
+
+
+======================================================================
+FAIL: test_reused_parallel_settlement_charges_once (test_postgres.PostgreSQLBudgetTests.test_reused_parallel_settlement_charges_once)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 190, in test_parallel_settlement_charges_once
+    self.ledger.finish(A,claim,'completed');self.assert_account(0,5)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (5,) != (0, 5)
+
+First differing element 0:
+5
+0
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+5
+
+- (5,)
++ (0, 5)
+
+======================================================================
+FAIL: test_reused_pre_send_cancel_releases_all (test_postgres.PostgreSQLBudgetTests.test_reused_pre_send_cancel_releases_all)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 94, in test_pre_send_cancel_releases_all
+    self.reserve();self.ledger.cancel(A,'request');self.ledger.cancel(A,'request');self.assert_account(0,0)
+                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (0, 0)
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (0, 0)
+?    ++
+
+
+======================================================================
+FAIL: test_reused_reconcile_known_usage_and_repeated_receipt (test_postgres.PostgreSQLBudgetTests.test_reused_reconcile_known_usage_and_repeated_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 103, in test_reconcile_known_usage_and_repeated_receipt
+    self.assert_account(0,6)
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (6,) != (0, 6)
+
+First differing element 0:
+6
+0
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+6
+
+- (6,)
++ (0, 6)
+
+======================================================================
+FAIL: test_reused_reserve_settle_release_balances (test_postgres.PostgreSQLBudgetTests.test_reused_reserve_settle_release_balances)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 71, in test_reserve_settle_release_balances
+    claim=self.reserve();self.assert_account(40,0);n=self.ledger.start(A,claim)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (40, 0)
+
+First differing element 0:
+0
+40
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (40, 0)
+
+======================================================================
+FAIL: test_reused_retry_attempt_count_does_not_multiply (test_postgres.PostgreSQLBudgetTests.test_reused_retry_attempt_count_does_not_multiply)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 131, in test_retry_attempt_count_does_not_multiply
+    self.ledger.finish(A,claim,'failed');self.assert_account(0,0)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (0, 0)
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (0, 0)
+?    ++
+
+
+======================================================================
+FAIL: test_reused_same_request_ids_are_namespaced_by_tenant (test_postgres.PostgreSQLBudgetTests.test_reused_same_request_ids_are_namespaced_by_tenant)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 151, in test_same_request_ids_are_namespaced_by_tenant
+    self.assert_account(40,0);self.assertEqual(self.ledger.balance(B)['held'],40)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (40, 0)
+
+First differing element 0:
+0
+40
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (40, 0)
+
+======================================================================
+FAIL: test_reused_settlement_and_finish_are_idempotent (test_postgres.PostgreSQLBudgetTests.test_reused_settlement_and_finish_are_idempotent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 88, in test_settlement_and_finish_are_idempotent
+    self.ledger.finish(A,claim,'completed');self.assert_account(0,5)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (5,) != (0, 5)
+
+First differing element 0:
+5
+0
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+5
+
+- (5,)
++ (0, 5)
+
+======================================================================
+FAIL: test_reused_usage_over_reservation_cannot_create_untracked_spend (test_postgres.PostgreSQLBudgetTests.test_reused_usage_over_reservation_cannot_create_untracked_spend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 135, in test_usage_over_reservation_cannot_create_untracked_spend
+    self.ledger.unknown(A,claim);self.assert_account(20,0)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (20, 0)
+
+First differing element 0:
+0
+20
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (20, 0)
+
+======================================================================
+FAIL: test_reused_worker_cannot_authorize_reconciliation (test_postgres.PostgreSQLBudgetTests.test_reused_worker_cannot_authorize_reconciliation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 108, in test_worker_cannot_authorize_reconciliation
+    self.assert_account(20,0)
+  File "/workspace/project_SB/tests/test_provider_safety.py", line 62, in assert_account
+    self.assertEqual(tuple(row),(held,spent))
+AssertionError: Tuples differ: (0,) != (20, 0)
+
+First differing element 0:
+0
+20
+
+Second tuple contains 1 additional elements.
+First extra element 1:
+0
+
+- (0,)
++ (20, 0)
+
+----------------------------------------------------------------------
+Ran 56 tests in 22.460s
+
+FAILED (failures=22, errors=1)

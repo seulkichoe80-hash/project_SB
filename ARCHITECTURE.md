@@ -268,3 +268,7 @@ scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal
 ## 배포 준비 1단계 운영 설정·시작 차단
 
 [설정 계약](docs/DEPLOYMENT_PREFLIGHT.md)의 RuntimeSettings와 offline CLI는 local/test/production·API/worker 역할·기존 AuthSettings/SupabaseSettings·업로드 상한을 검증한다. 표준 API factory와 worker CLI는 영속 저장소 생성 전에 guard를 실행한다. 설정이 완전해도 PG/객체/운영 Auth bootstrap·proxy/worker·복구 capability가 없으므로 production은 시작 불가다. 설정 목표는 실연결/버킷 ACL/기관 권한/실복구 검증이 아니며 실제 외부 호출·새 schema·운영 wiring은 추가하지 않는다.
+
+## 배포 준비 2단계 PostgreSQL opt-in
+
+[PG 계약](docs/DEPLOYMENT_POSTGRES.md)의 명시 migration·PostgresRepository/AuthStore/BudgetLedger가 기존 domain SQL/상태/EvidenceRef를 재사용한다. 기본 SQLite와 원본 저장은 유지한다. PG schema당 transaction_guard 행 잠금·READ COMMITTED로 SQLite 직렬화 의미를 보존하며 처리량 최적화는 후속이다. 운영 자동 wiring/Storage/RLS/실클라우드 연결은 미완료다. preflight는 adapter 구현과 실제 연결을 분리하고 production 차단을 유지한다.

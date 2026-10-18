@@ -40,6 +40,8 @@ BEGIN SELECT RAISE(ABORT,'workflow_scope_mismatch'); END;
 class WorkflowJobRepository:
     def __init__(self, repository):
         self.repository = repository
+        if getattr(repository, 'dialect', None) == 'postgresql':
+            return  # Versioned migrations own PostgreSQL DDL.
         with repository.transaction() as db:
             version = db.connection.execute("SELECT version FROM schema_extensions WHERE name='workflow_jobs'").fetchone()
             if version and version[0] != 1:

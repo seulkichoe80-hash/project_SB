@@ -38,12 +38,14 @@ def main():
     parser.add_argument('--once', action='store_true')
     parser.add_argument('--lease-seconds', type=float, default=30)
     parser.add_argument('--job-timeout-seconds', type=float, default=120)
+    from .postgres_worker import add_postgres_arguments, worker_repository
+    add_postgres_arguments(parser)
     args = parser.parse_args()
     from .runtime_settings import ensure_start_environment
     ensure_start_environment('parse_worker')
     if not 1 <= args.lease_seconds <= 300 or not 1 <= args.job_timeout_seconds <= 3600:
         parser.error('lease must be 1..300, job timeout 1..3600 seconds')
-    docs = DocumentService(Repository(args.data_dir / 'metadata.sqlite3'), LocalOriginalStore(args.data_dir / 'originals'), True)
+    docs = DocumentService(worker_repository(args), LocalOriginalStore(args.data_dir / 'originals'), True)
     parsing = ParsingService(docs, lease_seconds=args.lease_seconds)
     principal = Principal('local-parser-worker', args.institution_id, 'worker')
     stop = threading.Event()

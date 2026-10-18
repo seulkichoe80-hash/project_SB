@@ -1,0 +1,15 @@
+{
+  "targeted_secret_pattern_hits": 0,
+  "actual_credentials_used": false,
+  "data": "project-authored synthetic only",
+  "raw_server_errors_exposed": false,
+  "real_provider_calls": 0,
+  "actual_paid_spend_usd": 0,
+  "public_deployment_push_merge": false,
+  "postgres_fixture": "stopped; data volume retained",
+  "schema_migrations_sha256": {
+    "001_application.sql": "a23d638f35efca79712ce4abf760b3ede5254a27f4d0241da6506362ec0fcc1f",
+    "001_budget.sql": "89babe728d16d4d231c061c3f1efe3d00fe0146e69dc972bfd101427df974aca"
+  },
+  "limitation": "Targeted pattern scan is not exhaustive PII certification; libpq C sockets require strict loopback configuration outside Python guard."
+}

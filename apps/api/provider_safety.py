@@ -164,7 +164,8 @@ T=TypeVar('T')
 class ProviderSafetyGateway:
     def __init__(self, settings, ledger, transport=None):
         # Runtime allowlist is by exact concrete implementation, not a spoofable attribute.
-        if type(settings) is not ProviderSettings or type(ledger) is not SimulationBudgetLedger:
+        from .postgres import PostgresBudgetLedger
+        if type(settings) is not ProviderSettings or type(ledger) not in (SimulationBudgetLedger, PostgresBudgetLedger):
             raise DomainError('invalid_provider_safety_configuration',422)
         try:settings=ProviderSettings.model_validate(settings.model_dump(warnings=False))
         except Exception:raise DomainError('invalid_provider_safety_configuration',422) from None

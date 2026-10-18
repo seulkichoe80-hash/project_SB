@@ -1,0 +1,33 @@
+{
+  "backend": {
+    "PASS": 797,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "postgres_tests": 110,
+  "prior_sqlite_and_offline_tests": 687,
+  "postgres_targeted_seconds": 63.366,
+  "backend_tests_seconds": 283.265,
+  "guarded_runner_seconds": 284.731,
+  "postgres_server": "PostgreSQL 17.6 (Debian 17.6-2.pgdg12+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit",
+  "psycopg": "3.2.10",
+  "image_digest": "sha256:f3bd19c606e442c3d7bdfa8002e03fe260a1023351e0ea4598032022b68dd6e3",
+  "original_fixture_prior_evidence_unchanged": true,
+  "unchanged_tracked_files": 885,
+  "tested_code_hash_mismatches": [],
+  "postgres_scope": "isolated127.0.0.1, explicit test DSN, real local PostgreSQL; no Supabase",
+  "python_guard_external_attempts": 0,
+  "libpq_guard_limit": "C sockets not intercepted; all test PostgresDatabase targets enforce exact127.0.0.1",
+  "actual_Supabase_LLM_embedding_calls": 0,
+  "actual_paid_spend_usd": 0,
+  "schema_migration": "additive new isolated schemas, version1/checksum, no SQLite data moved",
+  "production_preflight": "BLOCKED / NOT_CHECKED",
+  "ui_type_build": "NOT_RERUN; unchanged frontend, retained prior evidence only",
+  "human_judgments_generated": 0,
+  "preservation_commit": "8abe7fc5b5cc0ce66c2febd979ef699fad5f1895",
+  "branch": "feat/deployment-postgres",
+  "local_implementation_commit_created": false,
+  "remote_push_merge_deploy": false,
+  "minutes_since_preservation_commit": 18.5
+}
