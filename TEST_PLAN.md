@@ -239,3 +239,7 @@ FR-08/09/14/18·NFR-01/02/03/04/05 및 WEB-02/04/05/08의 이번 수직 범위�
 ## v0.1 오프라인 기준본 검증
 
 Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재현·시연](docs/V01_DEMO.md)과 scripts/validation/run_v01_checks.py를 따른다. 전체 backend409·UI104·실제 HTTP13 및 타입/빌드를 새 실행하고 source hash/fixture/종료 코드/PC·모바일·원본 해시/위조 근거/기관·버전·reader·CSRF·로그아웃·queued worker 재시작을 기록한다. processing lease/실패 재시도·롤백은 backend 회귀로 구분한다. 실제 공급자·의미 검증·운영 배포와 G1 C/D 미실행을 PASS로 바꾸지 않는다. 기존 fixture·증거를 덮어쓰지 않으며 새 출력 경로만 사용한다.
+
+## v0.2-A 기능·근거 상태 안내
+
+[화면 계약](docs/V02A_UI_CLARITY.md)에 따라 scripts/validation/check_v02a_ui.cjs로 관리자/직원/미로그인/권한 확인 중 안내, 실제 AI·원격 인증 설정·문서 기능 구분, 기존 등록 동선, 근거 지연/정상/누락/위조/네트워크 실패, 복수 근거 전체 확인, 단계·문서 전환의 늦은 응답, 의미 상태 위조 차단, 접힌 기술 상세, 모바일·키보드를 검사한다. 기존 UI104·실제 HTTP13·백엔드409는 run_v01_checks.py로 현재 소스에서 새 실행한다. 구조·출처 확인을 의미 정확성이나 공식 승인으로 계산하지 않는다. 과거 fixture·결과는 보존하고 새 경로에 출력한다.

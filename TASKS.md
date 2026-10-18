@@ -269,3 +269,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] 기존 IdentityProviderAdapter/SupabaseProviderAdapter 유지, 고정 HTTPS HTTP transport·서버 설정·사용자 조회 검증·오류/민감정보 차단 구현. 기본 앱은 deny-all 유지.
 - [x] 기존153+새 HTTP/BFF52=205 backend PASS, UI Chromium43 PASS, typecheck/build PASS. 비루프백 DNS/TCP 차단 가드 아래 실제 공급자 호출0. [계약](docs/STAGE4B3A_SUPABASE_TRANSPORT.md)·[실행 보고](outputs/STAGE4B3A_REPORT.md).
 - [ ] Stage 4B-3B는 실제 프로젝트/계정/키·허용 origin/TLS·접속/비용 범위의 별도 승인 후 server factory 활성화와 실제 공급자 검증. 이번에는 실제 Supabase/LLM/임베딩 호출·키 등록·배포·commit/push/merge를 하지 않았다.
+
+## v0.2-A 화면 안내 정합성
+
+- [x] PR #2가 포함된 최신 main에서 feat/v02a-ui-clarity 분기. 권한별 홈·공통 기능 안내와 근거/내용 검토 상태 분리. [계약](docs/V02A_UI_CLARITY.md).
+- [ ] P0-2 활성화 동선은 별도 승인 후. API/DB/엔진·실제 공급자·승인/게시·배포는 이번 범위 밖이다.
+- [x] 타입·빌드, 신규 UI24·기존 UI104·실제 HTTP13·backend409 최종 PASS. 중간 실패 기록과 재실행을 구분한 [완료 보고](outputs/V02A_REPORT.md). 승인/게시·P0-2는 미구현 유지.
