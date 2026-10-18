@@ -1,0 +1,20 @@
+{
+  "base_commit": "e52ec2dd10b173094bde4f26fa36d8632cd65932",
+  "baseline_files_checked": 539,
+  "missing": [],
+  "modified_existing_files": [
+    "TASKS.md",
+    "TEST_PLAN.md",
+    "apps/web/src/pages/DocumentsPage.tsx",
+    "apps/web/src/pages/WorkflowPage.tsx",
+    "apps/web/src/styles/app.css",
+    "apps/web/src/styles/documents.css",
+    "apps/web/src/styles/workflow.css",
+    "scripts/validation/check_phase2e2a_ui.cjs"
+  ],
+  "original_fixture_and_historical_outputs_unchanged": true,
+  "backend_db_dependencies_unchanged": true,
+  "credential_pattern_findings": [],
+  "external_provider_calls": 0,
+  "scope_note": "Synthetic names and local mock identity only; pattern scan is limited and is not proof of absence of all sensitive information."
+}

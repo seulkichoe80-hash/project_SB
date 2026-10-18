@@ -1,0 +1,481 @@
+{
+  "scope": "Same synthetic metadata; v0.2-B preserved bundle vs v0.2-C production. Baseline is observation, not feature acceptance.",
+  "before": [
+    {
+      "scenario": "documents",
+      "width": 320,
+      "scroll": 600,
+      "client": 278,
+      "buttons": [
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "scenario": "documents",
+      "width": 375,
+      "scroll": 600,
+      "client": 333,
+      "buttons": [
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "scenario": "documents",
+      "width": 430,
+      "scroll": 600,
+      "client": 388,
+      "buttons": [
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        },
+        {
+          "left": 517,
+          "right": 605,
+          "width": 88,
+          "height": 68.1875
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "scenario": "long_institution_header",
+      "height": 214.375,
+      "logout": [
+        {
+          "width": 50.890625,
+          "height": 114.375,
+          "whiteSpace": "normal"
+        }
+      ],
+      "help": [
+        {
+          "width": 36.890625,
+          "height": 69.28125
+        }
+      ]
+    },
+    {
+      "scenario": "mobile_initial_workflow",
+      "width": 320,
+      "list_visible": false,
+      "node_count": 4
+    },
+    {
+      "scenario": "mobile_initial_workflow",
+      "width": 375,
+      "list_visible": false,
+      "node_count": 4
+    },
+    {
+      "scenario": "mobile_initial_workflow",
+      "width": 430,
+      "list_visible": false,
+      "node_count": 4
+    },
+    {
+      "scenario": "map_readability",
+      "title_px": 15,
+      "caption_px": 11,
+      "zoom_button": {
+        "x": 280,
+        "y": 1342.28125,
+        "width": 26,
+        "height": 26
+      }
+    }
+  ],
+  "after": [
+    {
+      "scenario": "documents",
+      "width": 320,
+      "scroll": 278,
+      "client": 278,
+      "buttons": [
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "scenario": "documents",
+      "width": 375,
+      "scroll": 333,
+      "client": 333,
+      "buttons": [
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "scenario": "documents",
+      "width": 430,
+      "scroll": 388,
+      "client": 388,
+      "buttons": [
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "scenario": "long_institution_header",
+      "height": 181.71875,
+      "logout": [
+        {
+          "width": 89.53125,
+          "height": 45.09375,
+          "whiteSpace": "nowrap"
+        }
+      ],
+      "help": [
+        {
+          "width": 62.640625,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "scenario": "mobile_initial_workflow",
+      "width": 320,
+      "list_visible": true,
+      "node_count": 0
+    },
+    {
+      "scenario": "mobile_initial_workflow",
+      "width": 375,
+      "list_visible": true,
+      "node_count": 0
+    },
+    {
+      "scenario": "mobile_initial_workflow",
+      "width": 430,
+      "list_visible": true,
+      "node_count": 0
+    },
+    {
+      "scenario": "map_readability",
+      "title_px": 16,
+      "caption_px": 13,
+      "zoom_button": {
+        "x": 280,
+        "y": 1288.578125,
+        "width": 44,
+        "height": 44
+      }
+    },
+    {
+      "scenario": "mobile_selected_map",
+      "rendered_title_height": 51.1875,
+      "css_title_px": 16,
+      "scale": 1
+    },
+    {
+      "scenario": "computed_text_contrast",
+      "minimum_ratio": 6.432719644933874,
+      "pairs": [
+        {
+          "text": "단계 후보 출처 확인",
+          "fg": "rgb(71, 85, 105)",
+          "bg": "rgb(244, 248, 255)",
+          "ratio": 7.114914048339879
+        },
+        {
+          "text": "출처 확인",
+          "fg": "rgb(133, 77, 14)",
+          "bg": "rgb(244, 248, 255)",
+          "ratio": 6.432719644933874
+        },
+        {
+          "text": "1. 신청자는 자료대여신청서를 제출한다.",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(244, 248, 255)",
+          "ratio": 13.24085676308128
+        },
+        {
+          "text": "단계 후보 근거 확인 필요",
+          "fg": "rgb(71, 85, 105)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 7.577663953533317
+        },
+        {
+          "text": "근거 확인 필요",
+          "fg": "rgb(133, 77, 14)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 6.8511000196797465
+        },
+        {
+          "text": "2. 담당자는 검토확인서를 작성한다.",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 14.102034448456891
+        },
+        {
+          "text": "단계 후보 근거 확인 필요",
+          "fg": "rgb(71, 85, 105)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 7.577663953533317
+        },
+        {
+          "text": "근거 확인 필요",
+          "fg": "rgb(133, 77, 14)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 6.8511000196797465
+        },
+        {
+          "text": "3. 자료가 누락된 경우 담당자는 보완하여 1단계로 돌아가 자료를 제출한",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 14.102034448456891
+        },
+        {
+          "text": "단계 후보 근거 확인 필요",
+          "fg": "rgb(71, 85, 105)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 7.577663953533317
+        },
+        {
+          "text": "근거 확인 필요",
+          "fg": "rgb(133, 77, 14)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 6.8511000196797465
+        },
+        {
+          "text": "4. 담당자는 결과보고서를 제출한다.",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 14.102034448456891
+        },
+        {
+          "text": "＋",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(254, 254, 254)",
+          "ratio": 13.982531083676133
+        },
+        {
+          "text": "−",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(254, 254, 254)",
+          "ratio": 13.982531083676133
+        },
+        {
+          "text": "가",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(254, 254, 254)",
+          "ratio": 13.982531083676133
+        },
+        {
+          "text": "⌂",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(254, 254, 254)",
+          "ratio": 13.982531083676133
+        }
+      ]
+    },
+    {
+      "scenario": "disclosure_targets",
+      "minimum_height": 59.796875
+    }
+  ]
+}

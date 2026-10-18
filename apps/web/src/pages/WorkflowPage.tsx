@@ -127,6 +127,14 @@ function MapControls() {
         −
       </ControlButton>
       <ControlButton
+        aria-label="선택 단계 크게 보기"
+        title="선택 단계 크게 보기"
+        onClick={() => {
+          const selected = flow.getNodes().find(n => n.data.selected);
+          if (selected) void flow.setCenter(selected.position.x + 130, selected.position.y + 100, { zoom: 1 });
+        }}
+      >가</ControlButton>
+      <ControlButton
         aria-label="전체 지도 보기"
         title="전체 지도 보기"
         onClick={() => void flow.fitView()}
@@ -272,15 +280,13 @@ function WorkflowPageContent() {
         description="자동 추출 후보를 탐색하고, 단계마다 원문 근거와 검토 항목을 확인하세요."
       />
       <div className="wf-trust">
-        <StatusBadge tone="warning">담당자 검토 필요</StatusBadge>
-        <span>
-          내용 검토 필요 · 관리자 승인·공식 게시 기능은 제공하지 않습니다.
-        </span>
+        <StatusBadge tone="warning">내용 검토 필요</StatusBadge>
+        <span>공식 절차가 아닌 자동 추출 후보입니다.</span>
         <details>
           <summary>검증 상태 상세</summary>
-          <p>semantic_verification=NOT_VERIFIED · approval=NOT_REQUESTED</p>
+          <p>semantic_verification=NOT_VERIFIED · approval=NOT_REQUESTED</p><p>관리자 승인·공식 게시 기능은 제공하지 않습니다.</p>
         </details>
-        <strong>공식 업무절차가 아닌 자동 추출 후보입니다.</strong>
+
       </div>
       <section className="wf-source-select" aria-label="분석 대상 선택">
         <label>
@@ -410,7 +416,7 @@ function Workspace({
     [error, setError] = useState(""),
     [empty, setEmpty] = useState(false),
     [pane, setPane] = useState<"map" | "evidence">("map"),
-    [mode, setMode] = useState<"map" | "list">("map");
+    [mode, setMode] = useState<"map" | "list">(() => matchMedia("(max-width: 900px)").matches ? "list" : "map");
   const alive = useRef(true),
     scope = useRef(new AbortController()),
     mutation = useRef(false),
@@ -708,7 +714,7 @@ function Workspace({
       candidate?.steps.map((s, index) => ({
         id: s.id,
         type: "step",
-        position: { x: (index % 2) * 340, y: Math.floor(index / 2) * 205 },
+        position: { x: (index % 2) * 340, y: Math.floor(index / 2) * 260 },
         data: {
           step: s,
           selected: s.id === stepId,
@@ -742,11 +748,8 @@ function Workspace({
       <section className="wf-run">
         <div>
           <h2>자동 추출 후보</h2>
-          <p>
-            실제 AI 모델 호출 없이 오프라인 추출합니다. 새로고침 후에도 같은
-            입력으로 작업을 요청하면 기존 작업을 다시 확인합니다. 기존 작업이
-            없으면 새 작업이 생성됩니다. 작업 목록 API는 제공되지 않습니다.
-          </p>
+          <p>실제 AI 모델 호출 없이 오프라인 추출합니다.</p>
+          <details><summary>작업·복구 안내</summary><p>새로고침 후에도 같은 입력으로 작업을 요청하면 기존 작업을 다시 확인합니다. 기존 작업이 없으면 새 작업이 생성됩니다. 작업 목록 API는 제공되지 않습니다.</p></details>
         </div>
         <div className="wf-actions">
           <Button
@@ -932,7 +935,8 @@ function Workspace({
                         nodesConnectable={false}
                         nodesFocusable={false}
                         edgesFocusable={false}
-                        fitView
+                        fitView={!matchMedia("(max-width: 900px)").matches}
+                        defaultViewport={{ x: 8, y: 12, zoom: 1 }}
                         minZoom={0.15}
                         maxZoom={2}
                       >
@@ -1024,7 +1028,7 @@ function Workspace({
                       ))
                     )}
                   </details>
-                  <details>
+                  <details open={issues.some(i => i.severity === "ERROR" || i.auto_block)}>
                     <summary>전체 검토 항목 ({issues.length})</summary>
                     <IssueList issues={issues} />
                   </details>
@@ -1322,7 +1326,7 @@ function EvidencePanel({
       </ul>
       {step.deadline === null && (
         <p className="wf-muted">
-          기한은 미확정(null)입니다. 기한이 없다는 뜻이 아닙니다.
+          기한은 확인되지 않았습니다. 기한이 없다는 뜻은 아닙니다.
         </p>
       )}
       <div className="wf-evidence-picker">
@@ -1372,9 +1376,7 @@ function EvidencePanel({
         resolved && (
           <>
             <StatusBadge tone="info">출처 확인</StatusBadge>
-            <p className="wf-muted">
-              선택한 근거의 구조·출처를 확인했습니다. 내용 검토는 필요합니다.
-            </p>
+
             <details>
               <summary>출처 확인 상세</summary>
               <p>
