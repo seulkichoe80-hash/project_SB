@@ -53,11 +53,14 @@ def csrf_for(sid):
 
 
 class AuthService:
-    def __init__(self, store, provider=None, settings=None, clock=time.time):
+    def __init__(self, store, provider=None, settings=None, clock=time.time, session_guard=None):
         self.store = store
         self.provider = provider or UnconfiguredProvider()
         self.settings = settings or AuthSettings()
         self.clock = clock
+        from .session_revalidation import SessionRevalidation
+        if session_guard is not None and type(session_guard) is not SessionRevalidation:raise ValueError('invalid_session_guard')
+        self.session_guard=session_guard
 
     def origin(self, request):
         if request.headers.get('origin') != self.settings.origin or request.headers.get('sec-fetch-site') == 'cross-site':
@@ -102,6 +105,7 @@ class AuthService:
             db.execute('INSERT OR REPLACE INTO auth_login_limits VALUES(?,?,?)', (key, window, count))
         try:
             identity = self.provider.authenticate(body.email, body.password)
+            if self.session_guard is not None and self.session_guard.status(identity.issuer,identity.subject)!='active':raise ProviderUnavailable()
         except ProviderUnavailable:
             with self.store.transaction() as db:
                 self.store.audit(db, 'login', outcome='provider_unavailable', at=now)
@@ -115,7 +119,7 @@ class AuthService:
             if len(members) != 1:
                 raise HTTPException(403, 'active_single_membership_required')
             member, sid = members[0], secrets.token_urlsafe(32)
-            expires = now + min(self.settings.ttl, identity.ttl)
+            expires = now + min(self.settings.ttl, identity.ttl, self.session_guard.max_seconds if self.session_guard else self.settings.ttl)
             db.execute('INSERT INTO sessions(sid_hash,user_id,institution_id,csrf_hash,expires,touched) VALUES(?,?,?,?,?,?)',
                        (digest(sid), user['id'], member['institution_id'], digest(csrf_for(sid)), expires, now))
             old = request.cookies.get(self.settings.cookie)
@@ -132,10 +136,27 @@ class AuthService:
         return {'user_id': user, 'institution_id': member['institution_id'], 'institution_name': member['name'],
                 'role': member['role'], 'institution_admin': bool(member['institution_admin']), 'csrf_token': csrf}
 
+    def _revalidate_provider(self,sid,at):
+        revoked=False
+        try:
+            with self.store.transaction() as db:
+                row=db.execute('''SELECT i.issuer,i.subject FROM sessions s
+                  JOIN identities i ON i.id=s.user_id AND i.active=1
+                  JOIN memberships m ON m.user_id=s.user_id AND m.institution_id=s.institution_id AND m.active=1
+                  JOIN organizations o ON o.id=s.institution_id AND o.active=1
+                  WHERE s.sid_hash=? AND s.revoked=0 AND s.expires>? AND s.touched>?''',
+                  (digest(sid),at,at-self.settings.idle)).fetchone()
+                if row and self.session_guard.status(row['issuer'],row['subject'])!='active':
+                    db.execute('UPDATE sessions SET revoked=1 WHERE sid_hash=?',(digest(sid),));revoked=True
+        except ProviderUnavailable:raise HTTPException(503,'identity_revalidation_unavailable') from None
+        # Raise after commit: an account reactivation must not revive this revoked session.
+        if revoked:raise HTTPException(401,'session_expired_or_revoked')
+
     def resolve(self, request, mutation=None):
         if not self.provider.available:
             raise HTTPException(401, 'authentication_not_configured')
         sid, now = self.cookie(request, self.settings.cookie), self.clock()
+        if self.session_guard is not None:self._revalidate_provider(sid,now)
         with self.store.transaction() as db:
             row = db.execute('''SELECT s.*,m.role,m.institution_admin,o.name FROM sessions s
               JOIN identities i ON i.id=s.user_id AND i.active=1

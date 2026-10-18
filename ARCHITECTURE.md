@@ -280,3 +280,7 @@ scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal
 ## 배포 준비 4단계: 오프라인 JWT·명시 기관 초기화
 
 [Auth 계약](docs/DEPLOYMENT_AUTH.md)의 SupabaseJWTProviderAdapter는 기존 사용자 조회 기반 adapter와 별도로 명시 주입한다. Fake JWKS/password 전송만 허용하고 cryptography ES256/RS256 검증 후 기존 VerifiedIdentity→DB 멤버십→BFF 세션으로 연결한다. provider metadata 권한은 사용하지 않으며 세션 issuer/활성 단일 membership과 관리자 transaction 권한을 재검사한다. 최초 관리자 생성은 공개 경로 없이 명시 운영자 bootstrap transaction으로 제한한다. 기존 API/DB schema/Private Storage·worker/EvidenceRef 계약과 deny-all 기본은 유지하며 운영 Auth/전송/철회 동기화 미실증으로 production을 계속 차단한다.
+
+## 배포 준비 5단계: Local/Fake wiring·프록시·세션 상태 경계
+
+[계약](docs/DEPLOYMENT_WIRING.md)의 RuntimeBinding으로 API와 parse/chunk/workflow main의 명시 local/Fake 구성을 연결한다. 실제 DB/schema·원본 root/공유 Fake 인스턴스·역할을 대조하고 worker에서 BFF provider/프록시 증명을 분리한다. 단일 정제 홉 peer+서버 증명·Host/HTTPS·Origin 경계와 bounded `/api` ASGI edge를 opt-in으로 제공한다. 선택적 Fake provider 상태 재검증은 만료 상한·비활성 SID 영구 철회·장애 거부를 연결한다. 실제 Vercel/Render·원격 Storage/JWKS/상태 동기화·클라우드 worker/운영 복구는 미완료이며 production 차단을 유지한다.

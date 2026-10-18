@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "socket_guard_probe": "PASS",
+  "blocked_external_attempts": 0,
+  "scope": "Python loopback TLS and in-process Fake upstream only"
+}

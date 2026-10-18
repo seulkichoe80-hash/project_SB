@@ -15,9 +15,23 @@ def authenticated_principal(request: Request) -> Principal:
     return request.app.state.auth.resolve(request)
 
 
-def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False, identity_provider=None, auth_settings=None, auth_clock=None, supabase_settings=None, search_settings=None) -> FastAPI:
+def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False, identity_provider=None, auth_settings=None, auth_clock=None, supabase_settings=None, search_settings=None, runtime_binding=None, proxy_policy=None, session_guard=None) -> FastAPI:
     from .runtime_settings import ensure_start_environment
     ensure_start_environment('api')
+    if runtime_binding is not None:
+        from .runtime_wiring import RuntimeBinding
+        if type(runtime_binding) is not RuntimeBinding or runtime_binding.role!='api':raise ValueError('api_binding_required')
+        if any(v is not None for v in (store,repository,identity_provider,auth_settings,supabase_settings,proxy_policy,session_guard)):
+            raise ValueError('choose_one_runtime_binding')
+        runtime_binding.validate()
+        if data_dir is not None and Path(data_dir).resolve()!=runtime_binding.data_dir:raise ValueError('api_binding_directory_mismatch')
+        data_dir=runtime_binding.data_dir;repository=runtime_binding.repo;store=runtime_binding.store
+        identity_provider=runtime_binding.provider;auth_settings=runtime_binding.auth_settings
+        proxy_policy=runtime_binding.proxy_policy;session_guard=runtime_binding.session_guard
+    if proxy_policy is not None:
+        from .proxy_boundary import ProxyPolicy
+        if type(proxy_policy) is not ProxyPolicy or auth_settings is None or proxy_policy.origin!=auth_settings.origin or not auth_settings.secure_cookie:
+            raise ValueError('proxy_auth_binding_mismatch')
     if supabase_settings is not None:
         if identity_provider is not None:
             raise ValueError('choose_one_identity_configuration')
@@ -32,7 +46,7 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
     from .auth import AuthService, Login, MembershipUpdate
     from .auth_store import AuthStore
     import time as auth_time
-    auth = AuthService((service.repo.auth_store() if getattr(service.repo, 'dialect', None) == 'postgresql' else AuthStore(service.repo.path)), identity_provider, auth_settings, auth_clock or auth_time.time)
+    auth = AuthService((service.repo.auth_store() if getattr(service.repo, 'dialect', None) == 'postgresql' else AuthStore(service.repo.path)), identity_provider, auth_settings, auth_clock or auth_time.time, session_guard=session_guard)
     app.state.auth = auth
 
     @app.middleware('http')
@@ -207,6 +221,9 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
     def deregister(document_id: str, principal: Principal = Depends(authenticated_principal)):
         return service.deregister(principal, document_id)
 
+    if proxy_policy is not None:
+        from .proxy_boundary import ProxyBoundary
+        app.add_middleware(ProxyBoundary,policy=proxy_policy)
     return app
 
 

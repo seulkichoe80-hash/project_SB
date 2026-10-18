@@ -199,8 +199,10 @@ def peer_issues(api, worker):
         return ['api_worker_role_mismatch']
     common = ('environment', 'database_backend', 'storage_backend', 'storage_project_url', 'storage_bucket',
               'supabase_project_url', 'auth_provider', 'origin', 'secure_cookie', 'csrf_enabled',
-              'same_origin_proxy', 'membership_policy', 'max_upload_bytes', 'real_llm_enabled',
-              'real_embedding_enabled', 'llm_budget_micro_usd', 'backup_strategy', 'restore_rpo_hours', 'restore_rto_hours')
+              'same_origin_proxy', 'trusted_proxy_hops', 'requests_per_minute', 'request_timeout_seconds',
+              'membership_policy', 'max_upload_bytes', 'real_llm_enabled',
+              'real_embedding_enabled', 'paid_calls_approved', 'llm_budget_micro_usd', 'llm_request_cap_micro_usd',
+              'llm_max_input_tokens', 'llm_max_output_tokens', 'llm_max_retries', 'backup_strategy', 'restore_rpo_hours', 'restore_rto_hours')
     issues = ['api_worker_contract_mismatch'] if any(getattr(api, k) != getattr(worker, k) for k in common) else []
     # Distinct least-privilege DB users are allowed; compare the database target, not credentials.
     def target(s):
@@ -215,7 +217,7 @@ PRODUCTION_BLOCKERS = (
     'postgresql_production_runtime_not_wired',
     'private_storage_production_transport_not_wired',
     'production_auth_runtime_and_operator_provisioning_not_verified',
-    'proxy_limits_and_headers_not_verified',
+    'vercel_render_edge_trust_limits_and_https_not_verified',
     'worker_cloud_runtime_not_implemented',
     'coordinated_backup_restore_not_verified',
 )
@@ -241,6 +243,8 @@ def preflight(environ=None, *, expected_role=None, peer=None):
             'startup_allowed': not issues and not blockers, 'production_ready': False,
             'connectivity': 'NOT_CHECKED', 'database_adapter': 'POSTGRESQL_OPT_IN_IMPLEMENTED_NOT_CONNECTED', 'membership_verification': 'SERVER_ACTIVE_SINGLE_CONTRACT_ONLY', 'jwt_verification': 'FAKE_JWKS_IMPLEMENTED_NOT_CONNECTED',
             'private_storage_adapter': 'FAKE_ONLY_IMPLEMENTED_NOT_CONNECTED',
+            'runtime_wiring': 'LOCAL_AND_FAKE_ONLY_IMPLEMENTED',
+            'proxy_boundary': 'LOCAL_SIMULATION_NOT_VENDOR_VERIFIED',
             'backup_restore_verification': 'NOT_VERIFIED',
             'issues': sorted(set(issues)), 'implementation_blockers': blockers}
 

@@ -355,3 +355,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] Private Storage27파일을68a8a35 로컬 보존 후 feat/deployment-auth 분기. 기존 `/user` adapter/deny-all/BFF 계약을 보존하며 Fake-only JWT/JWKS(ES256/RS256)·issuer/aud/expiry·키 교체/오류 검증, 세션 issuer/활성 단일 membership·관리자 transaction 권한 재확인, 명시 오프라인 최초 관리자 bootstrap 구현. [계약](docs/DEPLOYMENT_AUTH.md).
 - [x] 신규88·전체backend979 PASS/FAIL0/SKIP0. SQLite/실제 격리 로컬PG 세션·기관·CSRF·철회·bootstrap 경합/rollback·Private Storage 원본/EvidenceRef/workflow 통합 PASS. 외부 호출/지출0. [보고](outputs/DEPLOYMENT_AUTH_REPORT.md).
 - [ ] 실제 JWT/JWKS/Auth runtime wiring·프로젝트 호환·운영자 계정 확인/초기화·provider-only 철회 동기화·proxy/HTTPS/cloud worker·운영 복구는 미실증. production 차단·인간 검토 미완료 유지. Auth 범위 종료 후 다음 단계 자동 진행 없음.
+
+## 배포 준비 5단계 Local/Fake Wiring·HTTPS·프록시
+
+- [x] Auth20파일을7451af8 로컬 보존 후 feat/deployment-wiring 분기. API/parse·chunk·workflow main 공통 RuntimeBinding·peer 저장소/역할 검증, 단일 정제 홉 proxy 경계·ASGI `/api` simulator, 선택적 Fake provider 세션 상태 재검증/철회 commit 구현. [계약](docs/DEPLOYMENT_WIRING.md).
+- [x] 신규52·전체backend1031 PASS/FAIL0/SKIP0. 실제 loopback TLS1.3/CA·hostname 검증15개, 20MiB/초과·쿠키/CSRF/Host/Origin·위조 forwarding·철회/재로그인 PASS. guard 외부시도/공급자 호출·지출0. [보고](outputs/DEPLOYMENT_WIRING_REPORT.md).
+- [ ] Vercel/Render 실제20MiB 경로·peer/증명·TLS·limits·원격 Storage/JWKS/상태 동기화·운영 PG/worker/백업복구 미실증. production/G1-C/D 차단 유지, 실제 계정/Secret/env/배포 변경·인간 판정 생성 없음. 다음 단계 자동 진행 없음.

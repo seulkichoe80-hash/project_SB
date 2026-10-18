@@ -1,0 +1,18 @@
+{
+  "environment": "local",
+  "role": "api",
+  "settings_status": "VALID",
+  "status": "LOCAL_CONTRACT_VALID",
+  "startup_allowed": true,
+  "production_ready": false,
+  "connectivity": "NOT_CHECKED",
+  "database_adapter": "POSTGRESQL_OPT_IN_IMPLEMENTED_NOT_CONNECTED",
+  "membership_verification": "SERVER_ACTIVE_SINGLE_CONTRACT_ONLY",
+  "jwt_verification": "FAKE_JWKS_IMPLEMENTED_NOT_CONNECTED",
+  "private_storage_adapter": "FAKE_ONLY_IMPLEMENTED_NOT_CONNECTED",
+  "runtime_wiring": "LOCAL_AND_FAKE_ONLY_IMPLEMENTED",
+  "proxy_boundary": "LOCAL_SIMULATION_NOT_VENDOR_VERIFIED",
+  "backup_restore_verification": "NOT_VERIFIED",
+  "issues": [],
+  "implementation_blockers": []
+}

@@ -291,3 +291,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## 배포 준비 4단계 Auth 검증
 
 [오프라인 Auth 계약](docs/DEPLOYMENT_AUTH.md)에 따라 ephemeral ES256/RS256 서명·만료/위조/issuer/aud/시간/알고리즘·키 교체/제거·JWKS 장애/악성 header/중복 JSON을 검사한다. 실제 BFF 세션과 SQLite/격리 loopback PG에서 기관·활성 단일 membership/권한 변경·경합/CSRF/Origin/logout·세션 재구성·명시 bootstrap 동시성/부분 rollback·Private Storage 원본/EvidenceRef·미승인 workflow를 검증한다. Phase Gate 전체 backend는 Python 비루프백 guard와 PG local_test 강제를 병행한다. 기존 테스트/fixture/인간 판정은 수정하지 않는다. provider-only revocation·실 cloud·운영 로그인/HTTPS/배포는 미실증이며 Fake/ASGI PASS와 구분한다. 프런트 미변경 시 UI/타입/build는 이번 실행 결과로 계상하지 않는다.
+
+## 배포 준비 5단계 Wiring·HTTPS 검증
+
+[실행 계약](docs/DEPLOYMENT_WIRING.md)에 따라 local/Fake API/worker 실제 main 선택·DB/schema/원본 공유 불일치·역할/production 기동 차단, trusted peer+증명/정제 forwarded headers·Host/Origin/CSRF/Cookie/redirect·공개 CORS 차단, 20MiB/초과·stream/framing·deadline/429, Fake provider 비활성/탈퇴/장애·최대 세션 수명/철회 커밋을 검사한다. 별도 자체 CA를 검증하는 실제 loopback TLS harness와 in-process ASGI upstream의 범위를 구분한다. Phase Gate 전체 backend는 비루프백 guard 아래 한 번 최종 실행하고 기존 원본·fixture·테스트·증거를 보존한다. vendor edge20MiB/신뢰·실계정·provider 이벤트·클라우드 운영/분산 rate limit·실브라우저는 미실증이다. UI/의존성/DB schema 미변경 검사는 새 PASS로 계상하지 않는다.

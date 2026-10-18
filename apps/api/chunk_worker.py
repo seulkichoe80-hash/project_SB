@@ -9,17 +9,18 @@ from .parsing_service import ParsingService
 from .chunk_service import ChunkService
 from .models import Principal
 
-if __name__ == '__main__':
+def main(argv=None,runtime_binding=None):
     parser = argparse.ArgumentParser()
     parser.add_argument('--data-dir',type=Path,required=True)
     parser.add_argument('--institution-id',required=True)
     parser.add_argument('--once',action='store_true')
     from .postgres_worker import add_postgres_arguments, worker_repository
     add_postgres_arguments(parser)
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     from .runtime_settings import ensure_start_environment
     ensure_start_environment('chunk_worker')
-    docs = DocumentService(worker_repository(args),LocalOriginalStore(args.data_dir/'originals'),True)
+    from .runtime_wiring import worker_documents
+    docs = worker_documents(args,'chunk_worker',runtime_binding)
     service = ChunkService(ParsingService(docs))
     principal = Principal('local-chunk-worker',args.institution_id,'worker')
     try:
@@ -33,3 +34,6 @@ if __name__ == '__main__':
                 time.sleep(.5)
     except KeyboardInterrupt:
         pass
+
+
+if __name__=='__main__':main()
