@@ -386,3 +386,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] PR#3/e091b7b와 clean 작업 트리를 확인하고 feat/deployment-runtime-factory 분기. 공통 Factory·typed MigrationPlan·ordered apply/verify·동시 schema lock·실패 단계 재개 구현. [계약](docs/RUNTIME_FACTORY_MIGRATIONS.md).
 - [x] 최종 전체 backend1,113 PASS/FAIL0/SKIP0, 영향190 PASS, 격리 PG 실제 stop/start 후 원본/job/membership/UNKNOWN hold 보존 PASS. [보고](outputs/RUNTIME_FACTORY_REPORT.md). 초기 실패/중단 증거를 보존하고 최종 verified 결과와 구분한다.
 - [ ] 원격 runner/live factory·Auth/Storage·호스팅/worker·coordinated backup은 미검증으로 기존 production6개 blocker 유지. 다음 단계 자동 진행/원격 push·PR 갱신 없음.
+
+## Runtime Factory GitHub 보존·스테이징 최종 게이트
+
+- [x] Factory/Runner22파일의 manifest·최종1,113 PASS source136개와 의존성 버전을 대조하고39fe50a 로컬 커밋으로 보존. 기존 실패/중단 기록·원본/fixture/SQL/과거 증거 유지.
+- [x] [최종 게이트](docs/STAGING_FINAL_GATES.md)에 구현/사용자 설정/실연결 검증/구조 변경/BLOCKED를 구분했다. 현재 raw body 업로드와 실제20MiB 양방향 경로·서비스/secret 승인 경계를 명시했다.
+- [ ] PR#3은 feat/deployment-storage-http를 추적한다. 원격 보존과 실제 PR HEAD는 이번 최종 보고의 확인 결과를 따른다. 실제 연결/기동 차단 해제/공개 배포/main merge·다음 단계 자동 진행 없음.
