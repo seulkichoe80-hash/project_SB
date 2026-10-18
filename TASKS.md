@@ -1,12 +1,20 @@
 # 단계별 개발 작업과 완료 기준
 
+## Phase 2E-2A 업무지도 안정화·복구 UX
+
+- 사용자 승인 범위: 2E-2A만. 2E-1 변경44개를 로컬1602564에 보존하고 원격 작업은 하지 않는다.
+- [x] 명시적 동일 입력 POST 복구 안내·재시도 구분·중복/늦은 변경 응답 방지, visible 직렬 polling·deadline/backoff·terminal 중단, 근거 선택·실패 상태와 지도 참조 안정화.
+- [x] 신규 UI24, 기존 UI80, loopback HTTP6, 전체 backend409 PASS. 타입/빌드 PASS. 외부 공급자 호출0.
+- 현재 계약: [UI 수명](docs/PHASE2E2A_UI_STABILITY.md), [실행 보고](outputs/PHASE2E2A_REPORT.md).
+- [ ] 2E-2B 이후는 별도 범위 승인 후. 승인·게시·실제 공급자 연결·배포 미진행.
+
 ## Phase 2E-1 관리자 후보 지도·원문 검토
 
 - 사용자 승인 범위:2E-1만. 2D-6 변경17개는 로컬47dd389에 보존하고 원격 작업은 하지 않는다.
 - [x] 기존 디자인/인증·9개 Workflow API 재사용, React Flow12.12.0 읽기 전용 지도/목록/모바일 탭, 단계·관계·검토·서식·canonical 원문 연동 구현.
 - [x] 신규 모의 API 브라우저37, 실제 loopback BFF/worker 통합6, 기존 UI43, 전체 backend409 PASS. typecheck/build PASS, 실제 외부 공급자 호출0.
 - 현재 계약: [관리자 검토](docs/PHASE2E1_WORKFLOW_REVIEW.md), [실행 보고](outputs/PHASE2E1_REPORT.md).
-- [ ] 2E-2는 별도 요청 후. 의미/최종 승인·공식 게시·실제 모델/공급자·배포는 미진행.
+- [ ] 2E-2A는 상단의 별도 승인 범위에서 완료. 2E-2B 이후는 별도 요청 후. 의미/최종 승인·공식 게시·실제 모델/공급자·배포는 미진행.
 
 ## Phase 2D-6 영속 작업·관리자 조회
 

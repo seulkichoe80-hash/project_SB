@@ -1,4 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useVisiblePolling } from "../hooks/useVisiblePolling";
+import { requestDeadline } from "../api/requestDeadline";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ReactFlow,
   Background,
@@ -75,7 +77,7 @@ type MapData = {
   count: number;
   select: (id: string) => void;
 };
-function StepNode({ data }: NodeProps<Node<MapData>>) {
+const StepNode = memo(function StepNode({ data }: NodeProps<Node<MapData>>) {
   return (
     <>
       <Handle type="target" position={Position.Top} isConnectable={false} />
@@ -86,7 +88,7 @@ function StepNode({ data }: NodeProps<Node<MapData>>) {
       >
         <span className="wf-node-caption">
           단계 후보{" "}
-          <span>{data.count ? `검토 ${data.count}` : "원문 연결"}</span>
+          <span>{data.count ? `검토 ${data.count}` : "근거 미확인"}</span>
         </span>
         <strong>{data.step.label.text}</strong>
         <small>선택하여 근거 확인 →</small>
@@ -94,7 +96,7 @@ function StepNode({ data }: NodeProps<Node<MapData>>) {
       <Handle type="source" position={Position.Bottom} isConnectable={false} />
     </>
   );
-}
+});
 const nodeTypes = { step: StepNode };
 function MapControls() {
   const flow = useReactFlow();
@@ -130,48 +132,93 @@ function MapControls() {
   );
 }
 export function WorkflowPage() {
+  const auth = useAuth();
+  return (
+    <WorkflowPageContent
+      key={`${auth.user?.user_id}:${auth.user?.institution_id}:${auth.user?.role}`}
+    />
+  );
+}
+function WorkflowPageContent() {
   const auth = useAuth(),
     [docs, setDocs] = useState<Metadata[]>([]),
     [documentId, setDocumentId] = useState(""),
     [versionId, setVersionId] = useState(""),
     [error, setError] = useState(""),
-    [loading, setLoading] = useState(true);
+    [loading, setLoading] = useState(true),
+    [terminalScope, setTerminalScope] = useState("");
+  const metadataFlight = useRef<AbortController | null>(null);
   const refresh = useCallback(
     async (signal: AbortSignal) => {
       if (auth.user?.role !== "manager") return;
+      metadataFlight.current?.abort();
+      const request = new AbortController();
+      metadataFlight.current = request;
+      const abort = () => request.abort();
+      signal.addEventListener("abort", abort, { once: true });
+      if (signal.aborted) request.abort();
+      const parentSignal = signal;
+      signal = request.signal;
       try {
-        const data = await documentsClient.list(signal);
+        const data = await requestDeadline(signal, (requestSignal) =>
+          documentsClient.list(requestSignal),
+        );
         if (signal.aborted) return;
         if (data.some((d) => d.institution_id !== auth.user?.institution_id))
           throw new ApiError(403);
-        setDocs(data.filter((d) => d.registered));
+        const next = data.filter((d) => d.registered);
+        setDocs((previous) =>
+          JSON.stringify(previous) === JSON.stringify(next) ? previous : next,
+        );
         setError("");
       } catch (e) {
         if (!signal.aborted) {
           setDocs([]);
           setError(message(e));
+          throw e;
         }
       } finally {
+        parentSignal.removeEventListener("abort", abort);
         if (!signal.aborted) setLoading(false);
       }
     },
     [auth.user?.institution_id, auth.user?.role],
   );
+  const sourceKey = `${auth.user?.user_id}:${auth.user?.institution_id}:${documentId}:${versionId}`;
+  // Metadata freshness is independent of job status. A known terminal job stops timers;
+  // scope entry, explicit refresh and visible window focus still revalidate with the server.
+  useVisiblePolling(
+    auth.user?.role === "manager" && terminalScope !== sourceKey,
+    refresh,
+    5000,
+    true,
+  );
   useEffect(() => {
-    const c = new AbortController();
-    if (auth.user?.role === "manager") {
-      void refresh(c.signal);
-      const timer = setInterval(() => void refresh(c.signal), 5000);
-      const focus = () => void refresh(c.signal);
-      window.addEventListener("focus", focus);
-      return () => {
-        c.abort();
-        clearInterval(timer);
-        window.removeEventListener("focus", focus);
-      };
+    if (auth.user?.role !== "manager") {
+      setLoading(false);
+      return;
     }
-    setLoading(false);
-    return () => c.abort();
+    let c = new AbortController();
+    const focus = () => {
+      if (document.hidden) return;
+      c.abort();
+      c = new AbortController();
+      void refresh(c.signal).catch(() => {});
+    };
+    const visibility = () => {
+      if (document.hidden) {
+        c.abort();
+        metadataFlight.current?.abort();
+      } else focus();
+    };
+    window.addEventListener("focus", focus);
+    document.addEventListener("visibilitychange", visibility);
+    return () => {
+      c.abort();
+      metadataFlight.current?.abort();
+      window.removeEventListener("focus", focus);
+      document.removeEventListener("visibilitychange", visibility);
+    };
   }, [refresh, auth.user?.role]);
   useEffect(() => {
     setDocumentId((current) =>
@@ -267,7 +314,7 @@ export function WorkflowPage() {
           message={error}
           onRetry={() => {
             const c = new AbortController();
-            void refresh(c.signal);
+            void refresh(c.signal).catch(() => {});
           }}
         />
       )}
@@ -279,10 +326,19 @@ export function WorkflowPage() {
             auth.user.user_id +
             auth.user.institution_id +
             selected.document_id +
-            selected.id
+            selected.id +
+            selected.sha256 +
+            selected.revision
           }
           meta={selected}
           institution={auth.user.institution_id}
+          onJobState={(state) =>
+            setTerminalScope(
+              state && !["queued", "processing"].includes(state)
+                ? sourceKey
+                : "",
+            )
+          }
         />
       ) : (
         !error && (
@@ -298,9 +354,11 @@ export function WorkflowPage() {
 function Workspace({
   meta,
   institution,
+  onJobState,
 }: {
   meta: Metadata;
   institution: string;
+  onJobState: (state: Job["state"] | null) => void;
 }) {
   const client = useMemo(
     () => createWorkflowClient(institution, meta.document_id, meta.id),
@@ -314,6 +372,7 @@ function Workspace({
     [forms, setForms] = useState<FormLink[]>([]),
     [stepId, setStepId] = useState(""),
     [job, setJob] = useState<Job | null>(null),
+    [statusError, setStatusError] = useState(""),
     [busy, setBusy] = useState(false),
     [loading, setLoading] = useState(true),
     [error, setError] = useState(""),
@@ -324,7 +383,19 @@ function Workspace({
     scope = useRef(new AbortController()),
     mutation = useRef(false),
     loadId = useRef(0),
-    selectedDetail = useRef<HTMLHeadingElement>(null);
+    selectedDetail = useRef<HTMLHeadingElement>(null),
+    evidenceChoices = useRef(new Map<string, number>()),
+    stepChoices = useRef(new Map<string, string>()),
+    previousGeneration = useRef(""),
+    rememberedCandidate = useRef(""),
+    lastJobState = useRef<Job["state"] | null>(null);
+  lastJobState.current = job?.state ?? null;
+  if (chosen) rememberedCandidate.current = chosen;
+  const stateCallback = useRef(onJobState);
+  stateCallback.current = onJobState;
+  useEffect(() => {
+    stateCallback.current(job?.state ?? null);
+  }, [job?.state, client]);
   const clear = () => {
     setCandidates([]);
     setCandidate(null);
@@ -334,8 +405,10 @@ function Workspace({
     setChosen("");
     setGeneration("");
   };
-  async function current() {
-    const d = await documentsClient.detail(meta.document_id, meta.id);
+  async function current(signal = scope.current.signal) {
+    const d = await requestDeadline(signal, (requestSignal) =>
+      documentsClient.detail(meta.document_id, meta.id, requestSignal),
+    );
     if (
       d.institution_id !== institution ||
       !d.active ||
@@ -356,9 +429,19 @@ function Workspace({
       scopeChecked = true;
       const v = await client.candidates(scope.current.signal);
       if (!alive.current || ticket !== loadId.current) return;
+      if (previousGeneration.current !== v.generation_id) {
+        evidenceChoices.current.clear();
+        stepChoices.current.clear();
+        rememberedCandidate.current = "";
+        previousGeneration.current = v.generation_id;
+      }
       setCandidates(v.candidates);
       setGeneration(v.generation_id);
-      setChosen(v.candidates[0]?.id ?? "");
+      setChosen(
+        v.candidates.some((c) => c.id === rememberedCandidate.current)
+          ? rememberedCandidate.current
+          : (v.candidates[0]?.id ?? ""),
+      );
       setEmpty(v.candidates.length === 0);
     } catch (e) {
       if (alive.current && ticket === loadId.current) {
@@ -372,25 +455,29 @@ function Workspace({
       if (alive.current && ticket === loadId.current) setLoading(false);
     }
   }
+  const latestLoad = useRef(load);
+  latestLoad.current = load;
   useEffect(() => {
     alive.current = true;
     scope.current = new AbortController();
+    evidenceChoices.current.clear();
     void load();
-    const timer = setInterval(() => {
-      void current().catch((e) => {
-        if (alive.current) {
-          ++loadId.current;
-          clear();
-          setJob(null);
-          setError(message(e));
-        }
-      });
-    }, 5000);
+    const focus = () => {
+      if (
+        !document.hidden &&
+        !mutation.current &&
+        !["queued", "processing"].includes(lastJobState.current ?? "")
+      )
+        void latestLoad.current();
+    };
+    window.addEventListener("focus", focus);
+    document.addEventListener("visibilitychange", focus);
     return () => {
+      window.removeEventListener("focus", focus);
+      document.removeEventListener("visibilitychange", focus);
       alive.current = false;
       ++loadId.current;
       scope.current.abort();
-      clearInterval(timer);
     };
   }, [client]);
   useEffect(() => {
@@ -428,7 +515,12 @@ function Workspace({
         setCandidate(detail.candidates[0]);
         setIssues(review.issues);
         setForms(links.form_links);
-        setStepId(detail.candidates[0].steps[0]?.id ?? "");
+        const remembered = stepChoices.current.get(`${generation}:${chosen}`);
+        setStepId(
+          detail.candidates[0].steps.some((s) => s.id === remembered)
+            ? remembered!
+            : (detail.candidates[0].steps[0]?.id ?? ""),
+        );
       } catch (e) {
         if (!c.signal.aborted) {
           clear();
@@ -438,38 +530,47 @@ function Workspace({
     })();
     return () => c.abort();
   }, [chosen, generation, client]);
-  useEffect(() => {
-    if (!job || !["queued", "processing"].includes(job.state)) return;
-    let closed = false;
-    const c = new AbortController();
-    const timer = setTimeout(() => {
-      void (async () => {
-        try {
-          await current();
-          const v = await client.status(job.id, c.signal);
-          if (closed) return;
-          setJob(v);
-          if (v.state === "completed") void load();
-        } catch (e) {
-          if (!closed) {
-            clear();
-            setJob(null);
-            setError(message(e));
-          }
+  useVisiblePolling(
+    !busy &&
+      !!job &&
+      (["queued", "processing"].includes(job.state) || !!statusError),
+    async (signal) => {
+      if (!job) return;
+      try {
+        // Status requests do not duplicate document metadata queries.
+        const v = await client.status(job.id, signal);
+        if (signal.aborted || !alive.current || mutation.current) return;
+        setStatusError("");
+        setJob(v);
+        if (v.state === "completed") void load();
+      } catch (e) {
+        if (signal.aborted || !alive.current) return;
+        clear();
+        if (
+          e instanceof ApiError &&
+          ([401, 403, 404, 409, 422].includes(e.status) ||
+            e.code === "invalid_response")
+        ) {
+          setJob(null);
+          setError(message(e));
+        } else {
+          // Retain only the job identity; the cached status is explicitly unconfirmed.
+          setStatusError(
+            "현재 작업 상태 미확인 · 연결 복구 후 자동 재조회합니다. " +
+              message(e),
+          );
         }
-      })();
-    }, 1500);
-    return () => {
-      closed = true;
-      c.abort();
-      clearTimeout(timer);
-    };
-  }, [job, client]);
+        throw e;
+      }
+    },
+    1500,
+  );
   async function action(kind: "enqueue" | "retry" | "cancel") {
     if (mutation.current) return;
     mutation.current = true;
     setBusy(true);
     setError("");
+    setStatusError("");
     try {
       await current();
       const v =
@@ -486,6 +587,11 @@ function Workspace({
       if (alive.current) {
         clear();
         setError(message(e));
+        if (kind === "enqueue") setJob(null);
+        else if (job)
+          setStatusError(
+            "변경 요청 결과 미확인 · 서버에서 작업 상태를 다시 확인합니다.",
+          );
       }
     } finally {
       mutation.current = false;
@@ -493,13 +599,17 @@ function Workspace({
     }
   }
   const step = candidate?.steps.find((s) => s.id === stepId);
-  const selectStep = (id: string) => {
-    setStepId(id);
-    if (matchMedia("(max-width: 900px)").matches) {
-      setPane("evidence");
-      setTimeout(() => selectedDetail.current?.focus(), 0);
-    }
-  };
+  const selectStep = useCallback(
+    (id: string) => {
+      stepChoices.current.set(`${generation}:${candidate?.id}`, id);
+      setStepId(id);
+      if (matchMedia("(max-width: 900px)").matches) {
+        setPane("evidence");
+        setTimeout(() => selectedDetail.current?.focus(), 0);
+      }
+    },
+    [generation, candidate?.id],
+  );
   const relatedIds = new Set(
     step
       ? [
@@ -523,50 +633,61 @@ function Workspace({
           !targets(i).length || targets(i).some((id) => relatedIds.has(id)),
       )
     : [];
-  const ids = new Set(candidate?.steps.map((s) => s.id));
-  const conditionIds = new Set(candidate?.conditions.map((c) => c.id));
-  const drawn =
-    candidate?.edges.filter(
-      (e) =>
-        ids.has(e.source) &&
-        ids.has(e.target) &&
-        e.source !== e.target &&
-        e.condition_ids.every((id) => conditionIds.has(id)),
-    ) ?? [];
-  const nodes: Node<MapData>[] =
-    candidate?.steps.map((s, index) => ({
-      id: s.id,
-      type: "step",
-      position: { x: (index % 2) * 340, y: Math.floor(index / 2) * 205 },
-      data: {
-        step: s,
-        selected: s.id === stepId,
-        count: issues.filter((i) => targets(i).includes(s.id)).length,
-        select: selectStep,
-      },
-    })) ?? [];
-  const edges = drawn.map((e) => ({
-    id: e.id,
-    source: e.source,
-    target: e.target,
-    label: relationLabel(e),
-    type: "smoothstep",
-    markerEnd: { type: MarkerType.ArrowClosed },
-    style: {
-      stroke: e.relation === "conditional" ? "#a16207" : "#1d4ed8",
-      strokeWidth: 2,
-      strokeDasharray: e.relation === "conditional" ? "6 4" : undefined,
-    },
-    labelStyle: { fontSize: 12, fill: "#172b4d" },
-  }));
+  const drawn = useMemo(() => {
+    const ids = new Set(candidate?.steps.map((s) => s.id));
+    const conditions = new Set(candidate?.conditions.map((c) => c.id));
+    return (
+      candidate?.edges.filter(
+        (e) =>
+          ids.has(e.source) &&
+          ids.has(e.target) &&
+          e.source !== e.target &&
+          e.condition_ids.every((id) => conditions.has(id)),
+      ) ?? []
+    );
+  }, [candidate]);
+  const nodes: Node<MapData>[] = useMemo(
+    () =>
+      candidate?.steps.map((s, index) => ({
+        id: s.id,
+        type: "step",
+        position: { x: (index % 2) * 340, y: Math.floor(index / 2) * 205 },
+        data: {
+          step: s,
+          selected: s.id === stepId,
+          count: issues.filter((i) => targets(i).includes(s.id)).length,
+          select: selectStep,
+        },
+      })) ?? [],
+    [candidate, stepId, issues, selectStep],
+  );
+  const edges = useMemo(
+    () =>
+      drawn.map((e) => ({
+        id: e.id,
+        source: e.source,
+        target: e.target,
+        label: relationLabel(e),
+        type: "smoothstep",
+        markerEnd: { type: MarkerType.ArrowClosed },
+        style: {
+          stroke: e.relation === "conditional" ? "#a16207" : "#1d4ed8",
+          strokeWidth: 2,
+          strokeDasharray: e.relation === "conditional" ? "6 4" : undefined,
+        },
+        labelStyle: { fontSize: 12, fill: "#172b4d" },
+      })),
+    [drawn],
+  );
   return (
     <>
       <section className="wf-run">
         <div>
           <h2>자동 추출 후보</h2>
           <p>
-            실제 AI 모델 호출 없이 오프라인 추출합니다. 이 화면에서 요청한
-            작업의 상태를 확인할 수 있습니다.
+            실제 AI 모델 호출 없이 오프라인 추출합니다. 새로고침 후에도 같은
+            입력으로 작업을 요청하면 기존 작업을 다시 확인합니다. 기존 작업이
+            없으면 새 작업이 생성됩니다. 작업 목록 API는 제공되지 않습니다.
           </p>
         </div>
         <div className="wf-actions">
@@ -589,7 +710,10 @@ function Workspace({
       </section>
       {job && (
         <section className="wf-job" aria-live="polite">
-          <strong>{jobLabels[job.state]}</strong>
+          <strong>
+            {statusError ? "현재 상태 미확인" : jobLabels[job.state]}
+          </strong>
+          {statusError && <p role="status">{statusError}</p>}
           <span>
             시도 {job.attempt}/{job.max_attempts}
           </span>
@@ -598,7 +722,8 @@ function Workspace({
               사유: {job.error_code} · {job.error_category ?? "취소"}
             </p>
           )}
-          {job.state === "failed" &&
+          {!statusError &&
+            job.state === "failed" &&
             (job.error_category === "RETRYABLE" &&
             job.attempt < job.max_attempts ? (
               <Button onClick={() => void action("retry")} disabled={busy}>
@@ -610,11 +735,17 @@ function Workspace({
                 없습니다.
               </p>
             ))}
+          {job.state === "cancelled" && (
+            <p>
+              취소된 작업은 재개할 수 없습니다. 같은 입력 재요청도 기존 취소
+              작업을 반환합니다.
+            </p>
+          )}
           {["queued", "processing"].includes(job.state) && (
             <Button
               variant="secondary"
               onClick={() => void action("cancel")}
-              disabled={busy}
+              disabled={busy || !!statusError}
             >
               작업 취소
             </Button>
@@ -818,7 +949,11 @@ function Workspace({
                           <Button
                             variant="secondary"
                             onClick={() => selectStep(e.source)}
-                            disabled={!ids.has(e.source)}
+                            disabled={
+                              !candidate.steps.some(
+                                (step) => step.id === e.source,
+                              )
+                            }
                           >
                             출발 단계 근거
                           </Button>
@@ -845,6 +980,17 @@ function Workspace({
                       meta={meta}
                       client={client}
                       generation={generation}
+                      initialIndex={
+                        evidenceChoices.current.get(
+                          `${generation}:${candidate.id}:${step.id}`,
+                        ) ?? 0
+                      }
+                      onIndex={(index) =>
+                        evidenceChoices.current.set(
+                          `${generation}:${candidate.id}:${step.id}`,
+                          index,
+                        )
+                      }
                       candidate={candidate}
                       step={step}
                       issues={related}
@@ -921,7 +1067,11 @@ function EvidencePanel({
   issues,
   forms,
   onInvalid,
+  initialIndex,
+  onIndex,
 }: {
+  initialIndex: number;
+  onIndex: (index: number) => void;
   meta: Metadata;
   client: ReturnType<typeof createWorkflowClient>;
   generation: string;
@@ -933,17 +1083,21 @@ function EvidencePanel({
 }) {
   const [refs, setRefs] = useState<EvidenceRef[]>([]),
     [resolved, setResolved] = useState<Resolved | null>(null),
-    [index, setIndex] = useState(0),
+    [index, setIndex] = useState(initialIndex),
     [error, setError] = useState(""),
     [loading, setLoading] = useState(true),
     [pdf, setPdf] = useState(""),
-    [pdfBusy, setPdfBusy] = useState(false);
+    [pdfBusy, setPdfBusy] = useState(false),
+    [retryEvidence, setRetryEvidence] = useState(0);
   const panelAlive = useRef(true),
-    pdfRequest = useRef(false);
+    pdfRequest = useRef(false),
+    panelScope = useRef(new AbortController());
   useEffect(() => {
     panelAlive.current = true;
+    panelScope.current = new AbortController();
     return () => {
       panelAlive.current = false;
+      panelScope.current.abort();
     };
   }, []);
   const claims = [
@@ -962,6 +1116,7 @@ function EvidencePanel({
   useEffect(() => {
     const c = new AbortController();
     setLoading(true);
+    setError("");
     void client
       .evidence(candidate.id, c.signal)
       .then((v) => {
@@ -977,12 +1132,19 @@ function EvidencePanel({
       })
       .catch((e) => {
         if (!c.signal.aborted) {
-          setError(message(e));
-          onInvalid(e);
+          setLoading(false);
+          setError(
+            e instanceof ApiError &&
+              (e.status === 422 || e.code === "invalid_response")
+              ? "EvidenceRef 검증 실패 · 출처 또는 인용이 일치하지 않습니다."
+              : `EvidenceRef 미확인 · ${message(e)}`,
+          );
+          if (e instanceof ApiError && [401, 403, 404, 409].includes(e.status))
+            onInvalid(e);
         }
       });
     return () => c.abort();
-  }, [client, candidate.id, generation]);
+  }, [client, candidate.id, generation, retryEvidence]);
   const citation = citations[index];
   const ref = refs.find((r) => r.chunk_id === citation?.chunk_id);
   useEffect(() => {
@@ -1009,8 +1171,14 @@ function EvidencePanel({
       })
       .catch((e) => {
         if (!c.signal.aborted) {
-          setError(message(e));
-          onInvalid(e);
+          setError(
+            e instanceof ApiError &&
+              (e.status === 422 || e.code === "invalid_response")
+              ? "EvidenceRef 검증 실패 · 출처 또는 인용이 일치하지 않습니다."
+              : `EvidenceRef 미확인 · ${message(e)}`,
+          );
+          if (e instanceof ApiError && [401, 403, 404, 409].includes(e.status))
+            onInvalid(e);
         }
       })
       .finally(() => {
@@ -1033,7 +1201,9 @@ function EvidencePanel({
     pdfRequest.current = true;
     setPdfBusy(true);
     try {
-      const blob = await documentsClient.original(meta.document_id, meta.id);
+      const blob = await requestDeadline(panelScope.current.signal, (signal) =>
+        documentsClient.original(meta.document_id, meta.id, signal),
+      );
       if (panelAlive.current) setPdf(URL.createObjectURL(blob));
     } catch (e) {
       if (panelAlive.current) setError(message(e));
@@ -1069,6 +1239,7 @@ function EvidencePanel({
             aria-pressed={index === i}
             onClick={() => {
               setIndex(i);
+              onIndex(i);
               setPdf("");
             }}
           >
@@ -1080,7 +1251,10 @@ function EvidencePanel({
       {loading ? (
         <LoadingState message="EvidenceRef를 원본에서 다시 확인하고 있습니다." />
       ) : error ? (
-        <ErrorState message={error} />
+        <ErrorState
+          message={`${error} · EvidenceRef 미확인 또는 검증 실패. 원문을 표시하지 않습니다.`}
+          onRetry={() => setRetryEvidence((v) => v + 1)}
+        />
       ) : (
         resolved && (
           <>

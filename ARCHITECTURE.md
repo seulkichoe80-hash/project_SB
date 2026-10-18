@@ -240,3 +240,7 @@ workflow_jobs 서비스/SQLite adapter·독립 workflow_worker와 관리자 work
 ## Phase 2E-1 관리자 후보 검토
 
 apps/web의 lazy WorkflowPage는 기존 AuthContext·same-origin BFF와 Workflow9개 경로를 재사용한다. @xyflow/react12.12.0 지도와 목록/모바일 탭은 조회만 제공하고 저장 관계를 보정하지 않는다. 현재 canonical EvidenceRef를 서버 resolve로 재해결하고 원문/주장·ReviewIssue·서식 후보를 구별한다. 요청 scope/generation 검사와 abort/unmount로 오래된 응답을 폐기한다. backend 계약/DB는 변경하지 않는다. [UI 계약과 한계](docs/PHASE2E1_WORKFLOW_REVIEW.md)를 따른다.
+
+## Phase 2E-2A UI 조회 수명
+
+기존 API를 유지하면서 visible serial polling·10초 deadline·오류 backoff와 terminal 중단을 적용한다. 명시적 동일 입력 POST로 작업을 재확인하며 작업 목록/브라우저 민감 캐시는 만들지 않는다. 근거 선택은 현재 generation의 메모리에 한정하고 focus에서 서버 재검증한다. [조회·복구와 한계](docs/PHASE2E2A_UI_STABILITY.md)를 따른다.

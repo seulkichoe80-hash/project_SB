@@ -231,3 +231,7 @@ scripts/validation/check_stage4b2_ui.cjs는 공급자미설정·로그인/기관
 ## Phase 2E-1 관리자 후보·근거 UI
 
 FR-08/09/14/18·NFR-01/02/03/04/05 및 WEB-02/04/05/08의 이번 수직 범위는 [UI 계약](docs/PHASE2E1_WORKFLOW_REVIEW.md)을 따른다. 실제 API에서 생성한 합성 응답의 후보/상세·분기/보완/반복/표시 불가 관계·원문 재해결/XML/PDF 앵커·ReviewIssue/서식 상태, manager/reader/익명·기관/세대/안전 상태 위조, 오류/로딩/빈 상태·중복/재시도/취소·문서/작업/PDF 늦은 응답 폐기, 활성/해제 초기화, keyboard/focus/320~1440/100노드 및 실제 Chromium 캡처를 검사한다. 모의 브라우저와 별도 loopback BFF+독립 worker HTTP 통합을 구별한다. 기존 UI43과 전체 backend409를 새 실행한다. 의미 품질·native PDF/한컴 페이지·스크린 리더·운영 인증/HTTPS/배포는 미검증으로 유지한다. frozen lock 재설치 뒤 production 자산 해시 동일성도 기록한다.
+
+## Phase 2E-2A 업무지도 안정화
+
+[계약](docs/PHASE2E2A_UI_STABILITY.md)에 따라 새로고침 후 명시적 멱등 복구·terminal/hidden/logout 중단·timeout/429/5xx backoff·중복 요청/늦은 취소 상태 응답·권한/활성·다중 근거 선택과 실패 상태·100노드 참조 안정성을 검사한다. 변경 전 production bundle과 변경 후 bundle을 동일 Chromium virtual clock/합성 응답으로 비교하며 측정 시간을 실사용 시간으로 과장하지 않는다. 기존 UI80, loopback HTTP6 및 전체 backend409를 새 실행하고 타입/빌드를 확인한다. 실패한 중간 실행과 과거 증거를 보존하며 최종 소스의 결과를 따로 기록한다. 다음 세부 단계는 별도 승인 후 진행한다.

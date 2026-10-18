@@ -1,3 +1,4 @@
+import { requestDeadline } from "./requestDeadline";
 import { authMemory } from "../auth/AuthContext";
 import { ApiError } from "./documents";
 export type Citation = {
@@ -301,38 +302,40 @@ export function createWorkflowClient(
     method = "GET",
     body?: unknown,
   ): Promise<unknown> {
-    let res: Response;
-    try {
-      res = await transport(root + url, {
-        signal,
-        method,
-        credentials: "same-origin",
-        cache: "no-store",
-        redirect: "error",
-        ...(method !== "GET"
-          ? {
-              headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-Token": authMemory.csrf,
-              },
-              body: JSON.stringify(body ?? {}),
-            }
-          : {}),
-      });
-    } catch (e) {
-      if (signal.aborted) throw e;
-      throw new ApiError(0);
-    }
-    if (!res.ok) {
-      if (res.status === 401)
-        window.dispatchEvent(new Event("seomuitda-session-expired"));
-      throw new ApiError(res.status);
-    }
-    try {
-      return await res.json();
-    } catch {
-      throw new ApiError(500, "invalid_response");
-    }
+    return requestDeadline(signal, async (requestSignal) => {
+      let res: Response;
+      try {
+        res = await transport(root + url, {
+          signal: requestSignal,
+          method,
+          credentials: "same-origin",
+          cache: "no-store",
+          redirect: "error",
+          ...(method !== "GET"
+            ? {
+                headers: {
+                  "Content-Type": "application/json",
+                  "X-CSRF-Token": authMemory.csrf,
+                },
+                body: JSON.stringify(body ?? {}),
+              }
+            : {}),
+        });
+      } catch (e) {
+        if (requestSignal.aborted) throw e;
+        throw new ApiError(0);
+      }
+      if (!res.ok) {
+        if (res.status === 401)
+          window.dispatchEvent(new Event("seomuitda-session-expired"));
+        throw new ApiError(res.status);
+      }
+      try {
+        return await res.json();
+      } catch {
+        throw new ApiError(500, "invalid_response");
+      }
+    });
   }
   function checkJob(v: unknown, expectedId?: string): Job {
     if (
