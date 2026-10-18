@@ -1,0 +1,33 @@
+{
+  "base_commit": "3453eecd3f35f78ece116cb53399ba014f1151c9",
+  "branch": "feat/deployment-preflight",
+  "feature": "deployment preparation step 1 offline settings/preflight only",
+  "new_tests": 40,
+  "targeted_tests": {
+    "PASS": 40,
+    "seconds": 3.531
+  },
+  "full_backend": {
+    "PASS": 687,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "full_backend_tests": 687,
+  "full_backend_seconds": 214.3,
+  "guarded_runner_seconds": 215.706,
+  "cli_examples": 6,
+  "production_complete_settings": "VALID but BLOCKED, expected exit2",
+  "connectivity": "NOT_CHECKED",
+  "production_ready": false,
+  "external_network_attempts": 0,
+  "real_provider_calls": 0,
+  "paid_spend_usd": 0,
+  "tested_source_hash_mismatches": [],
+  "ui_build_typecheck": "NOT_RERUN; frontend/dependency hashes unchanged; prior evidence preserved, not a new PASS",
+  "human_review_completed": 0,
+  "preservation_commit_files": 70,
+  "original_previous_manifest_files": 68,
+  "minutes_since_preservation_commit": 8.4,
+  "note": "Elapsed excludes initial inspection/security review before preservation commit; overall time approximate in report"
+}

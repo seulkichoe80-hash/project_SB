@@ -509,3 +509,21 @@
 .wf-issue-code code {
   font-size: 11px;
 }
+
+/* Readable at 1x; initial mobile navigation uses the equivalent step list. */
+.wf-map-node strong {font-size:16px;}
+.wf-map-node small {font-size:14px;}
+.wf-node-caption {font-size:13px;letter-spacing:0;flex-wrap:wrap;gap:4px;}
+.wf-canvas .react-flow__controls-button {width:44px;height:44px;font-size:18px;}
+.wf-canvas .react-flow__edge-text {font-size:14px;}
+.workflow-page summary {min-height:44px;}
+.wf-issue-code summary {min-height:44px;}
+.wf-legend {font-size:14px;}
+@media(max-width:900px){
+  .wf-step-list button {flex-direction:column;align-items:flex-start;gap:8px;font-size:16px;line-height:1.6;}
+  .wf-step-list span {display:block;font-size:14px;flex-shrink:1;}
+  .wf-view-switch .button {min-height:44px;}
+  .wf-map-pane > details {padding:16px;}
+  .wf-actions .button {min-width:44px;white-space:normal;}
+  .wf-source-select select,.wf-candidate-bar select {min-width:0;max-width:100%;}
+}

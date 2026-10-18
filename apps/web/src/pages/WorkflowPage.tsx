@@ -71,10 +71,12 @@ function relationLabel(e: Edge) {
 function targets(i: Issue) {
   return i.target_ids ?? (i.target_id ? [i.target_id] : []);
 }
+type SourceProgress = { confirmed: number; total: number };
 type MapData = {
   step: Step;
   selected: boolean;
   count: number;
+  sourceConfirmed: boolean;
   select: (id: string) => void;
 };
 const StepNode = memo(function StepNode({ data }: NodeProps<Node<MapData>>) {
@@ -88,10 +90,13 @@ const StepNode = memo(function StepNode({ data }: NodeProps<Node<MapData>>) {
       >
         <span className="wf-node-caption">
           단계 후보{" "}
-          <span>{data.count ? `검토 ${data.count}` : "근거 미확인"}</span>
+          <span>{data.sourceConfirmed ? "출처 확인" : "근거 확인 필요"}</span>
         </span>
         <strong>{data.step.label.text}</strong>
-        <small>선택하여 근거 확인 →</small>
+        <small>
+          근거 보기 · 내용 검토 필요
+          {data.count > 0 ? ` · 검토 ${data.count}` : ""}
+        </small>
       </button>
       <Handle type="source" position={Position.Bottom} isConnectable={false} />
     </>
@@ -122,6 +127,14 @@ function MapControls() {
         −
       </ControlButton>
       <ControlButton
+        aria-label="선택 단계 크게 보기"
+        title="선택 단계 크게 보기"
+        onClick={() => {
+          const selected = flow.getNodes().find(n => n.data.selected);
+          if (selected) void flow.setCenter(selected.position.x + 130, selected.position.y + 100, { zoom: 1 });
+        }}
+      >가</ControlButton>
+      <ControlButton
         aria-label="전체 지도 보기"
         title="전체 지도 보기"
         onClick={() => void flow.fitView()}
@@ -147,6 +160,11 @@ function WorkflowPageContent() {
     [error, setError] = useState(""),
     [loading, setLoading] = useState(true),
     [terminalScope, setTerminalScope] = useState("");
+  const [entry, setEntry] = useState(() => {
+    const query = new URLSearchParams(window.location.hash.split('?')[1] ?? '');
+    return query.has('document') || query.has('version')
+      ? {document:query.get('document') ?? '', version:query.get('version') ?? ''} : null;
+  });
   const metadataFlight = useRef<AbortController | null>(null);
   const refresh = useCallback(
     async (signal: AbortSignal) => {
@@ -221,17 +239,23 @@ function WorkflowPageContent() {
     };
   }, [refresh, auth.user?.role]);
   useEffect(() => {
+    if (entry) {
+      const target = docs.find(d => d.document_id === entry.document && d.id === entry.version && d.active && d.registered && d.state === 'completed');
+      setDocumentId(target?.document_id ?? '');setVersionId(target?.id ?? '');
+      return;
+    }
     setDocumentId((current) =>
       docs.some((d) => d.document_id === current && d.active)
         ? current
         : (docs.find((d) => d.active)?.document_id ?? ""),
     );
-  }, [docs]);
+  }, [docs, entry]);
   const versions = docs.filter((d) => d.document_id === documentId);
   useEffect(() => {
+    if (entry) return;
     if (!versions.some((v) => v.id === versionId && v.active))
       setVersionId(versions.find((v) => v.active)?.id ?? "");
-  }, [docs, documentId, versionId]);
+  }, [docs, documentId, versionId, entry]);
   if (!auth.ready || !auth.user) return <LoginPanel />;
   if (auth.user.role !== "manager")
     return (
@@ -256,9 +280,13 @@ function WorkflowPageContent() {
         description="자동 추출 후보를 탐색하고, 단계마다 원문 근거와 검토 항목을 확인하세요."
       />
       <div className="wf-trust">
-        <StatusBadge tone="warning">담당자 검토 필요</StatusBadge>
-        <span>의미 검증 NOT_VERIFIED · 승인 NOT_REQUESTED</span>
-        <strong>공식 업무절차가 아닌 자동 추출 후보입니다.</strong>
+        <StatusBadge tone="warning">내용 검토 필요</StatusBadge>
+        <span>공식 절차가 아닌 자동 추출 후보입니다.</span>
+        <details>
+          <summary>검증 상태 상세</summary>
+          <p>semantic_verification=NOT_VERIFIED · approval=NOT_REQUESTED</p><p>관리자 승인·공식 게시 기능은 제공하지 않습니다.</p>
+        </details>
+
       </div>
       <section className="wf-source-select" aria-label="분석 대상 선택">
         <label>
@@ -268,6 +296,7 @@ function WorkflowPageContent() {
             aria-label="문서"
             value={documentId}
             onChange={(e) => {
+              setEntry(null);
               setDocumentId(e.target.value);
               setVersionId("");
             }}
@@ -309,6 +338,7 @@ function WorkflowPageContent() {
           현재 활성 버전만 검토합니다.
         </span>
       </section>
+      {entry && !loading && !docs.some(d=>d.document_id===entry.document&&d.id===entry.version&&d.active&&d.registered&&d.state==='completed') && <ErrorState message="이동한 문서·버전을 현재 활성 자료로 확인할 수 없습니다. 문서 관리에서 등록 상태와 활성 버전을 확인해 주세요." />}
       {error && (
         <ErrorState
           message={error}
@@ -371,6 +401,14 @@ function Workspace({
     [issues, setIssues] = useState<Issue[]>([]),
     [forms, setForms] = useState<FormLink[]>([]),
     [stepId, setStepId] = useState(""),
+    [sourceProgress, setSourceProgress] = useState<
+      | (SourceProgress & {
+          candidate: string;
+          generation: string;
+          step: string;
+        })
+      | null
+    >(null),
     [job, setJob] = useState<Job | null>(null),
     [statusError, setStatusError] = useState(""),
     [busy, setBusy] = useState(false),
@@ -378,7 +416,7 @@ function Workspace({
     [error, setError] = useState(""),
     [empty, setEmpty] = useState(false),
     [pane, setPane] = useState<"map" | "evidence">("map"),
-    [mode, setMode] = useState<"map" | "list">("map");
+    [mode, setMode] = useState<"map" | "list">(() => matchMedia("(max-width: 900px)").matches ? "list" : "map");
   const alive = useRef(true),
     scope = useRef(new AbortController()),
     mutation = useRef(false),
@@ -398,6 +436,7 @@ function Workspace({
   }, [job?.state, client]);
   const clear = () => {
     setCandidates([]);
+    setSourceProgress(null);
     setCandidate(null);
     setIssues([]);
     setForms([]);
@@ -598,6 +637,30 @@ function Workspace({
       if (alive.current) setBusy(false);
     }
   }
+  const onSourceProgress = useCallback(
+    (value: SourceProgress) => {
+      setSourceProgress((previous) =>
+        previous?.candidate === chosen &&
+        previous.generation === generation &&
+        previous.step === stepId &&
+        previous.confirmed === value.confirmed &&
+        previous.total === value.total
+          ? previous
+          : { ...value, candidate: chosen, generation, step: stepId },
+      );
+    },
+    [chosen, generation, stepId],
+  );
+  const sourceConfirmed = useCallback(
+    (id: string) =>
+      sourceProgress?.candidate === chosen &&
+      sourceProgress.generation === generation &&
+      sourceProgress.step === id &&
+      stepId === id &&
+      sourceProgress.total > 0 &&
+      sourceProgress.confirmed === sourceProgress.total,
+    [sourceProgress, chosen, generation, stepId],
+  );
   const step = candidate?.steps.find((s) => s.id === stepId);
   const selectStep = useCallback(
     (id: string) => {
@@ -651,15 +714,16 @@ function Workspace({
       candidate?.steps.map((s, index) => ({
         id: s.id,
         type: "step",
-        position: { x: (index % 2) * 340, y: Math.floor(index / 2) * 205 },
+        position: { x: (index % 2) * 340, y: Math.floor(index / 2) * 260 },
         data: {
           step: s,
           selected: s.id === stepId,
           count: issues.filter((i) => targets(i).includes(s.id)).length,
+          sourceConfirmed: sourceConfirmed(s.id),
           select: selectStep,
         },
       })) ?? [],
-    [candidate, stepId, issues, selectStep],
+    [candidate, stepId, issues, selectStep, sourceConfirmed],
   );
   const edges = useMemo(
     () =>
@@ -684,11 +748,8 @@ function Workspace({
       <section className="wf-run">
         <div>
           <h2>자동 추출 후보</h2>
-          <p>
-            실제 AI 모델 호출 없이 오프라인 추출합니다. 새로고침 후에도 같은
-            입력으로 작업을 요청하면 기존 작업을 다시 확인합니다. 기존 작업이
-            없으면 새 작업이 생성됩니다. 작업 목록 API는 제공되지 않습니다.
-          </p>
+          <p>실제 AI 모델 호출 없이 오프라인 추출합니다.</p>
+          <details><summary>작업·복구 안내</summary><p>새로고침 후에도 같은 입력으로 작업을 요청하면 기존 작업을 다시 확인합니다. 기존 작업이 없으면 새 작업이 생성됩니다. 작업 목록 API는 제공되지 않습니다.</p></details>
         </div>
         <div className="wf-actions">
           <Button
@@ -784,7 +845,7 @@ function Workspace({
             <span>
               <strong>{issues.length}</strong> 검토 항목
             </span>
-            <StatusBadge tone="warning">의미 검토 미완료</StatusBadge>
+            <StatusBadge tone="warning">내용 검토 필요</StatusBadge>
           </section>
           {!candidate ? (
             <LoadingState message="후보 상세와 검토 항목을 불러오고 있습니다." />
@@ -874,7 +935,8 @@ function Workspace({
                         nodesConnectable={false}
                         nodesFocusable={false}
                         edgesFocusable={false}
-                        fitView
+                        fitView={!matchMedia("(max-width: 900px)").matches}
+                        defaultViewport={{ x: 8, y: 12, zoom: 1 }}
                         minZoom={0.15}
                         maxZoom={2}
                       >
@@ -907,7 +969,12 @@ function Workspace({
                             onClick={() => selectStep(s.id)}
                           >
                             {s.label.text}
-                            <span>근거 확인 →</span>
+                            <span>
+                              {sourceConfirmed(s.id)
+                                ? "출처 확인"
+                                : "근거 확인 필요"}{" "}
+                              · 근거 보기 →
+                            </span>
                           </button>
                         </li>
                       ))}
@@ -961,7 +1028,7 @@ function Workspace({
                       ))
                     )}
                   </details>
-                  <details>
+                  <details open={issues.some(i => i.severity === "ERROR" || i.auto_block)}>
                     <summary>전체 검토 항목 ({issues.length})</summary>
                     <IssueList issues={issues} />
                   </details>
@@ -980,6 +1047,7 @@ function Workspace({
                       meta={meta}
                       client={client}
                       generation={generation}
+                      onProgress={onSourceProgress}
                       initialIndex={
                         evidenceChoices.current.get(
                           `${generation}:${candidate.id}:${step.id}`,
@@ -1067,9 +1135,11 @@ function EvidencePanel({
   issues,
   forms,
   onInvalid,
+  onProgress,
   initialIndex,
   onIndex,
 }: {
+  onProgress: (progress: SourceProgress) => void;
   initialIndex: number;
   onIndex: (index: number) => void;
   meta: Metadata;
@@ -1088,7 +1158,8 @@ function EvidencePanel({
     [loading, setLoading] = useState(true),
     [pdf, setPdf] = useState(""),
     [pdfBusy, setPdfBusy] = useState(false),
-    [retryEvidence, setRetryEvidence] = useState(0);
+    [retryEvidence, setRetryEvidence] = useState(0),
+    [checks, setChecks] = useState<Record<string, boolean>>({});
   const panelAlive = useRef(true),
     pdfRequest = useRef(false),
     panelScope = useRef(new AbortController());
@@ -1113,8 +1184,25 @@ function EvidencePanel({
         .map((c) => [`${c.chunk_id}:${c.block_id}:${c.start}:${c.end}`, c]),
     ).values(),
   ];
+  const citationKey = (c: Citation) =>
+    `${c.chunk_id}:${c.block_id}:${c.start}:${c.end}`;
+  const confirmed = Object.values(checks).filter(Boolean).length;
+  useEffect(() => {
+    onProgress({ confirmed, total: citations.length });
+  }, [checks, onProgress]);
+  const invalid = (e: unknown) =>
+    onInvalid(
+      e instanceof ApiError && e.status === 404
+        ? new Error(
+            "원문 근거를 찾을 수 없습니다. 문서의 등록 상태와 버전을 다시 확인해 주세요.",
+          )
+        : e,
+    );
   useEffect(() => {
     const c = new AbortController();
+    setRefs([]);
+    setResolved(null);
+    setChecks({});
     setLoading(true);
     setError("");
     void client
@@ -1136,11 +1224,11 @@ function EvidencePanel({
           setError(
             e instanceof ApiError &&
               (e.status === 422 || e.code === "invalid_response")
-              ? "EvidenceRef 검증 실패 · 출처 또는 인용이 일치하지 않습니다."
-              : `EvidenceRef 미확인 · ${message(e)}`,
+              ? "근거 검증 실패 · 원문 출처 또는 인용이 일치하지 않습니다."
+              : `근거 확인 필요 · ${message(e)}`,
           );
           if (e instanceof ApiError && [401, 403, 404, 409].includes(e.status))
-            onInvalid(e);
+            invalid(e);
         }
       });
     return () => c.abort();
@@ -1152,6 +1240,11 @@ function EvidencePanel({
     const c = new AbortController();
     setLoading(true);
     setResolved(null);
+    setChecks((previous) => {
+      const next = { ...previous };
+      delete next[citationKey(citation)];
+      return next;
+    });
     setError("");
     void client
       .resolve(ref, c.signal)
@@ -1168,17 +1261,21 @@ function EvidencePanel({
         )
           throw new ApiError(422);
         setResolved(v);
+        setChecks((previous) => ({
+          ...previous,
+          [citationKey(citation)]: true,
+        }));
       })
       .catch((e) => {
         if (!c.signal.aborted) {
           setError(
             e instanceof ApiError &&
               (e.status === 422 || e.code === "invalid_response")
-              ? "EvidenceRef 검증 실패 · 출처 또는 인용이 일치하지 않습니다."
-              : `EvidenceRef 미확인 · ${message(e)}`,
+              ? "근거 검증 실패 · 원문 출처 또는 인용이 일치하지 않습니다."
+              : `근거 확인 필요 · ${message(e)}`,
           );
           if (e instanceof ApiError && [401, 403, 404, 409].includes(e.status))
-            onInvalid(e);
+            invalid(e);
         }
       })
       .finally(() => {
@@ -1229,7 +1326,7 @@ function EvidencePanel({
       </ul>
       {step.deadline === null && (
         <p className="wf-muted">
-          기한은 미확정(null)입니다. 기한이 없다는 뜻이 아닙니다.
+          기한은 확인되지 않았습니다. 기한이 없다는 뜻은 아닙니다.
         </p>
       )}
       <div className="wf-evidence-picker">
@@ -1238,6 +1335,15 @@ function EvidencePanel({
             key={i}
             aria-pressed={index === i}
             onClick={() => {
+              if (i === index) return;
+              setResolved(null);
+              setLoading(true);
+              setError("");
+              setChecks((previous) => {
+                const next = { ...previous };
+                delete next[citationKey(c)];
+                return next;
+              });
               setIndex(i);
               onIndex(i);
               setPdf("");
@@ -1248,56 +1354,77 @@ function EvidencePanel({
           </button>
         ))}
       </div>
+      <p className="wf-muted">
+        내용 검토 필요 · 출처 확인은 업무 내용의 정확성이나 공식 승인을 뜻하지
+        않습니다.
+      </p>
+      <p className="wf-muted" aria-live="polite">
+        단계 근거 {citations.length}개 중 {confirmed}개 출처 확인
+        {confirmed < citations.length ? " · 나머지 근거 확인 필요" : ""}
+      </p>
       {loading ? (
-        <LoadingState message="EvidenceRef를 원본에서 다시 확인하고 있습니다." />
+        <>
+          <StatusBadge tone="warning">근거 확인 필요</StatusBadge>
+          <LoadingState message="원문 출처를 확인하고 있습니다." />
+        </>
       ) : error ? (
         <ErrorState
-          message={`${error} · EvidenceRef 미확인 또는 검증 실패. 원문을 표시하지 않습니다.`}
+          message={`${error} · 출처 확인이 완료되지 않아 원문을 표시하지 않습니다.`}
           onRetry={() => setRetryEvidence((v) => v + 1)}
         />
       ) : (
         resolved && (
           <>
-            <StatusBadge tone="info">EvidenceRef 구조·출처 확인</StatusBadge>
-            <p className="wf-muted">의미 정확성은 NOT_VERIFIED입니다.</p>
+            <StatusBadge tone="info">출처 확인</StatusBadge>
+
+            <details>
+              <summary>출처 확인 상세</summary>
+              <p>
+                EvidenceRef 구조·출처 확인 · semantic_verification=NOT_VERIFIED
+                · approval=NOT_REQUESTED
+              </p>
+            </details>
             <h3>근거 원문 텍스트</h3>
             <blockquote className="wf-original-quote">
               {citation.quote}
             </blockquote>
             <details>
-              <summary>인용 주변 구조화 원문</summary>
+              <summary>인용 주변 원문 보기</summary>
               <p className="wf-context">{block?.text}</p>
             </details>
             {anchor && (
-              <dl className="wf-anchor">
-                <dt>출처 유형</dt>
-                <dd>
-                  {block?.block_type} · {citation.block_id}
-                </dd>
-                {anchor.kind === "pdf" ? (
-                  <>
-                    <dt>PDF 위치</dt>
-                    <dd>
-                      페이지 {anchor.page} · 영역 {anchor.bbox?.join(", ")}
-                    </dd>
-                  </>
-                ) : (
-                  <>
-                    <dt>HWPX 구조 위치</dt>
-                    <dd>
-                      {anchor.part}
-                      <br />
-                      XML 경로 [{anchor.xml_path?.join(", ")}]<br />
-                      {anchor.tag}
-                    </dd>
-                  </>
-                )}
-              </dl>
+              <details>
+                <summary>원문 위치 상세</summary>
+                <dl className="wf-anchor">
+                  <dt>출처 유형</dt>
+                  <dd>
+                    {block?.block_type} · {citation.block_id}
+                  </dd>
+                  {anchor.kind === "pdf" ? (
+                    <>
+                      <dt>PDF 위치</dt>
+                      <dd>
+                        페이지 {anchor.page} · 영역 {anchor.bbox?.join(", ")}
+                      </dd>
+                    </>
+                  ) : (
+                    <>
+                      <dt>HWPX 구조 위치</dt>
+                      <dd>
+                        {anchor.part}
+                        <br />
+                        XML 경로 [{anchor.xml_path?.join(", ")}]<br />
+                        {anchor.tag}
+                      </dd>
+                    </>
+                  )}
+                </dl>
+              </details>
             )}
             {anchor?.kind === "hwpx" ? (
               <p className="wf-limitation">
-                HWPX 시각적 페이지와 한컴 읽기 순서는 검증되지 않았습니다.
-                구조화 텍스트와 XML 앵커만 표시합니다.
+                한컴 화면의 페이지·읽기 순서는 확인되지 않았습니다.
+                원문의 문단·표 위치를 표시합니다.
               </p>
             ) : (
               <>

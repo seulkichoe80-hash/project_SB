@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "source_generation_id": "76dd975e911ecb21119560f960cbe556af09b9ed5ce94da3653b780aa697657b",
+  "source_generation_sha256": "e2c2f1e75a661101a59b0dca6f0ce6f8c5f9777b21189c736cde24d709a1244b",
+  "diagnostic_counts": {
+    "DATA": 0,
+    "SCOPE": 0,
+    "TOKENIZATION": 36,
+    "RETRIEVAL": 0,
+    "EVALUATION": 4,
+    "UNKNOWN": 0
+  },
+  "fixed_context_questions": 40,
+  "fixed_context_chunks": {
+    "A": 49,
+    "B": 8
+  },
+  "fake_document_invocations": 7,
+  "human_review_completed": 0,
+  "human_review_pending": 40,
+  "goldset_status": "PROVISIONAL",
+  "semantic_accuracy_pass": false,
+  "actual_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "seconds": 35.369928957999946
+}

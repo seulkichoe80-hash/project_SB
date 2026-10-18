@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "blocked_external_attempts": 0,
+  "actual_provider_calls": 0,
+  "scope": "standalone final experiment; socket/DNS loopback-only guard",
+  "overlapped_own_test_suites": false
+}

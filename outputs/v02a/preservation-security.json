@@ -1,0 +1,23 @@
+{
+  "baseline_sha": "8986b912083876ccfd6dabb207a92cc33d00d1e5",
+  "tracked_files_checked": 405,
+  "missing": [],
+  "modified_existing_files": [
+    "TASKS.md",
+    "TEST_PLAN.md",
+    "apps/web/src/auth/AuthContext.tsx",
+    "apps/web/src/components/AppLayout.tsx",
+    "apps/web/src/pages/HomePage.tsx",
+    "apps/web/src/pages/WorkflowPage.tsx",
+    "scripts/validation/check_phase2e1_live.cjs",
+    "scripts/validation/check_phase2e1_ui.cjs",
+    "scripts/validation/check_phase2e2a_ui.cjs",
+    "scripts/validation/check_stage2_ui.cjs",
+    "scripts/validation/check_stage3_home.cjs",
+    "scripts/validation/check_v01_e2e.cjs"
+  ],
+  "original_fixtures_and_outputs_unchanged": true,
+  "backend_api_db_and_lockfiles_unchanged": true,
+  "credential_pattern_findings": [],
+  "note": "Pattern scan is not proof of absence of every possible secret or personal datum; new displays/fixtures reviewed as synthetic. Existing files and failed attempts retained."
+}

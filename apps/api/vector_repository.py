@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS vector_current(
 class SQLiteVectorStore:
     def __init__(self, repository):
         self.repo = repository
+        if getattr(repository, 'dialect', None) == 'postgresql':
+            return  # Versioned migrations own PostgreSQL DDL.
         with repository.transaction() as db:
             for statement in SCHEMA.split(';'):
                 if statement.strip():

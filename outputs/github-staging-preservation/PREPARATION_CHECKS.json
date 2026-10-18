@@ -1,0 +1,63 @@
+{
+  "local_offline_preflight": {
+    "environment": "local",
+    "role": "api",
+    "settings_status": "VALID",
+    "status": "LOCAL_CONTRACT_VALID",
+    "startup_allowed": true,
+    "production_ready": false,
+    "connectivity": "NOT_CHECKED",
+    "database_adapter": "POSTGRESQL_OPT_IN_IMPLEMENTED_NOT_CONNECTED",
+    "membership_verification": "SERVER_ACTIVE_SINGLE_CONTRACT_ONLY",
+    "jwt_verification": "FAKE_JWKS_IMPLEMENTED_NOT_CONNECTED",
+    "private_storage_adapter": "FAKE_ONLY_IMPLEMENTED_NOT_CONNECTED",
+    "runtime_wiring": "LOCAL_AND_FAKE_ONLY_IMPLEMENTED",
+    "proxy_boundary": "LOCAL_SIMULATION_NOT_VENDOR_VERIFIED",
+    "backup_restore_verification": "NOT_VERIFIED",
+    "issues": [],
+    "implementation_blockers": []
+  },
+  "missing_production_settings": {
+    "settings_status": "INVALID",
+    "status": "INVALID",
+    "startup_allowed": false,
+    "production_ready": false,
+    "connectivity": "NOT_CHECKED",
+    "issues": [
+      "missing_APP_ORIGIN",
+      "missing_APP_ROLE",
+      "missing_AUTH_PROVIDER",
+      "missing_BACKUP_STRATEGY",
+      "missing_CSRF_ENABLED",
+      "missing_DATABASE_BACKEND",
+      "missing_DATABASE_URL",
+      "missing_MEMBERSHIP_POLICY",
+      "missing_PAID_CALLS_APPROVED",
+      "missing_REAL_EMBEDDING_ENABLED",
+      "missing_REAL_LLM_ENABLED",
+      "missing_RESTORE_RPO_HOURS",
+      "missing_RESTORE_RTO_HOURS",
+      "missing_SAME_ORIGIN_PROXY",
+      "missing_SECURE_COOKIE",
+      "missing_STORAGE_BACKEND",
+      "missing_STORAGE_BUCKET",
+      "missing_STORAGE_PRIVATE",
+      "missing_STORAGE_PROJECT_URL",
+      "missing_STORAGE_SERVER_KEY",
+      "missing_SUPABASE_AUTH_API_KEY",
+      "missing_SUPABASE_PROJECT_URL",
+      "missing_TRUSTED_PROXY_HOPS"
+    ]
+  },
+  "code_owned_production_blockers": [
+    "postgresql_production_runtime_not_wired",
+    "private_storage_production_transport_not_wired",
+    "production_auth_runtime_and_operator_provisioning_not_verified",
+    "vercel_render_edge_trust_limits_and_https_not_verified",
+    "worker_cloud_runtime_not_implemented",
+    "coordinated_backup_restore_not_verified"
+  ],
+  "runbook_relative_links": "PASS",
+  "external_connections": 0,
+  "prior_tests": "REVIEWED_NOT_NEW_PASS"
+}

@@ -1,0 +1,23 @@
+{
+  "exit_code": 2,
+  "result": {
+    "environment": "production",
+    "role": "api",
+    "settings_status": "VALID",
+    "status": "BLOCKED",
+    "startup_allowed": false,
+    "production_ready": false,
+    "connectivity": "NOT_CHECKED",
+    "membership_verification": "SERVER_ACTIVE_SINGLE_CONTRACT_ONLY",
+    "backup_restore_verification": "NOT_VERIFIED",
+    "issues": [],
+    "implementation_blockers": [
+      "postgresql_repository_auth_jobs_budget_not_implemented",
+      "private_object_storage_adapter_not_implemented",
+      "production_auth_membership_bootstrap_not_implemented",
+      "proxy_limits_and_headers_not_verified",
+      "worker_cloud_runtime_not_implemented",
+      "coordinated_backup_restore_not_verified"
+    ]
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "scope": "Stage4A Feature Gate: mocked browser HTTP and client contracts; NOT real FastAPI integration",
+  "results": [
+    {
+      "name": "PDF/HWPX extension, signature, size and path validation",
+      "status": "PASS",
+      "seconds": 0.01850928099999999
+    },
+    {
+      "name": "raw body and classification, encoded filename, no token or tenant headers",
+      "status": "PASS",
+      "seconds": 0.005249725000000012
+    },
+    {
+      "name": "all client endpoint methods and segment escaping",
+      "status": "PASS",
+      "seconds": 0.004370670000000018
+    },
+    {
+      "name": "401/403/404/409/422/500/503/network errors distinguished",
+      "status": "PASS",
+      "seconds": 0.001957129999999893
+    },
+    {
+      "name": "malformed list/detail and wrong version rejected",
+      "status": "PASS",
+      "seconds": 0.0012950970000000553
+    },
+    {
+      "name": "loading and version list",
+      "status": "PASS",
+      "seconds": 0.5412215939999999
+    },
+    {
+      "name": "invalid upload blocks submission",
+      "status": "PASS",
+      "seconds": 0.03655610999999999
+    },
+    {
+      "name": "raw upload only after declaration and duplicate click guard",
+      "status": "PASS",
+      "seconds": 0.346324693
+    },
+    {
+      "name": "detail version and parsing not AI, safe filename display",
+      "status": "PASS",
+      "seconds": 0.12003839599999992
+    },
+    {
+      "name": "switch version using server detail, React escapes document filename",
+      "status": "PASS",
+      "seconds": 0.25465473599999994
+    },
+    {
+      "name": "parsing retry and chunk request/status/retry",
+      "status": "PASS",
+      "seconds": 0.27488744300000006
+    },
+    {
+      "name": "original download binary",
+      "status": "PASS",
+      "seconds": 0.06930628799999977
+    },
+    {
+      "name": "dialog cancel/escape restores focus, no delete",
+      "status": "PASS",
+      "seconds": 0.07559798499999988
+    },
+    {
+      "name": "320/375/768/1440 layout and keyboard focus",
+      "status": "PASS",
+      "seconds": 0.5894704530000003
+    },
+    {
+      "name": "deregister confirmed once removes list, retains original meaning",
+      "status": "PASS",
+      "seconds": 0.1310366240000003
+    },
+    {
+      "name": "empty distinct from permission and server error",
+      "status": "PASS",
+      "seconds": 1.0538862580000004
+    },
+    {
+      "name": "no JS errors or unexpected external requests",
+      "status": "PASS",
+      "seconds": 0.00011786599999959435
+    }
+  ],
+  "counts": {
+    "PASS": 17,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "elapsed_seconds": 4.394001008,
+  "calls": [
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "POST"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v1",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v1/parsing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/parsing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v1",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v1/parsing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/parsing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/parsing/retry",
+      "method": "POST"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/parsing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/chunk-jobs",
+      "method": "POST"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/parsing",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/chunk-jobs/c1",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/chunk-jobs/c1/retry",
+      "method": "POST"
+    },
+    {
+      "path": "/api/documents/doc-1/versions/v2/original",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents/doc-1",
+      "method": "DELETE"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    }
+  ],
+  "not_run": [
+    "real authenticated integration",
+    "screen reader",
+    "native zoom",
+    "real FastAPI browser HTTP"
+  ]
+}

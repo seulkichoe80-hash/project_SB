@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "backend": {
+    "PASS": 642,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "new_backend_tests": 24,
+  "existing_backend_tests": 618,
+  "ui_pass": 174,
+  "baseline_actual_http_pass": 13,
+  "new_API_HTTP_assertion_groups": 11,
+  "new_API_queries": 40,
+  "API_repeats": 3,
+  "test_preparation": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "--prefix",
+        "apps/web",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "seconds": 0.801
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "--prefix",
+        "apps/web",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "seconds": 1.152
+    },
+    {
+      "name": "generate-synthetic-api-fixture",
+      "command": [
+        "/workspace/project_SB/.venv/bin/python",
+        "-B",
+        "scripts/validation/build_phase2e1_fixture.py",
+        "--output",
+        "/workspace/project_SB/work/v03d/full/browser-fixture.json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.261
+    }
+  ],
+  "full_runner_seconds": 253.978,
+  "backend_seconds": 247.608,
+  "API_benchmark_seconds": 22.75498397299816,
+  "targeted_seconds": 14.905,
+  "initial_final_API_rankings_identical": true,
+  "feature_default": "literal; flag0/absent",
+  "opt_in_requires": "server flag1 and strategy=scored_or",
+  "product_API_response_shape_preserved": true,
+  "tested_source_hashes_match": true,
+  "actual_external_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "elapsed_seconds": 914.9
+}

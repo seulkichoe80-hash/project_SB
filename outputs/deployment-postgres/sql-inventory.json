@@ -1,0 +1,1979 @@
+{
+  "scope": "All matching Python AST calls under apps/api; includes non-SQL execute/HTTP connect false positives, dynamic SQL callsites retained.",
+  "calls": [
+    {
+      "file": "apps/api/auth.py",
+      "line": 81,
+      "operation": "transaction",
+      "receiver": "self.store",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 82,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "DELETE FROM auth_challenges WHERE expires<?"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 83,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT INTO auth_challenges VALUES(?,?,?)"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 91,
+      "operation": "transaction",
+      "receiver": "self.store",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 92,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM auth_challenges WHERE nonce_hash=?"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 95,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "DELETE FROM auth_challenges WHERE nonce_hash=?"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 97,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM auth_login_limits WHERE client_hash=?"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 102,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT OR REPLACE INTO auth_login_limits VALUES(?,?,?)"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 106,
+      "operation": "transaction",
+      "receiver": "self.store",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 109,
+      "operation": "transaction",
+      "receiver": "self.store",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 110,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM identities WHERE issuer=? AND subject=? AND active=1"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 112,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT m.*,o.name FROM memberships m\n              JOIN organizations o ON o.id=m.institution_id WHERE user_id=? AND m.active=1\n              AND o.active=1 ORDER BY m.institution_id"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 119,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT INTO sessions(sid_hash,user_id,institution_id,csrf_hash,expires,touched) VALUES(?,?,?,?,?,?)"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 123,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE sessions SET revoked=1 WHERE sid_hash=?"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 139,
+      "operation": "transaction",
+      "receiver": "self.store",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 140,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT s.*,m.role,m.institution_admin,o.name FROM sessions s\n              JOIN identities i ON i.id=s.user_id AND i.active=1\n              JOIN memberships m ON m.user_id=s.user_id AND m.institution_id=s.institution_id AND m.active=1\n              JOIN organizations o ON o.id=s.institution_id AND o.active=1\n              WHERE s.sid_hash=? AND s.revoked=0"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 152,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE sessions SET touched=? WHERE sid_hash=?"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 163,
+      "operation": "transaction",
+      "receiver": "self.store",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 164,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE sessions SET revoked=1 WHERE sid_hash=?"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 175,
+      "operation": "transaction",
+      "receiver": "self.store",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 176,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT user_id,role,active,institution_admin FROM memberships WHERE institution_id=?"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 185,
+      "operation": "transaction",
+      "receiver": "self.store",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 186,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM memberships WHERE user_id=? AND institution_id=?"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 189,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT COUNT(*) FROM memberships WHERE institution_id=? AND active=1 AND institution_admin=1"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 193,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE memberships SET role=?,active=?,institution_admin=? WHERE user_id=? AND institution_id=?"
+    },
+    {
+      "file": "apps/api/auth.py",
+      "line": 195,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE sessions SET revoked=1 WHERE user_id=? AND institution_id=?"
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 20,
+      "operation": "connect",
+      "receiver": "sqlite3",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 21,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT 1 FROM sqlite_master WHERE name='identities'"
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 25,
+      "operation": "backup",
+      "receiver": "db",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 25,
+      "operation": "connect",
+      "receiver": "sqlite3",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 26,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "PRAGMA foreign_keys=ON"
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 26,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "BEGIN IMMEDIATE"
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 28,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 33,
+      "operation": "connect",
+      "receiver": "sqlite3",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 33,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "PRAGMA foreign_keys=ON"
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 33,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "BEGIN IMMEDIATE"
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 38,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT INTO auth_audit_events(at,action,user_id,institution_id,outcome) VALUES(?,?,?,?,?)"
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 42,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 43,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT id FROM identities WHERE issuer=? AND subject=?"
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 45,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT OR IGNORE INTO identities(id,issuer,subject) VALUES(?,?,?)"
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 46,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT OR IGNORE INTO organizations(id,name) VALUES(?,?)"
+    },
+    {
+      "file": "apps/api/auth_store.py",
+      "line": 47,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT INTO memberships(user_id,institution_id,role,institution_admin) VALUES(?,?,?,?) ON CONFLICT(user_id,institution_id) DO UPDATE SET role=excluded.role,institution_admin=excluded.institution_admin"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 29,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT * FROM chunk_jobs WHERE id=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 32,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT * FROM chunk_jobs WHERE version_id=? AND parse_job_id=? AND parse_attempt=? AND config=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 38,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT COALESCE(MAX(generation),0)+1 FROM chunk_jobs WHERE version_id=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 40,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "INSERT INTO chunk_jobs(id,version_id,parse_job_id,parse_attempt,config,input_hash,generation,state,created_at)\n            VALUES (?,?,?,?,?,?,?,'queued',?)"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 45,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT j.* FROM chunk_jobs j JOIN versions v ON v.id=j.version_id\n            JOIN documents d ON d.id=v.document_id WHERE d.institution_id=? AND d.registered=1\n            AND j.state='processing' AND j.lease_until<=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 50,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE chunk_jobs SET state=?,claim_hash=NULL,lease_until=NULL,error_code='lease_expired' WHERE id=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 54,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT j.*,v.document_id,v.sha256,d.institution_id FROM chunk_jobs j\n            JOIN versions v ON v.id=j.version_id JOIN documents d ON d.id=v.document_id\n            WHERE d.institution_id=? AND d.registered=1 AND j.state='queued' ORDER BY j.created_at,j.id LIMIT 1"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 59,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE chunk_jobs SET state='processing',attempt=attempt+1,claim_hash=?,lease_until=?,error_code=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 64,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT j.id FROM chunk_jobs j JOIN versions v ON v.id=j.version_id\n            JOIN documents d ON d.id=v.document_id WHERE j.id=? AND j.attempt=? AND j.claim_hash=?\n            AND j.state='processing' AND j.lease_until>? AND j.version_id=? AND v.document_id=?\n            AND d.registered=1 AND d.institution_id=? AND v.sha256=?\n            AND j.config=? AND j.input_hash=? AND j.parse_job_id=? AND j.parse_attempt=? AND j.generation=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 74,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE chunk_jobs SET state='queued',claim_hash=NULL,lease_until=NULL,error_code=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 80,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "INSERT INTO chunk_items VALUES (?,?,?,?,?)"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 81,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE chunk_jobs SET state='completed',claim_hash=NULL,lease_until=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 82,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT j.generation FROM chunk_current c JOIN chunk_jobs j ON j.id=c.job_id WHERE c.version_id=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 84,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "INSERT INTO chunk_current VALUES (?,?) ON CONFLICT(version_id) DO UPDATE SET job_id=excluded.job_id"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 88,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE chunk_jobs SET state='failed',error_code=?,claim_hash=NULL,lease_until=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 91,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT j.* FROM chunk_current c JOIN chunk_jobs j ON j.id=c.job_id WHERE c.version_id=?"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 94,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT payload FROM chunk_items WHERE job_id=? ORDER BY order_index"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 97,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT 1 FROM chunk_jobs WHERE version_id=? LIMIT 1"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 100,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE chunk_jobs SET state='cancelled',claim_hash=NULL,lease_until=NULL WHERE version_id IN (SELECT id FROM versions WHERE document_id=?)"
+    },
+    {
+      "file": "apps/api/chunk_repository.py",
+      "line": 105,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 40,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 46,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 58,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 68,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 74,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 85,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 96,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 104,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 123,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 143,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 186,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_service.py",
+      "line": 197,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/chunk_worker.py",
+      "line": 28,
+      "operation": "execute",
+      "receiver": "service",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/main.py",
+      "line": 122,
+      "operation": "transaction",
+      "receiver": "service.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 36,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT * FROM parse_jobs WHERE version_id=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 39,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "INSERT OR IGNORE INTO parse_jobs(id,version_id,state,created_at,updated_at)\n            VALUES (?,?,'queued',?,?)"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 46,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT v.id FROM versions v JOIN documents d ON d.id=v.document_id\n            WHERE d.registered=1 AND NOT EXISTS(SELECT 1 FROM parse_jobs j WHERE j.version_id=v.id)"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 51,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "INSERT INTO events(version_id,action,actor,created_at) VALUES (?,?,?,?)"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 55,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE versions SET state=?,revision=revision+1,claim_hash=? WHERE id=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 59,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_jobs SET state='queued',claim_hash=NULL,lease_until=NULL,error_code=NULL,updated_at=? WHERE id=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 64,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT j.* FROM parse_jobs j JOIN versions v ON v.id=j.version_id\n            JOIN documents d ON d.id=v.document_id WHERE d.institution_id=? AND d.registered=1\n            AND j.state='processing' AND j.lease_until<=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 69,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_attempts SET state='expired',finished_at=?,error_code='lease_expired' WHERE job_id=? AND attempt=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 71,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_jobs SET state=?,claim_hash=NULL,lease_until=NULL,\n                error_code='lease_expired',updated_at=? WHERE id=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 77,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT j.*,v.document_id,v.sha256,v.format FROM parse_jobs j\n            JOIN versions v ON v.id=j.version_id JOIN documents d ON d.id=v.document_id\n            WHERE d.institution_id=? AND d.registered=1 AND j.state='queued'\n            ORDER BY j.created_at,j.id LIMIT 1"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 84,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_jobs SET state='processing',attempt=?,claim_hash=?,lease_until=?,\n            error_code=NULL,updated_at=? WHERE id=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 86,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "INSERT INTO parse_attempts VALUES (?,?,'processing',?,NULL,NULL)"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 91,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT j.* FROM parse_jobs j JOIN versions v ON v.id=j.version_id\n            JOIN documents d ON d.id=v.document_id WHERE j.id=? AND j.attempt=? AND j.claim_hash=?\n            AND j.state='processing' AND j.lease_until>? AND d.registered=1\n            AND j.version_id=? AND v.document_id=? AND v.sha256=? AND v.format=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 102,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_jobs SET lease_until=?,updated_at=? WHERE id=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 108,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "INSERT INTO source_blocks VALUES (?,?,?,?,?,?,?)"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 111,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_attempts SET state='completed',finished_at=? WHERE job_id=? AND attempt=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 113,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_jobs SET state='completed',parser_method=?,claim_hash=NULL,\n            lease_until=NULL,error_code=NULL,updated_at=? WHERE id=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 118,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_attempts SET state='failed',finished_at=?,error_code=? WHERE job_id=? AND attempt=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 120,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_jobs SET state='failed',error_code=?,claim_hash=NULL,\n            lease_until=NULL,updated_at=? WHERE id=?"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 125,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_attempts SET state='cancelled',finished_at=?\n            WHERE state='processing' AND job_id IN (SELECT j.id FROM parse_jobs j\n            JOIN versions v ON v.id=j.version_id WHERE v.document_id=?)"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 128,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "UPDATE parse_jobs SET state='cancelled',claim_hash=NULL,lease_until=NULL,updated_at=?\n            WHERE version_id IN (SELECT id FROM versions WHERE document_id=?)"
+    },
+    {
+      "file": "apps/api/parsing_repository.py",
+      "line": 132,
+      "operation": "execute",
+      "receiver": "self.db",
+      "sql_literal": "SELECT b.payload FROM source_blocks b\n            JOIN parse_jobs j ON j.id=b.job_id AND j.attempt=b.attempt\n            WHERE j.version_id=? AND j.state='completed' ORDER BY b.order_index"
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 30,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 42,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 53,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 63,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 72,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 77,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 84,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 94,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 105,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 114,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/parsing_service.py",
+      "line": 129,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 87,
+      "operation": "execute",
+      "receiver": "cursor",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 116,
+      "operation": "connect",
+      "receiver": "psycopg",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 123,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 124,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SET LOCAL lock_timeout='10s'"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 125,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SET LOCAL statement_timeout='30s'"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 133,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT pg_advisory_xact_lock(%s)"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 134,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 136,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "CREATE TABLE IF NOT EXISTS migrations(version INTEGER PRIMARY KEY, kind TEXT NOT NULL, checksum TEXT NOT NULL)"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 137,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM migrations ORDER BY version"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 143,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT table_name FROM information_schema.tables WHERE table_schema=%s"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 145,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 146,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "CREATE TABLE transaction_guard(id INTEGER PRIMARY KEY CHECK(id=1))"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 147,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT INTO transaction_guard VALUES(1)"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 148,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT INTO migrations VALUES(1,%s,%s)"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 157,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM migrations ORDER BY version"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 161,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT name,version FROM schema_extensions"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 173,
+      "operation": "execute",
+      "receiver": "raw",
+      "sql_literal": "SELECT id FROM transaction_guard WHERE id=1 FOR UPDATE"
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 190,
+      "operation": "transaction",
+      "receiver": "self.database",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 199,
+      "operation": "transaction",
+      "receiver": "self.database",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/postgres.py",
+      "line": 208,
+      "operation": "transaction",
+      "receiver": "self.database",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 112,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 113,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT name FROM sqlite_master WHERE type='table'"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 117,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT version FROM provider_budget_meta"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 121,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 123,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT INTO provider_budget_meta VALUES(1)"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 127,
+      "operation": "connect",
+      "receiver": "sqlite3",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 130,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "PRAGMA foreign_keys=ON"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 131,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "BEGIN IMMEDIATE"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 152,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 153,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT cap FROM provider_budget_accounts WHERE institution=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 156,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT OR IGNORE INTO provider_budget_accounts(institution,cap) VALUES(?,?)"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 161,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 162,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_jobs WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 165,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT cap FROM provider_budget_accounts WHERE institution=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 168,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT OR IGNORE INTO provider_budget_jobs(institution,id,cap) VALUES(?,?,?)"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 171,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_requests WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 183,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_accounts SET held=held+?,spent=spent+? WHERE institution=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 185,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_jobs SET held=held+?,spent=spent+? WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 187,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_requests SET held=held+?,spent=spent+? WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 189,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT INTO provider_budget_events(institution,job,request,kind,delta_held,delta_spent,created) VALUES(?,?,?,?,?,?,?)"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 198,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 199,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_requests WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 207,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_accounts WHERE institution=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 208,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_jobs WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 215,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT INTO provider_budget_requests(institution,id,job,fingerprint,owner_hash,state,held,\n                max_input,max_output,input_rate,output_rate,attempt_limit,request_cap,per_attempt,expires)\n                VALUES(?,?,?,?,?,'reserved',0,?,?,?,?,?,?,?,?)"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 225,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 230,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_requests SET state='in_flight',attempts=?,expires=? WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 232,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "INSERT INTO provider_budget_attempts(institution,request,number,state) VALUES(?,?,?,'in_flight')"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 246,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 249,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_attempts WHERE institution=? AND request=? AND number=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 259,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_attempts SET state='settled',inputs=?,outputs=?,charge=?,receipt_hash=? WHERE institution=? AND request=? AND number=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 261,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_requests SET state='reserved' WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 267,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 274,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_requests SET state=? WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 282,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_requests SET state='uncertain' WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 283,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_attempts SET state='unknown' WHERE institution=? AND request=? AND number=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 288,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 296,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_requests SET state='cancelled' WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 300,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 305,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 306,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_jobs WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 308,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_jobs SET cancelled=1 WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 309,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_requests WHERE institution=? AND job=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 314,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 315,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_requests WHERE institution=? AND expires<=? AND state IN ('reserved','in_flight')"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 322,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 325,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_attempts WHERE institution=? AND request=? AND number=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 330,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_attempts SET state='reconciled',inputs=?,outputs=?,charge=?,receipt_hash=? WHERE institution=? AND request=? AND number=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 332,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "UPDATE provider_budget_requests SET state='reconciled' WHERE institution=? AND id=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 336,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 341,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 342,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_accounts WHERE institution=?"
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 348,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/provider_budget.py",
+      "line": 349,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "SELECT * FROM provider_budget_events WHERE institution=? ORDER BY sequence"
+    },
+    {
+      "file": "apps/api/rag_service.py",
+      "line": 26,
+      "operation": "transaction",
+      "receiver": "self.chunks.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/rag_service.py",
+      "line": 35,
+      "operation": "transaction",
+      "receiver": "self.chunks.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/rag_service.py",
+      "line": 43,
+      "operation": "transaction",
+      "receiver": "self.chunks.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 16,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "SELECT * FROM documents WHERE id=? AND institution_id=?"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 20,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "SELECT * FROM versions WHERE id=? AND document_id=?"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 25,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "SELECT * FROM versions WHERE document_id=? AND sha256=?"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 27,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "SELECT v.* FROM versions v JOIN documents d ON d.id=v.document_id\n            WHERE d.institution_id=? AND d.registered=1 AND v.sha256=? ORDER BY v.created_at LIMIT 1"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 32,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "INSERT INTO upload_intents VALUES (?,?,?,?,?)"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 36,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "UPDATE upload_intents SET status=?,version_id=? WHERE id=? AND status='pending'"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 40,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "INSERT INTO documents VALUES (?,?,1,NULL,?)"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 43,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "SELECT COALESCE(MAX(number),0)+1 FROM versions WHERE document_id=?"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 45,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "INSERT INTO versions\n            (id,document_id,number,original_name,size,mime,format,sha256,created_at,actor,state)\n            VALUES (?,?,?,?,?,?,?,?,?,?, 'registered')"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 51,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "INSERT INTO events(version_id,action,actor,created_at) VALUES (?,?,?,?)"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 55,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "SELECT * FROM documents WHERE institution_id=? AND registered=1"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 59,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "SELECT * FROM versions WHERE document_id=? ORDER BY number"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 63,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "UPDATE versions SET state=?,revision=revision+1,claim_hash=? WHERE id=?"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 67,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "UPDATE documents SET active_version_id=? WHERE id=?"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 70,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "UPDATE documents SET registered=0,active_version_id=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 71,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "INSERT INTO events(version_id,action,actor,created_at)\n            SELECT id,'deregistered',?,? FROM versions WHERE document_id=?"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 75,
+      "operation": "execute",
+      "receiver": "self.connection",
+      "sql_literal": "SELECT id,status FROM upload_intents WHERE status!='committed'"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 83,
+      "operation": "transaction",
+      "receiver": "self",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 85,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "PRAGMA user_version"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 87,
+      "operation": "executescript",
+      "receiver": "db",
+      "sql_literal": "\n            CREATE TABLE IF NOT EXISTS documents (\n              id TEXT PRIMARY KEY, institution_id TEXT NOT NULL,\n              registered INTEGER NOT NULL DEFAULT 1, active_version_id TEXT,\n              created_at TEXT NOT NULL,\n              FOREIGN KEY(active_version_id) REFERENCES versions(id));\n            CREATE TABLE IF NOT EXISTS versions (\n              id TEXT PRIMARY KEY, document_id TEXT NOT NULL REFERENCES documents(id),\n              number INTEGER NOT NULL, original_name TEXT NOT NULL,\n              size INTEGER NOT NULL, mime TEXT NOT NULL, format TEXT NOT NULL,\n              sha256 TEXT NOT NULL, created_at TEXT NOT NULL, actor TEXT NOT NULL,\n              state TEXT NOT NULL CHECK(state IN ('registered','queued','processing','completed','failed')),\n              revision INTEGER NOT NULL DEFAULT 0, claim_hash TEXT,\n              UNIQUE(document_id, number), UNIQUE(document_id,sha256));\n            CREATE TABLE IF NOT EXISTS upload_intents (\n              id TEXT PRIMARY KEY, institution_id TEXT NOT NULL, status TEXT NOT NULL,\n              version_id TEXT, created_at TEXT NOT NULL);\n            CREATE TABLE IF NOT EXISTS events (\n              id INTEGER PRIMARY KEY, version_id TEXT NOT NULL REFERENCES versions(id),\n              action TEXT NOT NULL, actor TEXT NOT NULL, created_at TEXT NOT NULL);\n            "
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 109,
+      "operation": "executescript",
+      "receiver": "db",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 111,
+      "operation": "executescript",
+      "receiver": "db",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 115,
+      "operation": "connect",
+      "receiver": "sqlite3",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 117,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "PRAGMA foreign_keys=ON"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 118,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "PRAGMA busy_timeout=10000"
+    },
+    {
+      "file": "apps/api/repository.py",
+      "line": 120,
+      "operation": "execute",
+      "receiver": "db",
+      "sql_literal": "BEGIN IMMEDIATE"
+    },
+    {
+      "file": "apps/api/scored_search.py",
+      "line": 13,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT i.payload,i.search_text FROM chunk_items i\n          JOIN chunk_current c ON c.job_id=i.job_id JOIN chunk_jobs j ON j.id=c.job_id\n          JOIN versions v ON v.id=c.version_id JOIN documents d ON d.id=v.document_id\n          JOIN parse_jobs p ON p.id=j.parse_job_id AND p.attempt=j.parse_attempt AND p.version_id=v.id\n          WHERE d.institution_id=? AND d.registered=1 AND d.active_version_id=v.id\n          AND j.state='completed' AND p.state='completed'\n          ORDER BY d.created_at,v.id,i.order_index"
+    },
+    {
+      "file": "apps/api/service.py",
+      "line": 52,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/service.py",
+      "line": 67,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/service.py",
+      "line": 91,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/service.py",
+      "line": 97,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/service.py",
+      "line": 107,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/service.py",
+      "line": 121,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/service.py",
+      "line": 147,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/service.py",
+      "line": 164,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/service.py",
+      "line": 173,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 24,
+      "operation": "transaction",
+      "receiver": "repository",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 27,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 31,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT i.job_id,i.chunk_id,i.payload FROM chunk_items i\n            JOIN chunk_current c ON c.job_id=i.job_id JOIN chunk_jobs j ON j.id=c.job_id\n            JOIN versions v ON v.id=c.version_id JOIN documents d ON d.id=v.document_id\n            JOIN parse_jobs p ON p.id=j.parse_job_id AND p.attempt=j.parse_attempt\n            WHERE d.institution_id=? AND d.registered=1 AND d.active_version_id=v.id\n            AND j.state='completed' AND p.state='completed'\n            ORDER BY i.job_id,i.chunk_id"
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 43,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 46,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT * FROM vector_generations WHERE id=?"
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 48,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO vector_generations VALUES (?,?,?,?)"
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 51,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO vector_items VALUES (?,?,?,?,?)"
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 53,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO vector_current VALUES (?,?) ON CONFLICT(organization_id) DO UPDATE SET generation_id=excluded.generation_id"
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 57,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 58,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT g.* FROM vector_current c JOIN vector_generations g ON g.id=c.generation_id\n                WHERE c.organization_id=? AND g.organization_id=?"
+    },
+    {
+      "file": "apps/api/vector_repository.py",
+      "line": 66,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT * FROM vector_items WHERE generation_id=?"
+    },
+    {
+      "file": "apps/api/worker.py",
+      "line": 28,
+      "operation": "execute",
+      "receiver": "service",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_forms.py",
+      "line": 43,
+      "operation": "transaction",
+      "receiver": "self.documents.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_forms.py",
+      "line": 52,
+      "operation": "transaction",
+      "receiver": "self.documents.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_forms_repository.py",
+      "line": 9,
+      "operation": "transaction",
+      "receiver": "repository",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_forms_repository.py",
+      "line": 10,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "CREATE TABLE IF NOT EXISTS workflow_form_catalog (\n                institution_id TEXT NOT NULL,\n                document_id TEXT NOT NULL REFERENCES documents(id),\n                version_id TEXT NOT NULL REFERENCES versions(id),\n                title TEXT NOT NULL, purpose TEXT NOT NULL,\n                revision INTEGER NOT NULL CHECK(revision>0),\n                PRIMARY KEY(institution_id,document_id))"
+    },
+    {
+      "file": "apps/api/workflow_forms_repository.py",
+      "line": 20,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO workflow_form_catalog VALUES (?,?,?,?,?,1)\n            ON CONFLICT(institution_id,document_id) DO UPDATE SET\n            version_id=excluded.version_id,title=excluded.title,purpose=excluded.purpose,\n            revision=workflow_form_catalog.revision+1"
+    },
+    {
+      "file": "apps/api/workflow_forms_repository.py",
+      "line": 27,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "\n            SELECT c.*,v.original_name,v.sha256,v.state FROM workflow_form_catalog c\n            JOIN documents d ON d.id=c.document_id AND d.institution_id=c.institution_id\n            JOIN versions v ON v.document_id=d.id AND v.id=c.version_id\n            WHERE c.institution_id=? AND d.registered=1\n              AND d.active_version_id=c.version_id AND v.state='completed'\n            ORDER BY c.document_id"
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 76,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 83,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 88,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 95,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 101,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 111,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 120,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 130,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 136,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 145,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 160,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 167,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs.py",
+      "line": 189,
+      "operation": "transaction",
+      "receiver": "self.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 45,
+      "operation": "transaction",
+      "receiver": "repository",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 46,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT version FROM schema_extensions WHERE name='workflow_jobs'"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 54,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 58,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT * FROM workflow_jobs WHERE id=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 64,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT * FROM workflow_jobs WHERE institution_id=? AND version_id=? AND input_key=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 67,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT COALESCE(MAX(generation),0)+1 FROM workflow_jobs WHERE version_id=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 69,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO workflow_jobs(id,institution_id,document_id,version_id,input_snapshot_id,\n            snapshot,settings,catalog_hash,configuration,input_key,generation,state,created_at)\n            VALUES(?,?,?,?,?,?,?,?,?,?,?,'queued',?)"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 78,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT id FROM workflow_jobs WHERE institution_id=? AND state='processing' AND lease_until<=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 80,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "UPDATE workflow_jobs SET state=CASE WHEN attempt<3 THEN 'queued' ELSE 'failed' END,\n                error_code='lease_expired',error_category='RETRYABLE',claim_hash=NULL,lease_until=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 87,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT id FROM workflow_jobs WHERE institution_id=? AND state='queued' AND attempt<3 ORDER BY created_at,id LIMIT 1"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 89,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "UPDATE workflow_jobs SET state='processing',attempt=attempt+1,claim_hash=?,lease_until=?,error_code=NULL,error_category=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 104,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO workflow_generations VALUES(?,?,?,?,?)"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 106,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO workflow_candidates VALUES(?,?,?)"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 108,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO workflow_review_issues VALUES(?,?,?)"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 112,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO workflow_form_links VALUES(?,?,?)"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 114,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO workflow_review_issues VALUES(?,?,?)"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 115,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "UPDATE workflow_jobs SET state='completed',claim_hash=NULL,lease_until=NULL,error_code=NULL,error_category=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 120,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT g.*,j.id AS source_job_id FROM workflow_generations g\n            JOIN workflow_jobs j ON j.id=g.job_id WHERE j.institution_id=? AND j.document_id=? AND j.version_id=?\n            AND j.state='completed' ORDER BY j.generation DESC LIMIT 1"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 128,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT payload FROM workflow_candidates WHERE generation_id=? ORDER BY candidate_id"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 129,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT payload FROM workflow_review_issues WHERE generation_id=? ORDER BY ordinal"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 130,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT payload FROM workflow_form_links WHERE generation_id=? ORDER BY requirement_id"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 135,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "INSERT INTO workflow_job_events(job_id,state,attempt,error_code,error_category,created_at)\n            SELECT id,state,attempt,error_code,error_category,? FROM workflow_jobs WHERE id=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 140,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT state,attempt,error_code,error_category,created_at FROM workflow_job_events WHERE job_id=? ORDER BY id"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 144,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "UPDATE workflow_jobs SET state='cancelled',claim_hash=NULL,lease_until=NULL,error_code='cancelled_by_manager',error_category=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 149,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "UPDATE workflow_jobs SET state='queued',error_code=NULL,error_category=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 154,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "UPDATE workflow_jobs SET lease_until=? WHERE id=?"
+    },
+    {
+      "file": "apps/api/workflow_jobs_repository.py",
+      "line": 158,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "UPDATE workflow_jobs SET state='failed',error_code=?,error_category=?,claim_hash=NULL,lease_until=NULL WHERE id=?"
+    },
+    {
+      "file": "apps/api/workflow_snapshot.py",
+      "line": 87,
+      "operation": "transaction",
+      "receiver": "self.chunks.repo",
+      "sql_literal": null
+    },
+    {
+      "file": "apps/api/workflow_snapshot.py",
+      "line": 93,
+      "operation": "execute",
+      "receiver": "db.connection",
+      "sql_literal": "SELECT state FROM parse_attempts WHERE job_id=? AND attempt=?"
+    }
+  ]
+}

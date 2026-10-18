@@ -1,0 +1,305 @@
+{
+  "source_review_dir": "/workspace/project_SB/outputs/v03b/isolated-evaluation",
+  "source_sha256": "aea72c83a34905ba7bf091b0912bae8bdff22eb3e0dc11e10554f8ab63ff84ec",
+  "completed": 0,
+  "total": 40,
+  "progress": 0.0,
+  "pending_ids": [
+    "travel-a-01",
+    "travel-a-02",
+    "travel-a-03",
+    "travel-a-04",
+    "travel-a-05",
+    "travel-a-06",
+    "leave-a-01",
+    "leave-a-02",
+    "leave-a-03",
+    "leave-a-04",
+    "leave-a-05",
+    "leave-a-06",
+    "purchase-a-01",
+    "purchase-a-02",
+    "purchase-a-03",
+    "purchase-a-04",
+    "purchase-a-05",
+    "purchase-a-06",
+    "meeting-a-01",
+    "meeting-a-02",
+    "meeting-a-03",
+    "meeting-a-04",
+    "meeting-a-05",
+    "meeting-a-06",
+    "form-a-01",
+    "form-a-02",
+    "form-a-03",
+    "form-a-04",
+    "form-a-05",
+    "form-a-06",
+    "travel-b-01",
+    "travel-b-02",
+    "travel-b-03",
+    "travel-b-04",
+    "travel-b-05",
+    "travel-b-06",
+    "safety-01",
+    "safety-02",
+    "safety-03",
+    "safety-04"
+  ],
+  "judgments_generated": 0,
+  "goldset_status": "PROVISIONAL",
+  "selection_rule": "6 source manuals + conditional supplementation + unsupported deadline + 2 tenant safety cases; not selected by model scores",
+  "priority_10": [
+    {
+      "order": 1,
+      "id": "travel-a-01",
+      "reason": "기본 다중 단계와 여러 근거의 연결",
+      "review_link": "/workspace/project_SB/outputs/v03b/isolated-evaluation/review.html#travel-a-01",
+      "evidence_locations": [
+        {
+          "version_id": "caa383933fae439891affdf53ea5c5cf",
+          "chunk_id": "d50361d9084e2668e98349e3e4985b632e814951ad55980aecc6942f1a7c1b96",
+          "selectors": [
+            "Contents/section0.xml#/2"
+          ]
+        },
+        {
+          "version_id": "caa383933fae439891affdf53ea5c5cf",
+          "chunk_id": "d162f7b7622b0b6c02957d5d0890c221828b698f277328bd770c2a740879fbbd",
+          "selectors": [
+            "Contents/section0.xml#/3"
+          ]
+        },
+        {
+          "version_id": "caa383933fae439891affdf53ea5c5cf",
+          "chunk_id": "c488e6f81b9cd347d1b99eab6591b44b3b64ccd5392e0b780f93a520344ef148",
+          "selectors": [
+            "Contents/section0.xml#/4"
+          ]
+        }
+      ],
+      "verdict": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "reason_for_verdict": null
+    },
+    {
+      "order": 2,
+      "id": "travel-b-01",
+      "reason": "동일 업무명의 기관별 권한·내용 차이",
+      "review_link": "/workspace/project_SB/outputs/v03b/isolated-evaluation/review.html#travel-b-01",
+      "evidence_locations": [
+        {
+          "version_id": "612bfe4e95974acaa7401c824de50331",
+          "chunk_id": "dfa5ac52b09de76488d4adf4874b0a57dc457372cbafff36f2012951264ba932",
+          "selectors": [
+            "Contents/section0.xml#/2"
+          ]
+        },
+        {
+          "version_id": "612bfe4e95974acaa7401c824de50331",
+          "chunk_id": "62686fee945c00e1ae056076ccf390674565fc50dc85a6f463d8930acd0d3664",
+          "selectors": [
+            "Contents/section0.xml#/3"
+          ]
+        },
+        {
+          "version_id": "612bfe4e95974acaa7401c824de50331",
+          "chunk_id": "f71da1e020d141b548537e2d54e253f5638e33af602f44a2fe2b3e8503a714cd",
+          "selectors": [
+            "Contents/section0.xml#/4"
+          ]
+        }
+      ],
+      "verdict": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "reason_for_verdict": null
+    },
+    {
+      "order": 3,
+      "id": "leave-a-01",
+      "reason": "다른 업무의 단계/역할 대조",
+      "review_link": "/workspace/project_SB/outputs/v03b/isolated-evaluation/review.html#leave-a-01",
+      "evidence_locations": [
+        {
+          "version_id": "73fec5a5548e416fb63b800f676b5e29",
+          "chunk_id": "c9fc429d790993f541452b9989915cb4b7e9294d36e688f73cfd332c90eb8688",
+          "selectors": [
+            "Contents/section0.xml#/2"
+          ]
+        },
+        {
+          "version_id": "73fec5a5548e416fb63b800f676b5e29",
+          "chunk_id": "b2ac2c3c1d91d078e6c4a2a99a69bf02a0039bbce318c1b33fd146257b7ccae4",
+          "selectors": [
+            "Contents/section0.xml#/3"
+          ]
+        },
+        {
+          "version_id": "73fec5a5548e416fb63b800f676b5e29",
+          "chunk_id": "dd99be3b3901cf33977f49c32bfca44b195fc9b265f71975226418b5ebfc0048",
+          "selectors": [
+            "Contents/section0.xml#/4"
+          ]
+        }
+      ],
+      "verdict": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "reason_for_verdict": null
+    },
+    {
+      "order": 4,
+      "id": "purchase-a-01",
+      "reason": "구매 단계와 서류 관계",
+      "review_link": "/workspace/project_SB/outputs/v03b/isolated-evaluation/review.html#purchase-a-01",
+      "evidence_locations": [
+        {
+          "version_id": "e631ec415b9442d2af7916bb720397e4",
+          "chunk_id": "62fa504194b7cf8c912fd503d1ec3475b0b3682ed85b25a739e21cf32912d320",
+          "selectors": [
+            "Contents/section0.xml#/2"
+          ]
+        },
+        {
+          "version_id": "e631ec415b9442d2af7916bb720397e4",
+          "chunk_id": "0101aedf2b68a2e6023587e283bfed952bd5ff8eea47801348e3ac350f7018e1",
+          "selectors": [
+            "Contents/section0.xml#/3"
+          ]
+        },
+        {
+          "version_id": "e631ec415b9442d2af7916bb720397e4",
+          "chunk_id": "21432520e6b751914ef5867a29f907a9cee99c956e09e9f547ad6549cbb2896a",
+          "selectors": [
+            "Contents/section0.xml#/4"
+          ]
+        }
+      ],
+      "verdict": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "reason_for_verdict": null
+    },
+    {
+      "order": 5,
+      "id": "meeting-a-01",
+      "reason": "문서 단위 holdout 후보의 독립 검토",
+      "review_link": "/workspace/project_SB/outputs/v03b/isolated-evaluation/review.html#meeting-a-01",
+      "evidence_locations": [
+        {
+          "version_id": "6bd6ad2c672245baa6f904d1c56c2015",
+          "chunk_id": "23f00630601de47957a4c255609d6776cfcaf7d07d4ec2e96e6c4254f0aba87e",
+          "selectors": [
+            "Contents/section0.xml#/2"
+          ]
+        },
+        {
+          "version_id": "6bd6ad2c672245baa6f904d1c56c2015",
+          "chunk_id": "6ddd5efcf8d5993aa0d158cd36cb78a489fcc99cd6809f51a860126e0ae59f98",
+          "selectors": [
+            "Contents/section0.xml#/3"
+          ]
+        },
+        {
+          "version_id": "6bd6ad2c672245baa6f904d1c56c2015",
+          "chunk_id": "d19bb7b9c1d90d265af5e9e3c6cbb3461ef1578789d669ff99bf70e82483b437",
+          "selectors": [
+            "Contents/section0.xml#/4"
+          ]
+        }
+      ],
+      "verdict": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "reason_for_verdict": null
+    },
+    {
+      "order": 6,
+      "id": "form-a-01",
+      "reason": "서식명·사용 목적·단계 관계",
+      "review_link": "/workspace/project_SB/outputs/v03b/isolated-evaluation/review.html#form-a-01",
+      "evidence_locations": [
+        {
+          "version_id": "130aed37886c4963ad800430c8b0a4c8",
+          "chunk_id": "93e9de1556405949d9b519e7b695fb3dda496dd76c3a7c8bf30e2dc91c1e1b93",
+          "selectors": [
+            "Contents/section0.xml#/2"
+          ]
+        },
+        {
+          "version_id": "130aed37886c4963ad800430c8b0a4c8",
+          "chunk_id": "02b5e31ae5a293d91592ca9a6c152e7c56732887ea9f332afea2784a8c21dbb6",
+          "selectors": [
+            "Contents/section0.xml#/3"
+          ]
+        },
+        {
+          "version_id": "130aed37886c4963ad800430c8b0a4c8",
+          "chunk_id": "59947c1a7ef62a72890baadd8f6fd546024f21afebdcab6faf26b85e3a09a6bb",
+          "selectors": [
+            "Contents/section0.xml#/4"
+          ]
+        }
+      ],
+      "verdict": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "reason_for_verdict": null
+    },
+    {
+      "order": 7,
+      "id": "travel-a-04",
+      "reason": "조건·보완·보류와 임의 직선화 방지",
+      "review_link": "/workspace/project_SB/outputs/v03b/isolated-evaluation/review.html#travel-a-04",
+      "evidence_locations": [
+        {
+          "version_id": "caa383933fae439891affdf53ea5c5cf",
+          "chunk_id": "e71a71265289aedb4492b8cab0bb02eeda58502412beb61eae35633cb3a96345",
+          "selectors": [
+            "Contents/section0.xml#/5"
+          ]
+        }
+      ],
+      "verdict": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "reason_for_verdict": null
+    },
+    {
+      "order": 8,
+      "id": "safety-01",
+      "reason": "원문 없는 정확한 기한 단정 방지",
+      "review_link": "/workspace/project_SB/outputs/v03b/isolated-evaluation/review.html#safety-01",
+      "evidence_locations": [],
+      "verdict": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "reason_for_verdict": null
+    },
+    {
+      "order": 9,
+      "id": "safety-03",
+      "reason": "타기관 근거 접근 차단",
+      "review_link": "/workspace/project_SB/outputs/v03b/isolated-evaluation/review.html#safety-03",
+      "evidence_locations": [],
+      "verdict": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "reason_for_verdict": null
+    },
+    {
+      "order": 10,
+      "id": "safety-04",
+      "reason": "타기관/옛 자료 공개 지시 거부",
+      "review_link": "/workspace/project_SB/outputs/v03b/isolated-evaluation/review.html#safety-04",
+      "evidence_locations": [],
+      "verdict": null,
+      "reviewer": null,
+      "reviewed_at": null,
+      "reason_for_verdict": null
+    }
+  ],
+  "remaining_priority": "safety-02 금액/법령 보류, 나머지30문항, 그래프/기한/조건/서식 주석과 PDF 시각 확인; 실제 인간 검토 후 결정"
+}

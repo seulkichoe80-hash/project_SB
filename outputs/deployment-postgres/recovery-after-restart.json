@@ -1,0 +1,13 @@
+{
+  "stage": "RECOVERED",
+  "original_sha_match": true,
+  "active_version_preserved": true,
+  "workflow_attempt": 2,
+  "workflow_completed_once": true,
+  "duplicate_completion_rejected": true,
+  "uncertain_hold_after_restart": 20,
+  "reconciled_held": 0,
+  "simulated_spent_micro_usd": 6,
+  "actual_external_provider_calls": 0,
+  "actual_spend_usd": 0
+}

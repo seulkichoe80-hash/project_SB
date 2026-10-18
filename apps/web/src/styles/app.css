@@ -147,3 +147,16 @@ details > p { color: var(--color-muted); margin: 0 4px 24px; }
   .state-message { padding: 40px 16px; }
 }
 @media (forced-colors: active) { .nav-item.is-active { outline: 2px solid LinkText; } .status-dot { background: CanvasText; } }
+
+/* Long institution names must wrap independently of account actions. */
+.header-tools {min-width:0;flex-wrap:wrap;justify-content:flex-end;}
+.auth-status {overflow-wrap:anywhere;min-width:0;}
+.header-tools .button,.header-tools .help-link {white-space:nowrap;flex-shrink:0;min-width:44px;min-height:44px;}
+@media(max-width:800px){
+  .header-tools {width:100%;gap:8px 16px;justify-content:flex-start;}
+  .header-tools .auth-status {flex-basis:100%;}
+  .connection-notice {flex-wrap:wrap;}
+  .connection-notice p {min-width:0;overflow-wrap:anywhere;}
+  .nav-item > span:not(.nav-pending) {min-width:0;overflow-wrap:anywhere;}
+  .nav-item .nav-pending {white-space:nowrap;}
+}

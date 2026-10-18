@@ -13,17 +13,22 @@ from .worker import run_once
 from .models import Principal
 
 
-def main():
+def main(argv=None,runtime_binding=None):
     parser=argparse.ArgumentParser()
     parser.add_argument('--data-dir',type=Path,required=True)
     parser.add_argument('--institution-id',required=True)
     parser.add_argument('--lease-seconds',type=float,default=120)
     parser.add_argument('--job-timeout-seconds',type=float,default=600)
     parser.add_argument('--once',action='store_true')
-    args=parser.parse_args()
+    from .postgres_worker import add_postgres_arguments, worker_repository
+    add_postgres_arguments(parser)
+    args=parser.parse_args(argv)
+    from .runtime_settings import ensure_start_environment
+    ensure_start_environment('workflow_worker')
     if not 1<=args.lease_seconds<=300 or not 1<=args.job_timeout_seconds<=3600:
         parser.error('invalid lease or timeout')
-    docs=DocumentService(Repository(args.data_dir/'metadata.sqlite3'),LocalOriginalStore(args.data_dir/'originals'),True)
+    from .runtime_wiring import worker_documents
+    docs=worker_documents(args,'workflow_worker',runtime_binding)
     service=WorkflowJobService(ChunkService(ParsingService(docs)),lease_seconds=args.lease_seconds)
     principal=Principal('local-offline-workflow-worker',args.institution_id,'worker')
     stop=threading.Event()

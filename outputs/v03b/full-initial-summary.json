@@ -1,0 +1,325 @@
+{
+  "scope": "v0.1 baseline; all suites freshly executed; explicit synthetic/local mock identity only",
+  "preparation": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "--prefix",
+        "apps/web",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "seconds": 1.258
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "--prefix",
+        "apps/web",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "seconds": 1.616
+    },
+    {
+      "name": "generate-synthetic-api-fixture",
+      "command": [
+        "/workspace/project_SB/.venv/bin/python",
+        "-B",
+        "scripts/validation/build_phase2e1_fixture.py",
+        "--output",
+        "/workspace/project_SB/work/v03b/full/browser-fixture.json"
+      ],
+      "exit_code": 0,
+      "seconds": 2.833
+    }
+  ],
+  "suites": [
+    {
+      "name": "backend",
+      "command": [
+        "/workspace/project_SB/.venv/bin/python",
+        "-B",
+        "scripts/validation/run_stage4b3a_checks.py",
+        "--output",
+        "/workspace/project_SB/work/v03b/full/backend.json"
+      ],
+      "exit_code": 1,
+      "seconds": 142.278,
+      "counts": {
+        "PASS": 521,
+        "FAIL": 1,
+        "SKIP": 0,
+        "BLOCKED": 0
+      }
+    },
+    {
+      "name": "check_stage2_ui",
+      "command": [
+        "node",
+        "scripts/validation/check_stage2_ui.cjs",
+        "/workspace/project_SB/work/v03b/full/check_stage2_ui/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.48,
+      "counts": {
+        "PASS": 14,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      }
+    },
+    {
+      "name": "check_stage3_home",
+      "command": [
+        "node",
+        "scripts/validation/check_stage3_home.cjs",
+        "/workspace/project_SB/work/v03b/full/check_stage3_home/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.903,
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      }
+    },
+    {
+      "name": "check_stage4a_ui",
+      "command": [
+        "node",
+        "scripts/validation/check_stage4a_ui.cjs",
+        "/workspace/project_SB/work/v03b/full/check_stage4a_ui/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 10.495,
+      "counts": {
+        "PASS": 17,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      }
+    },
+    {
+      "name": "check_stage4b2_ui",
+      "command": [
+        "node",
+        "scripts/validation/check_stage4b2_ui.cjs",
+        "/workspace/project_SB/work/v03b/full/check_stage4b2_ui/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.374,
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0
+      }
+    },
+    {
+      "name": "check_phase2e1_ui",
+      "command": [
+        "node",
+        "scripts/validation/check_phase2e1_ui.cjs",
+        "/workspace/project_SB/work/v03b/full/check_phase2e1_ui/results.json",
+        "/workspace/project_SB/work/v03b/full/browser-fixture.json"
+      ],
+      "exit_code": 0,
+      "seconds": 52.367,
+      "counts": {
+        "PASS": 37,
+        "FAIL": 0
+      }
+    },
+    {
+      "name": "check_phase2e2a_ui",
+      "command": [
+        "node",
+        "scripts/validation/check_phase2e2a_ui.cjs",
+        "/workspace/project_SB/work/v03b/full/check_phase2e2a_ui/results.json",
+        "/workspace/project_SB/work/v03b/full/browser-fixture.json"
+      ],
+      "exit_code": 0,
+      "seconds": 22.762,
+      "counts": {
+        "PASS": 24,
+        "FAIL": 0
+      }
+    },
+    {
+      "name": "actual-http-e2e",
+      "command": [
+        "node",
+        "scripts/validation/check_v01_e2e.cjs",
+        "/workspace/project_SB/work/v03b/full/e2e/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 26.902,
+      "counts": {
+        "PASS": 13,
+        "FAIL": 0
+      }
+    }
+  ],
+  "seconds": 147.99,
+  "status": "FAIL",
+  "input_sha256": {
+    "apps/api/storage.py": "4a9271da1c3808021d430757b01a124b2de058f04e1a1d7ed67f840e1821ce9a",
+    "apps/api/workflow_discovery_models.py": "d416cc8b61e9f8ed792c0ea0144593f3290653cc92bbf75d7bbb2e370d0af26c",
+    "apps/api/workflow_forms.py": "c30b59bff37ae443bbc6bf68ac779ab6b98097b7f0992298a1adc3a509daa877",
+    "apps/api/auth.py": "614485f1f993b11ba6a826ebc4c6ba5fabd45df07ea321e291da848d0c0a74d9",
+    "apps/api/workflow_jobs.py": "d8a6ea29220205a3f7d17cc97fff44e144c5eda661a93c3381b8e5f723f0930b",
+    "apps/api/workflow_review.py": "81a96eed48e72495935f725f4dcf55687df3d1bf098210c785a40b29a8535947",
+    "apps/api/provider_budget.py": "b5626b4f7635b59f90e587d2aa6ebc04ad7ac5d7b4d5604d41019b7039b59e8b",
+    "apps/api/workflow_graph.py": "a0f2b04ccb2a956c58107d7da6e1264c034812afa60ab8299b6c59cb26698012",
+    "apps/api/formats.py": "4740436e93f65f4a719cbe89e0dc9784f1f4f0de94be9d195c296012fd43f77e",
+    "apps/api/supabase_transport.py": "ba8eab1c16b434bb030c9d8d3740320cd287671f59adfc370db2769f01963afa",
+    "apps/api/rag_adapters.py": "5dfd1730b7b6b7ce50ba81db744d96c3b475fc3dc9c0c5841d532c49889af96d",
+    "apps/api/workflow_snapshot.py": "b4e7dba07abbd5df6e818de3fcde57db40c3bfd50c85dcde9dfb7b2247d40957",
+    "apps/api/provider_safety.py": "9a7d687690fc2523215dc4248384f8863b4c89388ccd4f9752b7a48823264d79",
+    "apps/api/parsing_repository.py": "f2343800279ba80b0352708523fbb4d3c2d965755193facb99757a0af85b5eed",
+    "apps/api/workflow_worker.py": "f263ba57f084198f1075112e8cc1cd26adc1006dff914b52c67305d3b3d01fae",
+    "apps/api/chunk_repository.py": "377f7ddc612eccc1e8465c3fa447fba7ae5226f642d7834c08f67141209e3119",
+    "apps/api/workflow_routes.py": "bcb86ef792f137f397c06e0fd645a055675136ff32525ee673ab855942cc4b5a",
+    "apps/api/rag_service.py": "de86647c70f848a09c3d0beba4413bc5b04a41e876c78e539495669bb97ce802",
+    "apps/api/workflow_validation.py": "cefc46fefe089fc42428846c44db2ea01145c407375710da264ae8c236e4faa4",
+    "apps/api/workflow_jobs_models.py": "c65c7ffc32a0fca54e71e7aeade2ff2a956e4c8aab5a7f6a20c6638f75ac6c30",
+    "apps/api/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "apps/api/workflow_offline_adapter.py": "2dc4dec70dad863eadbe4edc6cb6752cd10d367c83455ecfd8ef1bcd8553a105",
+    "apps/api/errors.py": "44c2bf537010eaf0d5b12932b36e98fb52c452dd2ce1793a6f0ba68f43ac6e7e",
+    "apps/api/workflow_evidence.py": "4ba8eae57cf763992348e32e228df8feea20fbe922a2eef76fe6dfffe2adf5d1",
+    "apps/api/workflow_discovery.py": "6785706a08779ae3f8d078646f6981114ea97ecca54bcebe31eecd3d0629eb1c",
+    "apps/api/workflow_forms_repository.py": "bee331d4fa954650dc2f65bd35318bbb9619164b617e863b8f6461cacc3c4a05",
+    "apps/api/auth_store.py": "146a33aec8c89dadab1a3287ce50bb497e72c894c38fe7c21ad028eae56af2ce",
+    "apps/api/workflow_jobs_repository.py": "0ed5ada2bc8d6ef7c66d6e672260dc5ca0eb5532fe09f2b5ea863fd9f4e70a7e",
+    "apps/api/worker.py": "6f8231dd7ec32dcc3d0a01f584e177792ff17bd56411100b7a2b09c57c273a9d",
+    "apps/api/workflow_contracts.py": "c8a95749bceecaefa82465a1e2576e707959af858d236565701b62065263b0d1",
+    "apps/api/models.py": "c0407efeb180afe5e0c6a8e371a6a343e687e627866d3ceb02447d35f8007887",
+    "apps/api/service.py": "368df4f26d5c7158a99a0b939902329d6691dabaf4ded3ecc39f71e8ff2527eb",
+    "apps/api/provider_fake_adapters.py": "d7f10fc345a809a18f8fde8dc0fc7f8d3ab1b0a4f3b1a43d4db91ea6a87e733d",
+    "apps/api/vector_repository.py": "da4ea823d18a30937d7dc04c911608c83fe575ce4777e6886f21d5f5a5040894",
+    "apps/api/chunk_service.py": "b6abe2e25d31489b492dde6b9a8576cff7ffc696ff7bbf4f3250f9b10b4d787c",
+    "apps/api/main.py": "937460f6865f4b2b9e165558cf1fb4a53d5881ff293b955fbbc0eba80133e6b8",
+    "apps/api/identity_provider.py": "966941b860799af10afe31eb0d826ed21f9444d3f11584654664185e47b8dc53",
+    "apps/api/chunking.py": "b43f02919f83fd32137e72b4f7860ddb0aef4cd9527e090cfd5100789b344e9a",
+    "apps/api/workflow_forms_models.py": "056573962816b16209960f8e1789f53edf49a2e07355962bd9afecde2715867b",
+    "apps/api/chunk_worker.py": "9da9d0c7b9f187e27eb989c4b4657b0d7e377c593e34bc88f73c88434be6920c",
+    "apps/api/parsing_service.py": "a81d152fcbf48377ff790be4449bfe4d9d559f458ed1d9911ad86bd33a0e0d12",
+    "apps/api/repository.py": "af2236475cceb1ee1d832a0a5601d313b5e8959c965bd4a49216b094fe2434ac",
+    "apps/api/parsers/hwpx.py": "7b5248df87492a7d28b28ef31cc38afef6379e7ebf988cc22056932da42736b6",
+    "apps/api/parsers/pdf.py": "707a298ba678d8f9b6904eb6e01777b46e7a240788333165dcd757b24b284bc5",
+    "apps/api/parsers/__init__.py": "668fec1eddd58763504c728ac807ebee1b32a1975cca3506d8531a65a25e9a6f",
+    "apps/api/parsers/contracts.py": "36116d8d60755da59cf2175ef38187077930b380929e0d2300e44b8f9ff71ed8",
+    "apps/web/src/main.tsx": "c5d2a7d0039da80f4a31553c17729fd34c40e378832d1ff1bc3ab15035a6f15d",
+    "apps/web/src/App.tsx": "7e6d775b7b263bb9c93c1541c74238747ac5841e2b3d33f3b7083af42be1e626",
+    "apps/web/src/vite-env.d.ts": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+    "apps/web/src/api/documents.ts": "e2a7f07e67052052ace2a6a0f645968bcf473b4b7484e746cde0d3803e088236",
+    "apps/web/src/api/workflows.ts": "09bf40b5cda1b1449b8126480091b11b910218d494e3f54421f2f55f0ae71bac",
+    "apps/web/src/api/requestDeadline.ts": "38b15995145cc39c4572fe1709ee2c7b8ce1cb4cf844e1d37899893b5208f17a",
+    "apps/web/src/auth/AuthContext.tsx": "78a62d604c8f859948d9a160d4c28658cc0f3e3af47b224bc8d20eb15323bc4a",
+    "apps/web/src/styles/app.css": "6c307c2e49925fb3bb0828dd223161d5332befcacd2a48fe3a433c9626d729bf",
+    "apps/web/src/styles/home.css": "5a5b18872fd765f69f217681ec08b016296d958a31e9a02147b6cb2c63203617",
+    "apps/web/src/styles/documents.css": "1d9e551d279bfe589888ad2e05bd925078551153c400440954c2bfd3e2f7a028",
+    "apps/web/src/styles/tokens.css": "ca56a7cf05a5fedb2b35350ffc4aedf8a3f8aebd8e12cb032afd37f38d7ff183",
+    "apps/web/src/styles/workflow.css": "81bc23ef4c016f951f77be2d4b615515d3ac3cbe7ddbae42d7b41aa688f28a83",
+    "apps/web/src/pages/WorkflowPage.tsx": "1c800323da46118d3b429231f8807a88ab41c4c04c09b2b372e153e85aba154a",
+    "apps/web/src/pages/DocumentsPage.tsx": "c13e7d446cd3ab00c323401d55199ec9093aa60e924f5047c02e644dcdf41f2c",
+    "apps/web/src/pages/HomePage.tsx": "6f145f5d15b1c0c9928f6c1f13949b65c3b4e350d75f02c4f2edcae90cf2fe86",
+    "apps/web/src/components/AppLayout.tsx": "13dbe2fd0c8de4f2fafe77889405fafba68d8122de5b99f0960be0e0a6217389",
+    "apps/web/src/components/UI.tsx": "cce253e61bd074e600b2a8ab37cf0bf507895ec54bc927d4925d4adcc8b1dcb1",
+    "apps/web/src/components/DocumentFlow.tsx": "1ad556be37bac9308ab1b04cde87f7f573670280fbbcb985c42e2ea431621b51",
+    "apps/web/src/hooks/useVisiblePolling.ts": "c83f4cc2d482e049ff32e35aab0d69dfb87476c860b3c985a9a1f28b60e13be4",
+    "tests/test_auth.py": "9519cf8fd0e850c6506c296d77d90b919e1040c5223d8aec20f1bf078be83afa",
+    "tests/test_workflow_validation.py": "7e4568de983526100d239b0b37afd966ec6704993bebf0346caf16d05c73177e",
+    "tests/test_workflow_inputs.py": "d64833c44637aca0621b572a72459f7e88a7f7540b07469542c48f4a5d463575",
+    "tests/test_workflow_forms.py": "8458880c1cfe5f0b2fc4b2f95cc937b69396dda228938d3f118204eadfea1119",
+    "tests/test_evaluation_foundation.py": "dcc4e4829dd67f96dc262c1b04812bbbd60c2ef505830abed22b3d299a6d96a0",
+    "tests/test_workflow_jobs.py": "fbd49f98b172eb8d768b54040c76b943fa063f958b68286cf3c6c7c96c7616bd",
+    "tests/test_live_document_http.py": "6144e8cfd9b15bd2568b1e6c8cd410d85fc956bfe6203f73ff71931c6e4d3bdb",
+    "tests/test_parsing.py": "f48c652eeca3d2828764c2b4f4d1f3108a5bfcab10315ca14468cf90e375654a",
+    "tests/test_chunking.py": "86f8419117a04e492eb1fd6fb5cce838f835352e11da85bf458c841473aa45e1",
+    "tests/test_workflow_discovery.py": "e7e5c31b8bce4ed0e0a4886150cb6100338a8710bd11ae9405915638b92eecd3",
+    "tests/test_provider_safety.py": "24cf70a5d1723aa85af252a247b7066fb20ca3055fc6828032c54847aafa6f0f",
+    "tests/test_document_api.py": "7991e56fa54d280829bc3ae891279c47a86e7b58fa36959ef7eaf3cb0a09c3dc",
+    "tests/test_supabase_transport.py": "7a8d4d0f912d5240e15f9fd4d162685e768be5ca8a2b6186bca7e2a74a60c11f",
+    "tests/test_validation_contracts.py": "c066e26c6d24dc2913e6f291e6ab739f5ab010fd15184a2b7bdf7fbe6e5aedbf",
+    "tests/test_rag_contracts.py": "af2c4559671390607c6c78f90a2a674629e7ca8231ea6ffd542623806410137c",
+    "tests/fixtures/synthetic/procedure-recovery-invalid.hwpx": "b3764a641e35dc575772b166d8183807aef53e2c7ba744ee0dce38c6ef85f9a0",
+    "tests/fixtures/synthetic/queries.json": "fc27dedc02b7a804322f59ae3d6a41d4f753065356400358ef937c06250effea",
+    "tests/fixtures/synthetic/phase2c2b-sources.json": "ca094ed9412c9c361e20a73caf5362d023f6d1c9c2ee2ef7afb317fd51ee732d",
+    "tests/fixtures/synthetic/hwpx-manifest-v2.json": "ff080bf882a48e0e62130b9e33d68b69fe3ea3d72f389b068f05c7d9894e6380",
+    "tests/fixtures/synthetic/procedure-v2.hwpx": "47d7867e3a366d6a04e18b338785f712819b10f8e0a236d9b9c90fa2292a9226",
+    "tests/fixtures/synthetic/phase2b_pdf.py": "8baa9cd9c3459fe372b8aac5f4cd640daa8e0146ac66d3a76702910b186591bf",
+    "tests/fixtures/synthetic/rag-goldset.json": "0ebc5905976027e8ea121716faaeece4bff5d00d82fb91f1ec98bfd16644411b",
+    "tests/fixtures/synthetic/source-registry.json": "a080e5b9a0adffa5857ed044d0c90b6d1c24a529dfec52302eaa53552dc5f712",
+    "tests/fixtures/synthetic/pdf-manifest.json": "a597addb2a54d997023e44aca1326a801d494afe7b96e6dc0bbfa55271f7f0c9",
+    "tests/fixtures/synthetic/hwpx-recovery.json": "34263c902f8820f7dacb01c1d1bf53564d16424d6ed0ef9e2b21ffbab500136c",
+    "tests/fixtures/synthetic/hwpx-manifest.json": "d4cada4457ba5a7346cbfe8d1c92b893e727471b9254a9659703bdf1b8ea9158",
+    "tests/fixtures/synthetic/v01/v01-manual.hwpx": "98a018db30991cf9ef29b74a5f004db8d8388da155e182c1f30a7967a9aa289a",
+    "tests/fixtures/synthetic/v01/manifest.json": "dbe565618c57377cbeffe19a52d190280ea5a18da1cfd94187f8137330a8b527",
+    "tests/fixtures/synthetic/v01/v01-manual-v2.pdf": "50371f0692152aa30d355b7b90c59b62542a9e76c78166ca723ca5702d301f93",
+    "tests/fixtures/synthetic/v01/v01-manual.pdf": "20a75e4e3061269d14d5eb6c831bbc2e707cb52b4a509f25d79e18a6cefe9cef",
+    "tests/fixtures/synthetic/v01/v01-report-a.hwpx": "f82e93ac9d088492a7c34d9edb6631f93a5700b3dd72256b25ae039d998e95b4",
+    "tests/fixtures/synthetic/v01/v01-report-b.hwpx": "e704efa7c870b925a19a2dd0f34cb1fbe87b5444a0cae0bc37d1c0041653f810",
+    "tests/fixtures/synthetic/v01/v01-request-form.hwpx": "498823ae5268431d1017fe41081e62da1faa4f2086e1a165dcc6b050899aee1e",
+    "scripts/validation/phase2a_http_server.py": "f68d13dcffcbec2e9a2da83685f08418386eb28a66ab965794d4acc1673677df",
+    "scripts/validation/check_stage3_home.cjs": "65636753f295b5310b10a3480fa40ffdd353ff56599aa879fda9c24e24bbf998",
+    "scripts/validation/browser_smoke.mjs": "644f1cb2afd87254d4aaef84bbae22b9fd1d1591154056e7f115b4e0d6dcbbf0",
+    "scripts/validation/check_phase2e2a_ui.cjs": "d471d3134898ff8713a2cbc989ffb75cb1b94ca2ab2d0c41f55e82c52cc0307f",
+    "scripts/validation/evaluation_metrics.py": "2079b1a215c84a52c894abe4a0f8bb47b2e2e6d0021d1072eb35a2d1f52da3be",
+    "scripts/validation/check_v01_e2e.cjs": "8690477c14f8ab2523a2d5cb8e648a98bb2835d11a0b523fd82121f89790742c",
+    "scripts/validation/score_v03b_predictions.py": "e0f6eaadf8e465145eb41e905e171386322d726ea5da7237c851b0dba9975f47",
+    "scripts/validation/evaluate_phase2c2a.py": "eb67b3dfb0f7ea03a21dce413bedb74032b3a4a42510dca8323addd2cfc630e3",
+    "scripts/validation/probe_hwpx.py": "d969fac6d7bb87245fdc826dc4dc6890b5ee913520d7c484bec610321020d9f7",
+    "scripts/validation/run_phase2a_checks.py": "e56c970b66ca6fd5042e30e666280364fa672c8a5f4b057b2d718fe2eb42144d",
+    "scripts/validation/evaluation_fixtures.py": "78d5c21d1e80138367a6216e2920931a93c14261508c9523e6741fd3e4774143",
+    "scripts/validation/check_v02b_http.cjs": "30ddf165b8f4e1f4c3cf80dd3a571de21e13a7a0f2a7c1e59cf7b53b6fc9074d",
+    "scripts/validation/phase2c_claim_checkpoint.py": "778b3274362137511d16e20f1df7f8a533f3ce779450cb7097d525bf3b363e7a",
+    "scripts/validation/evaluate_retrieval.py": "f7150de6da5d1e5a9221980b9c2e65ab3fea2c826a8f4a0030a38135d3b6457c",
+    "scripts/validation/build_phase2e1_fixture.py": "315244a778781ca24e43888b2632a41ef3081d2edcb83a36045eb6ccb391e963",
+    "scripts/validation/phase2e1_live_server.py": "fee861953fe39d5aab54539c048b29bb30d1456ee21da8956d9030b2e75ea5b1",
+    "scripts/validation/run_phase2b_checks.py": "0278116c910ec44a2e7ae875a383319a34aa894b04ca435df94a2df2786f0132",
+    "scripts/validation/check_v02a_ui.cjs": "7a9c8f28fb2fecb9396b94738186f34ac53ccae455084b942f57297be942aa16",
+    "scripts/validation/check_v02b_ui.cjs": "156f7bcba64bcd05145568c696f0cf4bce914b627cc277119e45759fdf8707c5",
+    "scripts/validation/check_stage2_ui.cjs": "97fa27f4bb65b5b3e8614aae7cdfcdc5241152e36825902a92cbb41c7a885b3a",
+    "scripts/validation/build_phase2b_evidence.py": "0a10113724ef559ec7eec2017881f3c5467b19218e11ac227d309720f1a1a9aa",
+    "scripts/validation/check_phase2e1_ui.cjs": "2bdb3815463a7de8c2c5c8feb74a76e21d353f518921516c18b3aa80a1bef7ea",
+    "scripts/validation/check_stage4a_live.cjs": "ba311511abad902a303c1b5a458abdc92347971c9e3ce4ce43902590cddea031",
+    "scripts/validation/check_stage4b2_ui.cjs": "4acb61331931c66787cd1f076689196f60bad119cebfbce89b2848a9aa7e9b2a",
+    "scripts/validation/run_v03b_evaluation.py": "9050a3130a13e4b564829f83ea168e0fefdf08ddc38462096d961e23f77c3d0e",
+    "scripts/validation/phase2b_claim_checkpoint.py": "ffe5e063850dd6fbbeb9dcb72263258d080649cd2ce3de6ffccd132c74959cb6",
+    "scripts/validation/generate_hwpx_fixture.py": "fd9c5d8f3b8323602de61d1a2f8d48f1d74c0112ca495c810047aa04fd11baaa",
+    "scripts/validation/build_v01_assets.py": "a2e36be7eb5d56e6a320f0b520d12e68dd0d426dd04eeb8138bb1f62c37a4f53",
+    "scripts/validation/run_stage4b3a_checks.py": "ff76fffa8c5aa0f30a5fd345e9952b2d185a11f600ca2a8e54fd75dfef67fdd6",
+    "scripts/validation/build_phase2c_evidence.py": "0aeb619496ca4252a0da2ebd78f40b37cbc5005369953a8dd0bc27678b04de40",
+    "scripts/validation/v01_demo_server.py": "c2861d21784abec652cea569b24007f4eb4d82ab554c0e049c03b57112a65f08",
+    "scripts/validation/restore_synthetic_fixtures.py": "c57d634ac8418db9ccccf66102469c8e4f699fad05c8587ab71e0f8d46c561da",
+    "scripts/validation/workflow_contract.py": "a3c609717310bd6868d6c3a6b77ead5b141c352b299a1c82617ad22bb86f0d09",
+    "scripts/validation/phase2b_http_server.py": "2e2471256f0aafee62fc9f0e75d2cd2289b2788531eb4c3ebdf34cb92c342704",
+    "scripts/validation/check_phase2e1_live.cjs": "b067b118ea8ec3f65076bc1734c8e5a29596bee3136000747ca45acca534ce9a",
+    "scripts/validation/build_phase2c2b_goldset.py": "2661184b918d518e960ebc71b5876aae32aeb30f372e1772387175ae85ddcb3f",
+    "scripts/validation/run_v01_checks.py": "f42f95913813aa5532eecf9530f363e3834f07df4a89806df2ac7fcbdf9c29ec",
+    "scripts/validation/check_stage4a_http.py": "61b95810049b921bb09f5fb4237f78982a7ca85915eb2b73566785da10efcba6",
+    "scripts/validation/check_v02c_ui.cjs": "68dd33e20d792adf3085ec74ad04898c29d0db1fd3aa63e1c539202053a3baae",
+    "scripts/validation/check_stage4a_ui.cjs": "2847df0ac3a5dbb2999de9c90d854d0798f3e67b11e490b141d160c732ae5a3b",
+    "requirements-api-test.txt": "059dc988a9a73484deed1635f0ac2305b3f14b20e64eba4fa6e77ecd2bcd49f6",
+    "requirements-parsing-lock.txt": "75bdfc6c58912001cde78f88e339e08b1bac7603f9995e06b162fc1705c6b8ba",
+    "requirements-api-lock.txt": "2060c018be203c684a97ecfd4c7c360319eb1739054875bc5d8fbadb1f9b6921",
+    "requirements-parsing.txt": "28c7f55fee775dd0763b664844b0e6c5aa8c044ecb9fa3f6893eb6ab2c750142",
+    "requirements-api.txt": "bc73eb11f4dc142c08d49d2ecea87f90c4c8b7ebcef230e132835691574f62f7",
+    "requirements-validation.txt": "4f1db60394d14641f8e631151903a34e1415e9fd1dc89c103fffb90306c12e68",
+    "apps/web/package.json": "04f2d985225c3c2040a476d512661bff7c83706150a983bc7c2b71b2be4a2945",
+    "apps/web/package-lock.json": "6e64600e8e6a981318799f2f185ddad42848bdab1fc2a197c8567e8cb7ccc19d"
+  },
+  "external_provider_calls": 0,
+  "not_run": [
+    "real Supabase",
+    "actual LLM/embedding",
+    "public deployment",
+    "native PDF/Hancom visual validation",
+    "screen reader"
+  ]
+}

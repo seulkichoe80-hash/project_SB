@@ -1,0 +1,23 @@
+{
+  "scope": "architecture/execution plan only; no software tests run",
+  "snapshot_dir": "/workspace/project_SB/work/deployment-plan-preservation/20261018T064620Z",
+  "snapshot_files": 68,
+  "snapshot_archive_sha256": "6fcbcb8e492b8517ad03521bab7c5bebda1d47a7424b888833596b65df1213e7",
+  "previous_files_changed": [
+    "TASKS.md (append plan only)"
+  ],
+  "prior_source_fixture_evidence_hashes_unchanged": true,
+  "tracked_deletions": 0,
+  "targeted_strong_secret_pattern_hits": 0,
+  "secret_scan_limitation": "targeted pattern scan only, not exhaustive privacy certification",
+  "human_judgments_generated": 0,
+  "actual_external_API_calls": 0,
+  "paid_services_created": 0,
+  "public_deployments": 0,
+  "push_merge_tag": false,
+  "local_commit_created": false,
+  "branch": "feat/v03e-human-review-support",
+  "head": "e2bb7f769cb425edbe06b375595eaf839440f004",
+  "price_sources_accessed": false,
+  "current_prices_verified": false
+}

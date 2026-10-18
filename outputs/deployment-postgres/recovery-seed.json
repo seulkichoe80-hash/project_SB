@@ -1,0 +1,6 @@
+{
+  "stage": "SEEDED",
+  "workflow_state": "processing",
+  "budget_state": "in_flight",
+  "actual_external_provider_calls": 0
+}

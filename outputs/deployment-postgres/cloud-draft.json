@@ -1,0 +1,10 @@
+{
+  "saved_fields": [
+    "start_skill"
+  ],
+  "status": "saved",
+  "requires_publish": true,
+  "applied_or_published": false,
+  "new_task_restore_verified": false,
+  "secrets_or_network_allowlist_changed": false
+}

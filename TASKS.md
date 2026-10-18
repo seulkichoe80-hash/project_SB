@@ -269,3 +269,126 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] 기존 IdentityProviderAdapter/SupabaseProviderAdapter 유지, 고정 HTTPS HTTP transport·서버 설정·사용자 조회 검증·오류/민감정보 차단 구현. 기본 앱은 deny-all 유지.
 - [x] 기존153+새 HTTP/BFF52=205 backend PASS, UI Chromium43 PASS, typecheck/build PASS. 비루프백 DNS/TCP 차단 가드 아래 실제 공급자 호출0. [계약](docs/STAGE4B3A_SUPABASE_TRANSPORT.md)·[실행 보고](outputs/STAGE4B3A_REPORT.md).
 - [ ] Stage 4B-3B는 실제 프로젝트/계정/키·허용 origin/TLS·접속/비용 범위의 별도 승인 후 server factory 활성화와 실제 공급자 검증. 이번에는 실제 Supabase/LLM/임베딩 호출·키 등록·배포·commit/push/merge를 하지 않았다.
+
+## v0.2-A 화면 안내 정합성
+
+- [x] PR #2가 포함된 최신 main에서 feat/v02a-ui-clarity 분기. 권한별 홈·공통 기능 안내와 근거/내용 검토 상태 분리. [계약](docs/V02A_UI_CLARITY.md).
+- [ ] P0-2 활성화 동선은 별도 승인 후. API/DB/엔진·실제 공급자·승인/게시·배포는 이번 범위 밖이다.
+- [x] 타입·빌드, 신규 UI24·기존 UI104·실제 HTTP13·backend409 최종 PASS. 중간 실패 기록과 재실행을 구분한 [완료 보고](outputs/V02A_REPORT.md). 승인/게시·P0-2는 미구현 유지.
+
+## v0.2-B 문서 처리·활성화 동선
+
+- [x] v0.2-A 커밋809a2dd 보존 후 별도 feat/v02b-document-flow 분기. 등록→상세·처리 상태→관리자 확인 활성화→현재 문서·버전 후보 검토 연결. [계약](docs/V02B_DOCUMENT_FLOW.md).
+- [ ] 후속 개발은 별도 사용자 요청 후. 실제 공급자·공식 승인/게시·서식 등록·DB 변경·배포는 이번 범위 밖이다.
+- [x] Feature Gate 타입·빌드, 신규 UI26·기존 UI128·실제 HTTP14(기존 별도13)·backend409 최종 PASS. [완료 보고](outputs/V02B_REPORT.md). 최초 실패와 영향 범위 재실행 증거는 보존했다.
+
+## v0.2-C 모바일 사용성
+
+- [x] v0.2-B 변경을 로컬 커밋 e52ec2d로 보존하고 feat/v02c-mobile-ux 분기. 단일 문서 DOM 카드 배치·모바일 단계 목록 기본·지도 글자/44px 제어·선택 크게 보기·일반 안내 간소화 및 심각 이슈 보존. [계약](docs/V02C_MOBILE_UX.md).
+- [ ] 이후 기능·실제 공급자·배포는 별도 사용자 요청 후. API/DB/승인·게시 계약 변경 없음.
+- [x] 신규 UI20·기존 UI154·실제 HTTP14(기존 별도13)·backend409 및 타입/빌드 최종 PASS. 실측·중간 실패·후속 접근성 미검증을 구분한 [완료 보고](outputs/V02C_REPORT.md).
+
+## v0.3-A 실제 연결 전 안전장치
+
+- [x] 분석 3파일을 193e54d 로컬 커밋으로 보존하고 feat/v03a-provider-safety 분기. Fake-only transport/strict 출력·근거 검증과 별도 SQLite 모의 비용 원장 구현. [계약](docs/V03A_PROVIDER_SAFETY.md).
+- [x] 신규86·전체 backend495·UI174·실제 HTTP13·타입/빌드 PASS. [보고](outputs/V03A_REPORT.md).
+- [ ] 실제 공급자·실비 예산 승인·평가 정답 독립 검토·v0.3-B는 후속 사용자 요청 후. push/merge/배포 없음.
+
+## v0.3-B 오프라인 평가 기반
+
+- [x] v0.3-A를 a3bfee3으로 로컬 보존하고 feat/v03b-evaluation-fixtures 분기. 실제 parser/chunker의 신규 평가 세대·EvidenceRef 재연결·question-only window 검색·분리 metric scorer·40문항 인간 검토표 구현. [계약](docs/V03B_EVALUATION_FOUNDATION.md).
+- [ ] 독립 인간 정답/관계/기한/조건/서식 주석 검토 및 실제 AI 성능은 미완료다. v0.3-C와 외부 호출·push·배포는 자동 진행하지 않는다.
+
+- [x] 최종 신규59·전체 backend554·UI174·실제 loopback HTTP13·타입/빌드 PASS. 7원본 hash/57청크/51구조 근거 재연결 일치. 검색 no_hits40·인간 검토 대기40·AI NOT_RUN과 초기 namespace 오류를 구분한 [보고](outputs/V03B_REPORT.md).
+
+## v0.3-C1 검색 실패 진단·고정 문맥
+
+- [x] v0.3-B를 a3b8a35로 보존하고 feat/v03c1-retrieval-diagnostics 분기. 실제 SQL/색인/권한/token/Top-K와40문항 분류, 정답 독립 고정 문맥 Fake, 우선10문항 인간 검토 계획 구현. [계약](docs/V03C1_RETRIEVAL_DIAGNOSTICS.md).
+- [ ] 실모델·임베딩·검색 개선 실험·인간 의미 검토는 별도 승인/작업 후. 현재 PROVISIONAL/NOT_VERIFIED/NOT_REQUESTED 유지.
+
+- [x] 신규37·전체 backend591 PASS, 별도 CLI guard 외부 시도0. 36literal/AND 탈락과4expected abstention 구분, 고정 문맥40문항/7문서 Fake 완료. 인간 검토0/40·의미 합격false 유지. [보고](outputs/V03C1_REPORT.md). UI174/타입·빌드는 소스 동일성에 따른 이전 증거 재사용이며 새 실행 아님.
+
+## v0.3-C2 오프라인 검색 비교
+
+- [x] C1을137177b로 로컬 보존하고 feat/v03c2-retrieval-ablation 분기. 사전 고정 규칙으로 A literal AND/B정규화/C점수 OR/D기관별 FTS5 BM25를 비교하는 독립 평가 도구 구현. [계약](docs/V03C2_RETRIEVAL_ABLATION.md).
+- [ ] 제품 교체·실제 모델/임베딩·독립 인간 검토·후속 실험은 별도 승인/요청 후.
+
+- [x] 신규27·전체 backend618 PASS. 3회 반복/초기-최종 순위·점수 동일, FTS5 지원 확인, 외부 시도/지출0. C를 연구 후보로 제안하고 제품 교체 없음. [최종 보고](outputs/V03C2_REPORT.md). 인간 검토40·실 AI 성능 미검증 유지.
+
+## v0.3-D 서버 flag와 명시적 C API
+
+- [x] C2를 e2bb7f7로 로컬 보존하고 feat/v03d-opt-in-scored-search 분기. literal 기본 유지·서버 허용+명시 strategy의 C 검색·bounded scan·원본/세대 재검증·실제 TCP API 비교 도구 구현. [계약](docs/V03D_OPT_IN_SCORED_SEARCH.md).
+- [ ] 실제 환경 flag활성화/배포·실모델/임베딩·인간 의미 검토·후속 UI/검색 확장은 별도 사용자 승인/요청 후.
+
+- [x] 신규24·전체 backend642·UI174·타입/빌드·기존 HTTP13·새 API HTTP11묶음 최종 PASS. 실제 API C2 Top10 40문항 동등, 서버 flag기본off/literal 기본 유지, 외부 호출/지출0. [보고](outputs/V03D_REPORT.md).
+
+## v0.3-E 우선 10문항 인간 검토 지원
+
+- [x] C1 선정 순서를 유지하는 별도 오프라인 검토 HTML/JSON·빈 판정 CSV와 제출 형식 검증 CLI. 원문 replay/live 근거 검증, 기관별 문맥, 원본/정답 불변. [사용법](docs/V03E_HUMAN_REVIEW_SUPPORT.md).
+- [ ] 실제 인간 검토 0/10(전체 0/40), 독립 판정·골드 승인·실제 모델 평가 미실행. 기존 PROVISIONAL/NOT_VERIFIED 유지.
+
+## 인터넷 배포 준비 계획 — 2026-10-18
+
+- [x] 사용자 요청 범위의 배포 구성·비용 가정·인증/DB/객체/worker 차이·백업·설정·실행 순서 검토. [실행 계획](docs/INTERNET_DEPLOYMENT_PLAN_20261018.md). 실제 리소스/외부 호출/배포 없음.
+- [ ] 다음 구현 제안: strict 운영 설정·시작 계약/오프라인 사전 검사. PG·객체 저장·실Auth/staging·G1-C는 별도 구현/승인 후. 인간 판정은 별도 진행, 자동 생성/승인 안 함.
+
+## 배포 준비 1단계 — 운영 설정·offline preflight
+
+- [x] 기존 D/E/배포 계획70파일을3453eec 로컬 보존 후 feat/deployment-preflight 분기. [설정/시작 계약](docs/DEPLOYMENT_PREFLIGHT.md)과 offline CLI·API/worker 저장소 초기화 전 guard 구현.
+- [ ] PostgreSQL/auth/job/budget adapter·private Storage·운영 Auth bootstrap·proxy/worker·백업복구 실증은 미완료이며 production 시작 차단을 유지한다. 인간 판정 자동 생성/승인 없음.
+- [x] 신규40·전체backend687 PASS/FAIL0/SKIP0, CLI6기대결과·외부시도0·source동일성·기존871파일 보존 확인. UI/타입/build는 변경 없음으로 이번 미실행. [완료 보고](outputs/DEPLOYMENT_PREFLIGHT_REPORT.md).
+
+## 배포 준비 2단계 PostgreSQL
+
+- [x] preflight26파일을8abe7fc 로컬 보존 후 feat/deployment-postgres 분기. 기존 SQLite 기본 유지, PG 명시 schema migration/공유 domain SQL·Auth·jobs/vector/forms·모의 비용 원장 구현. [계약](docs/DEPLOYMENT_POSTGRES.md).
+- [ ] production PG runtime/Auth bootstrap·Storage·RLS/최소권한 실증·운영 connection pool·backup restore·실Supabase 연결 미완료. production BLOCKED 유지. 다음 단계 자동 진행 없음.
+- [x] 로컬PG17.6 신규110·기존687 전체797 PASS/FAIL0/SKIP0. 실제 동일DB worker·비용 경쟁·schema/rollback·DB 정상 재시작 후 SHA/lease/unknown hold 복구 PASS. [보고](outputs/DEPLOYMENT_POSTGRES_REPORT.md). 실제 cloud/Storage/운영복구는 미검증.
+
+## 배포 준비 3단계 Private Storage·복구
+
+- [x] PostgreSQL38파일을acc09eb 로컬 보존 후 feat/deployment-private-storage 분기. Local 기본 유지, Fake-only 비공개 객체 계약·원본 재검증·추가 Storage schema·orphan DB quarantine·application manifest 새 대상 복구 구현. [계약](docs/DEPLOYMENT_PRIVATE_STORAGE.md).
+- [x] 신규94·전체backend891 PASS/FAIL0/SKIP0. SQLite/실제 격리 로컬PG disk bundle→새 DB/Fake 복원·EvidenceRef·worker 재개 PASS. 외부 공급자 호출/지출0. [보고](outputs/DEPLOYMENT_PRIVATE_STORAGE_REPORT.md).
+- [ ] 실제 Supabase transport/ACL·API/worker wiring·운영 Auth bootstrap·별도 비용 schema 포함 통합백업/PITR/암호화·운영 RPO/RTO는 미검증. production 차단 유지, 인간 판정 생성/승인 없음. 다음 단계 자동 진행 없음.
+
+## 배포 준비 4단계 오프라인 Supabase JWT·서버 멤버십
+
+- [x] Private Storage27파일을68a8a35 로컬 보존 후 feat/deployment-auth 분기. 기존 `/user` adapter/deny-all/BFF 계약을 보존하며 Fake-only JWT/JWKS(ES256/RS256)·issuer/aud/expiry·키 교체/오류 검증, 세션 issuer/활성 단일 membership·관리자 transaction 권한 재확인, 명시 오프라인 최초 관리자 bootstrap 구현. [계약](docs/DEPLOYMENT_AUTH.md).
+- [x] 신규88·전체backend979 PASS/FAIL0/SKIP0. SQLite/실제 격리 로컬PG 세션·기관·CSRF·철회·bootstrap 경합/rollback·Private Storage 원본/EvidenceRef/workflow 통합 PASS. 외부 호출/지출0. [보고](outputs/DEPLOYMENT_AUTH_REPORT.md).
+- [ ] 실제 JWT/JWKS/Auth runtime wiring·프로젝트 호환·운영자 계정 확인/초기화·provider-only 철회 동기화·proxy/HTTPS/cloud worker·운영 복구는 미실증. production 차단·인간 검토 미완료 유지. Auth 범위 종료 후 다음 단계 자동 진행 없음.
+
+## 배포 준비 5단계 Local/Fake Wiring·HTTPS·프록시
+
+- [x] Auth20파일을7451af8 로컬 보존 후 feat/deployment-wiring 분기. API/parse·chunk·workflow main 공통 RuntimeBinding·peer 저장소/역할 검증, 단일 정제 홉 proxy 경계·ASGI `/api` simulator, 선택적 Fake provider 세션 상태 재검증/철회 commit 구현. [계약](docs/DEPLOYMENT_WIRING.md).
+- [x] 신규52·전체backend1031 PASS/FAIL0/SKIP0. 실제 loopback TLS1.3/CA·hostname 검증15개, 20MiB/초과·쿠키/CSRF/Host/Origin·위조 forwarding·철회/재로그인 PASS. guard 외부시도/공급자 호출·지출0. [보고](outputs/DEPLOYMENT_WIRING_REPORT.md).
+- [ ] Vercel/Render 실제20MiB 경로·peer/증명·TLS·limits·원격 Storage/JWKS/상태 동기화·운영 PG/worker/백업복구 미실증. production/G1-C/D 차단 유지, 실제 계정/Secret/env/배포 변경·인간 판정 생성 없음. 다음 단계 자동 진행 없음.
+
+## 배포 준비 6단계 스테이징 설계·호스팅 제약 확인
+
+- [x] wiring28파일을cbee283 로컬 보존 후 feat/deployment-staging-prep 분기. 공식 Supabase source24건/판단16건을 commit·SHA로 고정하고 A/B/C·20MiB 양방향·계정/권한·migration/복구·승인 게이트를 문서화. [설계](docs/DEPLOYMENT_STAGING_PREP.md).
+- [ ] Vercel/Render 공식 사이트 proxy 접근 오류로 최신 요금·rewrite/20MiB·상시 worker/outbound/TLS/health 조건 BLOCKED. 실제 account quote/연결·스테이징 아키텍처 최종 확정·production/G1-C/D 미완료. 실제 계정/서비스/Secret/배포/push/merge 없음.
+- [x] 문서-only 검증: 기존 code/fixture/source hash·링크/근거/보존 대조. backend1031/TLS15는 과거 증거이며 이번 새 PASS로 계상하지 않음. [보고](outputs/DEPLOYMENT_STAGING_PREP_REPORT.md). 다음 구현 자동 진행 없음.
+
+## 배포 준비 7단계 Storage HTTP
+
+- [x] 스테이징 문서 8파일을34c66e1 로컬 커밋으로 보존하고 feat/deployment-storage-http 분기. Local/Fake 기본 유지, exact MockTransport 전용 HTTP 업로드·인증 다운로드와 바이트 재검증 구현. [계약](docs/DEPLOYMENT_STORAGE_HTTP.md).
+- [ ] 공식 목록/ACL 응답 계약·HTTP 전체 orphan inventory·cloud backup/운영 wiring·실Supabase 및20MiB ingress 검증은 BLOCKED. production 시작 차단 유지, 다음 단계 자동 진행 없음.
+
+- [x] 신규 HTTP54·기존1031 포함 전체1085 PASS/FAIL0/SKIP0, 격리 로컬 PostgreSQL·Python 네트워크 가드 포함. 실제 외부 연결 시도0. [최종 보고](outputs/DEPLOYMENT_STORAGE_HTTP_REPORT.md). 운영 관련 BLOCKED는 테스트 SKIP0과 별도 판정이다.
+
+## GitHub 보존 및 실제 스테이징 전환 준비
+
+- [x] Storage HTTP14파일을7feaeb1 로컬 커밋으로 보존. 기존1,085 PASS 증거의 코드/fixture/잠금파일 SHA 일치를 확인했으며 이번 문서·보존 작업에서 전체 회귀를 새로 실행했다고 표시하지 않는다.
+- [x] [실제 연결 준비표](docs/STAGING_CONNECTION_RUNBOOK.md)에 계정/secret·별도 schema migration·private ACL/Auth membership·API/worker·20MiB/쿠키/복구 검증 및6개 production blocker 해제 조건을 정리했다. 추가 Fake/실제 연결/공개 배포/guard 해제는 하지 않는다.
+- [ ] GitHub 현재 브랜치 push·main 대상 보존 PR 결과는 이번 보고의 최종 원격 확인을 따른다. main 자동 merge와 다음 단계 자동 진행 없음.
+
+## 운영 Factory·Migration Runner 통합
+
+- [x] PR#3/e091b7b와 clean 작업 트리를 확인하고 feat/deployment-runtime-factory 분기. 공통 Factory·typed MigrationPlan·ordered apply/verify·동시 schema lock·실패 단계 재개 구현. [계약](docs/RUNTIME_FACTORY_MIGRATIONS.md).
+- [x] 최종 전체 backend1,113 PASS/FAIL0/SKIP0, 영향190 PASS, 격리 PG 실제 stop/start 후 원본/job/membership/UNKNOWN hold 보존 PASS. [보고](outputs/RUNTIME_FACTORY_REPORT.md). 초기 실패/중단 증거를 보존하고 최종 verified 결과와 구분한다.
+- [ ] 원격 runner/live factory·Auth/Storage·호스팅/worker·coordinated backup은 미검증으로 기존 production6개 blocker 유지. 다음 단계 자동 진행/원격 push·PR 갱신 없음.
+
+## Runtime Factory GitHub 보존·스테이징 최종 게이트
+
+- [x] Factory/Runner22파일의 manifest·최종1,113 PASS source136개와 의존성 버전을 대조하고39fe50a 로컬 커밋으로 보존. 기존 실패/중단 기록·원본/fixture/SQL/과거 증거 유지.
+- [x] [최종 게이트](docs/STAGING_FINAL_GATES.md)에 구현/사용자 설정/실연결 검증/구조 변경/BLOCKED를 구분했다. 현재 raw body 업로드와 실제20MiB 양방향 경로·서비스/secret 승인 경계를 명시했다.
+- [ ] PR#3은 feat/deployment-storage-http를 추적한다. 원격 보존과 실제 PR HEAD는 이번 최종 보고의 확인 결과를 따른다. 실제 연결/기동 차단 해제/공개 배포/main merge·다음 단계 자동 진행 없음.

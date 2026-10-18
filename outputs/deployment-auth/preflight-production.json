@@ -1,0 +1,23 @@
+{
+  "environment": "production",
+  "role": "api",
+  "settings_status": "VALID",
+  "status": "BLOCKED",
+  "startup_allowed": false,
+  "production_ready": false,
+  "connectivity": "NOT_CHECKED",
+  "database_adapter": "POSTGRESQL_OPT_IN_IMPLEMENTED_NOT_CONNECTED",
+  "membership_verification": "SERVER_ACTIVE_SINGLE_CONTRACT_ONLY",
+  "jwt_verification": "FAKE_JWKS_IMPLEMENTED_NOT_CONNECTED",
+  "private_storage_adapter": "FAKE_ONLY_IMPLEMENTED_NOT_CONNECTED",
+  "backup_restore_verification": "NOT_VERIFIED",
+  "issues": [],
+  "implementation_blockers": [
+    "postgresql_production_runtime_not_wired",
+    "private_storage_production_transport_not_wired",
+    "production_auth_runtime_and_operator_provisioning_not_verified",
+    "proxy_limits_and_headers_not_verified",
+    "worker_cloud_runtime_not_implemented",
+    "coordinated_backup_restore_not_verified"
+  ]
+}

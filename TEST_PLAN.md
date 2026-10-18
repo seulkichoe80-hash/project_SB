@@ -239,3 +239,67 @@ FR-08/09/14/18·NFR-01/02/03/04/05 및 WEB-02/04/05/08의 이번 수직 범위�
 ## v0.1 오프라인 기준본 검증
 
 Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재현·시연](docs/V01_DEMO.md)과 scripts/validation/run_v01_checks.py를 따른다. 전체 backend409·UI104·실제 HTTP13 및 타입/빌드를 새 실행하고 source hash/fixture/종료 코드/PC·모바일·원본 해시/위조 근거/기관·버전·reader·CSRF·로그아웃·queued worker 재시작을 기록한다. processing lease/실패 재시도·롤백은 backend 회귀로 구분한다. 실제 공급자·의미 검증·운영 배포와 G1 C/D 미실행을 PASS로 바꾸지 않는다. 기존 fixture·증거를 덮어쓰지 않으며 새 출력 경로만 사용한다.
+
+## v0.2-A 기능·근거 상태 안내
+
+[화면 계약](docs/V02A_UI_CLARITY.md)에 따라 scripts/validation/check_v02a_ui.cjs로 관리자/직원/미로그인/권한 확인 중 안내, 실제 AI·원격 인증 설정·문서 기능 구분, 기존 등록 동선, 근거 지연/정상/누락/위조/네트워크 실패, 복수 근거 전체 확인, 단계·문서 전환의 늦은 응답, 의미 상태 위조 차단, 접힌 기술 상세, 모바일·키보드를 검사한다. 기존 UI104·실제 HTTP13·백엔드409는 run_v01_checks.py로 현재 소스에서 새 실행한다. 구조·출처 확인을 의미 정확성이나 공식 승인으로 계산하지 않는다. 과거 fixture·결과는 보존하고 새 경로에 출력한다.
+
+## v0.2-B 문서 처리·활성화
+
+[동선 계약](docs/V02B_DOCUMENT_FLOW.md)에 따라 check_v02b_ui.cjs는 원문/파싱/청킹 미완료·실패·미확인, 버전/세대 불일치, 명시 확인·취소·중복 클릭·409/403/404/5xx·네트워크 오류, 사전 상태 변경·늦은 응답·reader 제한·미신뢰 workflow 주소와 320/375/768 화면을 검증한다. check_v02b_http.cjs는 실제 loopback BFF·독립 worker로 PDF/HWPX 등록·처리·활성화 UI·사후 조회·정확한 workflow 선택·EvidenceRef를 검증하고, 원본 해시·CSRF/Origin·기관/reader·미완료409·기존 활성본을 포함한 버전 교체·로그아웃 차단을 확인한다. 기존 UI104와 v0.2-A24도 새 실행한다. API/DB 계약은 동일하지만 이번 완료 증거로 전체 backend409를 추가 실행하며, 그 결과를 실제 공급자/운영 검증으로 계산하지 않는다. 과거 fixture·증거는 보존하며 현재 작업은 Feature Gate 범위다.
+
+## v0.2-C 모바일·지도 가독성
+
+[표시 계약](docs/V02C_MOBILE_UX.md)과 check_v02c_ui.cjs를 따른다. v0.2-B 번들을 보관하여 동일 합성 응답의 320/375/430px 목록 내부 폭·상세 버튼 위치·모바일 초기 탐색·노드 글자·제어 버튼 크기를 전후 측정한다. 변경 후 카드의 모든 열·긴 이름/기관/다중 버전, manager/reader·활성화 확인창, 목록 키보드/선택 근거·배율/관계·심각한 이슈 보존·기술 상세·200% 본문 reflow·대비/터치·화면 전환 요청 증가0을 검사한다. 기존 UI154(104+24+26)와 실제 HTTP14를 새 실행하고 기존100노드 참조 안정성을 재검증한다. backend/API/DB는 변경하지 않지만 이번 실행에서는 backend409도 추가 회귀한다. 전체 WCAG·스크린 리더·native OS/기기 zoom·실제 공급자·배포는 미검증으로 구분한다.
+
+## v0.3-A 공급자 안전장치
+
+신규 tests/test_provider_safety.py는 Fake 전송·429/503 bounded retry·미완료/usage 불명·스키마/근거 위조·기관/역할·원자 rollback·동시 thread/process 예산·중복 차감·lease/restart/취소/reconcile·실제 socket/DNS 차단을 검사한다. Phase Gate는 전체 backend495(기존409+신규86), UI174(104+24+26+20), 타입/빌드·실제 loopback HTTP13을 새 실행한다. [현재 실행 결과](outputs/V03A_REPORT.md)를 보존하며 과거 골드셋 정답을 AI 성능으로 계산하지 않는다.
+
+## v0.3-B 평가 기반
+
+[평가 계약](docs/V03B_EVALUATION_FOUNDATION.md)과 tests/test_evaluation_foundation.py로7원본 hash·실제 parser/chunker57청크·과거/현재 ID replay·51근거 재연결·옛 세대/활성 버전/등록 해제/기관 격리·7장문 전체 보존·검색 오류 분리·metric PRF/관계/인용/무근거 proxy·NOT_ANNOTATED·인간 검토 대기/입력·비용 provenance를 검사한다. Phase Gate는 전체 backend 회귀와 기존 UI174·타입/빌드·실제 loopback HTTP13을 새로 실행하고, 실행 증거와 초기 오류를 outputs/v03b에 보존한다. 실제 AI 점수는 NOT_RUN으로 유지한다.
+
+## v0.3-C1 진단·문맥 검증
+
+[계약](docs/V03C1_RETRIEVAL_DIAGNOSTICS.md)에 따라 실제 SQL·57색인·49/8기관 범위·36literal-token 탈락/4abstain 분류·정답 ID/Top-K·검색오류/매칭 오류·missing/forged/cross-tenant/stale context와 원문 인용·Fake 비승인 상태·인간 검토 진행률을 tests/test_retrieval_diagnostics.py로 검증한다. 완료 시 전체 backend 회귀를 비루프백 차단 runner로 실행한다. 제품/API/UI/의존성/설정이 같으므로 UI174·타입/빌드는 B의 증거와 파일 hash 비교 조건으로 재사용하며 새 실행 PASS로 표시하지 않는다. 별도 C1 CLI도 상속 socket guard로 실행한다.
+
+## v0.3-C2 retrieval ablation
+
+[사전 프로토콜](outputs/v03c2/PREREGISTRATION.json)과 [계약](docs/V03C2_RETRIEVAL_ABLATION.md)을 적용한다. tests/test_retrieval_ablation.py는 A기준선 동등성·정규화/OR/BM25·FTS지원/명시적 BLOCKED·SQL/FTS operator injection·기관/세대/등록 해제/위조·보류 후보와 답변 금지·metric 분모/중복/MRR/지연 산식을 검사한다. 36positive/4abstain·3회 fingerprint/순서 통제·전체 backend 비루프백 회귀를 새 실행한다. UI/타입·빌드는 변경 영향이 없으므로 이전 증거와 현재 hash를 대조해 재사용하고 새 실행 PASS로 표시하지 않는다.
+
+## v0.3-D 선택 검색 API
+
+[계약](docs/V03D_OPT_IN_SCORED_SEARCH.md)에 따라 tests/test_opt_in_search.py로 flag기본/명시선택/우회/한도·기존 literal/RAG shape·C2동등 순위·기관/role·위조/중복/원본오류/활성본·세대·해제·no-network를 검증한다. check_opt_in_search_http.py는 실제 loopback TCP/BFF cookie·CSRF/Origin·로그아웃·40문항3회 성능과C2 Top10동등성을 검사한다. backend/API 변경이므로 전체 backend·UI174·타입/빌드·기존 실제 HTTP13도 새 실행한다. 최종 API 측정은 자체 회귀 후 단독/비루프백 guard 안에서 수행한다.
+
+## 우선 10문항 검토 지원 Feature Gate
+
+제품 UI/API/DB 변경 없이 별도 평가 도구만 추가한다. 신규 검토 묶음의 기관별 문맥·근거/원본 재검증, 빈 판정/부분 입력/중복/미등록 문항/시간대·판정 검증, 제출과 승인 분리를 관련 B/C1 회귀와 실행한다. Chromium PC/375px의 10문항·가로 넘침·키보드 진입을 확인한다. 전체 제품 회귀는 이 Feature Gate에서 재실행하지 않으며 이전 D 결과를 새 실행으로 보고하지 않는다.
+
+## 배포 준비 1단계
+
+[계약](docs/DEPLOYMENT_PREFLIGHT.md)과 tests/test_deployment_preflight.py로 local/test·legacy alias·production 필수키/형식/금지 조합·secret repr/JSON/CLI 오류 redaction·API/worker 쌍·HTTPS/Origin/Secure/CSRF·mock 운영 금지·외부 client/socket 없는 검사·표준 API import 및 worker CLI의 DB 생성 전 시작 차단을 확인한다. 시작 경로 변경이므로 전체 backend를 비루프백 guard로 새 실행한다. UI/의존성/파서/schema는 동일한 hash 증거로 이전 결과를 구별하며, 실제 연결/운영/복구는 NOT_CHECKED/NOT_VERIFIED다. 설정이 맞아도 production BLOCKED는 현재 설계상 기대 결과다.
+
+## 배포 준비 2단계 PostgreSQL
+
+[계약](docs/DEPLOYMENT_POSTGRES.md)의 test_postgres.py는 DSN 없는 경우 BLOCKED 사유로 skip하며 실제 PG 검증 PASS로 집계하지 않는다. 격리 loopback PG에서 명시 migration/idempotency/unknown version·scope·CRUD·auth/기관/CSRF·원본/EvidenceRef·vector/검색/세대·동시 claim/프로세스·중복완료·lease·부분rollback·예산 경쟁/불확실 hold를 검사한다. 기존 acceptance 함수는 원본 수정 없이 PG fixture에 재사용한다. SQLite 기존 전체 회귀도 상속 Python 비루프백 guard 아래 새 실행한다. libpq C 연결은 guard 범위 밖이므로 test DSN의 정확 loopback 제한을 별도로 적용한다. 자체 PG fixture 재시작 후 recovery harness로 파일 SHA/활성버전/workflow lease/비용 상태를 확인한다. 실 cloud/Auth/Storage/LLM·RLS·운영 backup restore는 NOT_RUN이다.
+
+## 배포 준비 3단계 Storage 검증 범위
+
+[실행 계약](docs/DEPLOYMENT_PRIVATE_STORAGE.md)의 Fake 전송/불변 SHA·크기/기관·활성 버전, 업로드 timeout 전후/부분 bytes/DB 실패·중복·orphan quarantine, 새 대상 manifest 복구/부분 rollback/중복 복구·변조·혼합 snapshot/세션 철회·worker fencing/EvidenceRef 재해결을 SQLite와 격리 loopback PostgreSQL에서 검증한다. Phase Gate는 전체 backend 회귀를 수행한다. 앱 schema와 Fake 객체 복구만 실증하며 별도 비용 schema·실 Supabase·PITR·운영 복구 및 UI 미변경 회귀 재실행 여부는 구분해 보고한다. 원본·과거 증거·인간 판정은 변경하지 않는다.
+
+## 배포 준비 4단계 Auth 검증
+
+[오프라인 Auth 계약](docs/DEPLOYMENT_AUTH.md)에 따라 ephemeral ES256/RS256 서명·만료/위조/issuer/aud/시간/알고리즘·키 교체/제거·JWKS 장애/악성 header/중복 JSON을 검사한다. 실제 BFF 세션과 SQLite/격리 loopback PG에서 기관·활성 단일 membership/권한 변경·경합/CSRF/Origin/logout·세션 재구성·명시 bootstrap 동시성/부분 rollback·Private Storage 원본/EvidenceRef·미승인 workflow를 검증한다. Phase Gate 전체 backend는 Python 비루프백 guard와 PG local_test 강제를 병행한다. 기존 테스트/fixture/인간 판정은 수정하지 않는다. provider-only revocation·실 cloud·운영 로그인/HTTPS/배포는 미실증이며 Fake/ASGI PASS와 구분한다. 프런트 미변경 시 UI/타입/build는 이번 실행 결과로 계상하지 않는다.
+
+## 배포 준비 5단계 Wiring·HTTPS 검증
+
+[실행 계약](docs/DEPLOYMENT_WIRING.md)에 따라 local/Fake API/worker 실제 main 선택·DB/schema/원본 공유 불일치·역할/production 기동 차단, trusted peer+증명/정제 forwarded headers·Host/Origin/CSRF/Cookie/redirect·공개 CORS 차단, 20MiB/초과·stream/framing·deadline/429, Fake provider 비활성/탈퇴/장애·최대 세션 수명/철회 커밋을 검사한다. 별도 자체 CA를 검증하는 실제 loopback TLS harness와 in-process ASGI upstream의 범위를 구분한다. Phase Gate 전체 backend는 비루프백 guard 아래 한 번 최종 실행하고 기존 원본·fixture·테스트·증거를 보존한다. vendor edge20MiB/신뢰·실계정·provider 이벤트·클라우드 운영/분산 rate limit·실브라우저는 미실증이다. UI/의존성/DB schema 미변경 검사는 새 PASS로 계상하지 않는다.
+
+## 배포 준비 7단계 Storage HTTP 영향 시험
+
+FR-14/15/18·NFR-01/02/05/07·WEB-02/04/05: `tests/test_storage_http.py`에서 exact MockTransport 업로드/인증 다운로드·중복/경쟁·SHA/크기·timeout/429/5xx·모호한 성공의 GET 재검증·헤더/URL/redirect/경로 공격·로그 비노출·20MiB 로컬 경계와 SQLite/격리 로컬 PostgreSQL의 DB 실패/기관 격리를 검증한다. 기존 Private Storage/Fake backup·PostgreSQL 회귀는 전체 backend와 함께 실행한다. 실제 bucket ACL·HTTP inventory/orphan cloud 대사·운영 backup·20MiB edge/실Supabase 시험은 BLOCKED이며 Mock 결과로 대체하지 않는다. UI/API/DB schema 변경은 없다. Phase Gate 전체 회귀 및 실행 기록은 [이번 보고](outputs/DEPLOYMENT_STORAGE_HTTP_REPORT.md)를 따른다.
+
+## Factory·Migration Runner 영향 시험
+
+FR-14/15/18·NFR-01/02/05/07·WEB-02/04/05: tests/test_runtime_factory.py의 새/기존 DB·동시 Runner/API-worker 시작·verify-only·schema/checksum·단계 롤백/재개·기관/멤버십·비용 hold/원본·worker pipeline·설정 불일치/원격 차단을 확인한다. 표준 entry point/RuntimeBinding 변경은 기존 전체 backend 및 Private Storage/PostgreSQL/Auth 회귀를 실행한다. 격리 PG 실제 stop/start 뒤 새 프로세스로 verify/data/job/membership/uncertain hold를 재검증한다. cloud 연결·운영6개 blocker·공개 배포는 별도 BLOCKED이며 이번 local 회귀로 대체하지 않는다.

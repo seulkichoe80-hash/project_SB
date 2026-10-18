@@ -1,0 +1,3294 @@
+[
+  {
+    "id": "travel-a-01",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-a-01:step:1",
+          "text": "출장 목적과 기간을 적은 신청서를 출발 전에 제출한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+              "version_id": "b5e7749511354556a51cda8adb585a45",
+              "chunk_id": "967f1ea203246dcbeaa25274abf6c7af53cf9c20ae5490da52cc3087c49c405d",
+              "source_block_ids": [
+                "9ad9f94dcfa2e04da1b93533186e3eca5ab5c46cc4a164df413b184b36c91673"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                  "version_id": "b5e7749511354556a51cda8adb585a45",
+                  "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/2",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    2
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "9ad9f94dcfa2e04da1b93533186e3eca5ab5c46cc4a164df413b184b36c91673",
+                  "source_anchor": {
+                    "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                    "version_id": "b5e7749511354556a51cda8adb585a45",
+                    "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/2",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      2
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 38,
+                  "quote": "출장 신청자는 출장 목적과 기간을 적은 신청서를 출발 전에 제출한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "travel-a-01:step:2",
+          "text": "일정표와 예상 경비 내역을 첨부한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+              "version_id": "b5e7749511354556a51cda8adb585a45",
+              "chunk_id": "6b04437af8ab082114049de0f76f232fca6ef69844dec94cfbd3cc0284086d44",
+              "source_block_ids": [
+                "cce2ab3e89f8fe82ae29d49c23065f5048dffdd738a7e79f448acfb199e2f96e"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                  "version_id": "b5e7749511354556a51cda8adb585a45",
+                  "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "cce2ab3e89f8fe82ae29d49c23065f5048dffdd738a7e79f448acfb199e2f96e",
+                  "source_anchor": {
+                    "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                    "version_id": "b5e7749511354556a51cda8adb585a45",
+                    "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 29,
+                  "quote": "출장 신청서에는 일정표와 예상 경비 내역을 첨부한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "travel-a-01:step:3",
+          "text": "신청서와 첨부자료의 누락 여부를 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+              "version_id": "b5e7749511354556a51cda8adb585a45",
+              "chunk_id": "eade9c2f7dc9c329a504fb23eb1bf11924b9ba9d34208c9c5b47d322bae73db3",
+              "source_block_ids": [
+                "52a5b28fe461720838d7158de23d90cd82a493259606e299a0bfd948761f5730"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                  "version_id": "b5e7749511354556a51cda8adb585a45",
+                  "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "52a5b28fe461720838d7158de23d90cd82a493259606e299a0bfd948761f5730",
+                  "source_anchor": {
+                    "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                    "version_id": "b5e7749511354556a51cda8adb585a45",
+                    "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 31,
+                  "quote": "자료 담당자는 신청서와 첨부자료의 누락 여부를 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-a-02",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-a-02:step:1",
+          "text": "일정표와 예상 경비 내역을 첨부한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+              "version_id": "b5e7749511354556a51cda8adb585a45",
+              "chunk_id": "6b04437af8ab082114049de0f76f232fca6ef69844dec94cfbd3cc0284086d44",
+              "source_block_ids": [
+                "cce2ab3e89f8fe82ae29d49c23065f5048dffdd738a7e79f448acfb199e2f96e"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                  "version_id": "b5e7749511354556a51cda8adb585a45",
+                  "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "cce2ab3e89f8fe82ae29d49c23065f5048dffdd738a7e79f448acfb199e2f96e",
+                  "source_anchor": {
+                    "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                    "version_id": "b5e7749511354556a51cda8adb585a45",
+                    "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 29,
+                  "quote": "출장 신청서에는 일정표와 예상 경비 내역을 첨부한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-a-03",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-a-03:step:1",
+          "text": "신청서와 첨부자료의 누락 여부를 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+              "version_id": "b5e7749511354556a51cda8adb585a45",
+              "chunk_id": "eade9c2f7dc9c329a504fb23eb1bf11924b9ba9d34208c9c5b47d322bae73db3",
+              "source_block_ids": [
+                "52a5b28fe461720838d7158de23d90cd82a493259606e299a0bfd948761f5730"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                  "version_id": "b5e7749511354556a51cda8adb585a45",
+                  "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "52a5b28fe461720838d7158de23d90cd82a493259606e299a0bfd948761f5730",
+                  "source_anchor": {
+                    "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                    "version_id": "b5e7749511354556a51cda8adb585a45",
+                    "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 31,
+                  "quote": "자료 담당자는 신청서와 첨부자료의 누락 여부를 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-a-04",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-a-04:step:1",
+          "text": "보완을 요청하고 검토를 보류한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+              "version_id": "b5e7749511354556a51cda8adb585a45",
+              "chunk_id": "8b494d8b06ddbb2b875003513d59ae85032f62359ddb400b9369c6923a721cac",
+              "source_block_ids": [
+                "022b30d26e9842c21112fa12887be59be92ad51eaa76d91b3b4a8484caf41383"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                  "version_id": "b5e7749511354556a51cda8adb585a45",
+                  "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/5",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    5
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "022b30d26e9842c21112fa12887be59be92ad51eaa76d91b3b4a8484caf41383",
+                  "source_anchor": {
+                    "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                    "version_id": "b5e7749511354556a51cda8adb585a45",
+                    "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/5",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      5
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 36,
+                  "quote": "첨부자료가 빠진 경우 신청자에게 보완을 요청하고 검토를 보류한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-a-05",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-a-05:step:1",
+          "text": "부서장이 누락 없는 신청서를 확인한 뒤 승인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+              "version_id": "b5e7749511354556a51cda8adb585a45",
+              "chunk_id": "3f3b7a61f68e63011fd5c4f696556504ab82807cc88b9d980714d14712b9514a",
+              "source_block_ids": [
+                "a65009d96af08d8e8a718b62f29d840354d40834c51b294f5b0975d01662a1a5"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                  "version_id": "b5e7749511354556a51cda8adb585a45",
+                  "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/6",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    6
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "a65009d96af08d8e8a718b62f29d840354d40834c51b294f5b0975d01662a1a5",
+                  "source_anchor": {
+                    "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                    "version_id": "b5e7749511354556a51cda8adb585a45",
+                    "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/6",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      6
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 35,
+                  "quote": "부서장은 누락이 없는 신청서를 확인한 뒤 출장 여부를 승인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-a-06",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-a-06:step:1",
+          "text": "결과보고서와 지출 증빙을 제출한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+              "version_id": "b5e7749511354556a51cda8adb585a45",
+              "chunk_id": "5c3c3555191c86cd471671af8ae3d8353fd535385c4e68b3210d163e752627b9",
+              "source_block_ids": [
+                "3c43e910a6e60b874d730072e4941d1d69070ad839d2a39b5b3a0f32bc7def9c"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                  "version_id": "b5e7749511354556a51cda8adb585a45",
+                  "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/7",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    7
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "3c43e910a6e60b874d730072e4941d1d69070ad839d2a39b5b3a0f32bc7def9c",
+                  "source_anchor": {
+                    "document_id": "3fcf7111dbc24871b19dfc04e49eb288",
+                    "version_id": "b5e7749511354556a51cda8adb585a45",
+                    "sha256": "9a9ca28791dcb1131d929a122fdbd2ebd4e213df85b54a9bd85ba5f385ac9d16",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/7",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      7
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 29,
+                  "quote": "출장자는 복귀 뒤 결과보고서와 지출 증빙을 제출한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "leave-a-01",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "leave-a-01:step:1",
+          "text": "시작일 및 종료일과 휴가 종류를 적는다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "de6a187206e34936a243e6b034b7346c",
+              "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+              "chunk_id": "9d269a83e71590446096e2d9708cb528d52ad4b781fb7710f934607c1511c36d",
+              "source_block_ids": [
+                "11e8b8f6032522754744051653f80e6fc28339075becc70952aee6d31b73cd27"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "de6a187206e34936a243e6b034b7346c",
+                  "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                  "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/2",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    2
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "11e8b8f6032522754744051653f80e6fc28339075becc70952aee6d31b73cd27",
+                  "source_anchor": {
+                    "document_id": "de6a187206e34936a243e6b034b7346c",
+                    "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                    "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/2",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      2
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 35,
+                  "quote": "휴가 신청자는 휴가 종류와 시작일 및 종료일을 신청서에 적는다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "leave-a-01:step:2",
+          "text": "신청서와 해당 증빙을 함께 제출한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "de6a187206e34936a243e6b034b7346c",
+              "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+              "chunk_id": "3d4d027fbdd30ba24520f05323b306d889b5da2759559a31f1bc2b456e332f48",
+              "source_block_ids": [
+                "89c3306aa04ce30fe15c597c41d2747d356d178cb2888f479c9b0a85f4027b0b"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "de6a187206e34936a243e6b034b7346c",
+                  "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                  "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "89c3306aa04ce30fe15c597c41d2747d356d178cb2888f479c9b0a85f4027b0b",
+                  "source_anchor": {
+                    "document_id": "de6a187206e34936a243e6b034b7346c",
+                    "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                    "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 35,
+                  "quote": "증빙이 필요한 휴가 종류는 신청서와 함께 해당 증빙을 제출한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "leave-a-01:step:3",
+          "text": "신청 기간과 남은 휴가 일수를 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "de6a187206e34936a243e6b034b7346c",
+              "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+              "chunk_id": "a4ca7b45d13e762fe795239b23d28907a796c8efdd0da2b914778313fd725c4f",
+              "source_block_ids": [
+                "6383e7baf514017fb788cfcd87e0eeeb12e16b1ca61209e7befc0742abfccfed"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "de6a187206e34936a243e6b034b7346c",
+                  "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                  "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "6383e7baf514017fb788cfcd87e0eeeb12e16b1ca61209e7befc0742abfccfed",
+                  "source_anchor": {
+                    "document_id": "de6a187206e34936a243e6b034b7346c",
+                    "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                    "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 30,
+                  "quote": "근태 담당자는 신청 기간과 남은 휴가 일수를 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "leave-a-02",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "leave-a-02:step:1",
+          "text": "신청서와 해당 증빙을 함께 제출한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "de6a187206e34936a243e6b034b7346c",
+              "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+              "chunk_id": "3d4d027fbdd30ba24520f05323b306d889b5da2759559a31f1bc2b456e332f48",
+              "source_block_ids": [
+                "89c3306aa04ce30fe15c597c41d2747d356d178cb2888f479c9b0a85f4027b0b"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "de6a187206e34936a243e6b034b7346c",
+                  "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                  "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "89c3306aa04ce30fe15c597c41d2747d356d178cb2888f479c9b0a85f4027b0b",
+                  "source_anchor": {
+                    "document_id": "de6a187206e34936a243e6b034b7346c",
+                    "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                    "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 35,
+                  "quote": "증빙이 필요한 휴가 종류는 신청서와 함께 해당 증빙을 제출한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "leave-a-03",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "leave-a-03:step:1",
+          "text": "신청 기간과 남은 휴가 일수를 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "de6a187206e34936a243e6b034b7346c",
+              "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+              "chunk_id": "a4ca7b45d13e762fe795239b23d28907a796c8efdd0da2b914778313fd725c4f",
+              "source_block_ids": [
+                "6383e7baf514017fb788cfcd87e0eeeb12e16b1ca61209e7befc0742abfccfed"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "de6a187206e34936a243e6b034b7346c",
+                  "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                  "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "6383e7baf514017fb788cfcd87e0eeeb12e16b1ca61209e7befc0742abfccfed",
+                  "source_anchor": {
+                    "document_id": "de6a187206e34936a243e6b034b7346c",
+                    "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                    "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 30,
+                  "quote": "근태 담당자는 신청 기간과 남은 휴가 일수를 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "leave-a-04",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "leave-a-04:step:1",
+          "text": "날짜 정정을 요청한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "de6a187206e34936a243e6b034b7346c",
+              "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+              "chunk_id": "1bfbdf0cf8306276b3ab0bc81e9bde2b07b065ca666e4bee64988b563bc06c96",
+              "source_block_ids": [
+                "dbac0417d8c897e746e9178f2134562cdcf6954a73ac851c04535c54bde4a86b"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "de6a187206e34936a243e6b034b7346c",
+                  "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                  "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/5",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    5
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "dbac0417d8c897e746e9178f2134562cdcf6954a73ac851c04535c54bde4a86b",
+                  "source_anchor": {
+                    "document_id": "de6a187206e34936a243e6b034b7346c",
+                    "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                    "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/5",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      5
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 33,
+                  "quote": "종료일이 시작일보다 빠르면 신청자에게 날짜 정정을 요청한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "leave-a-05",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "leave-a-05:step:1",
+          "text": "근태 담당자 확인 뒤 부서장이 승인하거나 보완 요청한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "de6a187206e34936a243e6b034b7346c",
+              "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+              "chunk_id": "e1e85c37eb64c6d226343c0f9c91f12f53ff68b426f11e530ad380a7188977be",
+              "source_block_ids": [
+                "afd4af8f035527e12eea67f30bb7c3714b903d236bf5ffdde2c069ff978468bf"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "de6a187206e34936a243e6b034b7346c",
+                  "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                  "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/6",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    6
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "afd4af8f035527e12eea67f30bb7c3714b903d236bf5ffdde2c069ff978468bf",
+                  "source_anchor": {
+                    "document_id": "de6a187206e34936a243e6b034b7346c",
+                    "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                    "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/6",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      6
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 40,
+                  "quote": "부서장은 근태 담당자의 확인 이후 휴가 신청을 승인하거나 보완 요청한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "leave-a-06",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "leave-a-06:step:1",
+          "text": "변경 신청을 제출하고 다시 확인받는다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "de6a187206e34936a243e6b034b7346c",
+              "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+              "chunk_id": "8382f92bd80f6b5a994d70e69f0e485fb2475f73bc79023ecdf664a0bfdbf2be",
+              "source_block_ids": [
+                "9e458f729693fb0a26290f989b5448904bb42645824fbeabf8ee1def7536fe45"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "de6a187206e34936a243e6b034b7346c",
+                  "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                  "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/7",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    7
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "9e458f729693fb0a26290f989b5448904bb42645824fbeabf8ee1def7536fe45",
+                  "source_anchor": {
+                    "document_id": "de6a187206e34936a243e6b034b7346c",
+                    "version_id": "e86e1dad7ae14d94a70d37c1b3b7e20a",
+                    "sha256": "790387692946f3cdb62f2f03dfd86242564b29904cc9f5550539ad06b2afa3e9",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/7",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      7
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 37,
+                  "quote": "승인된 휴가 일정을 바꾸려면 변경 신청을 제출하고 다시 확인받는다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "purchase-a-01",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "purchase-a-01:step:1",
+          "text": "품목과 수량 및 사용 목적을 적는다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "f162cc5145ac40b98288d273d552b6f6",
+              "version_id": "e918581bdcc2414f89a34135ef439d48",
+              "chunk_id": "757e83bbdd1d459af3bd4ceeb644916266fb87a7168a0218803921d04cbb7ed2",
+              "source_block_ids": [
+                "c640767e254ed122cccf0808d7d86fcae5c25c649527478ffc7711b3b283cf3b"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                  "version_id": "e918581bdcc2414f89a34135ef439d48",
+                  "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/2",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    2
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "c640767e254ed122cccf0808d7d86fcae5c25c649527478ffc7711b3b283cf3b",
+                  "source_anchor": {
+                    "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                    "version_id": "e918581bdcc2414f89a34135ef439d48",
+                    "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/2",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      2
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 39,
+                  "quote": "구매 요청자는 필요한 품목과 수량 및 사용 목적을 구매요청서에 적는다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "purchase-a-01:step:2",
+          "text": "비교 견적 자료를 첨부한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "f162cc5145ac40b98288d273d552b6f6",
+              "version_id": "e918581bdcc2414f89a34135ef439d48",
+              "chunk_id": "0d32c9f191557304d29227dacdd96d81788539b8a111e87b58aec540d6b1493f",
+              "source_block_ids": [
+                "5f726af78dcb5e1b97b1eedb7e8cc7f080dae00e91e39c49f5d682c99872f2a5"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                  "version_id": "e918581bdcc2414f89a34135ef439d48",
+                  "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "5f726af78dcb5e1b97b1eedb7e8cc7f080dae00e91e39c49f5d682c99872f2a5",
+                  "source_anchor": {
+                    "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                    "version_id": "e918581bdcc2414f89a34135ef439d48",
+                    "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 23,
+                  "quote": "구매요청서에는 비교 견적 자료를 첨부한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "purchase-a-01:step:3",
+          "text": "기존 재고와 요청 수량을 먼저 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "f162cc5145ac40b98288d273d552b6f6",
+              "version_id": "e918581bdcc2414f89a34135ef439d48",
+              "chunk_id": "0192f0dbd53cd419586962b27bd2998ed9b0f5066d3b692725fe65b0b44fd39a",
+              "source_block_ids": [
+                "ef4eded0d10737698e99d8f04304e2a031e8d145928e557ca8c2083fe124f505"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                  "version_id": "e918581bdcc2414f89a34135ef439d48",
+                  "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "ef4eded0d10737698e99d8f04304e2a031e8d145928e557ca8c2083fe124f505",
+                  "source_anchor": {
+                    "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                    "version_id": "e918581bdcc2414f89a34135ef439d48",
+                    "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 30,
+                  "quote": "물품 담당자는 기존 재고와 요청 수량을 먼저 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "purchase-a-02",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "purchase-a-02:step:1",
+          "text": "비교 견적 자료를 첨부한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "f162cc5145ac40b98288d273d552b6f6",
+              "version_id": "e918581bdcc2414f89a34135ef439d48",
+              "chunk_id": "0d32c9f191557304d29227dacdd96d81788539b8a111e87b58aec540d6b1493f",
+              "source_block_ids": [
+                "5f726af78dcb5e1b97b1eedb7e8cc7f080dae00e91e39c49f5d682c99872f2a5"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                  "version_id": "e918581bdcc2414f89a34135ef439d48",
+                  "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "5f726af78dcb5e1b97b1eedb7e8cc7f080dae00e91e39c49f5d682c99872f2a5",
+                  "source_anchor": {
+                    "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                    "version_id": "e918581bdcc2414f89a34135ef439d48",
+                    "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 23,
+                  "quote": "구매요청서에는 비교 견적 자료를 첨부한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "purchase-a-03",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "purchase-a-03:step:1",
+          "text": "기존 재고와 요청 수량을 먼저 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "f162cc5145ac40b98288d273d552b6f6",
+              "version_id": "e918581bdcc2414f89a34135ef439d48",
+              "chunk_id": "0192f0dbd53cd419586962b27bd2998ed9b0f5066d3b692725fe65b0b44fd39a",
+              "source_block_ids": [
+                "ef4eded0d10737698e99d8f04304e2a031e8d145928e557ca8c2083fe124f505"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                  "version_id": "e918581bdcc2414f89a34135ef439d48",
+                  "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "ef4eded0d10737698e99d8f04304e2a031e8d145928e557ca8c2083fe124f505",
+                  "source_anchor": {
+                    "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                    "version_id": "e918581bdcc2414f89a34135ef439d48",
+                    "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 30,
+                  "quote": "물품 담당자는 기존 재고와 요청 수량을 먼저 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "purchase-a-04",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "purchase-a-04:step:1",
+          "text": "구매 대신 재고 사용을 안내한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "f162cc5145ac40b98288d273d552b6f6",
+              "version_id": "e918581bdcc2414f89a34135ef439d48",
+              "chunk_id": "09892ccf265e2504e5b835e268e65935fe33984b216f6a8fdead60e5ed6af136",
+              "source_block_ids": [
+                "a2ca6d31dd2d403d8f34c0d944b0ec785e243b07007451df8bf8f170d6024f82"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                  "version_id": "e918581bdcc2414f89a34135ef439d48",
+                  "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/5",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    5
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "a2ca6d31dd2d403d8f34c0d944b0ec785e243b07007451df8bf8f170d6024f82",
+                  "source_anchor": {
+                    "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                    "version_id": "e918581bdcc2414f89a34135ef439d48",
+                    "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/5",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      5
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 27,
+                  "quote": "재고가 충분하면 구매 대신 재고 사용을 안내한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "purchase-a-05",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "purchase-a-05:step:1",
+          "text": "예산 담당자의 잔액 확인 뒤 부서장이 승인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "f162cc5145ac40b98288d273d552b6f6",
+              "version_id": "e918581bdcc2414f89a34135ef439d48",
+              "chunk_id": "c45f58ff628451cd6af71dde8f95de7e869528004c6aa2079c424a0ad9152bdd",
+              "source_block_ids": [
+                "d158d9527adc18a3cf6b4c7de198d6059380fd86f43f5cad1b911130e36e5bf4"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                  "version_id": "e918581bdcc2414f89a34135ef439d48",
+                  "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/6",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    6
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "d158d9527adc18a3cf6b4c7de198d6059380fd86f43f5cad1b911130e36e5bf4",
+                  "source_anchor": {
+                    "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                    "version_id": "e918581bdcc2414f89a34135ef439d48",
+                    "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/6",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      6
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 33,
+                  "quote": "예산 담당자의 잔액 확인 뒤 부서장이 구매 요청을 승인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "purchase-a-06",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "purchase-a-06:step:1",
+          "text": "수량과 상태를 확인하고 인수 내역을 기록한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "f162cc5145ac40b98288d273d552b6f6",
+              "version_id": "e918581bdcc2414f89a34135ef439d48",
+              "chunk_id": "369d93073f72a8e8b780857e5af2b26b59ae4513a0f0c914a8542d5230c7b8f9",
+              "source_block_ids": [
+                "3e1c51f0945407af1470a0372d4f6aac6a7e4ca0058dfca576403e6289d06fec"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                  "version_id": "e918581bdcc2414f89a34135ef439d48",
+                  "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/7",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    7
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "3e1c51f0945407af1470a0372d4f6aac6a7e4ca0058dfca576403e6289d06fec",
+                  "source_anchor": {
+                    "document_id": "f162cc5145ac40b98288d273d552b6f6",
+                    "version_id": "e918581bdcc2414f89a34135ef439d48",
+                    "sha256": "b729f286413f8ec8f511644b3976fd72e33208b918267ce58ac366fced1a4f1c",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/7",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      7
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 38,
+                  "quote": "물품을 받으면 요청자가 수량과 상태를 확인하고 인수 내역을 기록한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "meeting-a-01",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "meeting-a-01:step:1",
+          "text": "회의 일시와 예상 참석 인원을 적는다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+              "version_id": "08003c32303e46d68018d9f1c3391b73",
+              "chunk_id": "baa68d1c9bb44d4f0b57d76c922bf4773e27f478e722df237f161ebb4ea54960",
+              "source_block_ids": [
+                "c1922b01d2037322e0f5dc2184747b35b6a684a0147c1bf09f730905b3b8299d"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                  "version_id": "08003c32303e46d68018d9f1c3391b73",
+                  "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/2",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    2
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "c1922b01d2037322e0f5dc2184747b35b6a684a0147c1bf09f730905b3b8299d",
+                  "source_anchor": {
+                    "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                    "version_id": "08003c32303e46d68018d9f1c3391b73",
+                    "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/2",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      2
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 36,
+                  "quote": "회의 주관자는 회의 일시와 예상 참석 인원을 예약 요청에 적는다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "meeting-a-01:step:2",
+          "text": "개인정보 없이 방문자 수를 적는다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+              "version_id": "08003c32303e46d68018d9f1c3391b73",
+              "chunk_id": "2ecc044d36a756cc8fabd5384e5bbecf08e1294886526b61c0738c9eae9cd11c",
+              "source_block_ids": [
+                "47d425abb58a58ea51e7eea3c9e2c0d9b3aadb3fbb6a6ab50fe45f63f2eb8866"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                  "version_id": "08003c32303e46d68018d9f1c3391b73",
+                  "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "47d425abb58a58ea51e7eea3c9e2c0d9b3aadb3fbb6a6ab50fe45f63f2eb8866",
+                  "source_anchor": {
+                    "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                    "version_id": "08003c32303e46d68018d9f1c3391b73",
+                    "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 45,
+                  "quote": "외부 방문자가 있으면 방문자 수를 예약 요청에 함께 적되 개인정보는 쓰지 않는다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "meeting-a-01:step:3",
+          "text": "사용 가능한 회의실과 예약 시간 중복을 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+              "version_id": "08003c32303e46d68018d9f1c3391b73",
+              "chunk_id": "2967d4000ea31b104e85b92f88f620d4ad8d3dbf4f25c5c4f956aaadacb58a74",
+              "source_block_ids": [
+                "1ff0b3972a1bd4140cb2955fcc1fcc741b5e0758eb3e42a1c7b2b0f2ad9a0392"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                  "version_id": "08003c32303e46d68018d9f1c3391b73",
+                  "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "1ff0b3972a1bd4140cb2955fcc1fcc741b5e0758eb3e42a1c7b2b0f2ad9a0392",
+                  "source_anchor": {
+                    "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                    "version_id": "08003c32303e46d68018d9f1c3391b73",
+                    "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 35,
+                  "quote": "시설 담당자는 사용 가능한 회의실과 예약 시간 중복을 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "meeting-a-02",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "meeting-a-02:step:1",
+          "text": "개인정보 없이 방문자 수를 적는다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+              "version_id": "08003c32303e46d68018d9f1c3391b73",
+              "chunk_id": "2ecc044d36a756cc8fabd5384e5bbecf08e1294886526b61c0738c9eae9cd11c",
+              "source_block_ids": [
+                "47d425abb58a58ea51e7eea3c9e2c0d9b3aadb3fbb6a6ab50fe45f63f2eb8866"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                  "version_id": "08003c32303e46d68018d9f1c3391b73",
+                  "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "47d425abb58a58ea51e7eea3c9e2c0d9b3aadb3fbb6a6ab50fe45f63f2eb8866",
+                  "source_anchor": {
+                    "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                    "version_id": "08003c32303e46d68018d9f1c3391b73",
+                    "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 45,
+                  "quote": "외부 방문자가 있으면 방문자 수를 예약 요청에 함께 적되 개인정보는 쓰지 않는다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "meeting-a-03",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "meeting-a-03:step:1",
+          "text": "사용 가능한 회의실과 예약 시간 중복을 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+              "version_id": "08003c32303e46d68018d9f1c3391b73",
+              "chunk_id": "2967d4000ea31b104e85b92f88f620d4ad8d3dbf4f25c5c4f956aaadacb58a74",
+              "source_block_ids": [
+                "1ff0b3972a1bd4140cb2955fcc1fcc741b5e0758eb3e42a1c7b2b0f2ad9a0392"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                  "version_id": "08003c32303e46d68018d9f1c3391b73",
+                  "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "1ff0b3972a1bd4140cb2955fcc1fcc741b5e0758eb3e42a1c7b2b0f2ad9a0392",
+                  "source_anchor": {
+                    "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                    "version_id": "08003c32303e46d68018d9f1c3391b73",
+                    "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 35,
+                  "quote": "시설 담당자는 사용 가능한 회의실과 예약 시간 중복을 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "meeting-a-04",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "meeting-a-04:step:1",
+          "text": "다른 시간 또는 다른 회의실을 제안한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+              "version_id": "08003c32303e46d68018d9f1c3391b73",
+              "chunk_id": "65211fa78e6ec478608fac08febc29ccef3b07e1e02d71d87fcf793b88b0ded5",
+              "source_block_ids": [
+                "671e16623573f11887db786415e863815edcf80482c2f9bd911468402606d790"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                  "version_id": "08003c32303e46d68018d9f1c3391b73",
+                  "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/5",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    5
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "671e16623573f11887db786415e863815edcf80482c2f9bd911468402606d790",
+                  "source_anchor": {
+                    "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                    "version_id": "08003c32303e46d68018d9f1c3391b73",
+                    "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/5",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      5
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 41,
+                  "quote": "예약 시간이 겹치면 시설 담당자는 다른 시간 또는 다른 회의실을 제안한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "meeting-a-05",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "meeting-a-05:step:1",
+          "text": "시설 담당자가 중복 없는 예약을 확정하고 알린다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+              "version_id": "08003c32303e46d68018d9f1c3391b73",
+              "chunk_id": "834f701f90e3d55983e2b9592a2024882504b760582adbec08feb1a38bc5233f",
+              "source_block_ids": [
+                "6f846ba02487191f13427c04baa87bfe8b53c74179aae78b870e671855d1db41"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                  "version_id": "08003c32303e46d68018d9f1c3391b73",
+                  "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/6",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    6
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "6f846ba02487191f13427c04baa87bfe8b53c74179aae78b870e671855d1db41",
+                  "source_anchor": {
+                    "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                    "version_id": "08003c32303e46d68018d9f1c3391b73",
+                    "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/6",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      6
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 34,
+                  "quote": "시설 담당자는 중복이 없는 예약을 확정하고 주관자에게 알린다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "meeting-a-06",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "meeting-a-06:step:1",
+          "text": "비품을 정리하고 사용 종료를 알린다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+              "version_id": "08003c32303e46d68018d9f1c3391b73",
+              "chunk_id": "c600787cb79054bd7857499f172a161e49ce9f8e782328a82c8d460df13be118",
+              "source_block_ids": [
+                "8803e198fcc40d416cde1c1988f181047f03f0b5061d433c5946ee0c49dfaceb"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                  "version_id": "08003c32303e46d68018d9f1c3391b73",
+                  "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/7",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    7
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "8803e198fcc40d416cde1c1988f181047f03f0b5061d433c5946ee0c49dfaceb",
+                  "source_anchor": {
+                    "document_id": "3a9f1389fc784306b6d422e9d07eaa5e",
+                    "version_id": "08003c32303e46d68018d9f1c3391b73",
+                    "sha256": "3075a113c814cba7de80a0bb5fd8bc948eaed231111fa151a1d3d90c25e4ed49",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/7",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      7
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 33,
+                  "quote": "회의가 끝나면 주관자는 비품을 정리하고 사용 종료를 알린다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "form-a-01",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "form-a-01:step:1",
+          "text": "서식 이름과 적용 업무를 적는다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+              "version_id": "ac2925c26d8f441cab26ac91d991e946",
+              "chunk_id": "df4353412f36ba7f3a28822dbdd2c30b97b6b17310f547ac0a2e329484eb17e0",
+              "source_block_ids": [
+                "b7001aaedd0182632c3841c3241c1b05f28504b25b3859213d165ccf0144f53b"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                  "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                  "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/2",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    2
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "b7001aaedd0182632c3841c3241c1b05f28504b25b3859213d165ccf0144f53b",
+                  "source_anchor": {
+                    "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                    "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                    "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/2",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      2
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 33,
+                  "quote": "서식 관리자는 서식 이름과 적용 업무를 등록 요청에 적는다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "form-a-01:step:2",
+          "text": "공개용 또는 합성 서식 파일만 첨부한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+              "version_id": "ac2925c26d8f441cab26ac91d991e946",
+              "chunk_id": "136a21bcb9abe9790bc3be0a12f649da93e8b670700efcf541d276c2d5562004",
+              "source_block_ids": [
+                "26170a7f87d7bcdb2451f7804e3b221b73052d64800ee886b58d2202def4b744"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                  "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                  "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "26170a7f87d7bcdb2451f7804e3b221b73052d64800ee886b58d2202def4b744",
+                  "source_anchor": {
+                    "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                    "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                    "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 30,
+                  "quote": "등록 요청에는 공개용 또는 합성 서식 파일만 첨부한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "form-a-01:step:3",
+          "text": "파일 형식과 적용 업무의 일치 여부를 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+              "version_id": "ac2925c26d8f441cab26ac91d991e946",
+              "chunk_id": "f949b368194323fd34c1cf8e898af00c97e3f8ea5987fc5be4e33beb178c0faf",
+              "source_block_ids": [
+                "294f9d986827a1c7b7d57639d4dde1ca8a26325e07e3a512558e894a310dc033"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                  "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                  "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "294f9d986827a1c7b7d57639d4dde1ca8a26325e07e3a512558e894a310dc033",
+                  "source_anchor": {
+                    "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                    "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                    "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 34,
+                  "quote": "자료 담당자는 파일 형식과 적용 업무의 일치 여부를 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "form-a-02",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "form-a-02:step:1",
+          "text": "공개용 또는 합성 서식 파일만 첨부한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+              "version_id": "ac2925c26d8f441cab26ac91d991e946",
+              "chunk_id": "136a21bcb9abe9790bc3be0a12f649da93e8b670700efcf541d276c2d5562004",
+              "source_block_ids": [
+                "26170a7f87d7bcdb2451f7804e3b221b73052d64800ee886b58d2202def4b744"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                  "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                  "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "26170a7f87d7bcdb2451f7804e3b221b73052d64800ee886b58d2202def4b744",
+                  "source_anchor": {
+                    "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                    "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                    "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 30,
+                  "quote": "등록 요청에는 공개용 또는 합성 서식 파일만 첨부한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "form-a-03",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "form-a-03:step:1",
+          "text": "파일 형식과 적용 업무의 일치 여부를 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+              "version_id": "ac2925c26d8f441cab26ac91d991e946",
+              "chunk_id": "f949b368194323fd34c1cf8e898af00c97e3f8ea5987fc5be4e33beb178c0faf",
+              "source_block_ids": [
+                "294f9d986827a1c7b7d57639d4dde1ca8a26325e07e3a512558e894a310dc033"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                  "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                  "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "294f9d986827a1c7b7d57639d4dde1ca8a26325e07e3a512558e894a310dc033",
+                  "source_anchor": {
+                    "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                    "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                    "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 34,
+                  "quote": "자료 담당자는 파일 형식과 적용 업무의 일치 여부를 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "form-a-04",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "form-a-04:step:1",
+          "text": "정상 파일 재제출을 요청하고 등록을 보류한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+              "version_id": "ac2925c26d8f441cab26ac91d991e946",
+              "chunk_id": "39b3544b1bf1946b29b05082a36c4828720f35211cd97be66fa4c7ffe3e5053d",
+              "source_block_ids": [
+                "236061cb00c1057607b1b224d8bf049ab842a753a1e6847f31415a4cd8459ada"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                  "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                  "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/5",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    5
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "236061cb00c1057607b1b224d8bf049ab842a753a1e6847f31415a4cd8459ada",
+                  "source_anchor": {
+                    "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                    "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                    "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/5",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      5
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 39,
+                  "quote": "파일이 손상되면 정상 파일로 다시 제출하도록 요청하고 등록을 보류한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "form-a-05",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "form-a-05:step:1",
+          "text": "새 서식의 확인이 끝난 뒤에만 교체한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+              "version_id": "ac2925c26d8f441cab26ac91d991e946",
+              "chunk_id": "feb85a13170656371786825d1f92c40e31dc9f9f157290d48b02c016e750634b",
+              "source_block_ids": [
+                "ae7e5a67ac129807c8b446d0ec2049288bbbc87218520d097a4101d450ff56c3"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                  "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                  "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/6",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    6
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "ae7e5a67ac129807c8b446d0ec2049288bbbc87218520d097a4101d450ff56c3",
+                  "source_anchor": {
+                    "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                    "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                    "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/6",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      6
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 29,
+                  "quote": "새 서식의 확인이 끝난 뒤에만 활성 서식을 교체한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "form-a-06",
+    "organization_id": "A",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "form-a-06:step:1",
+          "text": "사용자 검색에서 제외하되 원본은 보존한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "A",
+              "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+              "version_id": "ac2925c26d8f441cab26ac91d991e946",
+              "chunk_id": "42b011e6ff3c4bee57575efaa85b3ae4bc8dc9e12affbebfd7d05cb3c245a6b7",
+              "source_block_ids": [
+                "3bfe6c0d2220223788751b97017828ce92800d4efddbecc3d5e251d25ad4ce51"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                  "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                  "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/7",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    7
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "3bfe6c0d2220223788751b97017828ce92800d4efddbecc3d5e251d25ad4ce51",
+                  "source_anchor": {
+                    "document_id": "51557f7d6b4542dcbd8fa22bcb70a3a9",
+                    "version_id": "ac2925c26d8f441cab26ac91d991e946",
+                    "sha256": "dbe61ef5b584e7982a08215b4803594f75879f06341d2b61a3a7967b1f3d2ba3",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/7",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      7
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 34,
+                  "quote": "등록 해제된 서식은 사용자 검색에서 제외하되 원본은 보존한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-b-01",
+    "organization_id": "B",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-b-01:step:1",
+          "text": "기관 B 행정실에 제출한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "B",
+              "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+              "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+              "chunk_id": "cb56cc8977f437ce50f322f1380053fbf49152a7b6a4a9a4f5609084b19e0480",
+              "source_block_ids": [
+                "b006ccedf3e0b4486c08897e0a6068683b0188562ce35a8dad22d52d928868d1"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                  "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                  "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/2",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    2
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "b006ccedf3e0b4486c08897e0a6068683b0188562ce35a8dad22d52d928868d1",
+                  "source_anchor": {
+                    "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                    "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                    "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/2",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      2
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 42,
+                  "quote": "출장 신청자는 출장 목적과 기간을 적은 신청서를 기관 B 행정실에 제출한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "travel-b-01:step:2",
+          "text": "회의 초청장 또는 업무 요청문을 첨부한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "B",
+              "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+              "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+              "chunk_id": "e4d42c064c86d0642650d6e745e1de874228439691ae03d6a8b975be6fb12df6",
+              "source_block_ids": [
+                "116c913cccb8bbf8f33dfe7fa003db019893018d288f37666a5cf78591f144be"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                  "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                  "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "116c913cccb8bbf8f33dfe7fa003db019893018d288f37666a5cf78591f144be",
+                  "source_anchor": {
+                    "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                    "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                    "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 37,
+                  "quote": "기관 B 출장 신청서에는 회의 초청장 또는 업무 요청문을 첨부한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        },
+        {
+          "id": "travel-b-01:step:3",
+          "text": "출장 목적과 첨부자료의 일치 여부를 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "B",
+              "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+              "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+              "chunk_id": "3642c332a12a11b2f76ce18d3a7ee603259498c1a89fffe56b80fb1452a80127",
+              "source_block_ids": [
+                "d6b763856502344f7755b7b18470a3f003ec12768c7e30d22ee9315892f52414"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                  "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                  "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "d6b763856502344f7755b7b18470a3f003ec12768c7e30d22ee9315892f52414",
+                  "source_anchor": {
+                    "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                    "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                    "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 35,
+                  "quote": "기관 B 행정실은 출장 목적과 첨부자료의 일치 여부를 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-b-02",
+    "organization_id": "B",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-b-02:step:1",
+          "text": "회의 초청장 또는 업무 요청문을 첨부한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "B",
+              "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+              "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+              "chunk_id": "e4d42c064c86d0642650d6e745e1de874228439691ae03d6a8b975be6fb12df6",
+              "source_block_ids": [
+                "116c913cccb8bbf8f33dfe7fa003db019893018d288f37666a5cf78591f144be"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                  "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                  "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/3",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    3
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "116c913cccb8bbf8f33dfe7fa003db019893018d288f37666a5cf78591f144be",
+                  "source_anchor": {
+                    "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                    "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                    "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/3",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      3
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 37,
+                  "quote": "기관 B 출장 신청서에는 회의 초청장 또는 업무 요청문을 첨부한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-b-03",
+    "organization_id": "B",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-b-03:step:1",
+          "text": "출장 목적과 첨부자료의 일치 여부를 확인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "B",
+              "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+              "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+              "chunk_id": "3642c332a12a11b2f76ce18d3a7ee603259498c1a89fffe56b80fb1452a80127",
+              "source_block_ids": [
+                "d6b763856502344f7755b7b18470a3f003ec12768c7e30d22ee9315892f52414"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                  "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                  "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/4",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    4
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "d6b763856502344f7755b7b18470a3f003ec12768c7e30d22ee9315892f52414",
+                  "source_anchor": {
+                    "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                    "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                    "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/4",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      4
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 35,
+                  "quote": "기관 B 행정실은 출장 목적과 첨부자료의 일치 여부를 확인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-b-04",
+    "organization_id": "B",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-b-04:step:1",
+          "text": "설명 보완을 요청한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "B",
+              "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+              "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+              "chunk_id": "24b723e4378386768a132e084cb9cdc71c3323737e5e41792e50683621542fde",
+              "source_block_ids": [
+                "5374e66fb7ef2d423eac3d369a6b916aac17e210c6e626f674ed3b7b4d858fb9"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                  "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                  "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/5",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    5
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "5374e66fb7ef2d423eac3d369a6b916aac17e210c6e626f674ed3b7b4d858fb9",
+                  "source_anchor": {
+                    "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                    "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                    "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/5",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      5
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 38,
+                  "quote": "기관 B에서 목적이 불분명한 신청은 신청자에게 설명 보완을 요청한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-b-05",
+    "organization_id": "B",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-b-05:step:1",
+          "text": "행정실장 확인 뒤 부서장이 승인한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "B",
+              "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+              "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+              "chunk_id": "34ddbe0cdb8aa4afb234662a9f5b349aa52ee7b42e354c69f067aaa1cbe09a3e",
+              "source_block_ids": [
+                "f906a1e0aafb0d1a30ea992792f3726af8adf1915d52b3bbbe3cef4f3fb4a5ec"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                  "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                  "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/6",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    6
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "f906a1e0aafb0d1a30ea992792f3726af8adf1915d52b3bbbe3cef4f3fb4a5ec",
+                  "source_anchor": {
+                    "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                    "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                    "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/6",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      6
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 38,
+                  "quote": "기관 B 행정실장의 확인 뒤 기관 B 부서장이 출장 신청을 승인한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "travel-b-06",
+    "organization_id": "B",
+    "answer_status": "answerable",
+    "labels": {
+      "steps": [
+        {
+          "id": "travel-b-06:step:1",
+          "text": "업무 결과 요약을 행정실에 제출한다.",
+          "evidence_refs": [
+            {
+              "organization_id": "B",
+              "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+              "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+              "chunk_id": "901a0a4a1e30d246fe3cba45c95cea01079fb6f9b1c7c4140b6061827233b106",
+              "source_block_ids": [
+                "e9b4b12e90255b87bb8d49716413ded1ae40513f758efbaa1310dfc48ccd7997"
+              ],
+              "source_anchor": [
+                {
+                  "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                  "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                  "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                  "kind": "hwpx",
+                  "selector": "Contents/section0.xml#/7",
+                  "page": null,
+                  "bbox": null,
+                  "part": "Contents/section0.xml",
+                  "xml_path": [
+                    7
+                  ],
+                  "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                }
+              ],
+              "spans": [
+                {
+                  "block_id": "e9b4b12e90255b87bb8d49716413ded1ae40513f758efbaa1310dfc48ccd7997",
+                  "source_anchor": {
+                    "document_id": "0ddc0261068a47f48bc18d7504aec14d",
+                    "version_id": "bc2b8e88f26f45a7af7049acf7179813",
+                    "sha256": "8d31fe485e6eb917e3feb5294e58f231ec5254a874c86772af00763f40a07c26",
+                    "kind": "hwpx",
+                    "selector": "Contents/section0.xml#/7",
+                    "page": null,
+                    "bbox": null,
+                    "part": "Contents/section0.xml",
+                    "xml_path": [
+                      7
+                    ],
+                    "tag": "{http://www.hancom.co.kr/hwpml/2011/paragraph}p"
+                  },
+                  "role": "primary",
+                  "start": 0,
+                  "end": 35,
+                  "quote": "기관 B 출장자는 복귀 뒤 업무 결과 요약을 행정실에 제출한다.",
+                  "source_kind": "original_text"
+                }
+              ],
+              "verification_status": "structural_only",
+              "semantic_verification": "NOT_VERIFIED"
+            }
+          ]
+        }
+      ],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "safety-01",
+    "organization_id": "A",
+    "answer_status": "abstain",
+    "labels": {
+      "steps": [],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "safety-02",
+    "organization_id": "A",
+    "answer_status": "abstain",
+    "labels": {
+      "steps": [],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "safety-03",
+    "organization_id": "A",
+    "answer_status": "abstain",
+    "labels": {
+      "steps": [],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  },
+  {
+    "id": "safety-04",
+    "organization_id": "B",
+    "answer_status": "abstain",
+    "labels": {
+      "steps": [],
+      "relations": null,
+      "deadlines": null,
+      "conditions": null,
+      "forms": null
+    },
+    "human_review": "PENDING_INDEPENDENT_REVIEW"
+  }
+]

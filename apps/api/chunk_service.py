@@ -12,12 +12,16 @@ class SQLiteKeywordSearch:
 
 
 class ChunkService:
-    def __init__(self,parsing,clock=time.time,lease_seconds=120,search_adapter=None):
+    def __init__(self,parsing,clock=time.time,lease_seconds=120,search_adapter=None,search_settings=None):
         self.parsing = parsing
         self.documents = parsing.documents
         self.repo = parsing.repo
         self.clock,self.lease_seconds = clock,lease_seconds
         self.search_adapter = search_adapter or SQLiteKeywordSearch()
+        from .search_settings import SearchSettings
+        from .scored_search import ScoredORSearch
+        self.search_settings=SearchSettings.model_validate((search_settings or SearchSettings()).model_dump(warnings=False))
+        self.scored_adapter=ScoredORSearch(self.search_settings)
 
     @staticmethod
     def public(job):
@@ -71,7 +75,7 @@ class ChunkService:
                 _,version,parsed,payload = self.source(db,principal,claim['document_id'],claim['version_id'])
                 if not db.chunks.owned(claim,self.clock()):
                     return 'stale'
-            data = self.documents.store.read(version['id'],version['sha256'])
+            data = self.documents.read_original(principal,version['id'],version['sha256'])
             blocks = [Block.model_validate(b) for b in payload]
             normal = default_parsers()[version['format']].parse(data,claim['document_id'],version['id'])
             validate_batch(blocks,normal,claim['document_id'],version['id'])
@@ -104,7 +108,7 @@ class ChunkService:
             job = db.chunks.current(version_id)
             if not job or job['state'] != 'completed' or job['parse_attempt'] != parsed['attempt'] or job['parse_job_id'] != parsed['id']:
                 raise DomainError('chunking_not_ready')
-            self.documents.store.read(version_id,version['sha256'])
+            self.documents.read_original(principal,version_id,version['sha256'],db=db)
             return db.chunks.items(job['id'])
 
     def resolve(self,principal,document_id,version_id,chunk_id,evidence):
@@ -118,7 +122,7 @@ class ChunkService:
             raise DomainError('evidence_mismatch',422)
         with self.repo.transaction() as db:
             _,version,_,payload = self.source(db,principal,document_id,version_id)
-            data = self.documents.store.read(version_id,version['sha256'])
+            data = self.documents.read_original(principal,version_id,version['sha256'],db=db)
             blocks = [Block.model_validate(b) for b in payload]
             normal = default_parsers()[version['format']].parse(data,document_id,version_id)
             validate_batch(blocks,normal,document_id,version_id)
@@ -130,7 +134,9 @@ class ChunkService:
             return {'evidence':evidence.model_dump(mode='json'),'source_blocks':[sources[i].model_dump(mode='json') for i in evidence.source_block_ids],
                     'structural_valid':True,'semantic_verification':'NOT_VERIFIED','content_origin':'original'}
 
-    def search(self,principal,query,limit=20):
+    def search(self,principal,query,limit=20,strategy='literal'):
+        if strategy=='scored_or':return self._search_scored(principal,query,limit)
+        if strategy!='literal':raise DomainError('invalid_search_strategy',400)
         terms = query.casefold().split()
         if not 1 <= len(terms) <= 8 or len(query)>200 or not 1 <= limit <= 50:
             raise DomainError('invalid_search_query',400)
@@ -150,8 +156,46 @@ class ChunkService:
                     current = db.chunks.current(version['id'])
                     if not current or current['state'] != 'completed':
                         raise DomainError('chunking_not_ready')
-                    self.documents.store.read(version['id'],version['sha256'])
+                    self.documents.read_original(principal,version['id'],version['sha256'],db=db)
                     checked[key] = {c['chunk_id']:c for c in db.chunks.items(current['id'])}
                 if checked[key].get(item['chunk_id']) != item:
                     raise DomainError('invalid_search_result')
             return results
+
+    def _scored_state(self,db,principal,item):
+        chunk=Chunk.model_validate(item);ref=chunk.evidence
+        if ref.organization_id!=principal.institution_id:raise DomainError('invalid_search_evidence',409)
+        doc,version,parsed,blocks=self.source(db,principal,ref.document_id,ref.version_id)
+        current=db.chunks.current(ref.version_id)
+        if doc['active_version_id']!=ref.version_id:raise DomainError('inactive_search_evidence',409)
+        if (not current or current['state']!='completed' or current['parse_job_id']!=parsed['id']
+            or current['parse_attempt']!=parsed['attempt'] or current['input_hash']!=digest(blocks)):
+            raise DomainError('source_generation_changed',409)
+        canonical_items=db.chunks.items(current['id'])
+        if item not in canonical_items:raise DomainError('invalid_search_result',409)
+        return (version['sha256'],parsed['id'],parsed['attempt'],current['id'],current['generation'],current['input_hash'])
+
+    def _search_scored(self,principal,query,limit):
+        if principal is None:raise DomainError('authentication_required',401)
+        self.documents.role(principal,'reader','manager')
+        if not self.search_settings.scored_or_enabled:raise DomainError('scored_or_search_not_enabled',503)
+        if type(limit) is not int or not 1<=limit<=50:raise DomainError('invalid_search_query',400)
+        from .search_settings import scored_terms
+        try:terms=scored_terms(query)
+        except ValueError:raise DomainError('invalid_search_query',400) from None
+        with self.repo.transaction() as db:
+            results=self.scored_adapter.search(db,principal.institution_id,terms,limit)
+            states={};ids=set()
+            for item in results:
+                ref=EvidenceRef.model_validate(item['evidence'])
+                key=(ref.document_id,ref.version_id,ref.chunk_id)
+                if key in ids:raise DomainError('duplicate_search_result',409)
+                ids.add(key);states[key]=self._scored_state(db,principal,item)
+        for item in results:
+            ref=EvidenceRef.model_validate(item['evidence'])
+            self.resolve(principal,ref.document_id,ref.version_id,ref.chunk_id,ref)
+        with self.repo.transaction() as db:
+            for item in results:
+                ref=EvidenceRef.model_validate(item['evidence']);key=(ref.document_id,ref.version_id,ref.chunk_id)
+                if self._scored_state(db,principal,item)!=states[key]:raise DomainError('source_generation_changed',409)
+        return results

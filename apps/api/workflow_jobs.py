@@ -39,7 +39,7 @@ class WorkflowJobService:
         expected=SnapshotContent.model_validate({k:getattr(snapshot,k) for k in SnapshotContent.model_fields})
         if content != expected or content.selected_active_version_id != content.version_id:
             raise DomainError('workflow_input_changed')
-        self.inputs.documents.store.read(snapshot.version_id,snapshot.original_sha256)
+        self.inputs.documents.read_original(principal,snapshot.version_id,snapshot.original_sha256,db=db)
         if self._catalog(db,principal.institution_id)!=catalog_hash:
             raise DomainError('workflow_form_catalog_changed')
 

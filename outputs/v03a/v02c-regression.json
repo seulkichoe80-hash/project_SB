@@ -1,0 +1,388 @@
+{
+  "scope": "v0.2-C Chromium production bundle + synthetic mocked HTTP",
+  "results": [
+    {
+      "name": "documents all columns visible without horizontal scrolling 320",
+      "status": "PASS"
+    },
+    {
+      "name": "documents all columns visible without horizontal scrolling 375",
+      "status": "PASS"
+    },
+    {
+      "name": "documents all columns visible without horizontal scrolling 430",
+      "status": "PASS"
+    },
+    {
+      "name": "long institution header keeps logout/help readable and touchable",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop table still provides version and detail",
+      "status": "PASS"
+    },
+    {
+      "name": "manager can open details and mobile activation confirmation with no overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "reader has readable documents and no activation mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile workflow prefers readable list 320",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile workflow prefers readable list 375",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile workflow prefers readable list 430",
+      "status": "PASS"
+    },
+    {
+      "name": "desktop map node fonts and controls measured",
+      "status": "PASS"
+    },
+    {
+      "name": "keyboard list selection opens correct source and preserves source/content distinction",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile map can zoom, restore readable selected node, retain relations",
+      "status": "PASS"
+    },
+    {
+      "name": "branch/backtrack relations and severe issues remain available",
+      "status": "PASS"
+    },
+    {
+      "name": "layout and text 200 percent reflow without horizontal page scrolling",
+      "status": "PASS"
+    },
+    {
+      "name": "switch list/map does not query metadata or candidates again",
+      "status": "PASS"
+    },
+    {
+      "name": "technical flags stay closed and severe issue wording is not approval",
+      "status": "PASS"
+    },
+    {
+      "name": "source labels and map controls have measured AA text contrast",
+      "status": "PASS"
+    },
+    {
+      "name": "visible technical disclosures retain at least 44px target height",
+      "status": "PASS"
+    },
+    {
+      "name": "no exceptions, external requests or sensitive browser storage",
+      "status": "PASS"
+    }
+  ],
+  "counts": {
+    "PASS": 20,
+    "FAIL": 0
+  },
+  "measurements": [
+    {
+      "scenario": "documents",
+      "width": 320,
+      "scroll": 278,
+      "client": 278,
+      "buttons": [
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 282,
+          "width": 244,
+          "height": 45.09375
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "scenario": "documents",
+      "width": 375,
+      "scroll": 333,
+      "client": 333,
+      "buttons": [
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 337,
+          "width": 299,
+          "height": 45.09375
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "scenario": "documents",
+      "width": 430,
+      "scroll": 388,
+      "client": 388,
+      "buttons": [
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        },
+        {
+          "left": 38,
+          "right": 392,
+          "width": 354,
+          "height": 45.09375
+        }
+      ],
+      "rows": 6
+    },
+    {
+      "scenario": "long_institution_header",
+      "height": 181.71875,
+      "logout": [
+        {
+          "width": 89.53125,
+          "height": 45.09375,
+          "whiteSpace": "nowrap"
+        }
+      ],
+      "help": [
+        {
+          "width": 62.640625,
+          "height": 44
+        }
+      ]
+    },
+    {
+      "scenario": "mobile_initial_workflow",
+      "width": 320,
+      "list_visible": true,
+      "node_count": 0
+    },
+    {
+      "scenario": "mobile_initial_workflow",
+      "width": 375,
+      "list_visible": true,
+      "node_count": 0
+    },
+    {
+      "scenario": "mobile_initial_workflow",
+      "width": 430,
+      "list_visible": true,
+      "node_count": 0
+    },
+    {
+      "scenario": "map_readability",
+      "title_px": 16,
+      "caption_px": 13,
+      "zoom_button": {
+        "x": 280,
+        "y": 1288.578125,
+        "width": 44,
+        "height": 44
+      }
+    },
+    {
+      "scenario": "mobile_selected_map",
+      "rendered_title_height": 51.1875,
+      "css_title_px": 16,
+      "scale": 1
+    },
+    {
+      "scenario": "computed_text_contrast",
+      "minimum_ratio": 6.432719644933874,
+      "pairs": [
+        {
+          "text": "단계 후보 출처 확인",
+          "fg": "rgb(71, 85, 105)",
+          "bg": "rgb(244, 248, 255)",
+          "ratio": 7.114914048339879
+        },
+        {
+          "text": "출처 확인",
+          "fg": "rgb(133, 77, 14)",
+          "bg": "rgb(244, 248, 255)",
+          "ratio": 6.432719644933874
+        },
+        {
+          "text": "1. 신청자는 자료대여신청서를 제출한다.",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(244, 248, 255)",
+          "ratio": 13.24085676308128
+        },
+        {
+          "text": "단계 후보 근거 확인 필요",
+          "fg": "rgb(71, 85, 105)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 7.577663953533317
+        },
+        {
+          "text": "근거 확인 필요",
+          "fg": "rgb(133, 77, 14)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 6.8511000196797465
+        },
+        {
+          "text": "2. 담당자는 검토확인서를 작성한다.",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 14.102034448456891
+        },
+        {
+          "text": "단계 후보 근거 확인 필요",
+          "fg": "rgb(71, 85, 105)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 7.577663953533317
+        },
+        {
+          "text": "근거 확인 필요",
+          "fg": "rgb(133, 77, 14)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 6.8511000196797465
+        },
+        {
+          "text": "3. 자료가 누락된 경우 담당자는 보완하여 1단계로 돌아가 자료를 제출한",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 14.102034448456891
+        },
+        {
+          "text": "단계 후보 근거 확인 필요",
+          "fg": "rgb(71, 85, 105)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 7.577663953533317
+        },
+        {
+          "text": "근거 확인 필요",
+          "fg": "rgb(133, 77, 14)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 6.8511000196797465
+        },
+        {
+          "text": "4. 담당자는 결과보고서를 제출한다.",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(255, 255, 255)",
+          "ratio": 14.102034448456891
+        },
+        {
+          "text": "＋",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(254, 254, 254)",
+          "ratio": 13.982531083676133
+        },
+        {
+          "text": "−",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(254, 254, 254)",
+          "ratio": 13.982531083676133
+        },
+        {
+          "text": "가",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(254, 254, 254)",
+          "ratio": 13.982531083676133
+        },
+        {
+          "text": "⌂",
+          "fg": "rgb(23, 43, 77)",
+          "bg": "rgb(254, 254, 254)",
+          "ratio": 13.982531083676133
+        }
+      ]
+    },
+    {
+      "scenario": "disclosure_targets",
+      "minimum_height": 59.796875
+    }
+  ],
+  "seconds": 16.792708571,
+  "external": [],
+  "errors": [],
+  "actual_external_provider_calls": 0
+}

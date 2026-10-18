@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "cases": [
+    "verified_tls_health",
+    "unknown_ca_rejected",
+    "fake_jwt_bff_login",
+    "secure_httponly_samesite_cookie",
+    "20mib_upload_accepted",
+    "20mib_plus_one_rejected",
+    "original_sha_preserved",
+    "csrf_rejected",
+    "host_rejected",
+    "origin_and_cors_rejected",
+    "forwarded_spoof_sanitized",
+    "provider_disable_existing_session",
+    "old_sid_not_revived",
+    "explicit_new_login",
+    "logout_and_protected_data_denied"
+  ],
+  "count": 15,
+  "tls_version": "TLSv1.3",
+  "certificate_hostname_verified": true,
+  "certificate_chain_verified": true,
+  "loopback_only": true,
+  "upstream": "IN_PROCESS_ASGI_SIMULATION",
+  "storage_auth": "FAKE_ONLY",
+  "vendor_edge_verified": false,
+  "max_upload_bytes": 20971520,
+  "actual_external_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "seconds": 1.871
+}

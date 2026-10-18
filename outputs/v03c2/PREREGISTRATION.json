@@ -1,0 +1,57 @@
+{
+  "protocol_version": "retrieval-ablation-v1",
+  "frozen_before_first_experiment": true,
+  "generation_manifest": "outputs/v03b/isolated-evaluation/generation.json",
+  "corpus": {
+    "documents": 7,
+    "chunks": 57,
+    "positive_queries": 36,
+    "abstain_queries": 4
+  },
+  "methods": {
+    "A": "Existing casefold/whitespace literal AND, <=8 terms/200 chars windows, limit50/window, RRF60; baseline equivalence checked against existing adapter.",
+    "B": "NFKC, casefold, Unicode P-category punctuation to spaces, collapse whitespace on query and same source search_text projection; same AND windows/RRF as A.",
+    "C": "B normalization; distinct query token OR substring matching, descending matched-token count, source row ordinal tie break.",
+    "D": "B normalization; FTS5 unicode61 remove_diacritics 0, quoted distinct token OR, ascending SQLite bm25, source row ordinal tie break; per-institution FTS index. No fallback if unsupported."
+  },
+  "normalization": {
+    "version": "nfkc-punctuation-whitespace-v1",
+    "korean_particle_removal": false,
+    "stopword_removal": false,
+    "answer_driven_query_rewrite": false
+  },
+  "index": "New ephemeral in-memory SQLite projections only; pinned eligible corpus, original filename/title/text/context search projection reused; product database/index unchanged.",
+  "metrics": {
+    "hit_recall_k": [
+      5,
+      10
+    ],
+    "mrr": "full ranking, <=57 candidates; also report MRR@10",
+    "latency": "3 repeats; first plus warm runs retained; ranking and end-to-end validation measured separately; index build excluded and reported separately"
+  },
+  "determinism": "Same generation, queries, protocol, SQL parameters and tie order; rankings and scores must match for all 3 repeats.",
+  "negative_policy": "No generation for any query. Hits are candidate context only; inspect tenant isolation and forbidden citations independently. No-hit is not required for abstention safety.",
+  "selection_rule": "Recommend a research candidate only if scope/grounding safety passes; compare Recall@10 then MRR then ranking latency, disclose partial/failed queries and provisional unreviewed gold. No product replacement.",
+  "actual_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "method_order_per_repeat": [
+    [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    [
+      "B",
+      "C",
+      "D",
+      "A"
+    ],
+    [
+      "C",
+      "D",
+      "A",
+      "B"
+    ]
+  ]
+}

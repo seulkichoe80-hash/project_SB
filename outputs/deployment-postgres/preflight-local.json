@@ -1,0 +1,14 @@
+{
+  "environment": "local",
+  "role": "api",
+  "settings_status": "VALID",
+  "status": "LOCAL_CONTRACT_VALID",
+  "startup_allowed": true,
+  "production_ready": false,
+  "connectivity": "NOT_CHECKED",
+  "database_adapter": "POSTGRESQL_OPT_IN_IMPLEMENTED_NOT_CONNECTED",
+  "membership_verification": "SERVER_ACTIVE_SINGLE_CONTRACT_ONLY",
+  "backup_restore_verification": "NOT_VERIFIED",
+  "issues": [],
+  "implementation_blockers": []
+}

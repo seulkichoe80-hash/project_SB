@@ -27,3 +27,23 @@
 
 .documents-table { position: relative; max-width: 100%; }
 .documents-table .sr-only { left: 0; top: 0; }
+
+.document-flow { margin-top:24px; padding-top:16px; border-top:1px solid var(--color-border); }
+.document-flow-steps { padding-left:24px; margin:16px 0; }
+.document-flow-steps li { margin:8px 0; }
+.document-flow p { margin:12px 0; }
+.document-flow .button { max-width:100%; white-space:normal; text-align:center; }
+@media(max-width:600px){.document-flow .document-actions {flex-direction:column;align-items:stretch;} .document-flow > .button {display:flex;justify-content:center;} }
+
+/* One document DOM: the same row becomes a readable card at narrow widths. */
+.documents-table td:first-child { overflow-wrap:anywhere; max-width:36rem; }
+@media(max-width:600px){
+  .documents-table {overflow:visible;}
+  .documents-table table,.documents-table tbody {display:block;min-width:0;width:100%;}
+  .documents-table thead {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);}
+  .documents-table tr {display:grid;grid-template-columns:minmax(0,1fr);margin:12px 0;padding:16px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-surface);}
+  .documents-table td {display:block;border:0;padding:8px 0;max-width:none;min-width:0;overflow-wrap:anywhere;}
+  .documents-table td::before {content:attr(data-label);display:block;color:var(--color-muted);font-size:13px;font-weight:600;margin-bottom:4px;}
+  .documents-table td .button {width:100%;min-height:44px;white-space:normal;}
+  .document-detail .document-actions .button {max-width:100%;white-space:normal;}
+}

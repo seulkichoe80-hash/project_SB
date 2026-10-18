@@ -1,0 +1,121 @@
+{
+  "scope": "Phase2E-2A production Chromium with intercepted synthetic HTTP",
+  "measurements": [
+    {
+      "scenario": "completed_20s",
+      "requests": 0,
+      "paths": []
+    },
+    {
+      "scenario": "100_nodes_metadata_5_5s",
+      "node_data_replacements": 0,
+      "wall_ms": 160.45179499999995
+    }
+  ],
+  "results": [
+    {
+      "name": "measured completed job idle requests over 20 virtual seconds",
+      "status": "PASS"
+    },
+    {
+      "name": "100-node metadata refresh does not replace node data props",
+      "status": "PASS"
+    },
+    {
+      "name": "refresh requires explicit idempotent request; restores same queued job",
+      "status": "PASS"
+    },
+    {
+      "name": "failed terminal job stops timers and exposes only retryable retry",
+      "status": "PASS"
+    },
+    {
+      "name": "permanent failure cannot retry",
+      "status": "PASS"
+    },
+    {
+      "name": "cancelled idempotent job is explicitly not resumable and stops timers",
+      "status": "PASS"
+    },
+    {
+      "name": "hidden active job pauses all polling; visibility resumes",
+      "status": "PASS"
+    },
+    {
+      "name": "logout unmounts and stops polling",
+      "status": "PASS"
+    },
+    {
+      "name": "503 retains job identity with unconfirmed state and backs off",
+      "status": "PASS"
+    },
+    {
+      "name": "status timeout remains recoverable and old response cannot confirm state",
+      "status": "PASS"
+    },
+    {
+      "name": "double retry submits once",
+      "status": "PASS"
+    },
+    {
+      "name": "double cancel submits once",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple evidence selection survives step round trip",
+      "status": "PASS"
+    },
+    {
+      "name": "failed evidence stays unconfirmed and never shows original quote",
+      "status": "PASS"
+    },
+    {
+      "name": "source change while visible invalidates old candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "reader never issues manager requests",
+      "status": "PASS"
+    },
+    {
+      "name": "429 status uses backoff and never confirms cached candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "metadata errors use bounded backoff and recover",
+      "status": "PASS"
+    },
+    {
+      "name": "retry limit is never reset by UI",
+      "status": "PASS"
+    },
+    {
+      "name": "terminal focus checks current source and removes deregistered result",
+      "status": "PASS"
+    },
+    {
+      "name": "focus revalidation preserves step and selected evidence within same generation",
+      "status": "PASS"
+    },
+    {
+      "name": "late status response cannot undo cancellation",
+      "status": "PASS"
+    },
+    {
+      "name": "lost retry acknowledgement rechecks server instead of trusting cached failure",
+      "status": "PASS"
+    },
+    {
+      "name": "no sensitive or source storage or external traffic",
+      "status": "PASS"
+    }
+  ],
+  "counts": {
+    "PASS": 24,
+    "FAIL": 0
+  },
+  "seconds": 23.961547184,
+  "external": [],
+  "errors": [],
+  "clock": "Chromium virtual time, API routes settle between 500ms ticks; visibility API event simulation"
+}

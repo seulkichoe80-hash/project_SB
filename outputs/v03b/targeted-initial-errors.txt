@@ -1,0 +1,159 @@
+.E...E.E.....E........E......................
+======================================================================
+ERROR: test_current_refs_resolve_and_semantics_pending (test_evaluation_foundation.EvaluationGenerationTests.test_current_refs_resolve_and_semantics_pending)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_evaluation_foundation.py", line 58, in test_current_refs_resolve_and_semantics_pending
+    x=self.resolver(q['organization_id'],r);self.assertTrue(x['structural_valid']);self.assertEqual(x['semantic_verification'],'NOT_VERIFIED');n+=1
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/scripts/validation/evaluation_fixtures.py", line 144, in __call__
+    frozen=WorkflowInputSnapshot.model_validate(doc['snapshot'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/.venv/lib/python3.12/site-packages/pydantic/main.py", line 790, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for WorkflowInputSnapshot
+input_chunk_ids
+  Input should be a valid tuple [type=tuple_type, input_value=['13f46ee42af0b637d0b328d...bdc1836d1a8c0a3877ff6d'], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+chunks
+  Input should be a valid tuple [type=tuple_type, input_value=[{'chunk_id': '13f46ee42a...tion': 'NOT_VERIFIED'}}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+source_blocks
+  Input should be a valid tuple [type=tuple_type, input_value=[{'document_id': '532a9dc...ontext_relation': None}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+coverage.processed_chunk_ids
+  Input should be a valid tuple [type=tuple_type, input_value=[], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+coverage.unprocessed
+  Input should be a valid tuple [type=tuple_type, input_value=[{'chunk_id': '13f46ee42a...ason': 'not_processed'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+
+======================================================================
+ERROR: test_forged_quote_rejected (test_evaluation_foundation.EvaluationGenerationTests.test_forged_quote_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_evaluation_foundation.py", line 70, in test_forged_quote_rejected
+    with self.assertRaises(DomainError):self.resolver('A',r)
+                                        ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/scripts/validation/evaluation_fixtures.py", line 144, in __call__
+    frozen=WorkflowInputSnapshot.model_validate(doc['snapshot'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/.venv/lib/python3.12/site-packages/pydantic/main.py", line 790, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for WorkflowInputSnapshot
+input_chunk_ids
+  Input should be a valid tuple [type=tuple_type, input_value=['13f46ee42af0b637d0b328d...bdc1836d1a8c0a3877ff6d'], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+chunks
+  Input should be a valid tuple [type=tuple_type, input_value=[{'chunk_id': '13f46ee42a...tion': 'NOT_VERIFIED'}}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+source_blocks
+  Input should be a valid tuple [type=tuple_type, input_value=[{'document_id': '532a9dc...ontext_relation': None}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+coverage.processed_chunk_ids
+  Input should be a valid tuple [type=tuple_type, input_value=[], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+coverage.unprocessed
+  Input should be a valid tuple [type=tuple_type, input_value=[{'chunk_id': '13f46ee42a...ason': 'not_processed'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+
+======================================================================
+ERROR: test_no_external_socket_dns_calls (test_evaluation_foundation.EvaluationGenerationTests.test_no_external_socket_dns_calls)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_evaluation_foundation.py", line 115, in test_no_external_socket_dns_calls
+    self.query.search(Principal('r','A','reader'),'자료');verify_frozen(self.g,self.out)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/scripts/validation/evaluation_fixtures.py", line 178, in search
+    self.resolver(principal.institution_id,ref)
+  File "/workspace/project_SB/scripts/validation/evaluation_fixtures.py", line 144, in __call__
+    frozen=WorkflowInputSnapshot.model_validate(doc['snapshot'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/.venv/lib/python3.12/site-packages/pydantic/main.py", line 790, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for WorkflowInputSnapshot
+input_chunk_ids
+  Input should be a valid tuple [type=tuple_type, input_value=['13f46ee42af0b637d0b328d...bdc1836d1a8c0a3877ff6d'], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+chunks
+  Input should be a valid tuple [type=tuple_type, input_value=[{'chunk_id': '13f46ee42a...tion': 'NOT_VERIFIED'}}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+source_blocks
+  Input should be a valid tuple [type=tuple_type, input_value=[{'document_id': '532a9dc...ontext_relation': None}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+coverage.processed_chunk_ids
+  Input should be a valid tuple [type=tuple_type, input_value=[], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+coverage.unprocessed
+  Input should be a valid tuple [type=tuple_type, input_value=[{'chunk_id': '13f46ee42a...ason': 'not_processed'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+
+======================================================================
+ERROR: test_reader_search_allowed_worker_denied (test_evaluation_foundation.EvaluationGenerationTests.test_reader_search_allowed_worker_denied)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_evaluation_foundation.py", line 110, in test_reader_search_allowed_worker_denied
+    self.assertEqual(self.query.search(Principal('r','A','reader'),'자료')['actual_model_calls'],0)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/scripts/validation/evaluation_fixtures.py", line 178, in search
+    self.resolver(principal.institution_id,ref)
+  File "/workspace/project_SB/scripts/validation/evaluation_fixtures.py", line 144, in __call__
+    frozen=WorkflowInputSnapshot.model_validate(doc['snapshot'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/.venv/lib/python3.12/site-packages/pydantic/main.py", line 790, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for WorkflowInputSnapshot
+input_chunk_ids
+  Input should be a valid tuple [type=tuple_type, input_value=['13f46ee42af0b637d0b328d...bdc1836d1a8c0a3877ff6d'], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+chunks
+  Input should be a valid tuple [type=tuple_type, input_value=[{'chunk_id': '13f46ee42a...tion': 'NOT_VERIFIED'}}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+source_blocks
+  Input should be a valid tuple [type=tuple_type, input_value=[{'document_id': '532a9dc...ontext_relation': None}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+coverage.processed_chunk_ids
+  Input should be a valid tuple [type=tuple_type, input_value=[], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+coverage.unprocessed
+  Input should be a valid tuple [type=tuple_type, input_value=[{'chunk_id': '13f46ee42a...ason': 'not_processed'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+
+======================================================================
+ERROR: test_z_stale_generation_and_retirement_fail (test_evaluation_foundation.EvaluationGenerationTests.test_z_stale_generation_and_retirement_fail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/project_SB/tests/test_evaluation_foundation.py", line 129, in test_z_stale_generation_and_retirement_fail
+    with self.assertRaises(DomainError):resolver('A',ref)
+                                        ^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/scripts/validation/evaluation_fixtures.py", line 144, in __call__
+    frozen=WorkflowInputSnapshot.model_validate(doc['snapshot'])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/project_SB/.venv/lib/python3.12/site-packages/pydantic/main.py", line 790, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for WorkflowInputSnapshot
+input_chunk_ids
+  Input should be a valid tuple [type=tuple_type, input_value=['c91c1545b00b9efc66b18f6...4889780003c93283f51b35'], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+chunks
+  Input should be a valid tuple [type=tuple_type, input_value=[{'chunk_id': 'c91c1545b0...tion': 'NOT_VERIFIED'}}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+source_blocks
+  Input should be a valid tuple [type=tuple_type, input_value=[{'document_id': 'ac1652e...ontext_relation': None}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+coverage.processed_chunk_ids
+  Input should be a valid tuple [type=tuple_type, input_value=[], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+coverage.unprocessed
+  Input should be a valid tuple [type=tuple_type, input_value=[{'chunk_id': 'c91c1545b0...ason': 'not_processed'}], input_type=list]
+    For further information visit https://errors.pydantic.dev/2.14/v/tuple_type
+
+----------------------------------------------------------------------
+Ran 45 tests in 4.287s
+
+FAILED (errors=5)

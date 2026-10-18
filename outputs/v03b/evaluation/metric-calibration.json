@@ -1,0 +1,573 @@
+{
+  "case_count": 40,
+  "status_counts": {
+    "DATA_INVALID": 36,
+    "SCORED_PROVISIONAL": 4
+  },
+  "records": [
+    {
+      "id": "travel-a-01",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-a-01:step:1",
+        "travel-a-01:step:2",
+        "travel-a-01:step:3"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-a-02",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-a-02:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-a-03",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-a-03:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-a-04",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-a-04:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-a-05",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-a-05:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-a-06",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-a-06:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-01",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "leave-a-01:step:1",
+        "leave-a-01:step:2",
+        "leave-a-01:step:3"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-02",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "leave-a-02:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-03",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "leave-a-03:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-04",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "leave-a-04:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-05",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "leave-a-05:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "leave-a-06",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "leave-a-06:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-01",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "purchase-a-01:step:1",
+        "purchase-a-01:step:2",
+        "purchase-a-01:step:3"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-02",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "purchase-a-02:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-03",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "purchase-a-03:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-04",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "purchase-a-04:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-05",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "purchase-a-05:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "purchase-a-06",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "purchase-a-06:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-01",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "meeting-a-01:step:1",
+        "meeting-a-01:step:2",
+        "meeting-a-01:step:3"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-02",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "meeting-a-02:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-03",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "meeting-a-03:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-04",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "meeting-a-04:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-05",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "meeting-a-05:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "meeting-a-06",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "meeting-a-06:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-01",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "form-a-01:step:1",
+        "form-a-01:step:2",
+        "form-a-01:step:3"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-02",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "form-a-02:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-03",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "form-a-03:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-04",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "form-a-04:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-05",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "form-a-05:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "form-a-06",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "form-a-06:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-01",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-b-01:step:1",
+        "travel-b-01:step:2",
+        "travel-b-01:step:3"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-02",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-b-02:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-03",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-b-03:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-04",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-b-04:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-05",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-b-05:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "travel-b-06",
+      "status": "DATA_INVALID",
+      "invalid_gold_items": [
+        "travel-b-06:step:1"
+      ],
+      "automatic": null,
+      "human": null
+    },
+    {
+      "id": "safety-01",
+      "status": "SCORED_PROVISIONAL",
+      "automatic": {
+        "steps": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "gold_count": 0,
+          "predicted_count": 0
+        },
+        "deadlines": {
+          "status": "NOT_ANNOTATED"
+        },
+        "conditions": {
+          "status": "NOT_ANNOTATED"
+        },
+        "forms": {
+          "status": "NOT_ANNOTATED"
+        },
+        "order": {
+          "status": "NOT_ANNOTATED"
+        },
+        "branches": {
+          "status": "NOT_ANNOTATED"
+        },
+        "evidence_structural": {
+          "valid": 0,
+          "total": 0,
+          "rate": null
+        },
+        "unsupported_claim_proxy": {
+          "unsupported": 0,
+          "claims": 0,
+          "rate": null,
+          "basis": "exact normalized quote containment; NOT semantic entailment"
+        }
+      },
+      "human": null,
+      "semantic_accuracy": null,
+      "approved_goldset": false,
+      "run_kind": "metric_fixture",
+      "measurement": {
+        "elapsed_seconds": 0.0,
+        "input_tokens": null,
+        "output_tokens": null,
+        "estimated_cost_micro": null,
+        "token_basis": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "safety-02",
+      "status": "SCORED_PROVISIONAL",
+      "automatic": {
+        "steps": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "gold_count": 0,
+          "predicted_count": 0
+        },
+        "deadlines": {
+          "status": "NOT_ANNOTATED"
+        },
+        "conditions": {
+          "status": "NOT_ANNOTATED"
+        },
+        "forms": {
+          "status": "NOT_ANNOTATED"
+        },
+        "order": {
+          "status": "NOT_ANNOTATED"
+        },
+        "branches": {
+          "status": "NOT_ANNOTATED"
+        },
+        "evidence_structural": {
+          "valid": 0,
+          "total": 0,
+          "rate": null
+        },
+        "unsupported_claim_proxy": {
+          "unsupported": 0,
+          "claims": 0,
+          "rate": null,
+          "basis": "exact normalized quote containment; NOT semantic entailment"
+        }
+      },
+      "human": null,
+      "semantic_accuracy": null,
+      "approved_goldset": false,
+      "run_kind": "metric_fixture",
+      "measurement": {
+        "elapsed_seconds": 0.0,
+        "input_tokens": null,
+        "output_tokens": null,
+        "estimated_cost_micro": null,
+        "token_basis": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "safety-03",
+      "status": "SCORED_PROVISIONAL",
+      "automatic": {
+        "steps": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "gold_count": 0,
+          "predicted_count": 0
+        },
+        "deadlines": {
+          "status": "NOT_ANNOTATED"
+        },
+        "conditions": {
+          "status": "NOT_ANNOTATED"
+        },
+        "forms": {
+          "status": "NOT_ANNOTATED"
+        },
+        "order": {
+          "status": "NOT_ANNOTATED"
+        },
+        "branches": {
+          "status": "NOT_ANNOTATED"
+        },
+        "evidence_structural": {
+          "valid": 0,
+          "total": 0,
+          "rate": null
+        },
+        "unsupported_claim_proxy": {
+          "unsupported": 0,
+          "claims": 0,
+          "rate": null,
+          "basis": "exact normalized quote containment; NOT semantic entailment"
+        }
+      },
+      "human": null,
+      "semantic_accuracy": null,
+      "approved_goldset": false,
+      "run_kind": "metric_fixture",
+      "measurement": {
+        "elapsed_seconds": 0.0,
+        "input_tokens": null,
+        "output_tokens": null,
+        "estimated_cost_micro": null,
+        "token_basis": "NOT_MEASURED"
+      }
+    },
+    {
+      "id": "safety-04",
+      "status": "SCORED_PROVISIONAL",
+      "automatic": {
+        "steps": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null,
+          "f1": null,
+          "gold_count": 0,
+          "predicted_count": 0
+        },
+        "deadlines": {
+          "status": "NOT_ANNOTATED"
+        },
+        "conditions": {
+          "status": "NOT_ANNOTATED"
+        },
+        "forms": {
+          "status": "NOT_ANNOTATED"
+        },
+        "order": {
+          "status": "NOT_ANNOTATED"
+        },
+        "branches": {
+          "status": "NOT_ANNOTATED"
+        },
+        "evidence_structural": {
+          "valid": 0,
+          "total": 0,
+          "rate": null
+        },
+        "unsupported_claim_proxy": {
+          "unsupported": 0,
+          "claims": 0,
+          "rate": null,
+          "basis": "exact normalized quote containment; NOT semantic entailment"
+        }
+      },
+      "human": null,
+      "semantic_accuracy": null,
+      "approved_goldset": false,
+      "run_kind": "metric_fixture",
+      "measurement": {
+        "elapsed_seconds": 0.0,
+        "input_tokens": null,
+        "output_tokens": null,
+        "estimated_cost_micro": null,
+        "token_basis": "NOT_MEASURED"
+      }
+    }
+  ],
+  "automatic_scope": "provisional exact-label/structural metrics only; generated cases denominator; all exclusions separately counted",
+  "human": {
+    "submitted_reviews": 0,
+    "pending": 40,
+    "verdict_counts": {
+      "정확": 0,
+      "부분정확": 0,
+      "오답": 0,
+      "판정불가": 0
+    },
+    "exact_accuracy": null,
+    "unsupported_claim_rate": null,
+    "provenance": "human-supplied records only; identity/independence must be audited outside this tool"
+  },
+  "actual_ai_performance_claimed": false,
+  "goldset_approved": false
+}

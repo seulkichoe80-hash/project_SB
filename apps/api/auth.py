@@ -53,11 +53,14 @@ def csrf_for(sid):
 
 
 class AuthService:
-    def __init__(self, store, provider=None, settings=None, clock=time.time):
+    def __init__(self, store, provider=None, settings=None, clock=time.time, session_guard=None):
         self.store = store
         self.provider = provider or UnconfiguredProvider()
         self.settings = settings or AuthSettings()
         self.clock = clock
+        from .session_revalidation import SessionRevalidation
+        if session_guard is not None and type(session_guard) is not SessionRevalidation:raise ValueError('invalid_session_guard')
+        self.session_guard=session_guard
 
     def origin(self, request):
         if request.headers.get('origin') != self.settings.origin or request.headers.get('sec-fetch-site') == 'cross-site':
@@ -102,6 +105,7 @@ class AuthService:
             db.execute('INSERT OR REPLACE INTO auth_login_limits VALUES(?,?,?)', (key, window, count))
         try:
             identity = self.provider.authenticate(body.email, body.password)
+            if self.session_guard is not None and self.session_guard.status(identity.issuer,identity.subject)!='active':raise ProviderUnavailable()
         except ProviderUnavailable:
             with self.store.transaction() as db:
                 self.store.audit(db, 'login', outcome='provider_unavailable', at=now)
@@ -115,7 +119,7 @@ class AuthService:
             if len(members) != 1:
                 raise HTTPException(403, 'active_single_membership_required')
             member, sid = members[0], secrets.token_urlsafe(32)
-            expires = now + min(self.settings.ttl, identity.ttl)
+            expires = now + min(self.settings.ttl, identity.ttl, self.session_guard.max_seconds if self.session_guard else self.settings.ttl)
             db.execute('INSERT INTO sessions(sid_hash,user_id,institution_id,csrf_hash,expires,touched) VALUES(?,?,?,?,?,?)',
                        (digest(sid), user['id'], member['institution_id'], digest(csrf_for(sid)), expires, now))
             old = request.cookies.get(self.settings.cookie)
@@ -132,18 +136,40 @@ class AuthService:
         return {'user_id': user, 'institution_id': member['institution_id'], 'institution_name': member['name'],
                 'role': member['role'], 'institution_admin': bool(member['institution_admin']), 'csrf_token': csrf}
 
+    def _revalidate_provider(self,sid,at):
+        revoked=False
+        try:
+            with self.store.transaction() as db:
+                row=db.execute('''SELECT i.issuer,i.subject FROM sessions s
+                  JOIN identities i ON i.id=s.user_id AND i.active=1
+                  JOIN memberships m ON m.user_id=s.user_id AND m.institution_id=s.institution_id AND m.active=1
+                  JOIN organizations o ON o.id=s.institution_id AND o.active=1
+                  WHERE s.sid_hash=? AND s.revoked=0 AND s.expires>? AND s.touched>?''',
+                  (digest(sid),at,at-self.settings.idle)).fetchone()
+                if row and self.session_guard.status(row['issuer'],row['subject'])!='active':
+                    db.execute('UPDATE sessions SET revoked=1 WHERE sid_hash=?',(digest(sid),));revoked=True
+        except ProviderUnavailable:raise HTTPException(503,'identity_revalidation_unavailable') from None
+        # Raise after commit: an account reactivation must not revive this revoked session.
+        if revoked:raise HTTPException(401,'session_expired_or_revoked')
+
     def resolve(self, request, mutation=None):
         if not self.provider.available:
             raise HTTPException(401, 'authentication_not_configured')
         sid, now = self.cookie(request, self.settings.cookie), self.clock()
+        if self.session_guard is not None:self._revalidate_provider(sid,now)
         with self.store.transaction() as db:
             row = db.execute('''SELECT s.*,m.role,m.institution_admin,o.name FROM sessions s
               JOIN identities i ON i.id=s.user_id AND i.active=1
               JOIN memberships m ON m.user_id=s.user_id AND m.institution_id=s.institution_id AND m.active=1
               JOIN organizations o ON o.id=s.institution_id AND o.active=1
-              WHERE s.sid_hash=? AND s.revoked=0''', (digest(sid),)).fetchone()
+              WHERE s.sid_hash=? AND s.revoked=0 AND i.issuer=COALESCE(?,i.issuer)''',
+                (digest(sid),getattr(self.provider,'issuer',None))).fetchone()
             if not row or row['expires'] <= now or row['touched'] <= now - self.settings.idle:
                 raise HTTPException(401, 'session_expired_or_revoked')
+            memberships=db.execute('''SELECT COUNT(*) FROM memberships m JOIN organizations o ON o.id=m.institution_id
+              WHERE m.user_id=? AND m.active=1 AND o.active=1''',(row['user_id'],)).fetchone()[0]
+            if memberships!=1:
+                raise HTTPException(401, 'active_single_membership_required')
             unsafe = mutation if mutation is not None else request.method not in ('GET', 'HEAD', 'OPTIONS')
             if unsafe:
                 self.origin(request)
@@ -168,11 +194,26 @@ class AuthService:
         response.headers['Cache-Control'] = 'no-store'
         return {'logged_out': True}
 
+    def _admin_in(self, db, request):
+        # Recheck inside the mutation/read transaction; resolve() may precede a concurrent revocation.
+        at=self.clock()
+        row=db.execute('''SELECT s.user_id FROM sessions s
+          JOIN identities i ON i.id=s.user_id AND i.active=1
+          JOIN memberships m ON m.user_id=s.user_id AND m.institution_id=s.institution_id AND m.active=1
+          JOIN organizations o ON o.id=s.institution_id AND o.active=1
+          WHERE s.sid_hash=? AND s.revoked=0 AND s.expires>? AND s.touched>?
+          AND m.institution_admin=1 AND i.issuer=COALESCE(?,i.issuer)
+          AND (SELECT COUNT(*) FROM memberships other JOIN organizations org ON org.id=other.institution_id
+               WHERE other.user_id=s.user_id AND other.active=1 AND org.active=1)=1''',
+          (request.state.auth['sid_hash'],at,at-self.settings.idle,getattr(self.provider,'issuer',None))).fetchone()
+        if not row:raise HTTPException(403,'institution_admin_required')
+
     def members(self, request):
         self.resolve(request)
         if not request.state.auth['institution_admin']:
             raise HTTPException(403, 'institution_admin_required')
         with self.store.transaction() as db:
+            self._admin_in(db,request)
             return [dict(r) for r in db.execute('SELECT user_id,role,active,institution_admin FROM memberships WHERE institution_id=?',
                                                (request.state.auth['institution_id'],))]
 
@@ -183,6 +224,7 @@ class AuthService:
         if p.subject == user_id:
             raise HTTPException(409, 'self_membership_change_forbidden')
         with self.store.transaction() as db:
+            self._admin_in(db,request)
             row = db.execute('SELECT * FROM memberships WHERE user_id=? AND institution_id=?', (user_id, p.institution_id)).fetchone()
             if not row:
                 raise HTTPException(404, 'membership_not_found')

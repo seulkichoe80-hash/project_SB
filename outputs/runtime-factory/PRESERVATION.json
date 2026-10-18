@@ -1,0 +1,46 @@
+{
+  "start_head": "e091b7b494c2fff5dc10dcd27d45ad5e963e3ef9",
+  "current_head": "e091b7b494c2fff5dc10dcd27d45ad5e963e3ef9",
+  "branch": "feat/deployment-runtime-factory",
+  "tracked_baseline_files": 995,
+  "unchanged_baseline_files": 989,
+  "intentional_changes": [
+    "ARCHITECTURE.md",
+    "TASKS.md",
+    "TEST_PLAN.md",
+    "apps/api/main.py",
+    "apps/api/runtime_wiring.py",
+    "docs/STAGING_CONNECTION_RUNBOOK.md"
+  ],
+  "unexpected_changes": [],
+  "deleted_files": [],
+  "original_fixture_old_test_migration_sql_historical_evidence_changed": false,
+  "production_blockers_source_unchanged": true,
+  "backend_verified_source_hash_matches": true,
+  "new_tests_pass": 28,
+  "backend_verified_counts": {
+    "PASS": 1113,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "backend_verified_seconds": 358.877,
+  "actual_postgres_stop_start_recovery": "PASS_AFTER_READINESS",
+  "recovery_initial_readiness_attempt": "connection unavailable immediately after container start; runner failed closed; pg_isready then verify PASS",
+  "actual_external_provider_calls": 0,
+  "network_guard_scope": "Python tests and inherited Python subprocesses; loopback only",
+  "human_judgments_created": 0,
+  "remote_push_pr_update_merge_deployment_secret_injection": 0,
+  "existing_pr": {
+    "number": 3,
+    "state": "OPEN",
+    "draft": true,
+    "head": "e091b7b494c2fff5dc10dcd27d45ad5e963e3ef9"
+  },
+  "new_changes_committed": false,
+  "fixture_cleanup": "isolated PostgreSQL container stopped; named data volume preserved",
+  "elapsed_minutes_since_preservation_check": 37.3,
+  "finished_kst": "2026-10-19T08:24:15.450386+09:00",
+  "strong_secret_hits": 0,
+  "scan_scope": "changed Git candidates strong key/JWT patterns, synthetic provenance; not universal PII certification"
+}

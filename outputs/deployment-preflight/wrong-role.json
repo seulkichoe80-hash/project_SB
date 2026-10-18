@@ -1,0 +1,18 @@
+{
+  "exit_code": 1,
+  "result": {
+    "environment": "test",
+    "role": "api",
+    "settings_status": "INVALID",
+    "status": "INVALID",
+    "startup_allowed": false,
+    "production_ready": false,
+    "connectivity": "NOT_CHECKED",
+    "membership_verification": "SERVER_ACTIVE_SINGLE_CONTRACT_ONLY",
+    "backup_restore_verification": "NOT_VERIFIED",
+    "issues": [
+      "runtime_role_mismatch"
+    ],
+    "implementation_blockers": []
+  }
+}

@@ -244,3 +244,55 @@ apps/web의 lazy WorkflowPage는 기존 AuthContext·same-origin BFF와 Workflow
 ## Phase 2E-2A UI 조회 수명
 
 기존 API를 유지하면서 visible serial polling·10초 deadline·오류 backoff와 terminal 중단을 적용한다. 명시적 동일 입력 POST로 작업을 재확인하며 작업 목록/브라우저 민감 캐시는 만들지 않는다. 근거 선택은 현재 generation의 메모리에 한정하고 focus에서 서버 재검증한다. [조회·복구와 한계](docs/PHASE2E2A_UI_STABILITY.md)를 따른다.
+
+## v0.3-A Fake-only 공급자 안전 경계
+
+기존 세 adapter 계약과 앱/API/DB 기본값을 보존한다. 새 provider_safety/provider_fake_adapters와 별도 SimulationBudgetLedger는 외부 호출 없는 주입형 시험 경계다. 원자적 예약/시도별 정산/unknown hold 및 기관 격리는 [안전 계약](docs/V03A_PROVIDER_SAFETY.md)을 따른다. 실전 HTTP serializer·키·가격·tokenizer·workflow 비용 통합은 포함하지 않는다.
+
+## v0.3-B 평가 자료와 점수 분리
+
+평가 도구는 scripts/validation에만 추가한다. 제품의 8단어 검색/adapter/API/DB를 보존하며 신규 generation의 원본·snapshot·EvidenceRef를 고정한다. window 검색·자동 exact/구조 점수·인간 검토는 [평가 계약](docs/V03B_EVALUATION_FOUNDATION.md)에 따라 분리한다.
+
+## v0.3-C1 검색 진단과 고정 문맥
+
+제품 검색을 바꾸지 않고 scripts/validation에서 SQL/token/filter/Top-K를 분리 진단한다. 질문/정답과 무관한 기관별 전체 frozen context와 기존 offline workflow Fake를 재사용한다. [격리·지표 계약](docs/V03C1_RETRIEVAL_DIAGNOSTICS.md)을 따른다.
+
+## v0.3-C2 검색 비교 실험
+
+scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal/정규화 AND·OR·FTS5 BM25를 비교한다. 제품 index/검색/정답/세대는 유지한다. [통제·격리 계약](docs/V03C2_RETRIEVAL_ABLATION.md)을 따른다.
+
+## v0.3-D opt-in C 검색
+
+기존 /search/default literal/RAG lexical 계약을 보존한다. 서버 SB_ENABLE_SCORED_OR_SEARCH=1과 요청 strategy=scored_or를 동시에 요구하는 bounded ScoredORSearch를 추가한다. source/current generation과 원본 재해결을 전후 검사한다. [기능 flag·자원/근거 계약](docs/V03D_OPT_IN_SCORED_SEARCH.md)을 따른다.
+
+## 배포 준비 1단계 운영 설정·시작 차단
+
+[설정 계약](docs/DEPLOYMENT_PREFLIGHT.md)의 RuntimeSettings와 offline CLI는 local/test/production·API/worker 역할·기존 AuthSettings/SupabaseSettings·업로드 상한을 검증한다. 표준 API factory와 worker CLI는 영속 저장소 생성 전에 guard를 실행한다. 설정이 완전해도 PG/객체/운영 Auth bootstrap·proxy/worker·복구 capability가 없으므로 production은 시작 불가다. 설정 목표는 실연결/버킷 ACL/기관 권한/실복구 검증이 아니며 실제 외부 호출·새 schema·운영 wiring은 추가하지 않는다.
+
+## 배포 준비 2단계 PostgreSQL opt-in
+
+[PG 계약](docs/DEPLOYMENT_POSTGRES.md)의 명시 migration·PostgresRepository/AuthStore/BudgetLedger가 기존 domain SQL/상태/EvidenceRef를 재사용한다. 기본 SQLite와 원본 저장은 유지한다. PG schema당 transaction_guard 행 잠금·READ COMMITTED로 SQLite 직렬화 의미를 보존하며 처리량 최적화는 후속이다. 운영 자동 wiring/Storage/RLS/실클라우드 연결은 미완료다. preflight는 adapter 구현과 실제 연결을 분리하고 production 차단을 유지한다.
+
+## 배포 준비 3단계: Fake private 객체와 application 복구
+
+[Private Storage·복구 계약](docs/DEPLOYMENT_PRIVATE_STORAGE.md)의 명시 주입 어댑터는 서버 Principal/기존 UnitOfWork를 재사용한다. LocalOriginalStore 기본과 HTTP 계약은 그대로이며 실제 원격 전송은 없다. 객체 intent/불변 put/read-back와 DB metadata commit을 분리하고 orphan은 DB quarantine으로 보존한다. 별도 추가형 Storage schema, 새 빈 DB/Fake 대상으로만 수행하는 manifest 기반 application 복구·세션 철회·claim fencing을 제공한다. 별도 비용 schema/PITR/실제 운영 백업·Auth/Storage wiring은 미완료이며 production 차단을 유지한다.
+
+## 배포 준비 4단계: 오프라인 JWT·명시 기관 초기화
+
+[Auth 계약](docs/DEPLOYMENT_AUTH.md)의 SupabaseJWTProviderAdapter는 기존 사용자 조회 기반 adapter와 별도로 명시 주입한다. Fake JWKS/password 전송만 허용하고 cryptography ES256/RS256 검증 후 기존 VerifiedIdentity→DB 멤버십→BFF 세션으로 연결한다. provider metadata 권한은 사용하지 않으며 세션 issuer/활성 단일 membership과 관리자 transaction 권한을 재검사한다. 최초 관리자 생성은 공개 경로 없이 명시 운영자 bootstrap transaction으로 제한한다. 기존 API/DB schema/Private Storage·worker/EvidenceRef 계약과 deny-all 기본은 유지하며 운영 Auth/전송/철회 동기화 미실증으로 production을 계속 차단한다.
+
+## 배포 준비 5단계: Local/Fake wiring·프록시·세션 상태 경계
+
+[계약](docs/DEPLOYMENT_WIRING.md)의 RuntimeBinding으로 API와 parse/chunk/workflow main의 명시 local/Fake 구성을 연결한다. 실제 DB/schema·원본 root/공유 Fake 인스턴스·역할을 대조하고 worker에서 BFF provider/프록시 증명을 분리한다. 단일 정제 홉 peer+서버 증명·Host/HTTPS·Origin 경계와 bounded `/api` ASGI edge를 opt-in으로 제공한다. 선택적 Fake provider 상태 재검증은 만료 상한·비활성 SID 영구 철회·장애 거부를 연결한다. 실제 Vercel/Render·원격 Storage/JWKS/상태 동기화·클라우드 worker/운영 복구는 미완료이며 production 차단을 유지한다.
+
+## 배포 준비 6단계: 스테이징 후보·호스팅 근거 게이트
+
+[공식 제약·연결 준비](docs/DEPLOYMENT_STAGING_PREP.md)는2026-10-18 KST의 pinned Supabase 공식 소스와 접근 실패를 분리한다. Vercel/Render의 최신 단가·rewrite/20MiB·상시 worker/ingress 조건은 미검증으로 아키텍처 최종 확정을 보류한다. 같은-site API 직통(B)을 우선 검증 후보로 제안하고 Storage 직접 업로드(C)는 새 finalize/권한 계약과 원본 다운로드 경로가 필요한 후속안으로 남긴다. runtime/code/schema·production blocker를 변경하거나 기존 설계를 운영 검증 완료로 승격하지 않는다.
+
+## 배포 준비 7단계: Mock HTTP 원본 전송
+
+[Storage HTTP 계약](docs/DEPLOYMENT_STORAGE_HTTP.md)은 기존 PrivateOriginalStore에 exact MockTransport 전용 전송을 명시 주입한다. 확보된 공식 업로드/인증 다운로드 경로만 사용하고 POST 응답 대신 GET 바이트 SHA/크기로 성공을 판정한다. 기본 Local/Fake·RuntimeBinding·API·DB 계약과 production blocker는 유지한다. 원격 목록/ACL 응답 계약·HTTP orphan inventory·cloud backup·실제 연결은 미확인으로 차단하며 Fake 대사/복구를 실제 cloud 증거로 승격하지 않는다.
+
+## 운영 Factory·Migration Runner 통합
+
+[통합 계약](docs/RUNTIME_FACTORY_MIGRATIONS.md)의 build_runtime/build_application으로 API·worker 생성 경로와 명시적인 격리 PG/Storage/Auth DI를 모은다. MigrationPlan은 별도 application/budget schema를 고정하며 Runner는 정렬된 schema session lock·단계별 기존 transaction/checksum으로 application→budget→Storage를 apply/verify한다. 일반 시작은 verify-only, 실패 시 앞 단계 보존/실패 단계 롤백 후 재개다. 세 단계 전체 원자성을 주장하지 않으며 기존 운영6개 blocker와 live 공급자/원격 실행 차단을 유지한다.

@@ -1,0 +1,7 @@
+{
+  "cases": 6,
+  "external_network_attempts": 0,
+  "actual_cloud_connections": 0,
+  "synthetic_placeholder_only": true,
+  "production_expected_blocked": true
+}

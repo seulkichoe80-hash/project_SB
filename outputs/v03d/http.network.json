@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "blocked_external_attempts": 0,
+  "actual_provider_calls": 0,
+  "scope": "real loopback TCP API servers/clients; socket and DNS guard; no proxy",
+  "own_tests_overlapped": false
+}

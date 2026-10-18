@@ -1,0 +1,44 @@
+{
+  "storage_http_commit": "7feaeb162c099c50091692f72fcaaba15cbf3700",
+  "start_head": "34c66e108a45442e164fa2230861a4a3f469f05c",
+  "main_at_check": "8986b912083876ccfd6dabb207a92cc33d00d1e5",
+  "repository_visibility": "public",
+  "expected_storage_files": 14,
+  "preserved_storage_file_hashes_match": true,
+  "cumulative_commits_before_current_preservation": 15,
+  "history_new_blobs_scanned": 520,
+  "history_new_blob_bytes": 45228055,
+  "history_large_blobs_over_100MiB": 0,
+  "strong_secret_pattern_hits": 0,
+  "pii_candidates": 14,
+  "pii_disposition": "same prior publicly published submission contact in origin/main TASKS; no new personal data candidate",
+  "file_policy": "no new .env/private key/DB/archive/PDF/raw-upload tracked in new history",
+  "synthetic_provenance": [
+    "scripts/validation/build_v01_assets.py",
+    "scripts/validation/check_v02c_ui.cjs",
+    "scripts/validation/human_review_packet.py"
+  ],
+  "representative_images_reviewed": [
+    "outputs/v03d/v02c-regression/documents-mobile.png",
+    "outputs/v03e/review-1280.png"
+  ],
+  "human_review_judgments_created": 0,
+  "prior_backend_evidence": "outputs/deployment-storage-http/backend.json",
+  "prior_backend_counts": {
+    "PASS": 1085,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "prior_backend_code_hash_match": true,
+  "dependency_versions_match": true,
+  "backend_ui_tests_rerun": false,
+  "reason": "preservation and documentation only; no runtime/source/test/dependency change after verified 1085 run",
+  "production_guard_unchanged": true,
+  "git_actions_workflows": 0,
+  "github_deployments_seen": 0,
+  "webhook_inventory": "UNVERIFIED_403_INTEGRATION_SCOPE",
+  "limitations": "strong patterns, contact candidates and provenance review; not a universal PII certification or external hosting inventory",
+  "actual_supabase_ai_storage_auth_db_cloud_calls": 0,
+  "paid_service_deployment_guard_release": 0
+}

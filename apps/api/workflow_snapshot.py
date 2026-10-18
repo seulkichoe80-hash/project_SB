@@ -119,7 +119,7 @@ class WorkflowInputService:
         from .chunking import canonical
         if len(canonical(payload).encode('utf-8')) > settings.max_snapshot_bytes:
             raise DomainError('workflow_snapshot_size_limit', 413)
-        data = self.documents.store.read(version_id, content.original_sha256)
+        data = self.documents.read_original(principal,version_id, content.original_sha256)
         # Reparse once per capture, then rebuild ALL canonical chunks. This detects
         # missing/duplicate/modified stored chunks rather than trusting their own count.
         kind = content.source_blocks[0].source_anchor.kind

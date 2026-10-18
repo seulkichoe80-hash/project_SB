@@ -44,7 +44,7 @@ class WorkflowFormService:
             doc, version = self.documents.version(db, principal, document_id, version_id)
             if doc['active_version_id'] != version_id or version['state'] != 'completed':
                 raise DomainError('inactive_form_version', 409)
-            self.documents.store.read(version_id, version['sha256'])
+            self.documents.read_original(principal,version_id, version['sha256'],db=db)
             self.catalog.upsert(db, principal.institution_id, document_id, version_id, metadata.title, metadata.purpose)
 
     def _current(self, principal):
@@ -63,7 +63,7 @@ class WorkflowFormService:
             candidate.version_id, candidate.catalog_revision, candidate.original_sha256, candidate.original_name,
             candidate.metadata.title, candidate.metadata.purpose):
             raise DomainError('stale_form_candidate', 409)
-        self.documents.store.read(candidate.version_id, candidate.original_sha256)
+        self.documents.read_original(principal,candidate.version_id, candidate.original_sha256)
         if row not in self._current(principal):
             raise DomainError('stale_form_candidate', 409)
         return candidate
@@ -117,7 +117,7 @@ class WorkflowFormService:
                         on = tuple(k for k,v in values.items() if key and key in v)
                         if not on:
                             continue
-                        self.documents.store.read(row['version_id'], row['sha256'])
+                        self.documents.read_original(principal,row['version_id'], row['sha256'])
                         matches.append(RegisteredFormCandidate(institution_id=principal.institution_id,
                             document_id=row['document_id'], version_id=row['version_id'],
                             original_sha256=row['sha256'], original_name=row['original_name'],

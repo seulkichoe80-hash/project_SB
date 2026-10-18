@@ -1,0 +1,198 @@
+{
+  "status": "PASS",
+  "scope": "offline v0.3-B evaluation foundation; actual AI accuracy NOT_RUN",
+  "backend": {
+    "PASS": 554,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "backend_seconds": 127.94,
+  "new_tests": 59,
+  "existing_backend": 495,
+  "ui_pass": 174,
+  "actual_loopback_http": {
+    "name": "actual-http-e2e",
+    "command": [
+      "node",
+      "scripts/validation/check_v01_e2e.cjs",
+      "/workspace/project_SB/work/v03b/full/e2e/results.json"
+    ],
+    "exit_code": 0,
+    "seconds": 26.902,
+    "counts": {
+      "PASS": 13,
+      "FAIL": 0
+    }
+  },
+  "preparation": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "--prefix",
+        "apps/web",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "seconds": 1.258
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "--prefix",
+        "apps/web",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "seconds": 1.616
+    },
+    {
+      "name": "generate-synthetic-api-fixture",
+      "command": [
+        "/workspace/project_SB/.venv/bin/python",
+        "-B",
+        "scripts/validation/build_phase2e1_fixture.py",
+        "--output",
+        "/workspace/project_SB/work/v03b/full/browser-fixture.json"
+      ],
+      "exit_code": 0,
+      "seconds": 2.833
+    }
+  ],
+  "ui_base_suites": [
+    {
+      "name": "check_stage2_ui",
+      "command": [
+        "node",
+        "scripts/validation/check_stage2_ui.cjs",
+        "/workspace/project_SB/work/v03b/full/check_stage2_ui/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.48,
+      "counts": {
+        "PASS": 14,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      }
+    },
+    {
+      "name": "check_stage3_home",
+      "command": [
+        "node",
+        "scripts/validation/check_stage3_home.cjs",
+        "/workspace/project_SB/work/v03b/full/check_stage3_home/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.903,
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      }
+    },
+    {
+      "name": "check_stage4a_ui",
+      "command": [
+        "node",
+        "scripts/validation/check_stage4a_ui.cjs",
+        "/workspace/project_SB/work/v03b/full/check_stage4a_ui/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 10.495,
+      "counts": {
+        "PASS": 17,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      }
+    },
+    {
+      "name": "check_stage4b2_ui",
+      "command": [
+        "node",
+        "scripts/validation/check_stage4b2_ui.cjs",
+        "/workspace/project_SB/work/v03b/full/check_stage4b2_ui/results.json"
+      ],
+      "exit_code": 0,
+      "seconds": 4.374,
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0
+      }
+    },
+    {
+      "name": "check_phase2e1_ui",
+      "command": [
+        "node",
+        "scripts/validation/check_phase2e1_ui.cjs",
+        "/workspace/project_SB/work/v03b/full/check_phase2e1_ui/results.json",
+        "/workspace/project_SB/work/v03b/full/browser-fixture.json"
+      ],
+      "exit_code": 0,
+      "seconds": 52.367,
+      "counts": {
+        "PASS": 37,
+        "FAIL": 0
+      }
+    },
+    {
+      "name": "check_phase2e2a_ui",
+      "command": [
+        "node",
+        "scripts/validation/check_phase2e2a_ui.cjs",
+        "/workspace/project_SB/work/v03b/full/check_phase2e2a_ui/results.json",
+        "/workspace/project_SB/work/v03b/full/browser-fixture.json"
+      ],
+      "exit_code": 0,
+      "seconds": 22.762,
+      "counts": {
+        "PASS": 24,
+        "FAIL": 0
+      }
+    }
+  ],
+  "canonical_generation": "outputs/v03b/isolated-evaluation",
+  "reproduction": {
+    "status": "PASS",
+    "scope": "fixture reproduction and metric arithmetic only; AI performance NOT_RUN",
+    "documents": 7,
+    "chunks": 57,
+    "questions": 40,
+    "all_original_sha256_match": true,
+    "all_exact_historical_replays_match": true,
+    "all_normalized_chunks_match": true,
+    "references": {
+      "expected_chunks": 57,
+      "actual_chunks": 57,
+      "relinked": 51,
+      "failed": 0,
+      "unverified": 0
+    },
+    "human_review_pending": 40,
+    "actual_model_calls": 0,
+    "actual_spend_usd": 0,
+    "seconds": 5.577863215001344
+  },
+  "retrieval": {
+    "retrieved": 0,
+    "no_hits": 40,
+    "retrieval_failed": 0
+  },
+  "actual_model_cases_run": 0,
+  "human_review_pending": 40,
+  "external_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "all_tested_source_hashes_match": true,
+  "elapsed_seconds": 929.4,
+  "intermediate_failure_evidence": [
+    "targeted-initial-errors.txt",
+    "full-initial-summary.json",
+    "backend-initial.json"
+  ]
+}

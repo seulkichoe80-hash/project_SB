@@ -78,7 +78,7 @@ class ParsingService:
             self.documents.version(db, principal, claim['document_id'], claim['version_id'])
             if not db.parsing.owned(claim, self.clock()):
                 raise DomainError('stale_parse_claim')
-        data = self.store.read(claim['version_id'], claim['sha256'])
+        data = self.documents.read_original(principal,claim['version_id'], claim['sha256'])
         canonical = default_parsers()[claim['format']].parse(data, claim['document_id'], claim['version_id'])
         validate_batch(blocks, canonical, claim['document_id'], claim['version_id'])
         with self.repo.transaction() as db:
@@ -95,7 +95,7 @@ class ParsingService:
                 self.documents.version(db, principal, claim['document_id'], claim['version_id'])
                 if not db.parsing.owned(claim, self.clock()):
                     raise DomainError('stale_parse_claim')
-            data = self.store.read(claim['version_id'], claim['sha256'])
+            data = self.documents.read_original(principal,claim['version_id'], claim['sha256'])
             blocks = self.parsers[claim['format']].parse(data, claim['document_id'], claim['version_id'])
             self.publish(principal, claim, blocks)
             return 'completed'
@@ -118,7 +118,7 @@ class ParsingService:
             job = db.parsing.job(version_id)
             if not job or job['state'] != 'completed':
                 raise DomainError('parsing_not_ready')
-            self.store.read(version_id, version['sha256'])
+            self.documents.read_original(principal,version_id, version['sha256'],db=db)
             return db.parsing.blocks(version_id)
 
     def resolve(self, principal, document_id, version_id, request):
@@ -130,7 +130,7 @@ class ParsingService:
             _, version = self.documents.version(db, principal, document_id, version_id)
             if anchor.sha256 != version['sha256']:
                 raise DomainError('source_hash_mismatch', 422)
-            data = self.store.read(version_id, version['sha256'])
+            data = self.documents.read_original(principal,version_id, version['sha256'],db=db)
             canonical = default_parsers()[version['format']].parse(data, document_id, version_id)
             match = next((b for b in canonical if b.source_anchor == anchor), None)
             if match is None or not any(Block.model_validate(b) == match for b in blocks):

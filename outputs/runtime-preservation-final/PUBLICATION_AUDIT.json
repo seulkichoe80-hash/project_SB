@@ -1,0 +1,40 @@
+{
+  "repository": "seulkichoe80-hash/project_SB",
+  "visibility": "public",
+  "start_head": "e091b7b494c2fff5dc10dcd27d45ad5e963e3ef9",
+  "source_branch": "feat/deployment-runtime-factory",
+  "runtime_preservation_commit": "39fe50a83015e6af977c651891f8a5a23d736511",
+  "runtime_files": 22,
+  "manifest_and_committed_content_match": true,
+  "backend_evidence": "outputs/runtime-factory/backend-verified.json",
+  "backend_counts_reviewed": {
+    "PASS": 1113,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "code_hashes_match": 136,
+  "dependency_versions_match": true,
+  "tests_rerun_this_preservation_task": false,
+  "test_policy": "TEST_PLAN documentation/preservation scope; prior results verified, not newly executed PASS",
+  "strong_secret_hits": 0,
+  "new_pii_candidates": 0,
+  "original_fixtures_sql_old_tests_evidence_preserved": true,
+  "previous_failures_interrupted_run_and_recovery_preserved": true,
+  "human_judgments_created": 0,
+  "runtime_or_security_code_modified_this_task": false,
+  "pr_before": {
+    "number": 3,
+    "head_branch": "feat/deployment-storage-http",
+    "head_sha": "e091b7b494c2fff5dc10dcd27d45ad5e963e3ef9",
+    "state": "OPEN",
+    "draft": true,
+    "auto_merge": false
+  },
+  "planned_update": "normal atomic fast-forward of both runtime-factory branch and PR source branch; abort if remote diverges",
+  "main_before": "8986b912083876ccfd6dabb207a92cc33d00d1e5",
+  "github_workflows_seen": 0,
+  "external_hosting_webhooks": "not reverified; previous integration scope 403, no hosting connection enabled",
+  "actual_provider_calls_accounts_payment_credentials_public_deploy_guard_release": 0,
+  "scan_limit": "strong secret and PII candidate patterns plus synthetic provenance; not universal PII certification"
+}

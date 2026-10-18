@@ -65,7 +65,7 @@ function contrast(a, b) {
       assert.equal(await page.locator('nav[aria-label="주 메뉴"]').count(),1);
       assert.equal(await page.locator('h1').innerText(),'업무 홈');
       assert.equal(await page.locator('[role="progressbar"],input,textarea').count(),0);
-      assert.match(await page.locator('.connection-notice').innerText(),/데이터 미연결/);
+      assert.match(await page.locator('.connection-notice').innerText(),/자료관리자.*문서 등록·조회/);
     });
     await check('skip link keyboard access', async () => {
       await page.keyboard.press('Tab');

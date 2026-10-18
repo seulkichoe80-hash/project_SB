@@ -1,0 +1,177 @@
+{
+  "time_kst": "2026-10-18T10:30:54.323849+09:00",
+  "branch": "feat/v02a-ui-clarity",
+  "head": "8986b912083876ccfd6dabb207a92cc33d00d1e5",
+  "status": "PASS",
+  "counts": {
+    "backend": 409,
+    "existing_ui": 104,
+    "new_ui": 24,
+    "actual_http": 13,
+    "FAIL": 0
+  },
+  "preparation": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "--prefix",
+        "apps/web",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "seconds": 0.602
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "--prefix",
+        "apps/web",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "seconds": 0.972
+    },
+    {
+      "name": "generate-synthetic-api-fixture",
+      "command": [
+        "/workspace/project_SB/.venv/bin/python",
+        "-B",
+        "scripts/validation/build_phase2e1_fixture.py",
+        "--output",
+        "/workspace/project_SB/work/v02a/full/browser-fixture.json"
+      ],
+      "exit_code": 0,
+      "seconds": 2.757
+    }
+  ],
+  "suites": [
+    {
+      "suite": "backend",
+      "source": "work/v02a/full/backend.json",
+      "evidence": "outputs/v02a/backend-results.json",
+      "counts": {
+        "PASS": 409,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      },
+      "seconds": null
+    },
+    {
+      "suite": "stage2",
+      "source": "work/v02a/stage2-final/results.json",
+      "evidence": "outputs/v02a/stage2-results.json",
+      "counts": {
+        "PASS": 14,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      },
+      "seconds": null
+    },
+    {
+      "suite": "home",
+      "source": "work/v02a/full/check_stage3_home/results.json",
+      "evidence": "outputs/v02a/home-results.json",
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      },
+      "seconds": null
+    },
+    {
+      "suite": "documents",
+      "source": "work/v02a/full/check_stage4a_ui/results.json",
+      "evidence": "outputs/v02a/documents-results.json",
+      "counts": {
+        "PASS": 17,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      },
+      "seconds": null
+    },
+    {
+      "suite": "auth",
+      "source": "work/v02a/full/check_stage4b2_ui/results.json",
+      "evidence": "outputs/v02a/auth-results.json",
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0
+      },
+      "seconds": 2.0892589189999997
+    },
+    {
+      "suite": "workflow",
+      "source": "work/v02a/full/check_phase2e1_ui/results.json",
+      "evidence": "outputs/v02a/workflow-results.json",
+      "counts": {
+        "PASS": 37,
+        "FAIL": 0
+      },
+      "seconds": 47.235499982
+    },
+    {
+      "suite": "stability",
+      "source": "work/v02a/stability-final/results.json",
+      "evidence": "outputs/v02a/stability-results.json",
+      "counts": {
+        "PASS": 24,
+        "FAIL": 0
+      },
+      "seconds": 23.961547184
+    },
+    {
+      "suite": "http",
+      "source": "work/v02a/full/e2e/results.json",
+      "evidence": "outputs/v02a/http-results.json",
+      "counts": {
+        "PASS": 13,
+        "FAIL": 0
+      },
+      "seconds": 20.551636116999997
+    },
+    {
+      "suite": "v02a",
+      "source": "work/v02a/ui-accepted.json",
+      "evidence": "outputs/v02a/v02a-results.json",
+      "counts": {
+        "PASS": 24,
+        "FAIL": 0
+      },
+      "seconds": 13.73654041
+    }
+  ],
+  "external_provider_calls": 0,
+  "initial_full_run": "FAIL; two stale wording assertions corrected, only affected suites rerun. Initial results preserved. No production source changed after full regression began.",
+  "source_sha256": {
+    "TASKS.md": "38fa7fb18822aab739c37c005db09c4b88f01e652c436e5ae87174e4b69d628b",
+    "TEST_PLAN.md": "cc795da763ba31753d047289235cb5dfeaf7250111c5f6ea7ed73307ad55c3d0",
+    "apps/web/src/auth/AuthContext.tsx": "78a62d604c8f859948d9a160d4c28658cc0f3e3af47b224bc8d20eb15323bc4a",
+    "apps/web/src/components/AppLayout.tsx": "13dbe2fd0c8de4f2fafe77889405fafba68d8122de5b99f0960be0e0a6217389",
+    "apps/web/src/pages/HomePage.tsx": "b970b6874980c5c2f5a6b33037823629893e2f786c0adf15639d5f39a93ccd14",
+    "apps/web/src/pages/WorkflowPage.tsx": "8dbcd0be6435f542438ea06ffb17ae0658b126f09ec57729fdc72f2d161205f6",
+    "scripts/validation/check_phase2e1_live.cjs": "b067b118ea8ec3f65076bc1734c8e5a29596bee3136000747ca45acca534ce9a",
+    "scripts/validation/check_phase2e1_ui.cjs": "2bdb3815463a7de8c2c5c8feb74a76e21d353f518921516c18b3aa80a1bef7ea",
+    "scripts/validation/check_phase2e2a_ui.cjs": "c15d2d5c88e3cf115aac1b023c56df3c8ec64b3dd468dc65b605c9144ee74d49",
+    "scripts/validation/check_stage2_ui.cjs": "97fa27f4bb65b5b3e8614aae7cdfcdc5241152e36825902a92cbb41c7a885b3a",
+    "scripts/validation/check_stage3_home.cjs": "65636753f295b5310b10a3480fa40ffdd353ff56599aa879fda9c24e24bbf998",
+    "scripts/validation/check_v01_e2e.cjs": "fb2f2cbcdc1a7c97385a119e26c5607bf1b6962b3760fe705772d73fc55113b8",
+    "scripts/validation/check_v02a_ui.cjs": "7a9c8f28fb2fecb9396b94738186f34ac53ccae455084b942f57297be942aa16",
+    "docs/V02A_UI_CLARITY.md": "683e90736b1e631a6ebd94d683e09e88567903b7f0e9281bc737b5f21d9319d0"
+  },
+  "elapsed_minutes": 9.0,
+  "not_run": [
+    "actual Supabase",
+    "LLM/embedding",
+    "public deployment",
+    "screen reader",
+    "native Hancom visual validation"
+  ]
+}

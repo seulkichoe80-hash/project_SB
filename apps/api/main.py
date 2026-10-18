@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Literal
 from fastapi import Depends, FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse, Response
 from starlette.concurrency import run_in_threadpool
@@ -14,7 +15,23 @@ def authenticated_principal(request: Request) -> Principal:
     return request.app.state.auth.resolve(request)
 
 
-def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False, identity_provider=None, auth_settings=None, auth_clock=None, supabase_settings=None) -> FastAPI:
+def create_app(data_dir: Path | None = None, store=None, repository=None, parsing_enabled=False, identity_provider=None, auth_settings=None, auth_clock=None, supabase_settings=None, search_settings=None, runtime_binding=None, proxy_policy=None, session_guard=None) -> FastAPI:
+    from .runtime_settings import ensure_start_environment
+    ensure_start_environment('api')
+    if runtime_binding is not None:
+        from .runtime_wiring import RuntimeBinding
+        if type(runtime_binding) is not RuntimeBinding or runtime_binding.role!='api':raise ValueError('api_binding_required')
+        if any(v is not None for v in (store,repository,identity_provider,auth_settings,supabase_settings,proxy_policy,session_guard)):
+            raise ValueError('choose_one_runtime_binding')
+        runtime_binding.validate()
+        if data_dir is not None and Path(data_dir).resolve()!=runtime_binding.data_dir:raise ValueError('api_binding_directory_mismatch')
+        data_dir=runtime_binding.data_dir;repository=runtime_binding.repo;store=runtime_binding.store
+        identity_provider=runtime_binding.provider;auth_settings=runtime_binding.auth_settings
+        proxy_policy=runtime_binding.proxy_policy;session_guard=runtime_binding.session_guard
+    if proxy_policy is not None:
+        from .proxy_boundary import ProxyPolicy
+        if type(proxy_policy) is not ProxyPolicy or auth_settings is None or proxy_policy.origin!=auth_settings.origin or not auth_settings.secure_cookie:
+            raise ValueError('proxy_auth_binding_mismatch')
     if supabase_settings is not None:
         if identity_provider is not None:
             raise ValueError('choose_one_identity_configuration')
@@ -22,14 +39,24 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
         from .supabase_transport import SupabaseHTTPTransport
         identity_provider = SupabaseProviderAdapter(SupabaseHTTPTransport(supabase_settings), supabase_settings.issuer)
     root = data_dir or Path('work/phase2a/runtime')
+    if repository is None and store is None:
+        from .runtime_factory import build_runtime
+        defaults=build_runtime(root,role='api',repository_factory=Repository)
+        repository,store=defaults.repo,defaults.store
+        if identity_provider is None and auth_settings is None and proxy_policy is None and session_guard is None:
+            runtime_binding=defaults
+        if identity_provider is None: identity_provider=defaults.provider
+        if auth_settings is None: auth_settings=defaults.auth_settings
     service = DocumentService(repository or Repository(root / 'metadata.sqlite3'), store or LocalOriginalStore(root / 'originals'), parsing_enabled)
     app = FastAPI(title='서무ITDA local Phase 2B' if parsing_enabled else '서무ITDA local Phase 2A',
                   docs_url=None, redoc_url=None, openapi_url=None)
     app.state.service = service
+    app.state.runtime_binding = runtime_binding
+    app.state.budget_ledger = getattr(runtime_binding,'budget_ledger',None)
     from .auth import AuthService, Login, MembershipUpdate
     from .auth_store import AuthStore
     import time as auth_time
-    auth = AuthService(AuthStore(service.repo.path), identity_provider, auth_settings, auth_clock or auth_time.time)
+    auth = AuthService((service.repo.auth_store() if getattr(service.repo, 'dialect', None) == 'postgresql' else AuthStore(service.repo.path)), identity_provider, auth_settings, auth_clock or auth_time.time, session_guard=session_guard)
     app.state.auth = auth
 
     @app.middleware('http')
@@ -82,7 +109,9 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
         app.state.parsing = parsing
         from .chunk_service import ChunkService
         from .chunking import ChunkConfig, EvidenceRef
-        chunks = ChunkService(parsing)
+        from .search_settings import SearchSettings
+        search_settings=SearchSettings.from_environment() if search_settings is None else SearchSettings.model_validate(search_settings.model_dump(warnings=False))
+        chunks = ChunkService(parsing,search_settings=search_settings)
         app.state.chunks = chunks
         from .workflow_jobs import WorkflowJobService
         from .workflow_routes import install_workflow_routes
@@ -111,8 +140,9 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
             return chunks.resolve(principal,document_id,version_id,chunk_id,body)
 
         @app.get('/search')
-        def search(q: str,limit: int=20,principal: Principal=Depends(authenticated_principal)):
-            return {'method':'sqlite_keyword_substring_v1','results':chunks.search(principal,q,limit)}
+        def search(q: str,limit: int=20,strategy: Literal['literal','scored_or']='literal',principal: Principal=Depends(authenticated_principal)):
+            method='sqlite_scored_or_v1' if strategy=='scored_or' else 'sqlite_keyword_substring_v1'
+            return {'method':method,'results':chunks.search(principal,q,limit,strategy)}
         with service.repo.transaction() as db:
             db.parsing.backfill(time.time())
 
@@ -201,6 +231,9 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
     def deregister(document_id: str, principal: Principal = Depends(authenticated_principal)):
         return service.deregister(principal, document_id)
 
+    if proxy_policy is not None:
+        from .proxy_boundary import ProxyBoundary
+        app.add_middleware(ProxyBoundary,policy=proxy_policy)
     return app
 
 

@@ -1,0 +1,3 @@
+# Optional adapter dependency; SQLite installation and existing lockfiles unchanged.
+psycopg==3.2.10
+psycopg-binary==3.2.10

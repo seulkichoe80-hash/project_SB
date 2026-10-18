@@ -1,0 +1,21 @@
+{
+  "completed": 0,
+  "total": 10,
+  "pending_ids": [
+    "travel-a-01",
+    "travel-b-01",
+    "leave-a-01",
+    "purchase-a-01",
+    "meeting-a-01",
+    "form-a-01",
+    "travel-a-04",
+    "safety-01",
+    "safety-03",
+    "safety-04"
+  ],
+  "submitted_reviews": [],
+  "human_identity_verified": false,
+  "goldset_status": "PROVISIONAL",
+  "semantic_verification": "NOT_VERIFIED",
+  "semantic_accuracy_pass": false
+}

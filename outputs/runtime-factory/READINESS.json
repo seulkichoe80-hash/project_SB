@@ -1,0 +1,23 @@
+{
+  "production_blockers_unchanged": [
+    "postgresql_production_runtime_not_wired",
+    "private_storage_production_transport_not_wired",
+    "production_auth_runtime_and_operator_provisioning_not_verified",
+    "vercel_render_edge_trust_limits_and_https_not_verified",
+    "worker_cloud_runtime_not_implemented",
+    "coordinated_backup_restore_not_verified"
+  ],
+  "factory": "LOCAL_TEST_COMPOSITION_IMPLEMENTED",
+  "runner": "ISOLATED_LOCAL_APPLY_VERIFY_IMPLEMENTED",
+  "external_transport": "NOT_SELECTED_OR_ACTIVATED",
+  "remote_plan": {
+    "stage": "configuration",
+    "code": "remote_execution_not_approved",
+    "connected": false
+  },
+  "default_startup_migration_policy": "verify",
+  "automatic_destructive_migration": false,
+  "schema_transactions": "PER_STEP_RESUMABLE_NOT_GLOBAL_ATOMIC",
+  "known_legacy_paths": "existing explicit API DI and loopback application-only worker CLI retained",
+  "ui_build_typecheck": "NOT_RUN_NO_FRONTEND_CHANGES"
+}

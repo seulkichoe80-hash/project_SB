@@ -8,18 +8,19 @@ import { EmptyState, Icon, PageTitle, LoadingState } from './components/UI';
 const WorkflowPage = lazy(()=>import('./pages/WorkflowPage').then(m=>({default:m.WorkflowPage})));
 
 function currentPage(): Page | null {
-  const value = window.location.hash.replace(/^#\/?/, '') || 'home';
+  const value = window.location.hash.replace(/^#\/?/, '').split('?')[0] || 'home';
   return pages.some(p => p.id === value) ? value as Page : null;
 }
 
 export function App() {
   const auth = useAuth();
   const [page, setPage] = useState<Page | null>(currentPage);
+  const [route, setRoute] = useState(window.location.hash);
   const previousPage = useRef<Page | null>(page);
   const authKey = auth.ready ? (auth.user?.user_id ?? 'guest') + (auth.user?.institution_id ?? '') : 'pending';
   const previousAuth = useRef(authKey);
   useEffect(() => {
-    const change = () => setPage(currentPage());
+    const change = () => {setPage(currentPage());setRoute(window.location.hash);};
     window.addEventListener('hashchange', change);
     return () => window.removeEventListener('hashchange', change);
   }, []);
@@ -29,7 +30,7 @@ export function App() {
     previousAuth.current = authKey;
     previousPage.current = page;
   }, [page, authKey]);
-  return <AppLayout page={page}>{page === 'home' ? <HomePage /> : page === 'documents' ? (auth.ready && auth.user ? <DocumentsPage key={auth.user.user_id+auth.user.institution_id} /> : <LoginPanel />) : page === 'workflows' ? <Suspense fallback={<LoadingState />}><WorkflowPage key={authKey}/></Suspense> : page === 'ai' ? <AI /> : page === 'help' ? <Help /> : <NotFound />}</AppLayout>;
+  return <AppLayout page={page}>{page === 'home' ? <HomePage /> : page === 'documents' ? (auth.ready && auth.user ? <DocumentsPage key={auth.user.user_id+auth.user.institution_id+auth.user.role} /> : <LoginPanel />) : page === 'workflows' ? <Suspense fallback={<LoadingState />}><WorkflowPage key={authKey+route}/></Suspense> : page === 'ai' ? <AI /> : page === 'help' ? <Help /> : <NotFound />}</AppLayout>;
 }
 
 function AI() {

@@ -1,0 +1,32 @@
+{
+  "start_branch": "feat/deployment-staging-prep",
+  "start_head": "cbee283a9dc3e810573faad523a95c778ff87535",
+  "preservation_commit": "34c66e108a45442e164fa2230861a4a3f469f05c",
+  "current_branch": "feat/deployment-storage-http",
+  "preserved_staging_files": 8,
+  "unchanged_baseline_files": 976,
+  "intentional_baseline_changes": [
+    "TASKS.md",
+    "TEST_PLAN.md",
+    "ARCHITECTURE.md",
+    "apps/api/private_storage.py"
+  ],
+  "unexpected_changes": [],
+  "deleted_tracked_files": [],
+  "existing_tests_fixtures_originals_historical_evidence_changed": false,
+  "original_eight_verified_in_commit": true,
+  "backend_code_hash_match": true,
+  "production_wiring_preflight_db_schema_unchanged": true,
+  "new_phase_changes_committed": false,
+  "actual_external_provider_calls": 0,
+  "actual_new_official_document_calls": 0,
+  "human_judgments_created": 0,
+  "paid_service_deploy_push_merge": 0,
+  "network_guard_scope": "Python tests and inherited Python subprocesses; loopback only",
+  "scan_scope": "changed Git candidates strong-secret patterns and synthetic provenance; not universal PII certification",
+  "strong_secret_hits": 0,
+  "finished_utc": "2026-10-18T13:31:07.201140+00:00",
+  "finished_kst": "2026-10-18T22:31:07.201140+09:00",
+  "minutes_since_preservation_check": 12.16,
+  "postgres_fixture": "isolated loopback instance; stopped after tests, existing named volume preserved"
+}
