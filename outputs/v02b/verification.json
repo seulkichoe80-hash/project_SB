@@ -1,0 +1,197 @@
+{
+  "time_kst": "2026-10-18T13:37:38.799891+09:00",
+  "branch": "feat/v02b-document-flow",
+  "base_commit": "809a2dd3599bb9d0d1610f13a2d1bc439d30d9ef",
+  "status": "PASS",
+  "counts": {
+    "backend": 409,
+    "existing_ui": 128,
+    "new_ui": 26,
+    "actual_http_v02b": 14,
+    "actual_http_baseline": 13,
+    "FAIL": 0
+  },
+  "suites": [
+    {
+      "suite": "backend",
+      "source": "work/v02b/full/backend.json",
+      "evidence": "outputs/v02b/backend-results.json",
+      "counts": {
+        "PASS": 409,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      },
+      "seconds": null
+    },
+    {
+      "suite": "layout",
+      "source": "work/v02b/full/check_stage2_ui/results.json",
+      "evidence": "outputs/v02b/layout-results.json",
+      "counts": {
+        "PASS": 14,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      },
+      "seconds": 3.950845966
+    },
+    {
+      "suite": "home",
+      "source": "work/v02b/full/check_stage3_home/results.json",
+      "evidence": "outputs/v02b/home-results.json",
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      },
+      "seconds": 2.329042419
+    },
+    {
+      "suite": "documents",
+      "source": "work/v02b/document-current/results.json",
+      "evidence": "outputs/v02b/documents-results.json",
+      "counts": {
+        "PASS": 17,
+        "FAIL": 0,
+        "SKIP": 0,
+        "BLOCKED": 0
+      },
+      "seconds": 4.2460796
+    },
+    {
+      "suite": "auth",
+      "source": "work/v02b/full/check_stage4b2_ui/results.json",
+      "evidence": "outputs/v02b/auth-results.json",
+      "counts": {
+        "PASS": 6,
+        "FAIL": 0
+      },
+      "seconds": 1.5745111710000002
+    },
+    {
+      "suite": "workflow",
+      "source": "work/v02b/full/check_phase2e1_ui/results.json",
+      "evidence": "outputs/v02b/workflow-results.json",
+      "counts": {
+        "PASS": 37,
+        "FAIL": 0
+      },
+      "seconds": 42.368593718
+    },
+    {
+      "suite": "stability",
+      "source": "work/v02b/full/check_phase2e2a_ui/results.json",
+      "evidence": "outputs/v02b/stability-results.json",
+      "counts": {
+        "PASS": 24,
+        "FAIL": 0
+      },
+      "seconds": 23.707516619000003
+    },
+    {
+      "suite": "v02a",
+      "source": "work/v02b/v02a-regression.json",
+      "evidence": "outputs/v02b/v02a-results.json",
+      "counts": {
+        "PASS": 24,
+        "FAIL": 0
+      },
+      "seconds": 18.43332999
+    },
+    {
+      "suite": "v02b",
+      "source": "work/v02b/ui-verified.json",
+      "evidence": "outputs/v02b/v02b-results.json",
+      "counts": {
+        "PASS": 26,
+        "FAIL": 0
+      },
+      "seconds": 12.923536448999998
+    },
+    {
+      "suite": "http",
+      "source": "work/v02b/http-current/results.json",
+      "evidence": "outputs/v02b/http-results.json",
+      "counts": {
+        "PASS": 14,
+        "FAIL": 0
+      },
+      "seconds": 18.254948632
+    },
+    {
+      "suite": "http-baseline",
+      "source": "work/v02b/full/e2e/results.json",
+      "evidence": "outputs/v02b/http-baseline-results.json",
+      "counts": {
+        "PASS": 13,
+        "FAIL": 0
+      },
+      "seconds": 18.412560991
+    }
+  ],
+  "preparation": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "--prefix",
+        "apps/web",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "seconds": 0.572
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "--prefix",
+        "apps/web",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "seconds": 0.935
+    },
+    {
+      "name": "generate-synthetic-api-fixture",
+      "command": [
+        "/workspace/project_SB/.venv/bin/python",
+        "-B",
+        "scripts/validation/build_phase2e1_fixture.py",
+        "--output",
+        "/workspace/project_SB/work/v02b/full/browser-fixture.json"
+      ],
+      "exit_code": 0,
+      "seconds": 2.707
+    }
+  ],
+  "current_typecheck_log": "work/v02b/typecheck-verified.log",
+  "current_build_log": "work/v02b/build-verified.log",
+  "full_runner_seconds": 121.645,
+  "production_sha256": {
+    "apps/web/src/App.tsx": "7e6d775b7b263bb9c93c1541c74238747ac5841e2b3d33f3b7083af42be1e626",
+    "apps/web/src/api/documents.ts": "e2a7f07e67052052ace2a6a0f645968bcf473b4b7484e746cde0d3803e088236",
+    "apps/web/src/components/DocumentFlow.tsx": "1ad556be37bac9308ab1b04cde87f7f573670280fbbcb985c42e2ea431621b51",
+    "apps/web/src/pages/DocumentsPage.tsx": "96ea652ad4a48f0da5c416ea4ee2b811caa7a2b7f393646e03c11d044d7652c4",
+    "apps/web/src/pages/HomePage.tsx": "6f145f5d15b1c0c9928f6c1f13949b65c3b4e350d75f02c4f2edcae90cf2fe86",
+    "apps/web/src/pages/WorkflowPage.tsx": "3181a36de1e18c775597b83b10a8dec9a0ae657864ed3ae459f578d4eff84a93",
+    "apps/web/src/styles/documents.css": "2adea4cb7f07b26b0a52550e91f27c4e84c6206a43f1fd41b779e1059318aa6f"
+  },
+  "external_provider_calls": 0,
+  "initial_failures": "Initial HTTP scenario stayed on workflow page then attempted a document-list action; fixed test navigation. Initial Stage4A mock institution differed from its logged-in institution; corrected synthetic response scope and supplied parse linkage fields. Original failure artifacts preserved; document suite and HTTP rerun after final document layout/copy.",
+  "coverage_note": "New 26-case UI ran after layout; later production edit only corrects the location wording for the next-action section. Its document UI17 and actual HTTP14 were re-executed after that copy edit. Unaffected UI suites and backend sources unchanged. No previous-task results counted as new PASS.",
+  "elapsed_minutes": 10.1,
+  "not_run": [
+    "real Supabase",
+    "real LLM/embedding",
+    "public deployment",
+    "screen reader",
+    "native Hancom visual page validation",
+    "atomic compare-and-swap activation: unavailable in existing API"
+  ],
+  "current_production_hashes_match": true
+}

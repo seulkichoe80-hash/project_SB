@@ -27,3 +27,10 @@
 
 .documents-table { position: relative; max-width: 100%; }
 .documents-table .sr-only { left: 0; top: 0; }
+
+.document-flow { margin-top:24px; padding-top:16px; border-top:1px solid var(--color-border); }
+.document-flow-steps { padding-left:24px; margin:16px 0; }
+.document-flow-steps li { margin:8px 0; }
+.document-flow p { margin:12px 0; }
+.document-flow .button { max-width:100%; white-space:normal; text-align:center; }
+@media(max-width:600px){.document-flow .document-actions {flex-direction:column;align-items:stretch;} .document-flow > .button {display:flex;justify-content:center;} }

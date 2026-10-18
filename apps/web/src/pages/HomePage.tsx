@@ -54,7 +54,7 @@ export function HomePage() {
         <li><strong>원문 추출</strong><p>자료관리자는 문서 상세에서 파싱·청킹 처리 상태를 확인할 수 있습니다.</p></li>
         <li><strong>근거 검토</strong><p>자료관리자는 업무절차 검토에서 자동 추출 후보와 원문을 비교합니다. 출처 확인과 내용 검토는 별개입니다.</p></li>
       </ol>
-      <p className="home-section-note">업무절차 검토에는 활성 문서가 필요합니다. 활성 버전 전환 화면은 아직 제공하지 않습니다.</p>
+      <p className="home-section-note">업무절차 검토에는 활성 문서가 필요합니다. 자료관리자는 문서 상세에서 파싱·청킹 완료를 확인한 뒤 버전을 활성화할 수 있습니다.</p>
       {manager && <a className="text-link" href="#/workflows">업무절차 후보 검토</a>}
       <a className="home-help-link" href="#/help"><Icon name="help" />사용 범위와 원문 보호 안내 <Icon name="arrow" /></a>
       <p className="privacy-note"><Icon name="shield" />실제 내부 행정자료·개인정보는 업로드하지 마세요. 개발·시연에는 공개·합성 자료만 사용합니다.</p>

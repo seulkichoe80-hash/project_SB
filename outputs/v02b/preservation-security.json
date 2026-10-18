@@ -1,0 +1,22 @@
+{
+  "base_commit": "809a2dd3599bb9d0d1610f13a2d1bc439d30d9ef",
+  "baseline_files_checked": 459,
+  "missing": [],
+  "modified_existing_files": [
+    "TASKS.md",
+    "TEST_PLAN.md",
+    "apps/web/src/App.tsx",
+    "apps/web/src/api/documents.ts",
+    "apps/web/src/pages/DocumentsPage.tsx",
+    "apps/web/src/pages/HomePage.tsx",
+    "apps/web/src/pages/WorkflowPage.tsx",
+    "apps/web/src/styles/documents.css",
+    "scripts/validation/check_stage4a_ui.cjs",
+    "scripts/validation/check_v01_e2e.cjs"
+  ],
+  "original_fixture_and_historical_outputs_unchanged": true,
+  "backend_db_dependencies_unchanged": true,
+  "credential_pattern_findings": [],
+  "review": "New data is synthetic fixture metadata and local mock identity only. Pattern scan is limited; no credentials or real personal data were added.",
+  "external_provider_calls": 0
+}

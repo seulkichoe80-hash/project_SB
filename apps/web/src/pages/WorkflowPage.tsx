@@ -152,6 +152,11 @@ function WorkflowPageContent() {
     [error, setError] = useState(""),
     [loading, setLoading] = useState(true),
     [terminalScope, setTerminalScope] = useState("");
+  const [entry, setEntry] = useState(() => {
+    const query = new URLSearchParams(window.location.hash.split('?')[1] ?? '');
+    return query.has('document') || query.has('version')
+      ? {document:query.get('document') ?? '', version:query.get('version') ?? ''} : null;
+  });
   const metadataFlight = useRef<AbortController | null>(null);
   const refresh = useCallback(
     async (signal: AbortSignal) => {
@@ -226,17 +231,23 @@ function WorkflowPageContent() {
     };
   }, [refresh, auth.user?.role]);
   useEffect(() => {
+    if (entry) {
+      const target = docs.find(d => d.document_id === entry.document && d.id === entry.version && d.active && d.registered && d.state === 'completed');
+      setDocumentId(target?.document_id ?? '');setVersionId(target?.id ?? '');
+      return;
+    }
     setDocumentId((current) =>
       docs.some((d) => d.document_id === current && d.active)
         ? current
         : (docs.find((d) => d.active)?.document_id ?? ""),
     );
-  }, [docs]);
+  }, [docs, entry]);
   const versions = docs.filter((d) => d.document_id === documentId);
   useEffect(() => {
+    if (entry) return;
     if (!versions.some((v) => v.id === versionId && v.active))
       setVersionId(versions.find((v) => v.active)?.id ?? "");
-  }, [docs, documentId, versionId]);
+  }, [docs, documentId, versionId, entry]);
   if (!auth.ready || !auth.user) return <LoginPanel />;
   if (auth.user.role !== "manager")
     return (
@@ -279,6 +290,7 @@ function WorkflowPageContent() {
             aria-label="문서"
             value={documentId}
             onChange={(e) => {
+              setEntry(null);
               setDocumentId(e.target.value);
               setVersionId("");
             }}
@@ -320,6 +332,7 @@ function WorkflowPageContent() {
           현재 활성 버전만 검토합니다.
         </span>
       </section>
+      {entry && !loading && !docs.some(d=>d.document_id===entry.document&&d.id===entry.version&&d.active&&d.registered&&d.state==='completed') && <ErrorState message="이동한 문서·버전을 현재 활성 자료로 확인할 수 없습니다. 문서 관리에서 등록 상태와 활성 버전을 확인해 주세요." />}
       {error && (
         <ErrorState
           message={error}

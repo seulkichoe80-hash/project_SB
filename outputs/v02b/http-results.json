@@ -1,0 +1,906 @@
+{
+  "scope": "v0.2-B actual loopback HTTP browser registration -> parse/chunk/workflow independent workers -> EvidenceRef; explicit local mock auth",
+  "results": [
+    {
+      "name": "production default denies unauthenticated HTTP without overrides",
+      "status": "PASS"
+    },
+    {
+      "name": "manager local mock login uses real HttpOnly BFF cookie; home desktop/mobile",
+      "status": "PASS"
+    },
+    {
+      "name": "v01-manual.pdf browser upload, independent parse/chunk completion and explicit activation UI + exact workflow navigation HTTP",
+      "status": "PASS"
+    },
+    {
+      "name": "v01-manual.hwpx browser upload, independent parse/chunk completion and explicit activation UI + exact workflow navigation HTTP",
+      "status": "PASS"
+    },
+    {
+      "name": "document management desktop/mobile show actual registered versions",
+      "status": "PASS"
+    },
+    {
+      "name": "activation rejects missing CSRF, foreign Origin and cross institution over real HTTP",
+      "status": "PASS"
+    },
+    {
+      "name": "PDF real HTTP workflow worker, React Flow and page-hint EvidenceRef",
+      "status": "PASS"
+    },
+    {
+      "name": "queued workflow survives stopped worker and browser refresh; idempotent recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "HWPX step/source XML, ReviewIssue and all form relation statuses",
+      "status": "PASS"
+    },
+    {
+      "name": "CSRF, cross institution and invalid completed retry denied over HTTP",
+      "status": "PASS"
+    },
+    {
+      "name": "reader has no manager UI and server rejects job mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "inactive/new version and retired evidence are isolated; original hash remains unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "logout removes UI and rejects job/source requests without session",
+      "status": "PASS"
+    },
+    {
+      "name": "no browser exceptions or external requests",
+      "status": "PASS"
+    }
+  ],
+  "counts": {
+    "PASS": 14,
+    "FAIL": 0
+  },
+  "seconds": 18.254948632,
+  "integrity": [
+    {
+      "filename": "v01-manual.pdf",
+      "document_id": "9970c437988846acaa1e16e1c26b27f6",
+      "version_id": "7921834bd47947828efe90877c8faeb7",
+      "sha256": "20a75e4e3061269d14d5eb6c831bbc2e707cb52b4a509f25d79e18a6cefe9cef",
+      "original_unchanged": true
+    },
+    {
+      "filename": "v01-manual.hwpx",
+      "document_id": "07d2f372b46c4230b5c63cb4dc6da4c8",
+      "version_id": "51cd6c28ddd348aeb77ebca63ef2f270",
+      "sha256": "98a018db30991cf9ef29b74a5f004db8d8388da155e182c1f30a7967a9aa289a",
+      "original_unchanged": true
+    }
+  ],
+  "responses": [
+    {
+      "path": "/api/auth/status",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/deny/documents",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "path": "/deny/auth/me",
+      "method": "GET",
+      "status": 401
+    },
+    {
+      "path": "/deny/auth/status",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/auth/csrf",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/api/auth/login",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/chunk-jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/chunk-jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/chunk-jobs/baaff828473f4ddeacf1fe71bcb4e41f",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/chunk-jobs/baaff828473f4ddeacf1fe71bcb4e41f",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/chunk-jobs/baaff828473f4ddeacf1fe71bcb4e41f",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/chunk-jobs/baaff828473f4ddeacf1fe71bcb4e41f",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/activate",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunk-jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunk-jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunk-jobs/3b9a8c01f0da4a21be8a33ba23174664",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunk-jobs/3b9a8c01f0da4a21be8a33ba23174664",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunk-jobs/3b9a8c01f0da4a21be8a33ba23174664",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunk-jobs/3b9a8c01f0da4a21be8a33ba23174664",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunk-jobs/3b9a8c01f0da4a21be8a33ba23174664",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/activate",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/activate",
+      "method": "POST",
+      "status": 403
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/68329a3407264f3c8b7bb9161b1d763f/versions/3eeb51264032403aaa7c6ff1e1e1fb27/activate",
+      "method": "POST",
+      "status": 404
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/f1133a21861c4a5981c835108c009f70/versions/c66a0c9910b64bbc92ac61c5c1fc625b",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/f1133a21861c4a5981c835108c009f70/versions/c66a0c9910b64bbc92ac61c5c1fc625b/workflow/candidates",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/candidates",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/jobs/456beb6d75224c9e8f75b35fe46c7423",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/candidates",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/candidates/workflow_eb4a861b033cc906adbe994c568fb3f7",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/form-links",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/review-issues",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/candidates/workflow_eb4a861b033cc906adbe994c568fb3f7/evidence",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/chunks/255945d6c114209cfc0b03d47f8d0b2debf2250bb328c8a84c84850117ea3e25/evidence/resolve",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/jobs/456beb6d75224c9e8f75b35fe46c7423",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/candidates",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/auth/status",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/f1133a21861c4a5981c835108c009f70/versions/c66a0c9910b64bbc92ac61c5c1fc625b",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/candidates",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/jobs/7be40db12ab44fa4b333df9f44a755f2",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/candidates",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/review-issues",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/candidates/workflow_32f0fbb5cd983168a3b0a025dd5fe7a8",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/form-links",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/candidates/workflow_32f0fbb5cd983168a3b0a025dd5fe7a8/evidence",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunks/47c81e46ffd0a100d132709b48269b4da78c6881e05496f9425af6ff6720270b/evidence/resolve",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/candidates/workflow_32f0fbb5cd983168a3b0a025dd5fe7a8/evidence",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunks/1709246e7c3eada6d600716864b1d7bb1990af4ae7012eae5c162cf51c30263e/evidence/resolve",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/candidates/workflow_32f0fbb5cd983168a3b0a025dd5fe7a8/evidence",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunks/47c81e46ffd0a100d132709b48269b4da78c6881e05496f9425af6ff6720270b/evidence/resolve",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/jobs",
+      "method": "POST",
+      "status": 403
+    },
+    {
+      "path": "/api/documents/68329a3407264f3c8b7bb9161b1d763f/versions/3eeb51264032403aaa7c6ff1e1e1fb27/workflow/candidates",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/jobs/7be40db12ab44fa4b333df9f44a755f2/retry",
+      "method": "POST",
+      "status": 409
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/candidates",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/workflow/candidates/workflow_32f0fbb5cd983168a3b0a025dd5fe7a8/evidence",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/07d2f372b46c4230b5c63cb4dc6da4c8/versions/51cd6c28ddd348aeb77ebca63ef2f270/chunks/bbe78d119ae46ee6e814f5639d50b8edf576abcae581fc5c396afdbd34e82a42/evidence/resolve",
+      "method": "POST",
+      "status": 422
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions",
+      "method": "POST",
+      "status": 201
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/activate",
+      "method": "POST",
+      "status": 409
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/workflow/candidates",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/auth/me",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/chunk-jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/chunk-jobs/6ec8c942394a45858a84e9cb25d489db",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/chunk-jobs/6ec8c942394a45858a84e9cb25d489db",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/chunk-jobs/6ec8c942394a45858a84e9cb25d489db",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/chunk-jobs",
+      "method": "POST",
+      "status": 202
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/parsing",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/chunk-jobs/6ec8c942394a45858a84e9cb25d489db",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96/activate",
+      "method": "POST",
+      "status": 200
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/c952772fbe864c1881bf3d0675baee96",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/documents/9970c437988846acaa1e16e1c26b27f6/versions/7921834bd47947828efe90877c8faeb7/workflow/candidates",
+      "method": "GET",
+      "status": 409
+    },
+    {
+      "path": "/api/auth/logout",
+      "method": "POST",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "external_requests": [],
+  "blocked_external_attempts": 0,
+  "actual_external_provider_calls": 0,
+  "not_run": [
+    "real Supabase",
+    "actual LLM/embedding",
+    "public deployment",
+    "native PDF/Hancom visual validation",
+    "screen reader"
+  ],
+  "notes": [
+    "form catalog is seeded by explicit Python test setup, not by an invented registration API",
+    "activation uses explicit manager UI and existing HTTP API with post-success requery; exact route selection is revalidated by server responses",
+    "job IDs are reobtained through existing idempotent POST replay; no job-list API or network mocks are introduced",
+    "worker restart check is queued-job recovery; processing lease/failure retry are covered separately by backend regression"
+  ]
+}

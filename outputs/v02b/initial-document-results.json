@@ -1,0 +1,149 @@
+{
+  "scope": "Stage4A Feature Gate: mocked browser HTTP and client contracts; NOT real FastAPI integration",
+  "results": [
+    {
+      "name": "PDF/HWPX extension, signature, size and path validation",
+      "status": "PASS",
+      "seconds": 0.013938539999999989
+    },
+    {
+      "name": "raw body and classification, encoded filename, no token or tenant headers",
+      "status": "PASS",
+      "seconds": 0.0033897839999999634
+    },
+    {
+      "name": "all client endpoint methods and segment escaping",
+      "status": "PASS",
+      "seconds": 0.0027803269999999427
+    },
+    {
+      "name": "401/403/404/409/422/500/503/network errors distinguished",
+      "status": "PASS",
+      "seconds": 0.0012927909999999657
+    },
+    {
+      "name": "malformed list/detail and wrong version rejected",
+      "status": "PASS",
+      "seconds": 0.0007424819999999954
+    },
+    {
+      "name": "loading and version list",
+      "status": "FAIL",
+      "error": "locator.waitFor: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('tbody tr').first() to be visible\u001b[22m\n",
+      "seconds": 4.591094494
+    },
+    {
+      "name": "invalid upload blocks submission",
+      "status": "PASS",
+      "seconds": 0.05760999100000026
+    },
+    {
+      "name": "raw upload only after declaration and duplicate click guard",
+      "status": "FAIL",
+      "error": "locator.selectOption: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#classification')\u001b[22m\n\u001b[2m    - locator resolved to <select disabled id=\"classification\">…</select>\u001b[22m\n\u001b[2m  - attempting select option action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    8 × waiting for element to be visible and enabled\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying select option action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n",
+      "seconds": 4.027484396999999
+    },
+    {
+      "name": "detail version and parsing not AI, safe filename display",
+      "status": "FAIL",
+      "error": "locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('tbody tr').nth(1).getByRole('button')\u001b[22m\n",
+      "seconds": 4.002882302
+    },
+    {
+      "name": "switch version using server detail, React escapes document filename",
+      "status": "FAIL",
+      "error": "locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '버전 1 · 활성', exact: true })\u001b[22m\n",
+      "seconds": 4.002762628999999
+    },
+    {
+      "name": "parsing retry and chunk request/status/retry",
+      "status": "FAIL",
+      "error": "locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '파싱 재시도', exact: true })\u001b[22m\n",
+      "seconds": 4.0023641099999985
+    },
+    {
+      "name": "original download binary",
+      "status": "FAIL",
+      "error": "locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '원본 다운로드', exact: true })\u001b[22m\n",
+      "seconds": 4.003299333999999
+    },
+    {
+      "name": "dialog cancel/escape restores focus, no delete",
+      "status": "FAIL",
+      "error": "locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '등록 해제', exact: true })\u001b[22m\n",
+      "seconds": 4.002243934000002
+    },
+    {
+      "name": "320/375/768/1440 layout and keyboard focus",
+      "status": "PASS",
+      "seconds": 0.22935013799999798
+    },
+    {
+      "name": "deregister confirmed once removes list, retains original meaning",
+      "status": "FAIL",
+      "error": "locator.click: Timeout 4000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '등록 해제', exact: true })\u001b[22m\n",
+      "seconds": 4.001118673000001
+    },
+    {
+      "name": "empty distinct from permission and server error",
+      "status": "PASS",
+      "seconds": 1.0880629629999967
+    },
+    {
+      "name": "no JS errors or unexpected external requests",
+      "status": "PASS",
+      "seconds": 0.00031309999999939466
+    }
+  ],
+  "counts": {
+    "PASS": 9,
+    "FAIL": 8,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "elapsed_seconds": 34.859080522000006,
+  "calls": [
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    },
+    {
+      "path": "/api/documents",
+      "method": "GET"
+    }
+  ],
+  "not_run": [
+    "real authenticated integration",
+    "screen reader",
+    "native zoom",
+    "real FastAPI browser HTTP"
+  ]
+}

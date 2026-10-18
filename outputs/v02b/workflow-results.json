@@ -1,0 +1,168 @@
+{
+  "scope": "Phase2E-1 production Chromium UI; intercepted local API with REAL synthetic backend-generated shapes; no live provider",
+  "results": [
+    {
+      "name": "manager candidate/detail API and unverified labels",
+      "status": "PASS"
+    },
+    {
+      "name": "exact saved edges only; conditions and return relation",
+      "status": "PASS"
+    },
+    {
+      "name": "node selection resolves canonical evidence and XML anchor",
+      "status": "PASS"
+    },
+    {
+      "name": "CANDIDATES file is not confirmed required",
+      "status": "PASS"
+    },
+    {
+      "name": "UNLINKED no registered form",
+      "status": "PASS"
+    },
+    {
+      "name": "AMBIGUOUS multiple form files retained",
+      "status": "PASS"
+    },
+    {
+      "name": "review count/details and source claims shown separately",
+      "status": "PASS"
+    },
+    {
+      "name": "keyboard alternative step list and visible focus",
+      "status": "PASS"
+    },
+    {
+      "name": "zoom out/in/fit controls work without changing relations",
+      "status": "PASS"
+    },
+    {
+      "name": "320/375/768/1440 reflow and mobile keyboard tabs",
+      "status": "PASS"
+    },
+    {
+      "name": "mobile selected step moves focus to evidence heading",
+      "status": "PASS"
+    },
+    {
+      "name": "actual screenshots desktop/mobile map/evidence",
+      "status": "PASS"
+    },
+    {
+      "name": "reader has no manager UI or workflow calls",
+      "status": "PASS"
+    },
+    {
+      "name": "anonymous cannot query protected workflows",
+      "status": "PASS"
+    },
+    {
+      "name": "workflow 403 clears candidate/evidence data",
+      "status": "PASS"
+    },
+    {
+      "name": "workflow 409 clears candidate/evidence data",
+      "status": "PASS"
+    },
+    {
+      "name": "workflow 500 clears candidate/evidence data",
+      "status": "PASS"
+    },
+    {
+      "name": "workflow network clears candidate/evidence data",
+      "status": "PASS"
+    },
+    {
+      "name": "401 expires session and unmounts private UI",
+      "status": "PASS"
+    },
+    {
+      "name": "404 and empty result are distinct non-failure states",
+      "status": "PASS"
+    },
+    {
+      "name": "foreignList rejected before source display",
+      "status": "PASS"
+    },
+    {
+      "name": "foreignEvidence rejected before source display",
+      "status": "PASS"
+    },
+    {
+      "name": "badResolve rejected before source display",
+      "status": "PASS"
+    },
+    {
+      "name": "unsafe rejected before source display",
+      "status": "PASS"
+    },
+    {
+      "name": "mixedGeneration rejected before source display",
+      "status": "PASS"
+    },
+    {
+      "name": "late document response discarded; PDF anchor and original request",
+      "status": "PASS"
+    },
+    {
+      "name": "active version change clears visible candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "deregistered document clears visible candidate",
+      "status": "PASS"
+    },
+    {
+      "name": "double enqueue submits once with CSRF; polling completes",
+      "status": "PASS"
+    },
+    {
+      "name": "failed retryable job and retry are explicit",
+      "status": "PASS"
+    },
+    {
+      "name": "processing cancellation calls only existing API",
+      "status": "PASS"
+    },
+    {
+      "name": "unrenderable relation retained in separate list",
+      "status": "PASS"
+    },
+    {
+      "name": "100-node layout supports controls and accessible alternative",
+      "status": "PASS"
+    },
+    {
+      "name": "late enqueue acknowledgement cannot replace new document",
+      "status": "PASS"
+    },
+    {
+      "name": "late PDF response discarded after document switch",
+      "status": "PASS"
+    },
+    {
+      "name": "workflow-level review issue remains visible for selected step",
+      "status": "PASS"
+    },
+    {
+      "name": "no browser exceptions or external destinations",
+      "status": "PASS"
+    }
+  ],
+  "counts": {
+    "PASS": 37,
+    "FAIL": 0
+  },
+  "seconds": 42.368593718,
+  "unexpected_external_requests": [],
+  "js_errors": [],
+  "fixture": "/workspace/project_SB/work/v02b/full/browser-fixture.json",
+  "not_run": [
+    "screen reader",
+    "native PDF viewer page rendering",
+    "Hancom visual pages",
+    "real Supabase",
+    "actual LLM"
+  ]
+}

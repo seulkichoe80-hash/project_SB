@@ -1,0 +1,132 @@
+{
+  "scope": "Stage2 Feature Gate; browser tests of production bundle via static response interception, not live HTTP deployment",
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "elapsed_seconds": 3.950845966,
+  "results": [
+    {
+      "name": "home semantic landmarks and no fake data",
+      "status": "PASS",
+      "seconds": 0.042933401
+    },
+    {
+      "name": "skip link keyboard access",
+      "status": "PASS",
+      "seconds": 0.04774882699999989
+    },
+    {
+      "name": "keyboard visible focus and control targets",
+      "status": "PASS",
+      "seconds": 0.09912391300000013
+    },
+    {
+      "name": "four page navigation, title and active sidebar",
+      "status": "PASS",
+      "seconds": 0.3422276770000003
+    },
+    {
+      "name": "documents fail closed on 401 without data",
+      "status": "PASS",
+      "seconds": 0.1647842370000003
+    },
+    {
+      "name": "AI is preparation-only, no question action",
+      "status": "PASS",
+      "seconds": 0.060809229999999846
+    },
+    {
+      "name": "help keyboard disclosure",
+      "status": "PASS",
+      "seconds": 0.08101829899999985
+    },
+    {
+      "name": "back navigation and reload deep link",
+      "status": "PASS",
+      "seconds": 0.11801564899999994
+    },
+    {
+      "name": "unknown route recovery",
+      "status": "PASS",
+      "seconds": 0.10620164100000011
+    },
+    {
+      "name": "320/375/768px all pages without horizontal overflow",
+      "status": "PASS",
+      "seconds": 0.5214360240000001
+    },
+    {
+      "name": "200 percent text enlargement and reflow",
+      "status": "PASS",
+      "seconds": 0.15983593999999993
+    },
+    {
+      "name": "declared text contrast pairs >= 4.5 to 1",
+      "status": "PASS",
+      "seconds": 0.00027781999999979234
+    },
+    {
+      "name": "shared status/error/loading/button SSR contracts",
+      "status": "PASS",
+      "seconds": 0.4122061799999997
+    },
+    {
+      "name": "no browser console or JS errors, no API/external requests",
+      "status": "PASS",
+      "seconds": 0.0005186549999998533
+    }
+  ],
+  "counts": {
+    "PASS": 14,
+    "FAIL": 0,
+    "SKIP": 0,
+    "BLOCKED": 0
+  },
+  "contrast": [
+    {
+      "name": "body",
+      "foreground": "#172b4d",
+      "background": "#ffffff",
+      "ratio": 14.102034448456891
+    },
+    {
+      "name": "muted",
+      "foreground": "#475569",
+      "background": "#f6f8fb",
+      "ratio": 7.122474998615123
+    },
+    {
+      "name": "primary button",
+      "foreground": "#ffffff",
+      "background": "#1d4ed8",
+      "ratio": 6.701618401398807
+    },
+    {
+      "name": "info",
+      "foreground": "#1d4ed8",
+      "background": "#e3edff",
+      "ratio": 5.688031609812132
+    },
+    {
+      "name": "warning",
+      "foreground": "#854d0e",
+      "background": "#fef9e7",
+      "ratio": 6.498217204668421
+    },
+    {
+      "name": "error",
+      "foreground": "#b42318",
+      "background": "#fff1f0",
+      "ratio": 5.977084271598387
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "external": [],
+  "api": [],
+  "not_run": [
+    "screen reader manual review",
+    "native browser toolbar zoom",
+    "full WCAG conformance audit",
+    "live HTTP browser loopback integration",
+    "real auth/API/AI/backend regression"
+  ]
+}
