@@ -374,3 +374,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [ ] 공식 목록/ACL 응답 계약·HTTP 전체 orphan inventory·cloud backup/운영 wiring·실Supabase 및20MiB ingress 검증은 BLOCKED. production 시작 차단 유지, 다음 단계 자동 진행 없음.
 
 - [x] 신규 HTTP54·기존1031 포함 전체1085 PASS/FAIL0/SKIP0, 격리 로컬 PostgreSQL·Python 네트워크 가드 포함. 실제 외부 연결 시도0. [최종 보고](outputs/DEPLOYMENT_STORAGE_HTTP_REPORT.md). 운영 관련 BLOCKED는 테스트 SKIP0과 별도 판정이다.
+
+## GitHub 보존 및 실제 스테이징 전환 준비
+
+- [x] Storage HTTP14파일을7feaeb1 로컬 커밋으로 보존. 기존1,085 PASS 증거의 코드/fixture/잠금파일 SHA 일치를 확인했으며 이번 문서·보존 작업에서 전체 회귀를 새로 실행했다고 표시하지 않는다.
+- [x] [실제 연결 준비표](docs/STAGING_CONNECTION_RUNBOOK.md)에 계정/secret·별도 schema migration·private ACL/Auth membership·API/worker·20MiB/쿠키/복구 검증 및6개 production blocker 해제 조건을 정리했다. 추가 Fake/실제 연결/공개 배포/guard 해제는 하지 않는다.
+- [ ] GitHub 현재 브랜치 push·main 대상 보존 PR 결과는 이번 보고의 최종 원격 확인을 따른다. main 자동 merge와 다음 단계 자동 진행 없음.
