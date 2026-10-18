@@ -1,0 +1,15 @@
+{
+  "apps/api/storage_http.py": "97b52ee1a8d90a6dbece5a157f74e98bcad62f3c328e0bcf8f0c3545fde78438",
+  "docs/DEPLOYMENT_STORAGE_HTTP.md": "938a19aabfd6d0d174a43f3923e9055026180c0b6d3e46276f958564edadb33f",
+  "outputs/DEPLOYMENT_STORAGE_HTTP_REPORT.md": "1217325600ddaacaf1b0b1e40116185c5a9e8f1d87b303dbd81868b8e7e37bdb",
+  "outputs/deployment-storage-http/CONTRACT_STATUS.json": "010dfe59d979f86fba20389aa7c935e28c63793959dd84f7a62170e52650dbad",
+  "outputs/deployment-storage-http/PRESERVATION.json": "ffffe896ae2cd1d8fa00c792d5f9a61bec053827d2327fc6008fac6e0900d225",
+  "outputs/deployment-storage-http/TARGETED_RESULTS.json": "1c192bdc43bb10783799ba5689e0404f367c95b6c9ec5d56071e5dfb909863f5",
+  "outputs/deployment-storage-http/backend.json": "04c89fbcff6eebcf02b5c2448446765b92e224319191a9f07325a128caece0a0",
+  "outputs/deployment-storage-http/backend.network.json": "d364b3966d00737f881d943146da8a826b0f765f9fce74b8154513cfc0f0edf4",
+  "tests/test_storage_http.py": "23472e8d76c34ff6541e75b5a31df5d34a0b13f851bd881481df4fe0ad11614a",
+  "ARCHITECTURE.md": "36dc5178826ad94850e67165b0de3eb57ebae718697f67d62c385b53e3ce470a",
+  "TASKS.md": "84f40dd080aab2498a074bbc9fa7427edaa336cac4e5fc3c4b937353cee96790",
+  "TEST_PLAN.md": "9e379ac57b44dd8fbba5061a4d22be847ba1defbd1ef4a956c09c1c0e7274786",
+  "apps/api/private_storage.py": "35ac29d765f9e888bc5d8ba1b9eeffa9fe227d8931532a065a3f69230a287faf"
+}

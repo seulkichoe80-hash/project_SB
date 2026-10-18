@@ -1,4 +1,4 @@
-"""Fake-only private Supabase Storage contract. No HTTP client, delete, upsert or signed URLs."""
+"""Private original contract: local fake or explicit mock HTTP; no live transport."""
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 import hashlib
@@ -123,7 +123,8 @@ class StorageRegistry:
 class PrivateOriginalStore:
     """Server-authorized original access; database publication and object upload stay separate."""
     def __init__(self, repository, settings, transport):
-        if type(settings) is not PrivateStorageSettings or type(transport) is not FakeStorageTransport:
+        from .storage_http import StorageHTTPTransport
+        if type(settings) is not PrivateStorageSettings or type(transport) not in (FakeStorageTransport, StorageHTTPTransport):
             raise DomainError('real_storage_transport_disabled',503)
         try:
             settings=PrivateStorageSettings.model_validate(settings.model_dump(warnings=False))
@@ -133,9 +134,15 @@ class PrivateOriginalStore:
         except ValueError: raise DomainError('invalid_private_storage_settings',422) from None
         self.repo,self.settings,self.transport=repository,settings,transport
         self._policy(); self.registry=StorageRegistry(repository); self.registry.migrate()
-    def __repr__(self): return '<PrivateOriginalStore fake-only redacted>'
+    def __repr__(self): return '<PrivateOriginalStore offline-only redacted>'
     def _policy(self):
-        if type(self.transport) is not FakeStorageTransport or self.transport.private is not True:
+        from .storage_http import StorageHTTPTransport
+        if type(self.transport) is StorageHTTPTransport:
+            if not self.transport.matches(self.settings):
+                raise DomainError('storage_http_configuration_mismatch',503)
+        elif type(self.transport) is not FakeStorageTransport:
+            raise DomainError('private_storage_required',503)
+        if self.transport.private is not True:
             raise DomainError('private_storage_required',503)
     @staticmethod
     def _principal(principal, write=False):

@@ -367,3 +367,10 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] wiring28파일을cbee283 로컬 보존 후 feat/deployment-staging-prep 분기. 공식 Supabase source24건/판단16건을 commit·SHA로 고정하고 A/B/C·20MiB 양방향·계정/권한·migration/복구·승인 게이트를 문서화. [설계](docs/DEPLOYMENT_STAGING_PREP.md).
 - [ ] Vercel/Render 공식 사이트 proxy 접근 오류로 최신 요금·rewrite/20MiB·상시 worker/outbound/TLS/health 조건 BLOCKED. 실제 account quote/연결·스테이징 아키텍처 최종 확정·production/G1-C/D 미완료. 실제 계정/서비스/Secret/배포/push/merge 없음.
 - [x] 문서-only 검증: 기존 code/fixture/source hash·링크/근거/보존 대조. backend1031/TLS15는 과거 증거이며 이번 새 PASS로 계상하지 않음. [보고](outputs/DEPLOYMENT_STAGING_PREP_REPORT.md). 다음 구현 자동 진행 없음.
+
+## 배포 준비 7단계 Storage HTTP
+
+- [x] 스테이징 문서 8파일을34c66e1 로컬 커밋으로 보존하고 feat/deployment-storage-http 분기. Local/Fake 기본 유지, exact MockTransport 전용 HTTP 업로드·인증 다운로드와 바이트 재검증 구현. [계약](docs/DEPLOYMENT_STORAGE_HTTP.md).
+- [ ] 공식 목록/ACL 응답 계약·HTTP 전체 orphan inventory·cloud backup/운영 wiring·실Supabase 및20MiB ingress 검증은 BLOCKED. production 시작 차단 유지, 다음 단계 자동 진행 없음.
+
+- [x] 신규 HTTP54·기존1031 포함 전체1085 PASS/FAIL0/SKIP0, 격리 로컬 PostgreSQL·Python 네트워크 가드 포함. 실제 외부 연결 시도0. [최종 보고](outputs/DEPLOYMENT_STORAGE_HTTP_REPORT.md). 운영 관련 BLOCKED는 테스트 SKIP0과 별도 판정이다.

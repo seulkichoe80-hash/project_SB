@@ -295,3 +295,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## 배포 준비 5단계 Wiring·HTTPS 검증
 
 [실행 계약](docs/DEPLOYMENT_WIRING.md)에 따라 local/Fake API/worker 실제 main 선택·DB/schema/원본 공유 불일치·역할/production 기동 차단, trusted peer+증명/정제 forwarded headers·Host/Origin/CSRF/Cookie/redirect·공개 CORS 차단, 20MiB/초과·stream/framing·deadline/429, Fake provider 비활성/탈퇴/장애·최대 세션 수명/철회 커밋을 검사한다. 별도 자체 CA를 검증하는 실제 loopback TLS harness와 in-process ASGI upstream의 범위를 구분한다. Phase Gate 전체 backend는 비루프백 guard 아래 한 번 최종 실행하고 기존 원본·fixture·테스트·증거를 보존한다. vendor edge20MiB/신뢰·실계정·provider 이벤트·클라우드 운영/분산 rate limit·실브라우저는 미실증이다. UI/의존성/DB schema 미변경 검사는 새 PASS로 계상하지 않는다.
+
+## 배포 준비 7단계 Storage HTTP 영향 시험
+
+FR-14/15/18·NFR-01/02/05/07·WEB-02/04/05: `tests/test_storage_http.py`에서 exact MockTransport 업로드/인증 다운로드·중복/경쟁·SHA/크기·timeout/429/5xx·모호한 성공의 GET 재검증·헤더/URL/redirect/경로 공격·로그 비노출·20MiB 로컬 경계와 SQLite/격리 로컬 PostgreSQL의 DB 실패/기관 격리를 검증한다. 기존 Private Storage/Fake backup·PostgreSQL 회귀는 전체 backend와 함께 실행한다. 실제 bucket ACL·HTTP inventory/orphan cloud 대사·운영 backup·20MiB edge/실Supabase 시험은 BLOCKED이며 Mock 결과로 대체하지 않는다. UI/API/DB schema 변경은 없다. Phase Gate 전체 회귀 및 실행 기록은 [이번 보고](outputs/DEPLOYMENT_STORAGE_HTTP_REPORT.md)를 따른다.

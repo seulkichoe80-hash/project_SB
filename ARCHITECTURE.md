@@ -288,3 +288,7 @@ scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal
 ## 배포 준비 6단계: 스테이징 후보·호스팅 근거 게이트
 
 [공식 제약·연결 준비](docs/DEPLOYMENT_STAGING_PREP.md)는2026-10-18 KST의 pinned Supabase 공식 소스와 접근 실패를 분리한다. Vercel/Render의 최신 단가·rewrite/20MiB·상시 worker/ingress 조건은 미검증으로 아키텍처 최종 확정을 보류한다. 같은-site API 직통(B)을 우선 검증 후보로 제안하고 Storage 직접 업로드(C)는 새 finalize/권한 계약과 원본 다운로드 경로가 필요한 후속안으로 남긴다. runtime/code/schema·production blocker를 변경하거나 기존 설계를 운영 검증 완료로 승격하지 않는다.
+
+## 배포 준비 7단계: Mock HTTP 원본 전송
+
+[Storage HTTP 계약](docs/DEPLOYMENT_STORAGE_HTTP.md)은 기존 PrivateOriginalStore에 exact MockTransport 전용 전송을 명시 주입한다. 확보된 공식 업로드/인증 다운로드 경로만 사용하고 POST 응답 대신 GET 바이트 SHA/크기로 성공을 판정한다. 기본 Local/Fake·RuntimeBinding·API·DB 계약과 production blocker는 유지한다. 원격 목록/ACL 응답 계약·HTTP orphan inventory·cloud backup·실제 연결은 미확인으로 차단하며 Fake 대사/복구를 실제 cloud 증거로 승격하지 않는다.
