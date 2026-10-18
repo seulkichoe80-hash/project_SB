@@ -1,0 +1,12 @@
+{
+  "strong_secret_pattern_hits": [],
+  "data_scope": "project-authored synthetic only",
+  "human_verdicts_generated": 0,
+  "actual_external_provider_calls": 0,
+  "actual_spend_usd": 0,
+  "product_api_db_search_or_default_deny_changed": false,
+  "fixtures_gold_and_prior_review_unchanged": true,
+  "new_dependencies_or_keys": false,
+  "standalone_and_full_backend_network_guards": "PASS; external attempts 0",
+  "logs_scope": "synthetic offline diagnostics only; SQL trace is not enabled on product services"
+}

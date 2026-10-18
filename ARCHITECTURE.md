@@ -252,3 +252,7 @@ apps/web의 lazy WorkflowPage는 기존 AuthContext·same-origin BFF와 Workflow
 ## v0.3-B 평가 자료와 점수 분리
 
 평가 도구는 scripts/validation에만 추가한다. 제품의 8단어 검색/adapter/API/DB를 보존하며 신규 generation의 원본·snapshot·EvidenceRef를 고정한다. window 검색·자동 exact/구조 점수·인간 검토는 [평가 계약](docs/V03B_EVALUATION_FOUNDATION.md)에 따라 분리한다.
+
+## v0.3-C1 검색 진단과 고정 문맥
+
+제품 검색을 바꾸지 않고 scripts/validation에서 SQL/token/filter/Top-K를 분리 진단한다. 질문/정답과 무관한 기관별 전체 frozen context와 기존 offline workflow Fake를 재사용한다. [격리·지표 계약](docs/V03C1_RETRIEVAL_DIAGNOSTICS.md)을 따른다.

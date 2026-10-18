@@ -300,3 +300,10 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [ ] 독립 인간 정답/관계/기한/조건/서식 주석 검토 및 실제 AI 성능은 미완료다. v0.3-C와 외부 호출·push·배포는 자동 진행하지 않는다.
 
 - [x] 최종 신규59·전체 backend554·UI174·실제 loopback HTTP13·타입/빌드 PASS. 7원본 hash/57청크/51구조 근거 재연결 일치. 검색 no_hits40·인간 검토 대기40·AI NOT_RUN과 초기 namespace 오류를 구분한 [보고](outputs/V03B_REPORT.md).
+
+## v0.3-C1 검색 실패 진단·고정 문맥
+
+- [x] v0.3-B를 a3b8a35로 보존하고 feat/v03c1-retrieval-diagnostics 분기. 실제 SQL/색인/권한/token/Top-K와40문항 분류, 정답 독립 고정 문맥 Fake, 우선10문항 인간 검토 계획 구현. [계약](docs/V03C1_RETRIEVAL_DIAGNOSTICS.md).
+- [ ] 실모델·임베딩·검색 개선 실험·인간 의미 검토는 별도 승인/작업 후. 현재 PROVISIONAL/NOT_VERIFIED/NOT_REQUESTED 유지.
+
+- [x] 신규37·전체 backend591 PASS, 별도 CLI guard 외부 시도0. 36literal/AND 탈락과4expected abstention 구분, 고정 문맥40문항/7문서 Fake 완료. 인간 검토0/40·의미 합격false 유지. [보고](outputs/V03C1_REPORT.md). UI174/타입·빌드는 소스 동일성에 따른 이전 증거 재사용이며 새 실행 아님.

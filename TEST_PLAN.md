@@ -259,3 +259,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## v0.3-B 평가 기반
 
 [평가 계약](docs/V03B_EVALUATION_FOUNDATION.md)과 tests/test_evaluation_foundation.py로7원본 hash·실제 parser/chunker57청크·과거/현재 ID replay·51근거 재연결·옛 세대/활성 버전/등록 해제/기관 격리·7장문 전체 보존·검색 오류 분리·metric PRF/관계/인용/무근거 proxy·NOT_ANNOTATED·인간 검토 대기/입력·비용 provenance를 검사한다. Phase Gate는 전체 backend 회귀와 기존 UI174·타입/빌드·실제 loopback HTTP13을 새로 실행하고, 실행 증거와 초기 오류를 outputs/v03b에 보존한다. 실제 AI 점수는 NOT_RUN으로 유지한다.
+
+## v0.3-C1 진단·문맥 검증
+
+[계약](docs/V03C1_RETRIEVAL_DIAGNOSTICS.md)에 따라 실제 SQL·57색인·49/8기관 범위·36literal-token 탈락/4abstain 분류·정답 ID/Top-K·검색오류/매칭 오류·missing/forged/cross-tenant/stale context와 원문 인용·Fake 비승인 상태·인간 검토 진행률을 tests/test_retrieval_diagnostics.py로 검증한다. 완료 시 전체 backend 회귀를 비루프백 차단 runner로 실행한다. 제품/API/UI/의존성/설정이 같으므로 UI174·타입/빌드는 B의 증거와 파일 hash 비교 조건으로 재사용하며 새 실행 PASS로 표시하지 않는다. 별도 C1 CLI도 상속 socket guard로 실행한다.

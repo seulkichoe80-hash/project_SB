@@ -1,0 +1,34 @@
+{
+  "new_ui_typecheck_build_executed": false,
+  "previous_ui_pass": 174,
+  "evidence": [
+    "outputs/v03b/full-initial-summary.json",
+    "outputs/v03b/v02a-regression.json",
+    "outputs/v03b/v02b-regression.json",
+    "outputs/v03b/v02c-regression.json"
+  ],
+  "unchanged_web_hashes": {
+    "apps/web/src/main.tsx": "c5d2a7d0039da80f4a31553c17729fd34c40e378832d1ff1bc3ab15035a6f15d",
+    "apps/web/src/App.tsx": "7e6d775b7b263bb9c93c1541c74238747ac5841e2b3d33f3b7083af42be1e626",
+    "apps/web/src/vite-env.d.ts": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+    "apps/web/src/api/documents.ts": "e2a7f07e67052052ace2a6a0f645968bcf473b4b7484e746cde0d3803e088236",
+    "apps/web/src/api/workflows.ts": "09bf40b5cda1b1449b8126480091b11b910218d494e3f54421f2f55f0ae71bac",
+    "apps/web/src/api/requestDeadline.ts": "38b15995145cc39c4572fe1709ee2c7b8ce1cb4cf844e1d37899893b5208f17a",
+    "apps/web/src/auth/AuthContext.tsx": "78a62d604c8f859948d9a160d4c28658cc0f3e3af47b224bc8d20eb15323bc4a",
+    "apps/web/src/styles/app.css": "6c307c2e49925fb3bb0828dd223161d5332befcacd2a48fe3a433c9626d729bf",
+    "apps/web/src/styles/home.css": "5a5b18872fd765f69f217681ec08b016296d958a31e9a02147b6cb2c63203617",
+    "apps/web/src/styles/documents.css": "1d9e551d279bfe589888ad2e05bd925078551153c400440954c2bfd3e2f7a028",
+    "apps/web/src/styles/tokens.css": "ca56a7cf05a5fedb2b35350ffc4aedf8a3f8aebd8e12cb032afd37f38d7ff183",
+    "apps/web/src/styles/workflow.css": "81bc23ef4c016f951f77be2d4b615515d3ac3cbe7ddbae42d7b41aa688f28a83",
+    "apps/web/src/pages/WorkflowPage.tsx": "1c800323da46118d3b429231f8807a88ab41c4c04c09b2b372e153e85aba154a",
+    "apps/web/src/pages/DocumentsPage.tsx": "c13e7d446cd3ab00c323401d55199ec9093aa60e924f5047c02e644dcdf41f2c",
+    "apps/web/src/pages/HomePage.tsx": "6f145f5d15b1c0c9928f6c1f13949b65c3b4e350d75f02c4f2edcae90cf2fe86",
+    "apps/web/src/components/AppLayout.tsx": "13dbe2fd0c8de4f2fafe77889405fafba68d8122de5b99f0960be0e0a6217389",
+    "apps/web/src/components/UI.tsx": "cce253e61bd074e600b2a8ab37cf0bf507895ec54bc927d4925d4adcc8b1dcb1",
+    "apps/web/src/components/DocumentFlow.tsx": "1ad556be37bac9308ab1b04cde87f7f573670280fbbcb985c42e2ea431621b51",
+    "apps/web/src/hooks/useVisiblePolling.ts": "c83f4cc2d482e049ff32e35aab0d69dfb87476c860b3c985a9a1f28b60e13be4",
+    "apps/web/package.json": "04f2d985225c3c2040a476d512661bff7c83706150a983bc7c2b71b2be4a2945",
+    "apps/web/package-lock.json": "6e64600e8e6a981318799f2f185ddad42848bdab1fc2a197c8567e8cb7ccc19d"
+  },
+  "reason": "Only offline diagnostics/evaluation scripts/tests/docs added. Existing app, API, dependencies, setup and UI contracts unchanged; current UI PASS not claimed."
+}
