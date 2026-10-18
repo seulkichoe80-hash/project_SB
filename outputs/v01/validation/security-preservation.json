@@ -45,8 +45,16 @@
   "provider_variable_names_present": [],
   "privacy_scope": "project-authored synthetic fixtures; pattern scan is not a guarantee of all PII detection",
   "phase2e2a_33_files_match_preservation_commit": true,
-  "v01_new_changed_files_scanned": 59,
+  "v01_new_changed_files_scanned": 63,
   "v01_new_high_confidence_secret_hits": 0,
   "executed_input_hashes_match": true,
-  "existing_product_code_and_tests_unchanged": true
+  "existing_product_code_and_tests_unchanged": true,
+  "reviewed_explicitly_added_ignored_synthetic_fixtures": [
+    "tests/fixtures/synthetic/v01/v01-manual.hwpx",
+    "tests/fixtures/synthetic/v01/v01-report-a.hwpx",
+    "tests/fixtures/synthetic/v01/v01-report-b.hwpx",
+    "tests/fixtures/synthetic/v01/v01-request-form.hwpx",
+    "tests/fixtures/synthetic/v01/v01-manual-v2.pdf",
+    "tests/fixtures/synthetic/v01/v01-manual.pdf"
+  ]
 }

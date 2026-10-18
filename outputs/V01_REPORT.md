@@ -54,6 +54,8 @@ Python guard probe PASS, backend 차단된 외부 시도0, 실제 HTTP 서버/wo
 
 보고 생성까지 보존 시작 기준 약 11.5분. 최종 Git 보존·PR 확인 시간은 완료 응답에 별도 반영한다.
 
+커밋 전 목록 확인에서 중첩 합성 HWPX4개가 기존 Git 제외 규칙에 걸린 것을 발견했다. 이미 생성한 로컬 기준 커밋을 보존하고 검토된 파일4개를 후속 기준 보완 커밋으로 포함한다. 최종 Git의 모든 fixture bytes를 manifest와 대조한 후 push한다.
+
 ## v0.1 추가 변경 파일
 
 - `README.md`
@@ -114,6 +116,10 @@ Python guard probe PASS, backend 차단된 외부 시도0, 실제 HTTP 서버/wo
 - `scripts/validation/v01_demo_server.py`
 - `tests/fixtures/synthetic/v01/manifest.json`
 - `tests/fixtures/synthetic/v01/v01-manual-v2.pdf`
+- `tests/fixtures/synthetic/v01/v01-manual.hwpx`
 - `tests/fixtures/synthetic/v01/v01-manual.pdf`
+- `tests/fixtures/synthetic/v01/v01-report-a.hwpx`
+- `tests/fixtures/synthetic/v01/v01-report-b.hwpx`
+- `tests/fixtures/synthetic/v01/v01-request-form.hwpx`
 
-기존 2E-2A 보존33개는 050349f 커밋의 파일 목록을 따른다. 중간 캡처도 삭제하지 않았으며 최종 final/actual-http를 사용한다.
+기존 2E-2A 보존33개는 050349f 커밋의 파일 목록을 따른다. 중간 캡처는 보존하고 final/actual-http를 시연 화면으로 사용한다.
