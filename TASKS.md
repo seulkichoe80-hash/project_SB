@@ -380,3 +380,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] Storage HTTP14파일을7feaeb1 로컬 커밋으로 보존. 기존1,085 PASS 증거의 코드/fixture/잠금파일 SHA 일치를 확인했으며 이번 문서·보존 작업에서 전체 회귀를 새로 실행했다고 표시하지 않는다.
 - [x] [실제 연결 준비표](docs/STAGING_CONNECTION_RUNBOOK.md)에 계정/secret·별도 schema migration·private ACL/Auth membership·API/worker·20MiB/쿠키/복구 검증 및6개 production blocker 해제 조건을 정리했다. 추가 Fake/실제 연결/공개 배포/guard 해제는 하지 않는다.
 - [ ] GitHub 현재 브랜치 push·main 대상 보존 PR 결과는 이번 보고의 최종 원격 확인을 따른다. main 자동 merge와 다음 단계 자동 진행 없음.
+
+## 운영 Factory·Migration Runner 통합
+
+- [x] PR#3/e091b7b와 clean 작업 트리를 확인하고 feat/deployment-runtime-factory 분기. 공통 Factory·typed MigrationPlan·ordered apply/verify·동시 schema lock·실패 단계 재개 구현. [계약](docs/RUNTIME_FACTORY_MIGRATIONS.md).
+- [x] 최종 전체 backend1,113 PASS/FAIL0/SKIP0, 영향190 PASS, 격리 PG 실제 stop/start 후 원본/job/membership/UNKNOWN hold 보존 PASS. [보고](outputs/RUNTIME_FACTORY_REPORT.md). 초기 실패/중단 증거를 보존하고 최종 verified 결과와 구분한다.
+- [ ] 원격 runner/live factory·Auth/Storage·호스팅/worker·coordinated backup은 미검증으로 기존 production6개 blocker 유지. 다음 단계 자동 진행/원격 push·PR 갱신 없음.

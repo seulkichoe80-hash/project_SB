@@ -292,3 +292,7 @@ scripts/validation의 기관별 독립 메모리 SQLite projection에서 literal
 ## 배포 준비 7단계: Mock HTTP 원본 전송
 
 [Storage HTTP 계약](docs/DEPLOYMENT_STORAGE_HTTP.md)은 기존 PrivateOriginalStore에 exact MockTransport 전용 전송을 명시 주입한다. 확보된 공식 업로드/인증 다운로드 경로만 사용하고 POST 응답 대신 GET 바이트 SHA/크기로 성공을 판정한다. 기본 Local/Fake·RuntimeBinding·API·DB 계약과 production blocker는 유지한다. 원격 목록/ACL 응답 계약·HTTP orphan inventory·cloud backup·실제 연결은 미확인으로 차단하며 Fake 대사/복구를 실제 cloud 증거로 승격하지 않는다.
+
+## 운영 Factory·Migration Runner 통합
+
+[통합 계약](docs/RUNTIME_FACTORY_MIGRATIONS.md)의 build_runtime/build_application으로 API·worker 생성 경로와 명시적인 격리 PG/Storage/Auth DI를 모은다. MigrationPlan은 별도 application/budget schema를 고정하며 Runner는 정렬된 schema session lock·단계별 기존 transaction/checksum으로 application→budget→Storage를 apply/verify한다. 일반 시작은 verify-only, 실패 시 앞 단계 보존/실패 단계 롤백 후 재개다. 세 단계 전체 원자성을 주장하지 않으며 기존 운영6개 blocker와 live 공급자/원격 실행 차단을 유지한다.

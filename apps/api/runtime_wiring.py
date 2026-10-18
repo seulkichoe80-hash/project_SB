@@ -20,13 +20,14 @@ class RuntimeBinding:
     def validate(self):
         from .postgres import PostgresRepository
         from .private_storage import PrivateOriginalStore,FakeStorageTransport
+        from .storage_http import StorageHTTPTransport
         from .supabase_jwt import SupabaseJWTProviderAdapter
         from .session_revalidation import SessionRevalidation
         from .proxy_boundary import ProxyPolicy
         if self.role not in ROLES or type(self.repo) not in (Repository,PostgresRepository):raise ValueError('invalid_runtime_binding')
         if type(self.repo) is PostgresRepository and not self.repo.database.local_test:raise ValueError('remote_database_wiring_blocked')
         if type(self.store) is PrivateOriginalStore:
-            if self.store.repo is not self.repo or type(self.store.transport) is not FakeStorageTransport:raise ValueError('private_storage_binding_mismatch')
+            if self.store.repo is not self.repo or type(self.store.transport) not in (FakeStorageTransport,StorageHTTPTransport):raise ValueError('private_storage_binding_mismatch')
             self.store._policy()
         elif type(self.store) is not LocalOriginalStore:raise ValueError('storage_binding_not_implemented')
         if type(self.auth_settings) is not AuthSettings:raise ValueError('invalid_auth_binding')
@@ -41,6 +42,8 @@ class RuntimeBinding:
     def worker(self,role):
         if role not in ROLES[1:]:raise ValueError('invalid_worker_role')
         child=RuntimeBinding(self.data_dir,self.repo,self.store,role=role,auth_settings=self.auth_settings)
+        child.budget_ledger=getattr(self,'budget_ledger',None)
+        child.migration_plan=getattr(self,'migration_plan',None)
         child._api_peer=self
         return child
     def documents(self):
@@ -81,6 +84,13 @@ def compare_bindings(api,worker):
         if (api.store.settings.project_url,api.store.settings.bucket)!=(worker.store.settings.project_url,worker.store.settings.bucket):errors.append('api_worker_storage_target_mismatch')
         if api.store.transport is not worker.store.transport:errors.append('fake_storage_not_shared')
     elif api.store.root!=worker.store.root:errors.append('api_worker_local_storage_mismatch')
+    ab,wb=getattr(api,'budget_ledger',None),getattr(worker,'budget_ledger',None)
+    if (ab is None)!=(wb is None):errors.append('api_worker_budget_target_mismatch')
+    elif ab is not None:
+        def budget_target(ledger):
+            p=urlsplit(ledger.database._dsn)
+            return p.hostname,p.port or 5432,p.path,ledger.database.schema
+        if budget_target(ab)!=budget_target(wb):errors.append('api_worker_budget_target_mismatch')
     if api.auth_settings!=worker.auth_settings:errors.append('api_worker_session_policy_mismatch')
     return sorted(set(errors))
 
@@ -92,5 +102,10 @@ def worker_documents(args,role,binding=None):
         if type(binding) is not RuntimeBinding or binding.role!=role or binding.data_dir!=args.data_dir.resolve():raise ValueError('worker_binding_mismatch')
         if args.postgres_local_test:raise ValueError('choose_one_worker_binding')
         return binding.documents()
-    from .postgres_worker import worker_repository
-    return RuntimeBinding(args.data_dir,worker_repository(args),LocalOriginalStore(args.data_dir/'originals'),role=role).documents()
+    from .runtime_factory import build_runtime
+    if args.postgres_local_test:
+        # Legacy CLI only verifies its existing application schema, preserving its
+        # no-auto-migration contract. New coordinated startup uses a supplied plan.
+        from .runtime_factory import build_legacy_local_postgres
+        return build_legacy_local_postgres(args,role).documents()
+    return build_runtime(args.data_dir,role=role).documents()

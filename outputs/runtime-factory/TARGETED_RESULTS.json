@@ -1,0 +1,24 @@
+{
+  "final_targeted": {
+    "PASS": 190,
+    "FAIL": 0,
+    "SKIP": 0,
+    "seconds": 81.454,
+    "new_factory_tests": 28,
+    "existing_postgresql": 110,
+    "existing_wiring": 52
+  },
+  "previous_targeted": {
+    "PASS": 79,
+    "FAIL": 0,
+    "SKIP": 0,
+    "seconds": 15.468
+  },
+  "interrupted_regression": "backend.network.json; not counted PASS",
+  "failed_regression": "backend-final.json; 1106 PASS / 6 FAIL, repository constructor DI fixed without editing old tests",
+  "final_regression": "backend-verified.json; 1113 PASS / FAIL0 / SKIP0",
+  "first_new_test_error": "foreign account absence correctly expects budget_account_not_found; original contract kept",
+  "origin_regression": "reproduced failure then corrected validated settings propagation and tested allowed/rejected origins",
+  "ui_build_typecheck": "NOT_RUN_NO_FRONTEND_CHANGE",
+  "backend_code_hash_authority": "backend-verified.json"
+}

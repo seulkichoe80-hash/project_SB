@@ -113,3 +113,7 @@ A(same-origin rewrite)는 기존 BFF를 재사용하기 쉽지만 Vercel 요청/
 4. **제한적 E2E와 공개 승인:** 검증 결과·복구·격리·secret 검사를 확인한 후 별도 공개 승인을 받는다. GitHub push/PR 승인은 Supabase 연결·지출·배포 승인과 다르다.
 
 LLM/embedding은 이 승인 묶음에도 자동 포함하지 않는다. 사용자에게서 실제 모델·데이터 범위·예산 승인을 별도로 받기 전 false/0이다. 인간 검토 결과를 생성하거나 승인하지 않는다.
+
+## 후속 구현 상태: 공통 Factory·로컬 Runner
+
+[Factory·Runner 통합](RUNTIME_FACTORY_MIGRATIONS.md)이 공통 API/worker 생성 경로와 별도 schema MigrationPlan, ordered apply/verify, 동시 잠금/실패 재개를 추가한다. 새 CLI는 runtime_migrate.py이며 기존 postgres_migrate.py와 함께 **격리 loopback 실행만 허용**한다. 위의 운영 migration/factory·실계정 전송·설정 주입 준비 항목이 전부 해제된 것은 아니다. 실공급자/production6개 blocker와 사용자 승인 조건은 그대로 유지한다.

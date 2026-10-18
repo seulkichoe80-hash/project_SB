@@ -299,3 +299,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## 배포 준비 7단계 Storage HTTP 영향 시험
 
 FR-14/15/18·NFR-01/02/05/07·WEB-02/04/05: `tests/test_storage_http.py`에서 exact MockTransport 업로드/인증 다운로드·중복/경쟁·SHA/크기·timeout/429/5xx·모호한 성공의 GET 재검증·헤더/URL/redirect/경로 공격·로그 비노출·20MiB 로컬 경계와 SQLite/격리 로컬 PostgreSQL의 DB 실패/기관 격리를 검증한다. 기존 Private Storage/Fake backup·PostgreSQL 회귀는 전체 backend와 함께 실행한다. 실제 bucket ACL·HTTP inventory/orphan cloud 대사·운영 backup·20MiB edge/실Supabase 시험은 BLOCKED이며 Mock 결과로 대체하지 않는다. UI/API/DB schema 변경은 없다. Phase Gate 전체 회귀 및 실행 기록은 [이번 보고](outputs/DEPLOYMENT_STORAGE_HTTP_REPORT.md)를 따른다.
+
+## Factory·Migration Runner 영향 시험
+
+FR-14/15/18·NFR-01/02/05/07·WEB-02/04/05: tests/test_runtime_factory.py의 새/기존 DB·동시 Runner/API-worker 시작·verify-only·schema/checksum·단계 롤백/재개·기관/멤버십·비용 hold/원본·worker pipeline·설정 불일치/원격 차단을 확인한다. 표준 entry point/RuntimeBinding 변경은 기존 전체 backend 및 Private Storage/PostgreSQL/Auth 회귀를 실행한다. 격리 PG 실제 stop/start 뒤 새 프로세스로 verify/data/job/membership/uncertain hold를 재검증한다. cloud 연결·운영6개 blocker·공개 배포는 별도 BLOCKED이며 이번 local 회귀로 대체하지 않는다.

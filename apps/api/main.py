@@ -39,10 +39,20 @@ def create_app(data_dir: Path | None = None, store=None, repository=None, parsin
         from .supabase_transport import SupabaseHTTPTransport
         identity_provider = SupabaseProviderAdapter(SupabaseHTTPTransport(supabase_settings), supabase_settings.issuer)
     root = data_dir or Path('work/phase2a/runtime')
+    if repository is None and store is None:
+        from .runtime_factory import build_runtime
+        defaults=build_runtime(root,role='api',repository_factory=Repository)
+        repository,store=defaults.repo,defaults.store
+        if identity_provider is None and auth_settings is None and proxy_policy is None and session_guard is None:
+            runtime_binding=defaults
+        if identity_provider is None: identity_provider=defaults.provider
+        if auth_settings is None: auth_settings=defaults.auth_settings
     service = DocumentService(repository or Repository(root / 'metadata.sqlite3'), store or LocalOriginalStore(root / 'originals'), parsing_enabled)
     app = FastAPI(title='서무ITDA local Phase 2B' if parsing_enabled else '서무ITDA local Phase 2A',
                   docs_url=None, redoc_url=None, openapi_url=None)
     app.state.service = service
+    app.state.runtime_binding = runtime_binding
+    app.state.budget_ledger = getattr(runtime_binding,'budget_ledger',None)
     from .auth import AuthService, Login, MembershipUpdate
     from .auth_store import AuthStore
     import time as auth_time

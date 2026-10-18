@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "scope": "factory and runner after actual isolated PostgreSQL container stop/start, new Python process",
+  "original_hash": "MATCH",
+  "membership": "PRESERVED",
+  "parse_job": "QUEUED_PRESERVED",
+  "uncertain_budget_balance": "PRESERVED",
+  "external_provider_calls": 0
+}

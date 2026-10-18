@@ -1,0 +1,23 @@
+{
+  "apps/api/migration_runner.py": "a3de4a0a27fb8cf958fbe440228c30396901300d257ce72ac338ff7a362bf7d0",
+  "apps/api/runtime_factory.py": "2ae3c59ef5bc5ab1ea77b892e79d71f06f8c5fde0a5d487488636e3115d1aabb",
+  "docs/RUNTIME_FACTORY_MIGRATIONS.md": "674c8e6de3955651607edc8b25eb0c0adc2c0b8acdbab3b0ffcb10e1d709e3ea",
+  "outputs/RUNTIME_FACTORY_REPORT.md": "12aeb9e06aa8a1388575bf4f37343c88630be80fdade7a49d3839a6a48fe5c08",
+  "outputs/runtime-factory/PRESERVATION.json": "954a0ad65081a9ca5ce5c9a4e19d5926da287c088cdb5bf17bab564266df3b0a",
+  "outputs/runtime-factory/READINESS.json": "9e9282ba465f9a1d559a43c87d1c6a1c16abf6f3ecf6ffc11b331eb0ff1225eb",
+  "outputs/runtime-factory/TARGETED_RESULTS.json": "5815033cf9c0d7f0fa1cb22308731224964d005cca650761fcb129121191f5ed",
+  "outputs/runtime-factory/backend-final.json": "7a9ba4e8feb5aaf291dffbf39986ce10ba06dab567b29a5409d72256b9578306",
+  "outputs/runtime-factory/backend-final.network.json": "ea84665686ff117b2931d0924c4773c0c2263618c1a7eb0fb47a18a968dfc051",
+  "outputs/runtime-factory/backend-verified.json": "9fa657e23b5be86df6d5167f1760c647a909bc5d64a8062ced9bc72016c6b17b",
+  "outputs/runtime-factory/backend-verified.network.json": "125a7bb5c6a8a507fc83849e4f9006676f49efc39db3fb1f5ba483a7259c9b27",
+  "outputs/runtime-factory/backend.network.json": "5a5d406b910f2c8114b494954a2c2a872938c86e056b12944ef47e3ea8198ac8",
+  "outputs/runtime-factory/recovery.json": "e1e40132aff3f2214684026cca11a93358bb7e6c1e6002792a90b3b4739c78cb",
+  "scripts/validation/runtime_migrate.py": "af9a2f6d8619d7f898f60e5b0643d7e8ee9c7230c5c4c6284ebe59bc1e2db97b",
+  "tests/test_runtime_factory.py": "878d3d3f4ecac5f92d4920b6e507bc9db0fbfd475b1964cc714bec5e13b76253",
+  "ARCHITECTURE.md": "55a8750e7bfa4e9840b6cf2a7c7a8566e319c1c6c1e9ac19573b1e0584e8121e",
+  "TASKS.md": "d2402bd02fd8491b06241f2dc17746746394e2409162502c59298efd239c8e19",
+  "TEST_PLAN.md": "94f685c01aec2dda32649ece1685976b5b351b1b4b2db12eb80d8e8fc676aa1e",
+  "apps/api/main.py": "95d58f912f0652c960478035565be6cd6a4aa0450b8f0168d02fd92018f7379d",
+  "apps/api/runtime_wiring.py": "d965a493f3e7c9eaef19394593093dfc0c08f962bd1cb80ea7fc9375b8ac7b70",
+  "docs/STAGING_CONNECTION_RUNBOOK.md": "7a82bf8718e5fc7be24f16e54e82f906839d45b33add76783e64c391c00fe2cc"
+}
