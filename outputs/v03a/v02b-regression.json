@@ -1,0 +1,117 @@
+{
+  "scope": "v0.2-B production UI + synthetic mock HTTP; not real backend integration",
+  "results": [
+    {
+      "name": "processing version cannot activate",
+      "status": "PASS"
+    },
+    {
+      "name": "unconfirmed chunk never implies completion or auto request",
+      "status": "PASS"
+    },
+    {
+      "name": "queued chunk and failed chunk have distinct next actions",
+      "status": "PASS"
+    },
+    {
+      "name": "failed parsing exposes retry instead of activation",
+      "status": "PASS"
+    },
+    {
+      "name": "registered/completed version is required in addition to chunks",
+      "status": "PASS"
+    },
+    {
+      "name": "activation requires confirmation, cancel/escape restore focus and send nothing",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit double click sends one activation and rechecks server before workflow link",
+      "status": "PASS"
+    },
+    {
+      "name": "activation HTTP 409 never claims success",
+      "status": "PASS"
+    },
+    {
+      "name": "activation HTTP 403 never claims success",
+      "status": "PASS"
+    },
+    {
+      "name": "activation HTTP 404 never claims success",
+      "status": "PASS"
+    },
+    {
+      "name": "activation HTTP 500 never claims success",
+      "status": "PASS"
+    },
+    {
+      "name": "network failure leaves activation uncertain and requires server refresh",
+      "status": "PASS"
+    },
+    {
+      "name": "lost activation response is uncertain until explicit server requery",
+      "status": "PASS"
+    },
+    {
+      "name": "failed post-activation verification cannot advertise success",
+      "status": "PASS"
+    },
+    {
+      "name": "parse attempt change during confirmation prevents POST",
+      "status": "PASS"
+    },
+    {
+      "name": "active version changed before confirmation prevents POST and shows current version",
+      "status": "PASS"
+    },
+    {
+      "name": "mixed-version chunk response is rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "deregistered document cannot be activated",
+      "status": "PASS"
+    },
+    {
+      "name": "reader has query only and no activation or chunk mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "late activation cannot replace newly selected document",
+      "status": "PASS"
+    },
+    {
+      "name": "workflow route selects exact server-allowed active document/version",
+      "status": "PASS"
+    },
+    {
+      "name": "untrusted workflow query is rejected document=not-allowed&version=unknown",
+      "status": "PASS"
+    },
+    {
+      "name": "untrusted workflow query is rejected document=a62b28ee71ab4a4585ffeb667341e4d0&version=old-version",
+      "status": "PASS"
+    },
+    {
+      "name": "inactive query never silently falls back to other active document",
+      "status": "PASS"
+    },
+    {
+      "name": "activation buttons reflow and dialog keyboard works at 320/375/768",
+      "status": "PASS"
+    },
+    {
+      "name": "no external requests, browser exceptions or sensitive browser cache",
+      "status": "PASS"
+    }
+  ],
+  "counts": {
+    "PASS": 26,
+    "FAIL": 0
+  },
+  "seconds": 19.103241813,
+  "external": [],
+  "errors": [],
+  "actual_external_provider_calls": 0
+}

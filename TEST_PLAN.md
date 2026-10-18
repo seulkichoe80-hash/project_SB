@@ -251,3 +251,7 @@ Release Gate 중 사용자 승인한 로컬 오프라인 범위는 [현재 재�
 ## v0.2-C 모바일·지도 가독성
 
 [표시 계약](docs/V02C_MOBILE_UX.md)과 check_v02c_ui.cjs를 따른다. v0.2-B 번들을 보관하여 동일 합성 응답의 320/375/430px 목록 내부 폭·상세 버튼 위치·모바일 초기 탐색·노드 글자·제어 버튼 크기를 전후 측정한다. 변경 후 카드의 모든 열·긴 이름/기관/다중 버전, manager/reader·활성화 확인창, 목록 키보드/선택 근거·배율/관계·심각한 이슈 보존·기술 상세·200% 본문 reflow·대비/터치·화면 전환 요청 증가0을 검사한다. 기존 UI154(104+24+26)와 실제 HTTP14를 새 실행하고 기존100노드 참조 안정성을 재검증한다. backend/API/DB는 변경하지 않지만 이번 실행에서는 backend409도 추가 회귀한다. 전체 WCAG·스크린 리더·native OS/기기 zoom·실제 공급자·배포는 미검증으로 구분한다.
+
+## v0.3-A 공급자 안전장치
+
+신규 tests/test_provider_safety.py는 Fake 전송·429/503 bounded retry·미완료/usage 불명·스키마/근거 위조·기관/역할·원자 rollback·동시 thread/process 예산·중복 차감·lease/restart/취소/reconcile·실제 socket/DNS 차단을 검사한다. Phase Gate는 전체 backend495(기존409+신규86), UI174(104+24+26+20), 타입/빌드·실제 loopback HTTP13을 새 실행한다. [현재 실행 결과](outputs/V03A_REPORT.md)를 보존하며 과거 골드셋 정답을 AI 성능으로 계산하지 않는다.

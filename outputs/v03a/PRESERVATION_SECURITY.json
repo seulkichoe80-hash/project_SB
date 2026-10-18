@@ -1,0 +1,24 @@
+{
+  "base": "193e54d67c1cd85352ee779bc195ef3fac5668f7",
+  "baseline_files": 622,
+  "changed_existing_files": [
+    "ARCHITECTURE.md",
+    "TASKS.md",
+    "TEST_PLAN.md"
+  ],
+  "deleted_existing_files": [],
+  "all_other_tracked_files_sha256_unchanged": true,
+  "tested_source_hashes_match": true,
+  "strong_secret_pattern_hits": [],
+  "inspection_scope": "new source/tests/docs/results only; synthetic markers intentional; no secrets/environment values copied",
+  "external_calls": 0,
+  "actual_spend_usd": 0,
+  "elapsed_seconds": 1155.5,
+  "new_source_sha256": {
+    "apps/api/provider_budget.py": "b5626b4f7635b59f90e587d2aa6ebc04ad7ac5d7b4d5604d41019b7039b59e8b",
+    "apps/api/provider_fake_adapters.py": "d7f10fc345a809a18f8fde8dc0fc7f8d3ab1b0a4f3b1a43d4db91ea6a87e733d",
+    "apps/api/provider_safety.py": "9a7d687690fc2523215dc4248384f8863b4c89388ccd4f9752b7a48823264d79",
+    "tests/test_provider_safety.py": "24cf70a5d1723aa85af252a247b7066fb20ca3055fc6828032c54847aafa6f0f"
+  },
+  "report_scope_note": "Final docs and report included in strong-key-pattern scan; synthetic public fixture only."
+}

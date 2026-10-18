@@ -1,0 +1,56 @@
+{
+  "scope": "static inspection only; no AI performance measured",
+  "documents": 7,
+  "chunks": 57,
+  "queries": 40,
+  "runtime_path": "work\\phase2c2b\\goldset-runtime",
+  "runtime_exists": false,
+  "linux_normalized_runtime_exists": false,
+  "current_chunk_generation": "NOT_VERIFIED",
+  "current_EvidenceRefs": "NOT_VERIFIED",
+  "human_review": "PENDING_INDEPENDENT_REVIEW",
+  "over_8_terms": [
+    {
+      "id": "travel-a-01",
+      "terms": 10
+    },
+    {
+      "id": "leave-a-01",
+      "terms": 10
+    },
+    {
+      "id": "purchase-a-01",
+      "terms": 10
+    },
+    {
+      "id": "meeting-a-01",
+      "terms": 10
+    },
+    {
+      "id": "form-a-01",
+      "terms": 10
+    },
+    {
+      "id": "travel-b-01",
+      "terms": 10
+    },
+    {
+      "id": "safety-04",
+      "terms": 13
+    }
+  ],
+  "resolution": "Preserve full questions/answers; independently review a question-only retrieval_query or explicitly revise search contract. Never truncate silently or derive retrieval queries from answer keys.",
+  "human_review_domains": [
+    "40 answers and abstentions",
+    "original source/canonical current EvidenceRefs",
+    "step boundaries and actor labels",
+    "order/branch/rejection/loop graph",
+    "deadline/obligation/condition/form semantics",
+    "independent holdout and hallucination adjudication"
+  ],
+  "source_sha256": {
+    "outputs/phase2c2b/GOLDSET_REVIEW.json": "91823abdbf423210adbe20d06a34905b86a08864125b972b1573f60a2326afdc",
+    "tests/fixtures/synthetic/phase2c2b-sources.json": "ca094ed9412c9c361e20a73caf5362d023f6d1c9c2ee2ef7afb317fd51ee732d",
+    "tests/fixtures/synthetic/rag-goldset.json": "0ebc5905976027e8ea121716faaeece4bff5d00d82fb91f1ec98bfd16644411b"
+  }
+}

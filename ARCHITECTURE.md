@@ -244,3 +244,7 @@ apps/web의 lazy WorkflowPage는 기존 AuthContext·same-origin BFF와 Workflow
 ## Phase 2E-2A UI 조회 수명
 
 기존 API를 유지하면서 visible serial polling·10초 deadline·오류 backoff와 terminal 중단을 적용한다. 명시적 동일 입력 POST로 작업을 재확인하며 작업 목록/브라우저 민감 캐시는 만들지 않는다. 근거 선택은 현재 generation의 메모리에 한정하고 focus에서 서버 재검증한다. [조회·복구와 한계](docs/PHASE2E2A_UI_STABILITY.md)를 따른다.
+
+## v0.3-A Fake-only 공급자 안전 경계
+
+기존 세 adapter 계약과 앱/API/DB 기본값을 보존한다. 새 provider_safety/provider_fake_adapters와 별도 SimulationBudgetLedger는 외부 호출 없는 주입형 시험 경계다. 원자적 예약/시도별 정산/unknown hold 및 기관 격리는 [안전 계약](docs/V03A_PROVIDER_SAFETY.md)을 따른다. 실전 HTTP serializer·키·가격·tokenizer·workflow 비용 통합은 포함하지 않는다.

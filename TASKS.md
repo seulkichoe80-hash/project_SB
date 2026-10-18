@@ -287,3 +287,9 @@ G1-C가 승인 대기이면 클라우드 실증을 PASS 처리하거나 자동�
 - [x] v0.2-B 변경을 로컬 커밋 e52ec2d로 보존하고 feat/v02c-mobile-ux 분기. 단일 문서 DOM 카드 배치·모바일 단계 목록 기본·지도 글자/44px 제어·선택 크게 보기·일반 안내 간소화 및 심각 이슈 보존. [계약](docs/V02C_MOBILE_UX.md).
 - [ ] 이후 기능·실제 공급자·배포는 별도 사용자 요청 후. API/DB/승인·게시 계약 변경 없음.
 - [x] 신규 UI20·기존 UI154·실제 HTTP14(기존 별도13)·backend409 및 타입/빌드 최종 PASS. 실측·중간 실패·후속 접근성 미검증을 구분한 [완료 보고](outputs/V02C_REPORT.md).
+
+## v0.3-A 실제 연결 전 안전장치
+
+- [x] 분석 3파일을 193e54d 로컬 커밋으로 보존하고 feat/v03a-provider-safety 분기. Fake-only transport/strict 출력·근거 검증과 별도 SQLite 모의 비용 원장 구현. [계약](docs/V03A_PROVIDER_SAFETY.md).
+- [x] 신규86·전체 backend495·UI174·실제 HTTP13·타입/빌드 PASS. [보고](outputs/V03A_REPORT.md).
+- [ ] 실제 공급자·실비 예산 승인·평가 정답 독립 검토·v0.3-B는 후속 사용자 요청 후. push/merge/배포 없음.
