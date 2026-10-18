@@ -1,0 +1,108 @@
+{
+  "status": "PROPOSAL_NOT_APPROVED",
+  "scope": "40 RAG questions + 7 document extraction evaluations, each 2 models x 3 repeats, plus 2 LLM smoke calls; not a full production workload",
+  "rate_source": "docs/PHASE2C2B_EXECUTION_PLAN.md, 2026-10-17 recorded prices; NOT reverified live in this task",
+  "rates_usd_per_million": {
+    "gpt-6-luna": {
+      "input": ".10",
+      "output": ".50",
+      "additional_full_input_write_reserve": ".125"
+    },
+    "gemini-3.1-flash-lite": {
+      "input": ".25",
+      "output_including_thinking": "1.50"
+    },
+    "text-embedding-3-small": {
+      "input": ".02",
+      "dimension": 1536
+    },
+    "gemini-embedding-2": {
+      "input": ".20",
+      "dimension": 768
+    }
+  },
+  "llm_lines": [
+    {
+      "model": "gpt-6-luna",
+      "task": "rag",
+      "logical_calls": 120,
+      "max_input_tokens": 4096,
+      "max_billed_output_including_reasoning_tokens": 2048,
+      "assumed_usd": "0.172032"
+    },
+    {
+      "model": "gpt-6-luna",
+      "task": "workflow",
+      "logical_calls": 21,
+      "max_input_tokens": 8192,
+      "max_billed_output_including_reasoning_tokens": 4096,
+      "assumed_usd": "0.0602112"
+    },
+    {
+      "model": "gpt-6-luna",
+      "task": "smoke",
+      "logical_calls": 1,
+      "max_input_tokens": 1024,
+      "max_billed_output_including_reasoning_tokens": 512,
+      "assumed_usd": "0.0003584"
+    },
+    {
+      "model": "gemini-3.1-flash-lite",
+      "task": "rag",
+      "logical_calls": 120,
+      "max_input_tokens": 4096,
+      "max_billed_output_including_reasoning_tokens": 2048,
+      "assumed_usd": "0.49152"
+    },
+    {
+      "model": "gemini-3.1-flash-lite",
+      "task": "workflow",
+      "logical_calls": 21,
+      "max_input_tokens": 8192,
+      "max_billed_output_including_reasoning_tokens": 4096,
+      "assumed_usd": "0.172032"
+    },
+    {
+      "model": "gemini-3.1-flash-lite",
+      "task": "smoke",
+      "logical_calls": 1,
+      "max_input_tokens": 1024,
+      "max_billed_output_including_reasoning_tokens": 512,
+      "assumed_usd": "0.001024"
+    }
+  ],
+  "embedding": {
+    "tokens_per_model_cap": 75808,
+    "corpus_chunk_cap": 128,
+    "actual_existing_corpus_chunks": 57,
+    "max_chunk_tokens": 512,
+    "query_count": 40,
+    "max_query_tokens": 256,
+    "probe_tokens": 32,
+    "openai_request_cap": 3,
+    "gemini_request_cap": 169,
+    "gemini_planned_requests_for_current_corpus": 98,
+    "assumed_usd": "0.01667776"
+  },
+  "nominal_usd_under_caps": "0.91385536",
+  "additional_openai_input_write_reservation_usd": "0.083072",
+  "worst_two_attempts_plus_full_write_reserve_usd": "1.99385472",
+  "llm_logical_calls": 284,
+  "max_billable_attempts": 912,
+  "max_all_http_attempts": 1500,
+  "max_retry_per_logical_request": 1,
+  "concurrency": 1,
+  "proposed_hard_cap_usd": "3.00",
+  "proposed_new_reservation_stop_usd": "2.50",
+  "proposed_max_reservation_per_paid_attempt_usd": ".025",
+  "proposed_max_per_logical_llm_request_usd": ".05",
+  "actual_spent_usd": 0,
+  "limitations": [
+    "No token counting performed. Include prompts, schema, context, output and reasoning in caps. Reject input over caps; do not truncate or add calls silently.",
+    "Model availability and prices need official revalidation before approval. No current availability or performance claim.",
+    "Costs conditional on pinned rates/bounded billing; not an invoice or account-wide spending guarantee. Excludes tax/FX and unrelated account jobs.",
+    "Same-window retries and worker restarts share one durable attempt/budget ledger; not 3 worker attempts x 2 SDK attempts.",
+    "Full workflow document annotations and independent human review are not complete.",
+    "If chunk limits or schema require more windows/calls, stop and revise the plan before execution."
+  ]
+}
